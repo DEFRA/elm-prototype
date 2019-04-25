@@ -1,52 +1,134 @@
 
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
 {% endblock %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Prototypes</span>
       <h1 class="govuk-heading-xl">
-        Map prototyping options
+        Environment land management
       </h1>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class='govuk-heading-l govuk-visually-hidden'>
+        Latest sprint
+      </h2>
 
-      <h2 class="govuk-heading-l">SVG with clickable areas</h2>
-      {% include "includes/svg-map.html" %}
+      {# Start of most recent box #}
+        <div class="most-recent">
+
+  				{# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 3',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Storyboard
+              <!-- <span class="version">Version 1</span> -->
+            </h3>
+
+            <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Hypotheses</h4>
+
+  					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>
+  						Findings will go here.
+  					</p> -->
+
+            {{ govukButton({
+              text: "View storyboard",
+              href: "storyboard"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+  			</div>
+  			{# End of most recent box #}
 
 
 
 
-      <style media="screen">
-        .iframe-container {
-          overflow: hidden;
-          padding-top: 56.25%;
-          position: relative;
-        }
-
-        .iframe-container iframe {
-          border: 0;
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-        }
-      </style>
-      <h2 class="govuk-heading-l">GeoJSON file hosted on GitHub</h2>
-      <div class="iframe-container">
-        <script src="https://embed.github.com/view/geojson/chrisadesign/ELM-application-prototype/master/app/assets/images/map.geojson"></script>
-      </div>
 
 
 
 
 
+      <!-- <h2 class='govuk-heading-l'>
+        Sprint history
+      </h2>
+      {# Start of hidden panel #}
 
-      <!-- <p>Iframe:</p>
-      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1RylhTXpo4gyaMTsDme9tKLTfnzypzt_q" width="640" height="480"></iframe> -->
+			<details class="govuk-details">
+				<summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Show all sprints</span>
+        </summary>
+				<div class="govuk-details__text">
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 3',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Storyboard
+              {# <span class="version">Version 1</span> #}
+            </h3>
+
+            <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Hypotheses</h4>
+
+
+            {{ govukButton({
+              text: "View storyboard",
+              href: "storyboard"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+				</div>
+			</details>
+			{# End of hidden panel #} -->
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <!-- <li>
+              <a href="https://github.com/">
+                Prototype repository on GitHub
+              </a>
+            </li> -->
+            <li>
+              <a href="https://eaflood.atlassian.net/wiki/spaces/ELM/overview">
+                ELM confluence
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </aside>
+
     </div>
 </div>
 
