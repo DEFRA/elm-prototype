@@ -29,16 +29,21 @@
   				{# Start of prototype write up #}
   				<div class="prototype-write-up">
             {{ govukTag({
-              text: 'Alpha sprint 3',
+              text: 'Alpha sprint 0 (guidance)',
               classes: 'govuk-!-margin-bottom-4'
             }) }}
 
             <h3 class='govuk-heading-m'>
               Storyboard
-              <!-- <span class="version">Version 1</span> -->
+              <span class="version">Version 2</span>
             </h3>
 
-            <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Hypotheses</h4>
+            <p>Updated after first round of research. Changes include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>calling out the Defra guidance product in early and late stages of the journey</li>
+              <li>including collaboration at setup stage</li>
+              <li>clarity of language used</li>
+            </ul>
 
   					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
   					<p>
@@ -64,7 +69,7 @@
 
 
 
-      <!-- <h2 class='govuk-heading-l'>
+      <h2 class='govuk-heading-l'>
         Sprint history
       </h2>
       {# Start of hidden panel #}
@@ -82,17 +87,33 @@
               classes: 'govuk-!-margin-bottom-4'
             }) }}
 
+            {{ govukInsetText({
+                text: 'Note: the team priority was changed to guidance after this sprint, and the sprint numbers reset.',
+                classes: 'govuk-!-margin-top-0'
+            }) }}
+
             <h3 class='govuk-heading-m'>
               Storyboard
-              {# <span class="version">Version 1</span> #}
+              <!-- <span class="version">Version 1</span> -->
             </h3>
 
-            <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Hypotheses</h4>
+            <p>An end-to-end service storyboard, assuming that the application process will be adviser led.</p>
 
+  					<h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>The storyboard was researched with 4 advisers in 3 remote moderated sessions.</p>
+
+            <p>The key fiindds were that:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>advsiers are best placed to deliver awareness of ELM (potential bias)</li>
+              <li>collaboration needs to be considered before the land audit</li>
+              <li>advsiers were concered about auditing, advising and inspecting</li>
+            </ul>
+
+            <p>View the <a href="https://drive.google.com/drive/u/1/folders/1L5luvUSCu0N5qslLnroJpxrOZJF7eJrw">sorted post-its from team session</a> for more detail.</p>
 
             {{ govukButton({
               text: "View storyboard",
-              href: "storyboard"
+              href: "https://elm-storyboard-1.herokuapp.com/storyboard"
             }) }}
 
   				</div>
@@ -100,7 +121,7 @@
 
 				</div>
 			</details>
-			{# End of hidden panel #} -->
+			{# End of hidden panel #}
 
 
 
@@ -114,14 +135,19 @@
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
-            <!-- <li>
-              <a href="https://github.com/">
-                Prototype repository on GitHub
+            <li>
+              <a href="https://github.com/DEFRA/elm-prototype">
+                Prototype GitHub repository
               </a>
-            </li> -->
+            </li>
             <li>
               <a href="https://eaflood.atlassian.net/wiki/spaces/ELM/overview">
-                ELM confluence
+                Project Confluence
+              </a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/drive/u/1/folders/0AIJpwGmbYIzKUk9PVA">
+                Team Google Drive
               </a>
             </li>
 
