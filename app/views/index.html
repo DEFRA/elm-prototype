@@ -34,16 +34,11 @@
             }) }}
 
             <h3 class='govuk-heading-m'>
-              Storyboard
-              <span class="version">Version 2</span>
+              Guidance integrated with ELM account
+              <span class="version">Version 1</span>
             </h3>
-
-            <p>Updated after first round of research. Changes include:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>calling out the Defra guidance product in early and late stages of the journey</li>
-              <li>including collaboration at setup stage</li>
-              <li>clarity of language used</li>
-            </ul>
+            <p>Based on our hypothesis that we believe if we provide information based on a users application we will help them to get the guidance most appropriate to them.</p>
+            <p>Provides guidance based on activites, with a link to specific guidance items in the activity view.</p>
 
   					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
   					<p>
@@ -51,8 +46,8 @@
   					</p> -->
 
             {{ govukButton({
-              text: "View storyboard",
-              href: "storyboard"
+              text: "View dashboard",
+              href: "dashboard"
             }) }}
 
   				</div>
@@ -79,6 +74,43 @@
           <span class="govuk-details__summary-text">Show all sprints</span>
         </summary>
 				<div class="govuk-details__text">
+
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 0 (guidance)',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Storyboard
+              <span class="version">Version 2</span>
+            </h3>
+
+            <p>Updated after first round of research. Changes include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>calling out the Defra guidance product in early and late stages of the journey</li>
+              <li>including collaboration at setup stage</li>
+              <li>clarity of language used</li>
+            </ul>
+
+  					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>
+  						Findings will go here.
+  					</p> -->
+
+            {{ govukButton({
+              text: "View storyboard",
+              href: "https://elm-guidance-alpha-sprint-0.herokuapp.com/storyboard"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+
+
+
 
           {# Start of prototype write up #}
   				<div class="prototype-write-up">
