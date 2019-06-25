@@ -19,6 +19,8 @@ Example usage:
 
 module.exports = {
 
+  "outcome": "all outcomes",
+
   "warning": "true",
 
   "public_goods": [
@@ -31,13 +33,13 @@ module.exports = {
       "status": "Decision required",
       "issue": "Ash dieback"
     },
-    {
-      "id": "2",
-      "type": "Management of hedgerows",
-      "species": "Green Beech",
-      "area": "700 metres",
-      "value": "£5600"
-    },
+    // {
+    //   "id": "2",
+    //   "type": "Management of hedgerows",
+    //   "species": "Green Beech",
+    //   "area": "700 metres",
+    //   "value": "£5600"
+    // },
     {
       "id": "3",
       "type": "Nectar flower mix ",

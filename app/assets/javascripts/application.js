@@ -18,3 +18,22 @@ allPlots.on("click", function() {
   $(this).addClass("selected");
 
 });
+
+
+
+
+
+const topics = [
+  'Arable land',
+  'Bird feeding',
+  'Feeding birds',
+  'Tree health',
+  'Kestrels',
+  'Flower mix'
+]
+
+accessibleAutocomplete({
+  element: document.querySelector('#my-autocomplete-container'),
+  id: 'my-autocomplete', // To match it to the existing <label>.
+  source: topics
+})

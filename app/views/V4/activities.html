@@ -1,0 +1,65 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukCheckboxes({
+          idPrefix: 'activities',
+          name: 'activities',
+          fieldset: {
+              legend: {
+                  text: 'Which activities do you want to add to this parcel?',
+                  isPageHeading: true,
+                  classes: 'govuk-fieldset__legend--xl'
+              }
+          },
+          hint: {
+              text: 'The available activities are based on your location.'
+          },
+          items: [
+            {
+              value: 'bird grazing',
+              text: 'Bird grazing',
+              checked: checked('outcome', 'bird grazing'),
+              hint: {
+                html: "Find out about requirements in the <a href='guidance'>guidance<span class='govuk-visually-hidden'> for management of rough grazing for birds</span></a>."
+              }
+            },
+
+            {
+              value: 'nectar',
+              text: 'Nectar flower mix',
+              checked: checked('outcome', 'bird grazing'),
+              hint: {
+                html: "Find out about requirements in the <a href=''>guidance<span class='govuk-visually-hidden'> for nectar flower mix</span></a>."
+              }
+            },
+
+            {
+              value: 'restoration',
+              text: 'Restoration of forestry and woodland to lowland heathland',
+              checked: checked('outcome', 'bird grazing'),
+              hint: {
+                html: "Find out about requirements in the <a href=''>guidance<span class='govuk-visually-hidden'> for restoration of forestry and woodland to lowland heathland</span></a>."
+              }
+            }
+          ]
+      }) }}
+
+      {# Remove the class 'govuk-button--start' for a standard button #}
+      {{ govukButton({
+          text: 'Continue',
+          href: '#'
+      }) }}
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{# Adds a class to increase vertical spacing for pages without a back button #}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+        Search for ELM guidance
+      </h1>
+
+      <label class="govuk-label" for="my-autocomplete">
+        What topic do you need help with?
+      </label>
+      <div id="my-autocomplete-container"></div>
+
+      {# Remove the class 'govuk-button--start' for a standard button #}
+      {{ govukButton({
+          text: 'Search',
+          href: 'results',
+          classes: 'govuk-!-margin-top-6'
+      }) }}
+
+    </div>
+
+
+
+
+
+
+    <!-- <div class="govuk-grid-column-one-third">
+
+      <div class="app-related-items aside-links">
+        <h2 class="govuk-heading-s">
+          Manage account
+        </h2>
+
+        <ul class="govuk-list govuk-body-s">
+          <li><a href="#0" class="govuk-link">Land boundaries and parcels</a></li>
+          <li><a href="#0" class="govuk-link">Account users</a></li>
+          <li><a href="#0" class="govuk-link">Advisers</a></li>
+        </ul>
+      </div>
+
+  </div> -->
+
+
+  </div>
+{% endblock %}
