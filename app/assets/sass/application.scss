@@ -16,6 +16,19 @@ $govuk-global-styles: true;
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "patterns/changelog";
 
+
+.plot {
+  cursor: pointer;
+}
+
+.selected {
+  fill: pink;
+  stroke: red;
+  stroke-width: 2;
+}
+
+
+
 .dashboard-main {
   border-top: 1px solid #bfc1c3;
   padding-top: 20px;
