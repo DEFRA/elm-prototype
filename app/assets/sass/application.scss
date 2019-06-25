@@ -11,6 +11,7 @@ $govuk-global-styles: true;
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
+@import "components/autocomplete";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "patterns/changelog";
@@ -477,4 +478,82 @@ $govuk-global-styles: true;
 .gem-c-document-list__multi-list {
     width: 100%;
     margin-right: 25px
+}
+
+
+
+
+//flash card
+.flash-card {
+  padding: 30px;
+  margin: 30px 0;
+  background: govuk-colour("blue");
+  color: govuk-colour("white");
+
+  h1, h2, h3, h4, p, ul, ol {
+    color: govuk-colour("white");
+  }
+
+  .govuk-inset-text, .govuk-details__text {
+    border-color: govuk-colour("white");
+  }
+
+  h2:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  .govuk-caption-xl {
+    color: #eee;
+  }
+
+  // h2 {
+  //   margin: 30px 0 5px 0;
+  // }
+
+  p, li {
+    max-width: 700px;
+  }
+
+  .govuk-list p {
+    margin-left: 35px;
+  }
+
+  a {
+    color: govuk-colour("white");
+    font-weight: bold;
+
+    &:visited, &:hover, &:active {
+      color: govuk-colour("white"); }
+  }
+
+  details {
+    margin-bottom: 0;
+
+    summary, summary:hover {
+      color: govuk-colour("white");
+    }
+
+    .panel {
+      border-left-color: govuk-colour("white");
+    }
+  }
+
+  .govuk-button {
+    color: govuk-colour("blue");
+    background-color: govuk-colour("white");
+    font-weight: bold;
+    min-width: 200px;
+    margin-bottom: 0;
+
+    &:visited {
+      color: govuk-colour("blue");
+      background-color: govuk-colour("white");
+    }
+
+    &:hover, &:active {
+      color: govuk-colour("blue");
+      background-color: #eee;
+    }
+  }
+
 }

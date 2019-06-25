@@ -29,7 +29,7 @@
   				{# Start of prototype write up #}
   				<div class="prototype-write-up">
             {{ govukTag({
-              text: 'Alpha sprint 0 (guidance)',
+              text: 'Alpha sprint 3 (guidance)',
               classes: 'govuk-!-margin-bottom-4'
             }) }}
 
@@ -37,8 +37,8 @@
               Guidance integrated with ELM account
               <span class="version">Version 1</span>
             </h3>
-            <p>Based on our hypothesis that we believe if we provide information based on a users application we will help them to get the guidance most appropriate to them.</p>
-            <p>Provides guidance based on activites, with a link to specific guidance items in the activity view.</p>
+            <p>Based on the hypothesis &lsquo;we believe if we provide information based on a users application we will help them to get the guidance most appropriate to them&rsquo;.</p>
+            <p>Provides guidance based on the users ELM activites, with a link to specific guidance items in the activity view.</p>
 
   					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
   					<p>
@@ -47,7 +47,53 @@
 
             {{ govukButton({
               text: "View dashboard",
-              href: "dashboard"
+              href: "v1/dashboard"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Sentence builder
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by building a sentence to capture what the user is looking for.</p>
+
+  					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>
+  						Findings will go here.
+  					</p> -->
+
+            {{ govukButton({
+              text: "View sentence builder",
+              href: "v2/sentence-builder"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Autocomplete search
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by showing topcis in an autocompleting input.</p>
+
+  					<!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>
+  						Findings will go here.
+  					</p> -->
+
+            {{ govukButton({
+              text: "View search",
+              href: "v3/autocomplete"
             }) }}
 
   				</div>
