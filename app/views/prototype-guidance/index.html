@@ -1,0 +1,32 @@
+
+{% extends "layout.html" %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Environmental Land Management</span>
+      <h1 class="govuk-heading-xl">
+        Prototyped guidance
+      </h1>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <p class='govuk-body-l'>ELM guidance first drafts.</p>
+
+      <p><a href="arable-farmland-birds">Arable farmland birds</a></p>
+
+      <p><a href="birds-on-farmland">Birds on farmland</a></p>
+
+    </div>
+</div>
+
+{% endblock %}
