@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="dashboard">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Review and submit your application
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Application details
+      </h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% for good in data['goods'] | sort(false, true, 'type') %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Land parcel {{ loop.index }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ good.type }}, {{ good.area }}
+            </dd>
+          </div>
+        {% endfor %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Goal statement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>Willow Farm intends on restoring a 10 hectare area of Ash woodland with activities planned to increase the natural capital over the next 20 years.</p>
+            <p>As well as this they will maintain another 3 hectares of nectar flowers and rough grazing suitable for the local bird wildlife. </p>
+          </dd>
+        </div>
+      </dl>
+
+      <p>If there is a problem with the application you can <a href="#0">return it to the adviser</a>.</p>
+
+      <h2 class="govuk-heading-m">
+        Submit your application
+      </h2>
+
+      <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      {{ govukButton({
+        text: 'Accept and submit',
+        href: 'loading'
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

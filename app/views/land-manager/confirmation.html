@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+<!-- Adds spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application complete</h1>
+        <div class="govuk-panel__body">
+          Your adviser reference number<br><strong>ELM2123F</strong>
+        </div>
+      </div>
+
+      <p>
+        We have sent you a confirmation email. You can find this reference by <a href="sign-in">signing in to your account</a>.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>You need to give your adviser the reference number above. They will use that to complete your application for ELM payments.</p>
+      <p>You will be notified once your adviser has finished the application.</p>
+
+      <p><a href="#0">What did you think of this service?</a> (takes 30 seconds)</p>
+
+    </div>
+  </div>
+{% endblock %}

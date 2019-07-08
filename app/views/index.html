@@ -6,7 +6,7 @@
   {{ govukHeader() }}
 {% endblock %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
+<!-- Adds spacing for pages without a back button -->
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block content %}
@@ -27,6 +27,48 @@
         <div class="most-recent">
 
   				{# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 4 (guidance)',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Adviser led flow
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the storyboard and then the flow diagram.</p>
+
+            <p><a href="land-manager/start">Land manager journey</a></p>
+            <p><a href="adviser/start">Adviser journey</a></p>
+
+  				</div>
+  				{# End of prototype write up #}
+
+  			</div>
+  			{# End of most recent box #}
+
+
+
+
+
+
+
+
+
+      <h2 class='govuk-heading-l'>
+        Sprint history
+      </h2>
+      {# Start of hidden panel #}
+
+			<details class="govuk-details">
+				<summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Show all sprints</span>
+        </summary>
+				<div class="govuk-details__text">
+
+
+          {# Start of prototype write up #}
   				<div class="prototype-write-up">
             {{ govukTag({
               text: 'Alpha sprint 3 (guidance)',
@@ -102,28 +144,6 @@
 
   				</div>
   				{# End of prototype write up #}
-
-  			</div>
-  			{# End of most recent box #}
-
-
-
-
-
-
-
-
-
-      <h2 class='govuk-heading-l'>
-        Sprint history
-      </h2>
-      {# Start of hidden panel #}
-
-			<details class="govuk-details">
-				<summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Show all sprints</span>
-        </summary>
-				<div class="govuk-details__text">
 
 
           {# Start of prototype write up #}

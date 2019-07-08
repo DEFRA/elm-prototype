@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+<!-- Adds spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Agreement complete</h1>
+      </div>
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>Your first payment will be paid to your chosen bank account in 5-10 working days.</p>
+      <p>You can check your agreement any time in <a href="dashboard">your account</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}

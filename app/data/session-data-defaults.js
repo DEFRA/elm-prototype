@@ -23,7 +23,9 @@ module.exports = {
 
   "warning": "true",
 
-  "public_goods": [
+  "agreement": "false",
+
+  "goods": [
     {
       "id": "1",
       "type": "Restoration of forestry and woodland to lowland heathland",
@@ -33,13 +35,6 @@ module.exports = {
       "status": "Decision required",
       "issue": "Ash dieback"
     },
-    // {
-    //   "id": "2",
-    //   "type": "Management of hedgerows",
-    //   "species": "Green Beech",
-    //   "area": "700 metres",
-    //   "value": "£5600"
-    // },
     {
       "id": "3",
       "type": "Nectar flower mix ",
