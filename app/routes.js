@@ -12,6 +12,12 @@ router.get('/land-manager/*', function(req, res, next){
   next()
 })
 
+router.get('/adviser/*', function(req, res, next){
+  res.locals['serviceName'] = 'Make or update an ELM claim'
+
+  next()
+})
+
 router.get('/land-manager/accountcheck', function (req, res) {
   const option = req.session.data['account-check']
 

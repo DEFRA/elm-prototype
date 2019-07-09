@@ -48,6 +48,24 @@ module.exports = {
       "area": "2.2 hectares",
       "value": "£193.60"
     }
+  ],
+
+  "applications": [
+    {
+      "client": "Willow Farm",
+      "status": "Draft",
+      "updated": "Today"
+    },
+    {
+      "client": "New Spring Meadow",
+      "status": "Submitted to client",
+      "updated": "1 June 2019"
+    },
+    {
+      "client": "Mossy Oak Farms",
+      "status": "Complete",
+      "updated": "18 Apr 2019"
+    }
   ]
 
 }
