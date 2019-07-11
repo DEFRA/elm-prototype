@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="confirm-lm">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="natural-capital" method="post">
+
+        <h1 class="govuk-heading-l">
+          Add a boundary where the land manager has natural capital
+        </h1>
+
+        <style media="screen">
+          .iframe-container {
+            overflow: hidden;
+            padding-top: 56.25%;
+            position: relative;
+            margin-bottom: 30px;
+          }
+          .iframe-container iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+          }
+        </style>
+
+        <div class="iframe-container">
+          <script src="https://embed.github.com/view/geojson/chrisadesign/ELM-application-prototype/master/app/assets/images/map.geojson"></script>
+        </div>
+
+        {{ govukButton({
+          html: 'Continue'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

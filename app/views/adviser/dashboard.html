@@ -16,15 +16,15 @@
     <div class="govuk-grid-column-full">
       <div class="dashboard-main govuk-!-padding-top-6">
 
-          <h2 class="govuk-heading-m" style="display: inline-block">
+          <h2 class="govuk-heading-l" style="display: inline-block">
             Your applications
           </h2>
 
           {# Remove the class 'govuk-button--start' for a standard button #}
           {{ govukButton({
-              text: 'Start new application',
-              href: '#',
-              classes: 'float-right'
+            text: 'Start new application',
+            href: 'lm-ref',
+            classes: 'float-right'
           }) }}
 
           <div class="govuk-grid-row">
@@ -35,7 +35,7 @@
                 classes: '',
                 label: {
                   html: 'Client&rsquo;s name',
-                  classes: 'govuk-!-font-weight-bold govuk-!-padding-top-4'
+                  classes: 'govuk-!-font-weight-bold'
                 }
               }) }}
 
@@ -57,7 +57,7 @@
                   },
                   {
                     value: "complete",
-                    text: "Conmplete"
+                    text: "Complete"
                   }
                 ]
               }) }}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="natural-capital">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="collab-check" method="post">
+
+        <h1 class="govuk-heading-l">
+          What is the current level of the natural capital?
+        </h1>
+
+        {{ govukCheckboxes({
+            idPrefix: 'adviser-air-level',
+            name: 'adviser-air-level',
+            fieldset: {
+              legend: {
+                text: 'What level is the air?',
+                classes: 'govuk-label--s'
+              }
+            },
+            hint: {
+              text: ''
+            },
+            items: [
+              {
+                value: 'air-1',
+                text: 'Level 1'
+              },
+              {
+                value: 'air-2',
+                text: 'Level 2'
+              },
+              {
+                value: 'air-3',
+                text: 'Level 3'
+              }
+            ]
+        }) }}
+
+        {{ govukCheckboxes({
+            idPrefix: 'adviser-water-level',
+            name: 'adviser-water-level',
+            fieldset: {
+              legend: {
+                text: 'What level is the water?',
+                classes: 'govuk-label--s'
+              }
+            },
+            hint: {
+              text: ''
+            },
+            items: [
+              {
+                value: 'water-1',
+                text: 'Level 1'
+              },
+              {
+                value: 'water-2',
+                text: 'Level 2'
+              },
+              {
+                value: 'water-3',
+                text: 'Level 3'
+              }
+            ]
+        }) }}
+
+        {{ govukButton({
+          html: 'Continue',
+          classes: ''
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

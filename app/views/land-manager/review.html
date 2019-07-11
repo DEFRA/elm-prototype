@@ -12,7 +12,7 @@
         Review and submit your application
       </h1>
 
-      <h2 class="govuk-heading-m">
+      <!-- <h2 class="govuk-heading-m">
         Application details
       </h2>
 
@@ -37,7 +37,78 @@
             <p>As well as this they will maintain another 3 hectares of nectar flowers and rough grazing suitable for the local bird wildlife. </p>
           </dd>
         </div>
-      </dl>
+      </dl> -->
+
+      <h2 class="govuk-heading-m">Land boundary 1</h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: 'Land boundary'
+            },
+            value: {
+              text: 'Mapped land'
+            }
+          },
+          {
+            key: {
+              html: 'Natural capital'
+            },
+            value: {
+              html: 'Air and water'
+            }
+          },
+          {
+            key: {
+              html: 'Current level'
+            },
+            value: {
+              html: 'Air: Level 1<br>Water: Level 3'
+            }
+          },
+          {
+            key: {
+              html: 'Collaboration'
+            },
+            value: {
+              html: 'Yes'
+            }
+          },
+          {
+            key: {
+              html: 'Collaborator&rsquo;s reference number'
+            },
+            value: {
+              html: 'LM12345'
+            }
+          }
+        ]
+      }) }}
+
+
+
+      <h2 class="govuk-heading-m">Land management plan</h2>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              html: 'Goal statement'
+            },
+            value: {
+              text: 'The goal for the land is to maintain the current natural capital. Activities to will take place to ensure the same standard is kept in place.'
+            }
+          },
+          {
+            key: {
+              html: 'Guidance'
+            },
+            value: {
+              html: 'Arable land<br>Tree health'
+            }
+          }
+        ]
+      }) }}
 
       <p>If there is a problem with the application you can <a href="#0">return it to the adviser</a>.</p>
 

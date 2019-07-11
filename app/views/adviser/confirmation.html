@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Confirmation page example
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Application complete</h1>
+        <div class="govuk-panel__body">
+          Details have been sent to the land manager
+        </div>
+      </div>
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We&rsquo;ve sent the application to the land manager, they can now review the details. If they have a problem they may return the application to you and you will recieve a notification.</p>
+
+      {# Remove the class 'govuk-button--start' for a standard button #}
+      {{ govukButton({
+          text: 'Return to your account overview',
+          href: 'dashboard'
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}
