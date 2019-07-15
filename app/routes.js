@@ -31,11 +31,11 @@ router.get('/land-manager/accountcheck', function (req, res) {
 
 
 // Search goods from default session data file and render view or no results view
-// router.get('/land-manager/manage-activity', (req, res) => {
-//   const good = req.session.data['public_goods'].filter(good => good.id === req.session.data['id'])
-//   res.locals.good = good[0]
-//   res.render('v1/manage-activity')
-// })
+router.get('/land-manager/manage-activity', (req, res) => {
+  const good = req.session.data['goods'].filter(good => good.id === req.session.data['id'])
+  res.locals.good = good[0]
+  res.render('land-manager/manage-activity')
+})
 
 
 
