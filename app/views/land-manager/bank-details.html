@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="agreement">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="declaration" method="post">
+
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+          What are your bank details?
+        </h1>
+        <p class="govuk-!-margin-bottom-6">Defra will only use these details to make your ELM payments.</p>
+
+        {{ govukInput({
+            id: 'bank-account-name',
+            name: 'bank-account-name',
+            classes: 'govuk-input--width-20',
+            label: {
+                html: 'Account name'
+            }
+        }) }}
+
+        {{ govukInput({
+            id: 'bank-sort-code',
+            name: 'bank-sort-code',
+            classes: 'govuk-input--width-10',
+            label: {
+                html: 'Sort code'
+            },
+            hint: {
+              text: "For example, 07 00 00"
+            }
+        }) }}
+
+        {{ govukInput({
+            id: 'bank-account-number',
+            name: 'bank-account-number',
+            classes: 'govuk-input--width-20',
+            label: {
+                html: 'Account number'
+            }
+        }) }}
+
+        {{ govukButton({
+          html: 'Continue'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

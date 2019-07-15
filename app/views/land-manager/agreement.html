@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="dashboard">Back</a>
+  <a class="govuk-back-link" href="review">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,9 @@
         Your ELM agreement
       </h1>
 
-      <p>You application has been checked and approved. Based on your application you will be paid £2,460.80 for three types of natural capital.</p>
+      {{ govukInsetText({
+          text: 'You application has been checked and approved. Based on your application you will be paid £2,460.80 a year for your natural capital.'
+      }) }}
 
       <p>Your natural capital payments breakdown into the following:</p>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -36,23 +38,12 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">
-        Declaration
-      </h2>
-
-      <p>By submitting you agree to:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the on-going maintenance of your natural capital</li>
-        <li>annual reviews with your accredited adviser</li>
-        <li>notify Defra of any issues related to your natural capital</li>
-      </ul>
-
-      <form action="agreement-confirmation" method="post" novalidate>
+      <form action="bank-details" method="post" novalidate>
 
         <input type="hidden" name="agreement" value="true">
 
         {{ govukButton({
-          html: 'Accept agreement'
+          html: 'Continue'
         }) }}
 
       </form>
