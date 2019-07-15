@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{# Adds a class to increase vertical spacing for pages without a back button #}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Account overview</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
+        Jim&rsquo;s Agri-Advice Ltd.
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+      <div class="dashboard-main govuk-!-padding-top-6">
+
+          <h2 class="govuk-heading-l" style="display: inline-block">
+            Your applications
+          </h2>
+
+          {# Remove the class 'govuk-button--start' for a standard button #}
+          {{ govukButton({
+            text: 'Start new application',
+            href: 'lm-ref',
+            classes: 'float-right'
+          }) }}
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-quarter">
+              {{ govukInput({
+                id: 'filter-name',
+                name: 'filter-name',
+                classes: '',
+                label: {
+                  html: 'Client&rsquo;s name',
+                  classes: 'govuk-!-font-weight-bold'
+                }
+              }) }}
+
+              {{ govukSelect({
+                id: "filter-status",
+                name: "filter-status",
+                label: {
+                  text: "Status",
+                  classes: 'govuk-!-font-weight-bold'
+                },
+                items: [
+                  {
+                    value: "draft",
+                    text: "Draft"
+                  },
+                  {
+                    value: "submitted",
+                    text: "Submitted to client"
+                  },
+                  {
+                    value: "complete",
+                    text: "Complete"
+                  }
+                ]
+              }) }}
+
+              {{ govukButton({
+                html: 'Filter'
+              }) }}
+
+              <p class="govuk-!-padding-top-5">
+                <a href="#0">Clear all filters</a>
+              </p>
+            </div>
+
+
+            <div class="govuk-grid-column-three-quarters">
+              <table class="govuk-table sortable-table">
+                <caption class="govuk-table__caption">{{ data['applications'] | length }} applications</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header sort" scope="col">Client&rsquo;s name</th>
+                    <th class="govuk-table__header sort" scope="col">Status</th>
+                    <th class="govuk-table__header sort sort--active" scope="col">Last updated</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  {% for app in data['applications'] | sort(false, true, 'type') %}
+                  <tr>
+                    <td class="govuk-table__cell">
+                      <a href="#0">{{ app.client }}</a>
+                    </th>
+                    <td class="govuk-table__cell">
+                      {{ app.status }}
+                    </th>
+                    <td class="govuk-table__cell">
+                      {{ app.updated }}
+                    </td>
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

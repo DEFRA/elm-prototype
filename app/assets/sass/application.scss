@@ -12,9 +12,50 @@ $govuk-global-styles: true;
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 @import "components/autocomplete";
+@import "components/loader";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "patterns/changelog";
+
+.float-right {
+  float: right;
+}
+
+.sortable-table {
+  border: 1px solid $govuk-border-colour;
+
+  th, td {
+    padding: 10px 20px 10px 10px;
+  }
+
+  tr:nth-child(even){
+    background: govuk-colour("grey-4");
+  }
+}
+
+.sort {
+  background: govuk-colour("grey-3");
+
+  &:hover {
+    background: $govuk-link-hover-colour;
+    color: govuk-colour("white");
+    cursor: pointer;
+  }
+}
+
+.sort--active {
+  background: $govuk-link-colour;
+  color: govuk-colour("white");
+
+  &::after {
+    content: '\25bc';
+    padding-left: 0.25em;
+  }
+}
+
+.govuk-table__caption {
+  margin-bottom: 5px;
+}
 
 
 .plot {

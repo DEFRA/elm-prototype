@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="lm-ref">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="add-boundary" method="post">
+
+        <h1 class="govuk-heading-l">
+          Confirm land manager details
+        </h1>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                html: 'Reference number'
+              },
+              value: {
+                text: data["adviser-lm-ref"]
+              }
+            },
+            {
+              key: {
+                html: 'Land manager&rsquo;s name'
+              },
+              value: {
+                text: 'Chris Armstrong'
+              }
+            },
+            {
+              key: {
+                html: 'Business name'
+              },
+              value: {
+                text: 'Abbey Lane Farm'
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukRadios({
+            idPrefix: 'adviser-confirm-lm',
+            name: 'adviser-confirm-lm',
+            fieldset: {
+              legend: {
+                text: 'Is this the correct land manager?',
+                classes: 'govuk-label--m'
+              }
+            },
+            hint: {
+              text: ''
+            },
+            items: [
+              {
+                value: 'yes',
+                text: 'Yes'
+              },
+              {
+                value: 'no',
+                text: 'No, search again'
+              }
+            ]
+        }) }}
+
+        {{ govukButton({
+          html: 'Continue'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,215 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="guidance">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Land manager</h2>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              html: 'Reference number'
+            },
+            value: {
+              text: data["adviser-lm-ref"]
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Land manager&rsquo;s name'
+            },
+            value: {
+              text: 'Chris Armstrong'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Business name'
+            },
+            value: {
+              text: 'Abbey Lane Farm'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Land boundary 1</h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              html: 'Land boundary'
+            },
+            value: {
+              text: 'Mapped land'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Natural capital'
+            },
+            value: {
+              html: 'Air and water'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Current level'
+            },
+            value: {
+              html: 'Air: Level 1<br>Water: Level 3'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Collaboration'
+            },
+            value: {
+              html: 'Yes'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Collaborator&rsquo;s reference number'
+            },
+            value: {
+              html: 'LM12345'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      <p class="govuk-!-margin-bottom-9">
+        <a href="#0">Add another land boundary</a>
+      </p>
+
+
+
+      <h2 class="govuk-heading-m">Land management plan</h2>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              html: 'Goal statement'
+            },
+            value: {
+              text: 'The goal for the land is to maintain the current natural capital. Activities to will take place to ensure the same standard is kept in place.'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              html: 'Guidance for land manager'
+            },
+            value: {
+              html: 'Arable land<br>Tree health'
+            },
+            actions: {
+              items: [
+                {
+                  href: "#0",
+                  text: "Change"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <p>Once you submit this will be sent to the land manager to confirm and accept the agreement.</p>
+
+      <form action="confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="collab-ref">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="guidance" method="post">
+
+        {{ govukTextarea({
+            id: 'adviser-goal',
+            name: 'adviser-goal',
+            label: {
+                text: 'What is the environmental goal for this business?',
+                classes: "govuk-label--l",
+                isPageHeading: true
+            }
+        }) }}
+
+        {{ govukButton({
+          html: 'Continue',
+          classes: ''
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

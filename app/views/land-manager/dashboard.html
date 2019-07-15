@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{# Adds a class to increase vertical spacing for pages without a back button #}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Agreement overview</span>
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
+        Willow Farm
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <div class="dashboard-main">
+
+        {% if data['agreement'] == "false" %}
+
+          <h2 class="govuk-heading-l">
+            Review and submit your application
+          </h2>
+          <p>You adviser has submitted your application details, you can now review them and submit.</p>
+
+          {{ govukButton({
+              text: 'Review application',
+              href: 'review'
+          }) }}
+
+        {% else %}
+
+          <h2 class="govuk-heading-l">
+            Your activities
+          </h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Type</th>
+                <th class="govuk-table__header" scope="col">Value</th>
+                <th class="govuk-table__header" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              {% for good in data['goods'] | sort(false, true, 'type') %}
+              <tr>
+                <td class="govuk-table__cell">
+                  {{ good.type }}
+                </th>
+                <td class="govuk-table__cell">
+                  {{ good.value }}
+                </th>
+                <td class="govuk-table__cell">
+                  <a href="manage-activity?id={{ good.id }}">Manage</a>
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        {% endif %}
+
+      </div>
+    </div>
+
+
+    <div class="govuk-grid-column-one-third">
+
+      <div class="app-related-items aside-links">
+        <h2 class="govuk-heading-s">
+          Manage account
+        </h2>
+
+        <ul class="govuk-list govuk-body-s">
+          <li><a href="#0" class="govuk-link">Your details</a></li>
+        </ul>
+      </div>
+
+  </div>
+
+
+  </div>
+{% endblock %}

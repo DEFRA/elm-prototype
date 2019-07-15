@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="collab-ref">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="goal-statement" method="post">
+
+        {{ govukRadios({
+            idPrefix: 'adviser-add-another',
+            name: 'adviser-add-another',
+            fieldset: {
+              legend: {
+                text: 'Do you want to add another land boundary?',
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+              }
+            },
+            hint: {
+              text: ''
+            },
+            items: [
+              {
+                value: 'yes',
+                text: 'Yes'
+              },
+              {
+                value: 'no',
+                text: 'No'
+              }
+            ]
+        }) }}
+
+        {{ govukButton({
+          html: 'Continue',
+          classes: ''
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

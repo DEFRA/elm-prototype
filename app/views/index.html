@@ -6,7 +6,7 @@
   {{ govukHeader() }}
 {% endblock %}
 
-<!-- Adds a class to increase vertical spacing for pages without a back button -->
+<!-- Adds spacing for pages without a back button -->
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block content %}
@@ -29,76 +29,18 @@
   				{# Start of prototype write up #}
   				<div class="prototype-write-up">
             {{ govukTag({
-              text: 'Alpha sprint 3 (guidance)',
+              text: 'Alpha sprint 4 (guidance)',
               classes: 'govuk-!-margin-bottom-4'
             }) }}
 
             <h3 class='govuk-heading-m'>
-              Guidance integrated with ELM account
+              Adviser led flow
               <span class="version">Version 1</span>
             </h3>
-            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
-            <p>Provides guidance based on the users ELM activites, with a link to specific guidance items in the activity view.</p>
+            <p>Based on the storyboard and then the flow diagram.</p>
 
-            {{ govukButton({
-              text: "View dashboard",
-              href: "v1/dashboard"
-            }) }}
-
-
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-
-            <h3 class='govuk-heading-m'>
-              Sentence builder
-              <span class="version">Version 1</span>
-            </h3>
-            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
-            <p>Provides a way to search for guidance by building a sentence to capture what the user is looking for.</p>
-
-            {{ govukButton({
-              text: "View sentence builder",
-              href: "v2/sentence-builder"
-            }) }}
-
-
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-
-            <h3 class='govuk-heading-m'>
-              Autocomplete search
-              <span class="version">Version 1</span>
-            </h3>
-            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
-            <p>Provides a way to search for guidance by showing topcis in an autocompleting input.</p>
-
-            {{ govukButton({
-              text: "View search",
-              href: "v3/autocomplete"
-            }) }}
-
-
-
-            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-
-            <h3 class='govuk-heading-m'>
-              Guidance in application
-              <span class="version">Version 1</span>
-            </h3>
-            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
-            <p>Links out to guidance on activities when asking the user to select which they want to add to their application.</p>
-
-
-            {{ govukButton({
-              text: "View application",
-              href: "v4/map"
-            }) }}
+            <p><a href="land-manager/start">Land manager journey</a></p>
+            <p><a href="adviser/sign-in">Adviser journey</a></p>
 
   				</div>
   				{# End of prototype write up #}
@@ -124,6 +66,84 @@
           <span class="govuk-details__summary-text">Show all sprints</span>
         </summary>
 				<div class="govuk-details__text">
+
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 3 (guidance)',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Guidance integrated with ELM account
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
+            <p>Provides guidance based on the users ELM activites, with a link to specific guidance items in the activity view.</p>
+
+            {{ govukButton({
+              text: "View dashboard",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v1/dashboard"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Sentence builder
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by building a sentence to capture what the user is looking for.</p>
+
+            {{ govukButton({
+              text: "View sentence builder",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v2/sentence-builder"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Autocomplete search
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by showing topcis in an autocompleting input.</p>
+
+            {{ govukButton({
+              text: "View search",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v3/autocomplete"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Guidance in application
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
+            <p>Links out to guidance on activities when asking the user to select which they want to add to their application.</p>
+
+
+            {{ govukButton({
+              text: "View application",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v4/map"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
 
 
           {# Start of prototype write up #}
