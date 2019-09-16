@@ -1,0 +1,243 @@
+{#  set result = "#" #}
+{#  set google = "#" #}
+
+{% extends "layout_unbranded.html" %}
+
+{% block page_title %}
+  Search page
+{% endblock %}
+
+{% block head %}
+<link href="/public/stylesheets/unbranded.css" media="screen" rel="stylesheet" type="text/css">
+
+<style>
+
+#content {
+  font-size: 13px;
+}
+
+#content h3 {
+  font-size: 18px;
+}
+
+#global-header, #global-header .header-wrapper {
+      background-color: #fafafa;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+#global-header .header-proposition #proposition-links a{
+  color: black;
+  font-weight: normal;
+}
+
+@media (min-width: 769px) {
+#global-header.with-proposition .header-wrapper .header-global {
+    width: 25%;
+}}
+
+.ads-visurl, .visurl {
+    color: #006621 !important;
+    white-space: nowrap;
+    font-size: 14px !important;
+}
+
+
+.ads-visurl .ad {
+  margin-left: 0px;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #006621;
+  display: inline-block;
+  font-size: 11px;
+  border: 1px solid #006621 ;
+  padding: 1px 3px 0 2px;
+  line-height: 11px;
+  vertical-align: baseline;
+}
+
+.hint {
+      color: #808080;
+}
+
+</style>
+
+
+{% endblock %}
+
+{% block content %}
+
+<header role="banner" id="global-header" class="with-proposition">
+
+  <div class="header-wrapper">
+
+    <div class="header-global">
+
+      <div class="header-logo">
+        <a href="{% if google %}{{google}}{% else %}_GOOGLE{% endif %}"><img src="{{asset_path}}images/google-small.png"  height="44" width="120"  style="display: block; margin: 10px auto;" alt="Google" /></a>
+      </div>
+
+    </div>
+    <div class="header-proposition">
+
+      <div class="content">
+        <nav id="proposition-menu">
+
+          <form action="{% if result %}{{result}}{% else %}_GOOGLERESULTS{% endif %}" method="post" class="form" >
+            <div class="form-group" style="margin-bottom: 0;">
+              <fieldset>
+                <legend class="visuallyhidden">Search for a result</legend>
+                <label class="visually-hidden" for="google-search">Search for a result</label>
+                <input style="width: 100%; max-width: 632px; margin: 10px auto;" class="form-control" id="google-search" name="google-search" type="text" value="{{data['google-search']}}">
+              </fieldset>
+            </div>
+          </form>
+
+          <ul id="proposition-links">
+            <li><a href="#" style="font-weight: bold;">All</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Images</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">More</a></li>
+          </ul>
+
+        </nav>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+
+    <div class="column-one-quarter">
+      <p>&nbsp;</p>
+    </div>
+
+    <div class="column-two-thirds">
+      <p class="hint"> About 220,000,000 results (0.66 seconds)</p>
+      {% macro result(header, url, link, ad) %}
+
+      <div class="result" >
+        <h3><a href="{% if link %}{{link}}{% else %}#{% endif %}">{{header}}</a></h3>
+        <p class="{% if ad %}ads-{% endif %}visurl">{% if ad %}<span class="ad">Ad</span> {% endif %}{{url}}</p>
+        <p>{{ caller() }}</p>
+      </div>
+
+      {% endmacro %}
+
+      <!-- Ad results -->
+
+      <!-- {% call result(header="" , ad="true") %}
+      {%- endcall %} -->
+
+      {% block results %}
+
+      {% endblock %}
+
+      <!-- Non-ad results -->
+
+      {% call result(
+        header="Available Options - The Scottish Government",
+        url="www2.gov.scot/Topics/farmingrural/SRDP/Land-Managers-Options/Availableoptions") %}
+
+        13 Mar 2015 - Land Managers Options - Available Options  ... Management of Grass Margins and Beetlebanks in Arable Fields (Option closed to new ...
+      {%- endcall %}
+
+
+      {% call result(
+        header="GS6: Management of species-rich grassland - GOV.UK",
+        url="https://www.gov.uk > Countryside Stewardship grants") %}
+
+        Jump to <a href="#">Where to use this option</a> - in Mid Tier this option can only be used subject to eligibility checks ... For Mid Tier the land must be mapped on the Priority Habitat Inventory ... meadow pruple moor grass and rush pasture (see MAGIC).
+      {%- endcall %}
+
+
+      {% call result(
+         header="Management of meadows and grassland | Aftercare | Sowing ...",
+         url="https://wildseed.co.uk/page/management-of-meadows-and-grassland") %}
+
+         Management by mowing or grazing is essential to the maintenance of the structure, balance ... Meadow mixtures are composed mainly of perennial grass and wild flower species which ... Meadow management is not the only grassland option.
+      {%- endcall %}
+
+
+      {% call result(
+         header="The Rural Development Contracts (Land Manager Options ...",
+         url="") %}
+
+         The Rural Development Contracts (Land Managers Options) (Scotland) ... option 14 (management of grass margins and beetlebanks) is amended to provide for ...
+      {%- endcall %}
+
+      {% call result(
+         header="Farming Advice | Good Grass Guide | Index 5 - Barenbrug UK",
+         url="") %}
+
+         With a sward of more than 70% weed grasses the best option is to reseed the sward ... even though their rooting structures are often poor - but management during the first year is critical to ... Weeds also loe land with poorer soil conditions.
+      {%- endcall %}
+
+      {% call result(
+         header="Images for grass options for land managers",
+         url="") %}
+
+         <img src="google-image-results-short.jpg">
+      {%- endcall %}
+
+      {% call result(
+         header="[PDF] Practical advice for grass grazing management - Barenbrug ...",
+         url="") %}
+
+         Around 70% of utilisable agricultural land in the UK is given over to grass ... forage options available to them ever before, Barenbrug's guides are designed ...
+      {%- endcall %}
+
+      {% call result(
+         header="Stewardship - Grass Seed Direct",
+         url="") %}
+
+         Options for arable land. EF1 Field Corner Management. (Max 1 hectare in 20 hectare of arable land). The proviion for a grassy area has an enhanced benefit.
+      {%- endcall %}
+
+      {% call result(
+         header="Reflections from Groundswell: Environmental Land ...",
+         url="") %}
+
+         4 Jul 2019 - Reflections from Groundswell: Environmental Land Management Design and the essential role of grass-fed livestock in combatting climate change ... to develop the performance of cover groups and options for wildlife.
+      {%- endcall %}
+
+      {% call result(
+         header="[PDF] Your essential guide to grassland management February 2017",
+         url="") %}
+
+         10 Jan 2017 - land. "That is a much narrower gap than in 2015, when margins were at 20.21ppl ... but now there is the option to ... and a grass management."
+      {%- endcall %}
+
+      <!-- {% call result(
+         header="",
+         url="") %}
+
+         
+      {%- endcall %} -->
+
+
+      {# call result(header="#", url="#") #}
+      {#- endcall #}
+
+      <img src="{{asset_path}}images/google-results.png"  height="100"   style="display: block; margin: 10px auto;" alt="Google" />
+    </div>
+  </div>
+  <ul>
+    <li>
+      <a href="/prototype-admin/clear-data">Clear data</a>
+    </li>
+  </ul>
+</main>
+
+
+
+{% endblock %}
+
+
+<!-- Results returned from query "grass options for land managers" -->
