@@ -59,6 +59,39 @@
       color: #808080;
 }
 
+.google-button:hover {
+    border:1px solid #ccc;
+    box-shadow: 0px 1px 2px #ccc;
+  }
+
+.google-search {
+  width: 100%; max-width: 632px; margin: 10px; line-height: 34px; border-radius: 30px; border:1px solid; background: #fff; display: flex; border-radius: 8px; border: 1px solid #dfe1e5; border-radius: 24px; height: 44px; width: 482px; font-size: 18px; padding-left:1em;
+}
+
+.google-search:hover {
+  box-shadow: 0px 2px 4px #ccc;
+}
+
+.visually-hidden {
+  display: none
+}
+
+.logo {
+  margin: 20px; display: block; width:140px; float: left
+}
+
+#proposition-links li {
+  list-style: none; display: inline-block; padding: 16px 12px 12px 10px; margin-top: 0;
+}
+
+.govuk-main-wrapper {
+  padding-top:0;
+}
+
+fieldset {
+  border:none;
+}
+
 </style>
 
 
@@ -73,7 +106,7 @@
     <div class="header-global">
 
       <div class="header-logo">
-        <a href="{% if google %}{{google}}{% else %}_GOOGLE{% endif %}"><img src="{{asset_path}}images/google-small.png"  height="44" width="120"  style="display: block; margin: 10px auto;" alt="Google" /></a>
+        <a href="{% if google %}{{google}}{% else %}_GOOGLE{% endif %}"><img src="{{asset_path}}images/google.png" class="logo" height="44" width="120" alt="Google" /></a>
       </div>
 
     </div>
@@ -85,9 +118,9 @@
           <form action="{% if result %}{{result}}{% else %}_GOOGLERESULTS{% endif %}" method="post" class="form" >
             <div class="form-group" style="margin-bottom: 0;">
               <fieldset>
-                <legend class="visuallyhidden">Search for a result</legend>
+                <legend class="visually-hidden">Search for a result</legend>
                 <label class="visually-hidden" for="google-search">Search for a result</label>
-                <input style="width: 100%; max-width: 632px; margin: 10px auto;" class="form-control" id="google-search" name="google-search" type="text" value="{{data['google-search']}}">
+                <input class="google-search form-control" id="google-search" name="google-search" type="text" value="{{data['google-search']}}">
               </fieldset>
             </div>
           </form>
