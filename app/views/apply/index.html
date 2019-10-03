@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Apply for environmental land management (ELM)
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Apply for environmental land management (ELM)
+      </h1>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body-l">You've been selected to participate in the ELM national pilot.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="user-ID">Enter your national pilot code
+          <span class="govuk-hint">We have sent this to you by post and email</span>
+        </label>
+
+        <input class="govuk-input govuk-!-width-one-half" id="user-ID" name="user-ID" type="text" value="">
+      </div>
+      <div class="govuk-form-groupp">
+        <a href="apply/add-land" class="govuk-button">Continue</a>
+      </div>
+      <div class="govuk-form-group">
+        <p><a href="#">Resend my national pilot code</a></p>       
+      </div>
+      <div class="govuk-form-group">
+        <p><a href="#">Get help with this page</a></p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
