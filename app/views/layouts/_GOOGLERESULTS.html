@@ -159,117 +159,165 @@ fieldset {
       <p>&nbsp;</p>
     </div>
 
-    <div class="column-two-thirds">
+      <div class="column-two-thirds">
       <p class="hint"> About 20,500,000 results (0.38 seconds)</p>
-      {% macro result(header, url, link, ad) %}
 
-      <div class="result" >
-        <h3><a href="{% if link %}{{link}}{% else %}#{% endif %}">{{header}}</a></h3>
-        <p class="{% if ad %}ads-{% endif %}visurl">{% if ad %}<span class="ad">Ad</span> {% endif %}{{url}}</p>
-        <p>{{ caller() }}</p>
-      </div>
-
-      {% endmacro %}
 
       <!-- Ad results -->
 
-      <!-- {% call result(header="" , ad="true") %}
-      {%- endcall %} -->
+      <!--
 
-      {% block results %}
+      <div class="result" >
+        <h3><a href="#"></a></h3>
+        <p class="ads-visurl"><span class="ad">Ad</span> </p>
+        <p></p>
+      </div>
 
-      {% endblock %}
+       -->
+
+
+
+
 
       <!-- Non-ad results -->
 
-      {% call result(
-        header="Manage and Restore Wildlife Habitats - UNH Extension",
-        url="https://extension.unh.edu › tafw › ManagingRestoringLandforWildlife") %}
-
-        Habitat Management: Some habitats require periodic natural disturbances to <b>maintain their</b> unique characteristics. By “managing” the land, we can often mimic ...
-      {%- endcall %}
 
 
-      {% call result(
-        header="Our plan to restore nature at our places | National Trust",
-        url="https://www.nationaltrust.org.uk › news › our-plan-to-restore-nature-at-our...") %}
+      <div class="result">
+        <h3><a href="https://extension.unh.edu/FWT/tafw/ManagingRestoringLandforWildlife.htm">Manage and Restore Wildlife Habitats - UNH Extension</a></h3>
+        <p class="visurl">https://extension.unh.edu › tafw › ManagingRestoringLandforWildlife</p>
+        <p>
 
-        20 Mar 2017 - The National Trust was set up to protect places of natural beauty, and we plan to create and restore 'priority' wildlife habitats on 10 per cent of our land. They include habitats like chalk grassland and arable field margins - hand-picked by government as threatened and in need of help.
-      {%- endcall %}
-
-
-      {% call result(
-         header="Habitat conservation - Wikipedia",
-         url="https://en.wikipedia.org › wiki › Habitat_conservation") %}
-
-         Habitat conservation is a management practice that seeks to conserve, protect and restore ... The value of land was limited only to the resources it provided such as fertile soil, timber, and minerals. Throughout the ... Habitat conservation is important in maintaining biodiversity, an essential part of global food security. There is ...
-      {%- endcall %}
+        Habitat Management: Some habitats require periodic natural disturbances to <b>maintain their</b> unique characteristics. By “managing” the land, we can often mimic ...</p>
+      </div>
 
 
-      {% call result(
-         header="Improving, Restoring, and Managing Wildlife Habitat in Florida",
-         url="https://edis.ifas.ufl.edu › ...") %}
 
-         In Florida, roughly 50% of the rural land area is held in private ownership and ... on specific management actions needed to maintain or restore wildlife habitat.
-      {%- endcall %}
+
+
+
+      <div class="result">
+        <h3><a href="https://www.nationaltrust.org.uk/news/our-plan-to-restore-nature-at-our-places">Our plan to restore nature at our places | National Trust</a></h3>
+        <p class="visurl">https://www.nationaltrust.org.uk › news › our-plan-to-restore-nature-at-our...</p>
+        <p>
+
+        20 Mar 2017 - The National Trust was set up to protect places of natural beauty, and we plan to create and restore 'priority' wildlife habitats on 10 per cent of our land. They include habitats like chalk grassland and arable field margins - hand-picked by government as threatened and in need of help.</p>
+      </div>
+
+
+
+
+
+
+      <div class="result">
+        <h3><a href="https://en.wikipedia.org/wiki/Habitat_conservation">Habitat conservation - Wikipedia</a></h3>
+        <p class="visurl">https://en.wikipedia.org › wiki › Habitat_conservation</p>
+        <p>
+
+         Habitat conservation is a management practice that seeks to conserve, protect and restore ... The value of land was limited only to the resources it provided such as fertile soil, timber, and minerals. Throughout the ... Habitat conservation is important in maintaining biodiversity, an essential part of global food security. There is ...</p>
+      </div>
+
+
+
+
+
+
+      <div class="result">
+        <h3><a href="https://edis.ifas.ufl.edu/uw218">Improving, Restoring, and Managing Wildlife Habitat in Florida</a></h3>
+        <p class="visurl">https://edis.ifas.ufl.edu › ...</p>
+        <p>
+
+         In Florida, roughly 50% of the rural land area is held in private ownership and ... on specific management actions needed to maintain or restore wildlife habitat.</p>
+      </div>
+
+
 
 
       <div class="result">
         <h3><a href="https://elm-prototype.herokuapp.com/prototype-guidance/identify-maintain-wildlife-habitats-land">Identify and maintain wildlife habitats on your land</a></h3>
+
         <p class="visurl">https://www.gov.uk > Environmental land management > Habitat conservation</p>
+
         <p>
 
          Use this guidance to help you identify and understand the habitats on your land. Learn about how to restore or maintain these habitats. Find out which wildlife could be living on your land, and how you can help it to thrive.</p>
       </div>
 
 
-      {% call result(
-         header="National Trust: new roles announced to help restore habitats ...",
-         url="https://www.theguardian.com › national-trust-management-roles › may › n...") %}
-
-         24 May 2019 - The National Trust is committed to restoring land to nature, both by ... to care for woodlands, enhance its flagship properties and maintain ...
-      {%- endcall %}
-
-      {% call result(
-         header="Habitat Restoration | Encyclopedia.com",
-         url="https://www.encyclopedia.com › news-wires-white-papers-and-books › ha...") %}
-
-         Habitat Restoration The human race is in a precarious situation as a result of its ... Humans must balance their current resource needs with the future land-use ... With careful planning, healthy habitats can be maintained for people as well as ...
-      {%- endcall %}
-
-      {% call result(
-         header="Blanket bog restoration - Forestry and Land Scotland",
-         url="https://forestryandland.gov.scot › conservation › habitats › open-habitats › b...") %}
-
-         It is rarely found elsewhere, which is why it is so important to preserve and ... The trees dried out the peat, changing the habitat and destroying its value for birds ...
-      {%- endcall %}
-
-      {% call result(
-         header="Restoration Ecology | Learn Science at Scitable - Nature",
-         url="https://www.nature.com › scitable › knowledge › library › restoration-ecolog...") %}
-
-         Habitat enhancement- the process of increasing the suitability of a site as ... restoration efforts are designed to maintain a desirable human-derived state, such as ... The idea of restoring the land dates back centuries, but modern restoration ...
-      {%- endcall %}
-
-      {% call result(
-         header="Providing and protecting habitat for wild birds - GOV.UK",
-         url="https://www.gov.uk › guidance › providing-and-protecting-habitat-for-wil...") %}
-
-         25 Feb 2016 - How to support wild birds by protecting their habitat and avoiding ... restoring and maintaining habitat, and advice on land management ...
-      {%- endcall %}
-
-      <!-- {% call result(
-         header="",
-         url="") %}
 
 
-      {%- endcall %} -->
+      <div class="result">
+        <h3><a href="https://www.theguardian.com/national-trust-management-roles/2019/may/24/national-trust-new-roles-announced-to-help-restore-habitats">National Trust: new roles announced to help restore habitats ...</a></h3>
+        <p class="visurl">https://www.theguardian.com › national-trust-management-roles › may › n...</p>
+        <p>
+
+         24 May 2019 - The National Trust is committed to restoring land to nature, both by ... to care for woodlands, enhance its flagship properties and maintain ...</p>
+      </div>
 
 
-      {# call result(header="#", url="#") #}
-      {#- endcall #}
 
-      <img src="{{asset_path}}images/google-results.png"  height="100"   style="display: block; margin: 10px auto;" alt="Google" />
+
+
+      <div class="result">
+        <h3><a href="https://www.encyclopedia.com/science/news-wires-white-papers-and-books/habitat-restoration">Habitat Restoration | Encyclopedia.com</a></h3>
+        <p class="visurl">https://www.encyclopedia.com › news-wires-white-papers-and-books › ha...</p>
+        <p>
+
+         Habitat Restoration The human race is in a precarious situation as a result of its ... Humans must balance their current resource needs with the future land-use ... With careful planning, healthy habitats can be maintained for people as well as ...</p>
+      </div>
+
+
+
+
+
+      <div class="result">
+        <h3><a href="https://forestryandland.gov.scot/learn/habitats/open-habitats/blanket-bog">Blanket bog restoration - Forestry and Land Scotland</a></h3>
+        <p class="visurl">https://forestryandland.gov.scot › conservation › habitats › open-habitats › b...</p>
+        <p>
+
+         It is rarely found elsewhere, which is why it is so important to preserve and ... The trees dried out the peat, changing the habitat and destroying its value for birds ...</p>
+      </div>
+
+
+
+
+
+      <div class="result">
+        <h3><a href="https://www.nature.com/scitable/knowledge/library/restoration-ecology-13339059">Restoration Ecology | Learn Science at Scitable - Nature</a></h3>
+        <p class="visurl">https://www.nature.com › scitable › knowledge › library › restoration-ecolog...</p>
+        <p>
+
+         Habitat enhancement- the process of increasing the suitability of a site as ... restoration efforts are designed to maintain a desirable human-derived state, such as ... The idea of restoring the land dates back centuries, but modern restoration ...</p>
+      </div>
+
+
+
+
+
+      <div class="result">
+        <h3><a href="https://www.gov.uk/guidance/providing-and-protecting-habitat-for-wild-birds">Providing and protecting habitat for wild birds - GOV.UK</a></h3>
+        <p class="visurl">https://www.gov.uk › guidance › providing-and-protecting-habitat-for-wil...</p>
+        <p>
+
+         25 Feb 2016 - How to support wild birds by protecting their habitat and avoiding ... restoring and maintaining habitat, and advice on land management ...</p>
+      </div>
+
+
+
+      <!--
+
+      <div class="result" >
+        <h3><a href="#"></a></h3>
+        <p class="visurl"></p>
+        <p></p>
+      </div>
+
+       -->
+
+
+
+
+      <img src="/public/images/google-results.png" height="100" style="display: block; margin: 10px auto;" alt="Google">
     </div>
   </div>
   <ul>
