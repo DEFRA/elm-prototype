@@ -50,5 +50,7 @@ const landparcels = [
 accessibleAutocomplete({
   element: document.querySelector('#my-autocomplete-container'),
   id: 'my-autocomplete', // To match it to the existing <label>.
-  source: landparcels
+  showAllValues: true, dropdownArrow: () => '',
+  source: landparcels,
 })
+
