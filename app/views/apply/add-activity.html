@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="#">Back</a>
+{% endblock %}
+{% block content %}
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <form class="form" action="check-your-answers" method="post">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          What do you want to use this land for?
+        </h1> 
+        <details class="govuk-details" data-module="govuk-details" style="margin-bottom:10px">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Wildlife conservation
+            </span>
+          </summary>
+          
+            <div class="govuk-form-group">
+              <div class="govuk-radios govuk-radios--small">
+                <div class="govuk-radios__item" style="width: 100%">
+                  <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live" style="display: block; width: 100%">
+                    Purple moor grass and rush pastures
+                  </label>
+                </div>
+                <a href="/prototype-guidance/managing-purple-moor-grass-rush-pastures" style="margin-left: 37px">View guidance</a>
+                <hr>
+                <div class="govuk-radios__item" style="width: 100%">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2" style="display: block; width: 100%">
+                    Upland hay meadows
+                  </label>
+                </div>
+                <a href="/prototype-guidance/managing-upland-hay-meadows" style="margin-left: 37px">View guidance</a>
+                <hr>
+                <div class="govuk-radios__item" style="width: 100%">
+                  <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-3" style="display: block; width: 100%">
+                    Chalk and limestone grassland in the uplands
+                  </label>
+                </div>
+                <a href="/prototype-guidance/managing-chalk-limestone-grassland-uplands" style="margin-left: 37px">View guidance</a>
+                <hr>
+              </div>
+            </div>
+        </details>
+
+        <details class="govuk-details" data-module="govuk-details" style="margin-bottom:10px">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Hazard protection
+            </span>
+          </summary>
+        </details>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Renewable energy
+            </span>
+          </summary>
+        </details>
+        {{ govukButton({
+          text: "Continue",
+          href: "/apply/add-another"
+        }) }}
+      </form>
+    </div>
+  </div>
+</form>
+</div>
+</main>
+{% endblock %}

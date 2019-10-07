@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="check-your-answers" method="post">
+        <h1 class="govuk-heading-xl">
+          Add land to your agreement
+        </h1>
+        <p class="govuk-body-m">Add land to your ELM agreement, or <a href="#">upload a plan</a> from your land management software.</p>
+          <span id="waste-hint" class="govuk-hint">
+            Enter a field parcel number
+          </span>
+          <div class="govuk-form-group">
+            <div id="my-autocomplete-container" class="govuk-input--width-20"></div>
+          </div>
+          {{ govukButton({
+            text: "Continue",
+            href: "/apply/add-activity"
+          }) }}
+          <p class="govuk-body-m">
+            <a href="#">I cannot find the field I need</a>
+          </p>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock %}
