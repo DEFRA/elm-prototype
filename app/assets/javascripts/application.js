@@ -32,8 +32,23 @@ const topics = [
   'Flower mix'
 ]
 
+const landparcels = [
+  'SK 3957 1585',
+  'SK 3957 1586',
+  'SK 3957 1587',
+  'SK 3957 1588',
+  'SK 3957 1589',
+  'SK 3957 1590'
+]
+
+//accessibleAutocomplete({
+//  element: document.querySelector('#my-autocomplete-container'),
+//  id: 'my-autocomplete', // To match it to the existing <label>.
+//  source: topics
+//})
+
 accessibleAutocomplete({
   element: document.querySelector('#my-autocomplete-container'),
   id: 'my-autocomplete', // To match it to the existing <label>.
-  source: topics
+  source: landparcels
 })
