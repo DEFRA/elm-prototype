@@ -1,39 +1,45 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <br>
-  <p>
-    Home > <a href="topic1-habitat-conservation">Habitat conservation</a> > <a href="topic3-grassland-management">Grassland management</a> > Uplands grassland management
-  </p>
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Habitat conservation",
+        href: "topic1-habitat-conservation"
+      },
+      {
+        text: "Grassland management",
+        href: "topic3-grassland-management"
+      },
+      {
+        text: "Uplands grassland management"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
-    
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">Grassland management</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Uplands grassland management</h1>
-      <p class="govuk-body-l"></p>
-    </div>
+      <h1 class="govuk-heading-xl">Uplands grassland management</h1>
 
-    <div class="govuk-grid-column-two-thirds">
-      
-    </div>
+      <ul class="govuk-list govuk-list--bullet">
 
-    <div class="govuk-grid-column-two-thirds">
-      
-      <div class="dashboard-main">
+      <li><a href="manage-purple-moor-grass-rush-pasture">Manage purple moor grass and rush pasture</a></li>
 
-        <h2 class="govuk-heading-m"><a href="manage-purple-moor-grass-rush-pasture">Manage purple moor grass and rush pasture</a></h2>
+      <li><a href="manage-upland-hay-meadows">Manage upland hay meadows</a></li>
 
-        <h2 class="govuk-heading-m"><a href="manage-upland-hay-meadows">Manage upland hay meadows</a></h2>
+      <li><a href="manage-chalk-limestone-grassland-uplands">Manage chalk and limestone grassland in the uplands</a></li>
 
-        <h2 class="govuk-heading-m"><a href="manage-chalk-limestone-grassland-uplands">Manage chalk and limestone grassland in the uplands</a></h2>
+      <!--<<li><a href="topic5-uplands-grassland-activities">Uplands grassland activities</a></li>-->
 
-        <h2 class="govuk-heading-m"><a href="topic5-uplands-grassland-activities">Uplands grassland activities</a></h2>
-                
-      </div>
+      </ul>
+
     </div>
   </div>
 {% endblock %}
