@@ -73,13 +73,41 @@
 
 
             <div class="govuk-grid-column-three-quarters">
-              <table class="govuk-table sortable-table">
+
+            <!--<table class="govuk-table sortable-table">
                 <caption class="govuk-table__caption">{{ data['applications'] | length }} applications</caption>
                 <thead class="govuk-table__head">
                   <tr class="govuk-table__row">
                     <th class="govuk-table__header sort" scope="col">Client&rsquo;s name</th>
                     <th class="govuk-table__header sort" scope="col">Status</th>
                     <th class="govuk-table__header sort sort--active" scope="col">Last updated</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  {% for app in data['applications'] | sort(false, true, 'type') %}
+                  <tr>
+                    <td class="govuk-table__cell">
+                      <a href="#0">{{ app.client }}</a>
+                    </th>
+                    <td class="govuk-table__cell">
+                      {{ app.status }}
+                    </th>
+                    <td class="govuk-table__cell">
+                      {{ app.updated }}
+                    </td>
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>-->
+
+              <table class="govuk-table">
+                <caption class="govuk-table__caption">{{ data['applications'] | length }} applications</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header" scope="col">Client&rsquo;s name</th>
+                    <th class="govuk-table__header" scope="col">Status</th>
+                    <th class="govuk-table__header" scope="col">Last updated</th>
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">

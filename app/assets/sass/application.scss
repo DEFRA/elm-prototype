@@ -1,6 +1,9 @@
 // global styles for <a> and <p> tags
 $govuk-global-styles: true;
 
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
 // Import GOV.UK Frontend and any extension styles if extensions have been configured
 @import "lib/extensions/extensions";
 
@@ -8,18 +11,24 @@ $govuk-global-styles: true;
 @import "patterns/step-by-step-navigation";
 @import "patterns/task-list";
 @import "patterns/related-items";
+@import "patterns/changelog";
 
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 @import "components/autocomplete";
-@import "components/loader";
+// @import "components/loader";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
-@import "patterns/changelog";
+
+
 
 .float-right {
   float: right;
 }
+
+// Sortable table css no longer working with latest version of prototype kit (9.4.0)
+
+/*
 
 .sortable-table {
   border: 1px solid $govuk-border-colour;
@@ -53,10 +62,11 @@ $govuk-global-styles: true;
   }
 }
 
+*/
+
 .govuk-table__caption {
   margin-bottom: 5px;
 }
-
 
 .plot {
   cursor: pointer;
@@ -67,8 +77,6 @@ $govuk-global-styles: true;
   stroke: red;
   stroke-width: 2;
 }
-
-
 
 .dashboard-main {
   border-top: 1px solid #bfc1c3;
@@ -83,8 +91,6 @@ $govuk-global-styles: true;
 .govuk-tag--warn {
   background-color: $govuk-error-colour;
 }
-
-
 
 .panel {
   box-sizing: border-box;
@@ -110,9 +116,6 @@ $govuk-global-styles: true;
   border-color: #c42b2b;
   background-color: #f3dede;
 }
-
-
-
 
 // GOVUK Content landing page styles
 .part-navigation-container {
@@ -345,11 +348,7 @@ $govuk-global-styles: true;
     }
 }
 
-
-
-
-
-// Doculment lists
+// Document lists
 .gem-c-document-list {
     color: #0b0c0c;
     font-family: "nta", Arial, sans-serif;
@@ -533,9 +532,6 @@ $govuk-global-styles: true;
     width: 100%;
     margin-right: 25px
 }
-
-
-
 
 //flash card
 .flash-card {

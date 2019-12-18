@@ -1,0 +1,395 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+
+<!-- Adds spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <span class="govuk-caption-xl">Prototypes</span>
+    <h1 class="govuk-heading-xl">
+      Environmental land management
+    </h1>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class='govuk-heading-l'>
+      Sprint history
+    </h2>
+
+    <h3 class='govuk-heading-m'>Alpha sprint 5
+      <!-- <span class="version">11 Sep to 25 Sep 2019</span> -->
+    </h3>
+    <p>11 Sep to 25 Sep 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Prototypes for user research in October 2019</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p><a href="prototype-guidance/index-snippets">NE guidance snippets</a></p>
+        <p><a href="google/google">Google search page</a></p>
+      </div>
+    </details>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Simplified scheme 1 - for internal use</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p><a href="end-to-end">End-to-end</a></p>
+        <p><a href="apply">Apply for scheme 1</a></p>
+      </div>
+    </details>
+
+    <h3 class='govuk-heading-m'>Alpha sprint 4</h3>
+    <!-- <h3 class='govuk-heading-s'>Adviser-led journey flow</h3> -->
+    <p>28 Aug to 11 Sep 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Adviser-led journey flow</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Based on the storyboard and then the flow diagram.</p>
+
+        {{ govukButton({
+              text: "Land manager journey",
+              href: "land-manager/start"
+            }) }}
+
+        <p>
+
+          {{ govukButton({
+              text: "Adviser journey",
+              href: "adviser/sign-in"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 3</h3>
+    <!-- <h3 class='govuk-heading-s'>Guidance integrated with ELM account</h3> -->
+    <p>14 Aug to 28 Aug 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Guidance integrated with ELM account</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Based on the hypothesis ‘we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them ’. Provides guidance based on the users
+          ELM activites, with a link to specific guidance items in the activity view.</p>
+
+        {{ govukButton({
+              text: "View dashboard",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v1/dashboard"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 3</h3>
+    <!-- <h3 class='govuk-heading-s'>Sentence builder</h3> -->
+    <p>31 Jul to 14 Aug 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Sentence builder</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+        <p>Provides a way to search for guidance by building a sentence to capture what the user is looking for.</p>
+
+        {{ govukButton({
+              text: "View sentence builder",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v2/sentence-builder"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 2</h3>
+    <!-- <h3 class='govuk-heading-s'>Autocomplete search</h3> -->
+    <p>17 Jul to 31 Jul 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Autocomplete search</span>
+      </summary>
+      <div class="govuk-details__text">
+
+        <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+        <p>Provides a way to search for guidance by showing topcis in an autocompleting input.</p>
+
+        {{ govukButton({
+              text: "View search",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v3/autocomplete"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 1</h3>
+    <!-- <h3 class='govuk-heading-s'>Guidance in application</h3> -->
+    <p>03 Jul to 17 Jul</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Guidance in application</span>
+      </summary>
+      <div class="govuk-details__text">
+
+        <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
+        <p>Links out to guidance on activities when asking the user to select which they want to add to their application.</p>
+
+
+        {{ govukButton({
+              text: "View application",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v4/map"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 0</h3>
+    <!-- <h3 class='govuk-heading-s'>Updates to storyboard</h3> -->
+    <p>19 Jun to 03 Jul</p>
+    {{ govukInsetText({
+                text: 'Note: the team priority was changed to guidance at the beginning of this sprint, and the sprint numbers reset.',
+                classes: 'govuk-!-margin-top-0'
+            }) }}
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Updates to storyboard</span>
+      </summary>
+      <div class="govuk-details__text">
+
+        <p>Updated after first round of research. Changes include:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>calling out the Defra guidance product in early and late stages of the journey</li>
+          <li>including collaboration at setup stage</li>
+          <li>clarity of language used</li>
+        </ul>
+
+        {{ govukButton({
+              text: "View storyboard",
+              href: "https://elm-guidance-alpha-sprint-0.herokuapp.com/storyboard"
+            }) }}
+
+      </div>
+    </details>
+
+
+    <h3 class='govuk-heading-m'>Alpha sprint 3</h3>
+    <!-- <h3 class='govuk-heading-s'>End to end service storyboard</h3> -->
+    <p>05 Jun to 19 Jun</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">End to end service storyboard</span>
+      </summary>
+      <div class="govuk-details__text">
+
+        <p>An end-to-end service storyboard, assuming that the application process will be adviser led.</p>
+
+        <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+        <p>The storyboard was researched with 4 advisers in 3 remote moderated sessions.</p>
+
+        <p>The key finds were that:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>advisers are best placed to deliver awareness of ELM (potential bias)</li>
+          <li>collaboration needs to be considered before the land audit</li>
+          <li>advsiers were concered about auditing, advising and inspecting</li>
+        </ul>
+
+        <p>View the <a href="https://drive.google.com/drive/u/1/folders/1L5luvUSCu0N5qslLnroJpxrOZJF7eJrw">sorted post-its from team session</a> for more detail.</p>
+
+        {{ govukButton({
+              text: "View storyboard",
+              href: "https://elm-storyboard-1.herokuapp.com/storyboard"
+            }) }}
+
+
+      </div>
+    </details>
+
+
+
+
+
+    <!--  {# Start of hidden panel #}
+
+			<details class="govuk-details">
+				<summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Show all sprints</span>
+        </summary>
+				<div class="govuk-details__text">
+
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 3 (guidance)',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Guidance integrated with ELM account
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
+            <p>Provides guidance based on the users ELM activites, with a link to specific guidance items in the activity view.</p>
+
+            {{ govukButton({
+              text: "View dashboard",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v1/dashboard"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Sentence builder
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by building a sentence to capture what the user is looking for.</p>
+
+            {{ govukButton({
+              text: "View sentence builder",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v2/sentence-builder"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Autocomplete search
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe if we make it easier to find and navigate guidance content we will help users to get to relevant information quickly&rsquo;.</p>
+            <p>Provides a way to search for guidance by showing topcis in an autocompleting input.</p>
+
+            {{ govukButton({
+              text: "View search",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v3/autocomplete"
+            }) }}
+
+
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+
+            <h3 class='govuk-heading-m'>
+              Guidance in application
+              <span class="version">Version 1</span>
+            </h3>
+            <p>Based on the hypothesis &lsquo;we believe that if we provide guidance based on the data we have on the users we will reduce the need to search and help them to get the information most appropriate to them &rsquo;.</p>
+            <p>Links out to guidance on activities when asking the user to select which they want to add to their application.</p>
+
+
+            {{ govukButton({
+              text: "View application",
+              href: "https://elm-guidance-alpha-sprint-3.herokuapp.com/v4/map"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 0 (guidance)',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Storyboard
+              <span class="version">Version 2</span>
+            </h3>
+
+            <p>Updated after first round of research. Changes include:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>calling out the Defra guidance product in early and late stages of the journey</li>
+              <li>including collaboration at setup stage</li>
+              <li>clarity of language used</li>
+            </ul> -->
+
+    <!-- <h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>
+  						Findings will go here.
+  					</p> -->
+
+    <!-- {{ govukButton({
+              text: "View storyboard",
+              href: "https://elm-guidance-alpha-sprint-0.herokuapp.com/storyboard"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+
+
+
+
+          {# Start of prototype write up #}
+  				<div class="prototype-write-up">
+            {{ govukTag({
+              text: 'Alpha sprint 3',
+              classes: 'govuk-!-margin-bottom-4'
+            }) }}
+
+            {{ govukInsetText({
+                text: 'Note: the team priority was changed to guidance after this sprint, and the sprint numbers reset.',
+                classes: 'govuk-!-margin-top-0'
+            }) }}
+
+            <h3 class='govuk-heading-m'>
+              Storyboard -->
+
+    <!-- <span class="version">Version 1</span> -->
+
+    <!-- </h3>
+
+            <p>An end-to-end service storyboard, assuming that the application process will be adviser led.</p>
+
+  					<h4 class="govuk-heading-s govuk-!-margin-bottom-1">Research notes</h4>
+  					<p>The storyboard was researched with 4 advisers in 3 remote moderated sessions.</p>
+
+            <p>The key finds were that:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>advsiers are best placed to deliver awareness of ELM (potential bias)</li>
+              <li>collaboration needs to be considered before the land audit</li>
+              <li>advsiers were concered about auditing, advising and inspecting</li>
+            </ul>
+
+            <p>View the <a href="https://drive.google.com/drive/u/1/folders/1L5luvUSCu0N5qslLnroJpxrOZJF7eJrw">sorted post-its from team session</a> for more detail.</p>
+
+            {{ govukButton({
+              text: "View storyboard",
+              href: "https://elm-storyboard-1.herokuapp.com/storyboard"
+            }) }}
+
+  				</div>
+  				{# End of prototype write up #}
+
+				</div>
+			</details>
+			{# End of hidden panel #} -->
+
+
+
+  </div>
+</div>
+
+{% endblock %}

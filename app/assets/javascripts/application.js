@@ -19,10 +19,6 @@ allPlots.on("click", function() {
 
 });
 
-
-
-
-
 const topics = [
   'Arable land',
   'Bird feeding',
@@ -53,4 +49,3 @@ accessibleAutocomplete({
   showAllValues: true, dropdownArrow: () => '',
   source: landparcels,
 })
-
