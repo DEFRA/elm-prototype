@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add an action
+  What do you want to do
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,7 +20,7 @@
           name: "actions",
           fieldset: {
             legend: {
-              text: "Add an action",
+              text: "What do you want to do?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -28,11 +28,11 @@
           items: [
             {
               value: "fencing",
-              text: "Fencing"
+              text: "Install fencing"
             },
             {
               value: "cover-crops",
-              text: "Cover crops"
+              text: "Plant cover crops"
             }
           ]
         }) }}

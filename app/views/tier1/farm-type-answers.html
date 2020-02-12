@@ -16,36 +16,45 @@
 
       <h2 class="govuk-heading-m">Primary farm details</h2>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Farm type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['farm-type'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="farm-type">
-              Change
-              <span class="govuk-visually-hidden"> farm type</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Farm size
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['farm-size'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="farm-type">
-              Change
-              <span class="govuk-visually-hidden"> farm size</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Farm type"
+            },
+            value: {
+              text: data['farm-type']
+            },
+            actions: {
+              items: [
+                {
+                  href: "farm-type",
+                  text: "Change",
+                  visuallyHiddenText: "farm-type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Farm size"
+            },
+            value: {
+              text: data['farm-size']
+            },
+            actions: {
+              items: [
+                {
+                  href: "farm-type",
+                  text: "Change",
+                  visuallyHiddenText: "farm-size"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
       <h2 class="govuk-heading-m">Additional farm details</h2>
 
@@ -53,36 +62,45 @@
       <p>You did not add a secondary type of farming.</p>
       <p class="govuk-body govuk-!-margin-bottom-9"><a href="additional-farm-type" class="govuk-link">Add a second farm type</a></p>
       {% else %}
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Farm type
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['farm-type-2'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="farm-type-2">
-              Change
-              <span class="govuk-visually-hidden"> farm type</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Farm size
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['farm-size-2'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="farm-type-2">
-              Change
-              <span class="govuk-visually-hidden"> farm size</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Farm type"
+            },
+            value: {
+              text: data['farm-type-2']
+            },
+            actions: {
+              items: [
+                {
+                  href: "farm-type-2",
+                  text: "Change",
+                  visuallyHiddenText: "farm-type-2"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Farm size"
+            },
+            value: {
+              text: data['farm-size-2']
+            },
+            actions: {
+              items: [
+                {
+                  href: "farm-type-2",
+                  text: "Change",
+                  visuallyHiddenText: "farm-size-2"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
       {% endif %}
 
       <form action="/tier1/actions" method="post" novalidate>

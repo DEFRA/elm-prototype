@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  What other activities do you do
+  What are the other types of farming you do
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@
 
         {{ govukInput({
           label: {
-            text: "What other activities do you do on your farm?",
+            text: "What are the other types of farming you do?",
             classes: "govuk-label--m"
           },
           value: data['farm-type-2'],

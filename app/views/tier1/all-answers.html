@@ -1,0 +1,224 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="another-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <h2 class="govuk-heading-l">Your farm details</h2>
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-9',
+          rows: [
+            {
+              key: {
+                text: "Farm type"
+              },
+              value: {
+                text: data['farm-type']
+              },
+              actions: {
+                items: [
+                  {
+                    href: "farm-type",
+                    text: "Change",
+                    visuallyHiddenText: "farm-type"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Farm size"
+              },
+              value: {
+                text: data['farm-size']
+              },
+              actions: {
+                items: [
+                  {
+                    href: "farm-type",
+                    text: "Change",
+                    visuallyHiddenText: "farm-size"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <h2 class="govuk-heading-m">Additional farm details</h2>
+
+        {% if data['farm-type-2'] == undefined %}
+          <p>You did not add a secondary type of farming.</p>
+          <p class="govuk-body govuk-!-margin-top-9"><a href="additional-farm-type" class="govuk-link">Add a second farm type</a></p>
+        {% else %}
+          {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
+            rows: [
+              {
+                key: {
+                  text: "Farm type"
+                },
+                value: {
+                  text: data['farm-type-2']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "farm-type-2",
+                      text: "Change",
+                      visuallyHiddenText: "farm-type-2"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Farm size"
+                },
+                value: {
+                  text: data['farm-size-2']
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "farm-type-2",
+                      text: "Change",
+                      visuallyHiddenText: "farm-size-2"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+          {% endif %}
+
+          <h2 class="govuk-heading-l">Your actions</h2>
+
+          {{ govukSummaryList({
+            rows: [
+              {
+                key: {
+                  text: "Fencing"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Remove",
+                      visuallyHiddenText: "remove-fencing"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Fencing length"
+                },
+                value: {
+                  text: "20 metres"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "fencing-length"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Fencing height"
+                },
+                value: {
+                  text: "3 metres"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "fencing-height"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+          {{ govukInsetText({
+            text: "You have consented to provide evidence for this option."
+          }) }}
+
+          {{ govukSummaryList({
+            classes: 'govuk-!-margin-top-5 govuk-!-margin-bottom-9',
+            rows: [
+              {
+                key: {
+                  text: "Cover crops"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Remove",
+                      visuallyHiddenText: "remove-cover-crops"
+                    }
+                  ]
+                }
+              },
+              {
+                key: {
+                  text: "Area of cover crops"
+                },
+                value: {
+                  text: "100 hectares"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "#",
+                      text: "Change",
+                      visuallyHiddenText: "crop-area"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+        <h2 class="govuk-heading-l">Submitting your application</h2>
+
+        <p>By confirming you agree that:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the information you've provided us with is correct</li>
+          <li>if required, you will provide sufficient evidence to support your chosen actions</li>
+        </ul>
+
+      <form action="/tier1/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        {{ govukButton({
+          text: "Confirm and send",
+          preventDoubleClick: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
