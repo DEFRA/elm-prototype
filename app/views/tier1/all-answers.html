@@ -60,7 +60,11 @@
 
         {% if data['farm-type-2'] == undefined %}
           <p>You did not add a secondary type of farming.</p>
-          <p class="govuk-body govuk-!-margin-top-9"><a href="additional-farm-type" class="govuk-link">Add a second farm type</a></p>
+          {{ govukButton({
+            text: "Add another farm type",
+            href: "/tier1/farm-type-2",
+            classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+          }) }}
         {% else %}
           {{ govukSummaryList({
             classes: 'govuk-!-margin-bottom-9',
@@ -106,6 +110,7 @@
           <h2 class="govuk-heading-l">Your actions</h2>
 
           {{ govukSummaryList({
+            classes: 'govuk-!-margin-bottom-9',
             rows: [
               {
                 key: {
@@ -126,7 +131,7 @@
                   text: "Fencing length"
                 },
                 value: {
-                  text: "20 metres"
+                  text: data['fence-length']
                 },
                 actions: {
                   items: [
@@ -143,7 +148,7 @@
                   text: "Fencing height"
                 },
                 value: {
-                  text: "3 metres"
+                  text: data['fence-height']
                 },
                 actions: {
                   items: [
@@ -158,12 +163,7 @@
             ]
           }) }}
 
-          {{ govukInsetText({
-            text: "You have consented to provide evidence for this option."
-          }) }}
-
           {{ govukSummaryList({
-            classes: 'govuk-!-margin-top-5 govuk-!-margin-bottom-9',
             rows: [
               {
                 key: {
@@ -184,7 +184,7 @@
                   text: "Area of cover crops"
                 },
                 value: {
-                  text: "100 hectares"
+                  text: data['crop-area']
                 },
                 actions: {
                   items: [
@@ -197,6 +197,12 @@
                 }
               }
             ]
+          }) }}
+
+          {{ govukButton({
+            text: "Add another action",
+            href: "/tier1/actions",
+            classes: "govuk-button--secondary govuk-!-margin-bottom-9"
           }) }}
 
         <h2 class="govuk-heading-l">Submitting your application</h2>

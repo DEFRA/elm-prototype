@@ -38,7 +38,7 @@
                     text: "Fencing length"
                   },
                   value: {
-                    text: "20 metres"
+                    text: data['fence-length']
                   },
                   actions: {
                     items: [
@@ -55,7 +55,7 @@
                     text: "Fencing height"
                   },
                   value: {
-                    text: "3 metres"
+                    text: data['fence-height']
                   },
                   actions: {
                     items: [
@@ -71,7 +71,6 @@
             }) }}
 
             {{ govukSummaryList({
-              classes: 'govuk-!-margin-bottom-9',
               rows: [
                 {
                   key: {
@@ -92,7 +91,7 @@
                     text: "Area of cover crops"
                   },
                   value: {
-                    text: "100 hectares"
+                    text: data['crop-area']
                   },
                   actions: {
                     items: [
@@ -106,6 +105,12 @@
                 }
               ]
             }) }}
+
+            {{ govukButton({
+        text: "Add another action",
+        href: "/tier1/actions",
+        classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+      }) }}
 
       <form action="/tier1/evidence" method="post" novalidate>
 

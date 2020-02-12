@@ -59,8 +59,12 @@
       <h2 class="govuk-heading-m">Additional farm details</h2>
 
       {% if data['farm-type-2'] == undefined %}
-      <p>You did not add a secondary type of farming.</p>
-      <p class="govuk-body govuk-!-margin-bottom-9"><a href="additional-farm-type" class="govuk-link">Add a second farm type</a></p>
+        <p>You did not add a secondary type of farming.</p>
+        {{ govukButton({
+          text: "Add another farm type",
+          href: "/tier1/farm-type-2",
+          classes: "govuk-button--secondary govuk-!-margin-bottom-9"
+        }) }}
       {% else %}
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-9',
