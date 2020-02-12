@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  How much will I be paid
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,13 @@
 
       <p class="govuk-body">Based on the information you have provided, we calculate the total amount you will receive is <strong>£1500</strong>.</p>
 
-      <p><button class="govuk-button" data-module="govuk-button">Continue</button></p>
+      <form action="/tier1/actions-answers" method="post" novalidate>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
 
     </div>
   </div>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  What other activities do you do
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@
 
         {{ govukInput({
           label: {
-            text: "What is your secondary farm type?",
+            text: "What other activities do you do on your farm?",
             classes: "govuk-label--m"
           },
           value: data['farm-type-2'],
@@ -30,7 +30,7 @@
 
         {{ govukInput({
           label: {
-            text: "What is its size?",
+            text: "What are their size?",
             classes: "govuk-label--m"
           },
           hint: {

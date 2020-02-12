@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="another-type">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+        <h2 class="govuk-heading-l">Your actions</h2>
+
+            {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "Fencing"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Remove",
+                        visuallyHiddenText: "remove-fencing"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Fencing length"
+                  },
+                  value: {
+                    text: "20 metres"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "fencing-length"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Fencing height"
+                  },
+                  value: {
+                    text: "3 metres"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "fencing-height"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+
+            {{ govukSummaryList({
+              classes: 'govuk-!-margin-bottom-9',
+              rows: [
+                {
+                  key: {
+                    text: "Cover crops"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Remove",
+                        visuallyHiddenText: "remove-cover-crops"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Area of cover crops"
+                  },
+                  value: {
+                    text: "100 hectares"
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "crop-area"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }) }}
+
+      <form action="/tier1/evidence" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

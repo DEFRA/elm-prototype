@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Question page
+  What type of farming do you do
 {% endblock %}
 
 {% block beforeContent %}
@@ -19,7 +19,7 @@
 
         {{ govukInput({
           label: {
-            text: "What is your primary farm type?",
+            text: "What type of farming do you do?",
             classes: "govuk-label--m"
           },
           value: data['farm-type'],

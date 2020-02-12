@@ -49,7 +49,6 @@ router.post('/actions-answer', function (req, res) {
   else {
     res.redirect('/tier1/cover-crops')
   }
-
 })
 
 // Land managers
