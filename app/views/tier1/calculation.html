@@ -17,9 +17,16 @@
         How much will I be paid?
       </h1>
 
-      <p class="govuk-body">Based on the information you have provided, we calculate the total amount you will receive is <strong>£1500</strong>.</p>
+      <p class="govuk-body">Based on the information you have provided, we calculate the total amount you will receive is
+        {% if data['crop-area'] == undefined %}
+        <strong>£{{ data['fence-length'] | int * 4 }}</strong>.</p>
+        {% elif data['fence-length'] == undefined %}
+        <strong>£{{ data['crop-area'] | int * 114 }}</strong>.</p>
+        {% else %}
+        <strong>£{{ data['fence-length'] | int * 4 + data['crop-area'] | int * 114 }}</strong>.</p>
+        {% endif %}
 
-      <form action="/tier1/actions-answers" method="post" novalidate>
+      <form action="/tier1/another-action" method="post" novalidate>
 
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Continue

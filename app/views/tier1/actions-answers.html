@@ -16,6 +16,7 @@
 
         <h2 class="govuk-heading-l">Your actions</h2>
 
+            {% if data['fence-length'] != undefined %}
             {{ govukSummaryList({
               classes: 'govuk-!-margin-bottom-9',
               rows: [
@@ -26,7 +27,7 @@
                   actions: {
                     items: [
                       {
-                        href: "#",
+                        href: "/tier1/actions",
                         text: "Remove",
                         visuallyHiddenText: "remove-fencing"
                       }
@@ -45,31 +46,17 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "fencing-length"
-                      }
-                    ]
-                  }
-                },
-                {
-                  key: {
-                    text: "Fencing height"
-                  },
-                  value: {
-                    text: data['fence-height']
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "fencing-height"
+                        visuallyHiddenText: "fence length"
                       }
                     ]
                   }
                 }
               ]
             }) }}
+            {% else %}
+            {% endif %}
 
+            {% if data['crop-area'] != undefined %}
             {{ govukSummaryList({
               rows: [
                 {
@@ -79,8 +66,9 @@
                   actions: {
                     items: [
                       {
-                        href: "#",
+                        href: "/tier1/actions",
                         text: "Remove",
+                        classes: "remove",
                         visuallyHiddenText: "remove-cover-crops"
                       }
                     ]
@@ -98,19 +86,32 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "crop-area"
+                        visuallyHiddenText: "crop area"
                       }
                     ]
                   }
                 }
               ]
             }) }}
+            {% else %}
+            {% endif %}
 
             {{ govukButton({
         text: "Add another action",
         href: "/tier1/actions",
         classes: "govuk-button--secondary govuk-!-margin-bottom-9"
       }) }}
+
+      <script type="text/javascript">
+        window.onload = function() {
+          var a = document.getElementsbyClassName("remove");
+
+          a.onclick = function() {
+            var cropArea = req.session.data['crop-area'];
+              cropArea = undefined;
+            }
+          }
+      </script>
 
       <form action="/tier1/evidence" method="post" novalidate>
 

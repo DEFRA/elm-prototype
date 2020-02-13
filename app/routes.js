@@ -51,6 +51,22 @@ router.post('/actions-answer', function (req, res) {
   }
 })
 
+// Add an additional action
+router.post('/another-action-answer', function (req, res) {
+
+  var anotherType = req.session.data['another-action']
+
+  if (anotherType == "yes"){
+    res.redirect('/tier1/actions')
+  }
+  else {
+    res.redirect('/tier1/actions-answers')
+  }
+
+})
+
+// Evidence required
+
 // Land managers
 
 router.get('/land-manager/accountcheck', function (req, res) {

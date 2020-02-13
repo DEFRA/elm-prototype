@@ -1,13 +1,12 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Environmental land management
+Environmental land management
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
 {% endblock %}
 
 <!-- Adds spacing for pages without a back button -->
@@ -15,268 +14,228 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-xl">Prototypes</span>
-      <h1 class="govuk-heading-xl">Environmental land management</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">Prototypes</span>
+    <h1 class="govuk-heading-xl">Environmental land management</h1>
 
-      <h2 class='govuk-heading-l govuk-visually-hidden'>Latest sprint</h2>
+    <h2 class="govuk-heading-l govuk-visually-hidden">Latest sprint</h2>
 
-      {# Start of most recent box #}
-        <div class="most-recent">
+    <div class="most-recent">
 
-  				{# Start of prototype write up #}
-  				<div class="prototype-write-up">
-            {{ govukTag({
-              text: 'Current sprint',
-              classes: 'govuk-!-margin-bottom-4'
-            }) }}
+      <div class="prototype-write-up">
+        <strong class="govuk-tag govuk-!-margin-bottom-4">
+          Current sprint
+        </strong>
 
-            <h3 class='govuk-heading-m'>Alpha sprint #1</h3>
-            <p class="govuk-body">15 January to 29 January 2020</p>
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Prototypes</span>
-              </summary>
-              <div class="govuk-details__text">
-
-                <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1sbmYqNvy4xybJwJgmaXeuS5oSVEVhDB6i9TogYFfh4M">self-serve journey v1</a>.</p>
-
-                {{ govukButton({
-                    text: "Apply journey",
-                    href: "apply",
-                    classes: "govuk-!-margin-right-1"
-                  }) }}
-
-                  {{ govukButton({
-                    text: "End-to-end",
-                    href: "end-to-end"
-                  }) }}
-
-              </div>
-            </details>
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Storyboards</span>
-              </summary>
-              <div class="govuk-details__text">
-
-              <div class="govuk-!-margin-bottom-7">
-
-                <p class="govuk-body">Land-manager storyboard based on latest policy details for ELM scheme tier 1.</p>
-
-                {{ govukButton({
-                    text: "Tier 1",
-                    href: "https://docs.google.com/drawings/d/1xKj0AA7DIH47407LDlGoSvT16KXN18FiAGaVx6HR-ZE/edit?usp=sharing",
-                    classes: "govuk-!-margin-right-1"
-                  }) }}
-
-                  {{ govukButton({
-                      text: "Tier 1 (image)",
-                      href: "https://docs.google.com/drawings/d/e/2PACX-1vTy49PGrnhL5sQlPEdWQNyOGMxC6Y7CkLPZ-y5I4He29YAZGUtHXU0IxuAKnWB4vIyX9h30mWi9Nsxj/pub?w=3542&h=1029",
-                      classes: "govuk-button--secondary"
-                    }) }}
-
-              </div>
-
-              <div>
-
-                <p class="govuk-body">Land-manager storyboard for ELM end-to-end service.</p>
-
-                {{ govukButton({
-                    text: "End-to-end (image)",
-                    href: "https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn"
-                  }) }}
-
-              </div>
-
+        <h3 class="govuk-heading-m">Alpha sprint #3</h3>
+        <p class="govuk-body">12 February - 25 February 2020</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Prototypes</span>
+          </summary>
+          <div class="govuk-details__text">
+            <div>
+              <p class="govuk-body">Based on ELM scheme tier 1.</p>
+              <a href="/tier1" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                Tier 1
+              </a>
             </div>
-            </details>
+          </div>
+        </details>
 
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Service blueprint</span>
-              </summary>
-              <div class="govuk-details__text">
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Storyboards</span>
+          </summary>
+          <div class="govuk-details__text">
+            <div>
+              <p class="govuk-body">Land-manager storyboard based on latest policy details for ELM scheme tier 1.</p>
+              <a href="https://docs.google.com/drawings/d/1xKj0AA7DIH47407LDlGoSvT16KXN18FiAGaVx6HR-ZE/edit?usp=sharing" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                Tier 1
+              </a>
+              <a href="https://docs.google.com/drawings/d/e/2PACX-1vTy49PGrnhL5sQlPEdWQNyOGMxC6Y7CkLPZ-y5I4He29YAZGUtHXU0IxuAKnWB4vIyX9h30mWi9Nsxj/pub?w=3542&amp;h=1029" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+                data-module="govuk-button">
+                Tier 1 (image)
+              </a>
+            </div>
+          </div>
+        </details>
 
-                <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn">land manager end-to-end storyboard</a>.</p>
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Service blueprint</span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn">land manager end-to-end storyboard</a>.</p>
+            <a href="https://drive.google.com/open?id=1soHTWiHyNoe1Mk10gcPieZeMUIxgBKxq89iQpShBuGY" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+              Service blueprint
+            </a>
+            <a href="https://docs.google.com/drawings/d/e/2PACX-1vQ-1QPnD2WOh7ZiTt5qGskhwUTLNwXQy8J4UZJzzO1EorTAKBPj6gvukDFcCyhYSHRx7XfZeH5tjTKn/pub?w=4602&amp;h=2646" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+              data-module="govuk-button">
+              Service blueprint (image)
+            </a>
+          </div>
+        </details>
 
-                {{ govukButton({
-                    text: "Service blueprint",
-                    href: "https://drive.google.com/open?id=1soHTWiHyNoe1Mk10gcPieZeMUIxgBKxq89iQpShBuGY",
-                    classes: "govuk-!-margin-right-1"
-                  }) }}
+        <details class="govuk-details govuk-!-margin-bottom-0">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Wireflows</span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn">land manager end-to-end storyboard</a>.</p>
+            <a href="https://docs.google.com/drawings/d/1gQ8UOD6Vd3TusHUipLxIudmKq_z1hR6M7pLB3Nw9YNI/edit?usp=sharing" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+              Tier 1 Screenflow
+            </a>
+            <a href="https://docs.google.com/drawings/d/e/2PACX-1vQnhl9h3KPxx1aWOLXUCngZkg4JS2EA_rn_cNzL2mOL6JgonGHGjxXdYRkXFOe7DKSynbWeRhqqeGLs/pub?w=13561&h=2615" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+              data-module="govuk-button">
+              Tier 1 Screenflow (image)
+            </a>
+          </div>
+        </details>
+      </div>
+    </div>
 
-                  {{ govukButton({
-                      text: "Service blueprint (image)",
-                      href: "https://docs.google.com/drawings/d/e/2PACX-1vQ-1QPnD2WOh7ZiTt5qGskhwUTLNwXQy8J4UZJzzO1EorTAKBPj6gvukDFcCyhYSHRx7XfZeH5tjTKn/pub?w=4602&h=2646",
-                      classes: "govuk-button--secondary"
-                    }) }}
+    <h2 class="govuk-heading-l">
+      Sprint history
+    </h2>
 
-              </div>
-            </details>
+    <div class="prototype-write-up">
 
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">Wireflows</span>
-              </summary>
-              <div class="govuk-details__text">
+      <h3 class="govuk-heading-m">Alpha sprint #1 - sprint #2</h3>
+      <p class="govuk-body">15 January to 11 February 2020</p>
 
-                <p class="govuk-body govuk-!-margin-bottom-7">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn">land manager end-to-end storyboard</a>.</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Prototypes</span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1sbmYqNvy4xybJwJgmaXeuS5oSVEVhDB6i9TogYFfh4M">self-serve journey v1</a>.</p>
+          <a href="apply" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+            Apply journey
+          </a>
+          <a href="end-to-end" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+            End-to-end
+          </a>
+        </div>
+      </details>
 
-                <div class="govuk-!-margin-bottom-7">
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Storyboards</span>
+        </summary>
+        <div class="govuk-details__text">
+          <div>
+            <p class="govuk-body">Land-manager storyboard for ELM end-to-end service.</p>
+            <a href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+              End-to-end (image)
+            </a>
+          </div>
+        </div>
+      </details>
 
-                  <p class="govuk-body">Self-serve journey v1 is a technically simplified journey.</p>
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Wireflows</span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">Based on <a class="govuk-link" href="https://drive.google.com/open?id=1N_KOirSgS_rHeUyZh2jABDqXkMt0Q4Tn">land manager end-to-end storyboard</a>.</p>
+          <div>
+            <p class="govuk-body">Self-serve journey v1 is a technically simplified journey.</p>
+            <p class="govuk-caption-m">Last updated October 2019.</p>
+            <a href="https://drive.google.com/open?id=1sbmYqNvy4xybJwJgmaXeuS5oSVEVhDB6i9TogYFfh4M" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+              Self-serve journey v1
+            </a>
+            <a href="https://docs.google.com/drawings/d/e/2PACX-1vQM95jh8GlqIP2OGrM9SOCVE52NBntP7r9hSb0qrX2MR2AOCg8vtfMwTYrKvPqQmehvs2SVkVpK3brs/pub?w=14543&amp;h=3927" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+              data-module="govuk-button">
+              Self-serve journey v1 (image)
+            </a>
+          </div>
+          <div>
+            <p class="govuk-body">Self-serve journey v2 is a simplified journey for the user.</p>
+            <p class="govuk-caption-m">Last updated October 2019.</p>
+            <a href="https://drive.google.com/open?id=1iLj3h4h0-iNod7073_z42AUYhY_W50j3eyA-6YwidTA" role="button" draggable="false" class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+              Self-serve journey v2
+            </a>
+            <a href="https://docs.google.com/drawings/d/e/2PACX-1vSwTH-PLQEMKUPR4uPUyzzvJZRRczdDZzY3zUX71OOO6XcqCb3sHX-Iv3aB5T_BdCMAZ6EH2V8Hjizg/pub?w=12049&amp;h=4347" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+              data-module="govuk-button">
+              Self-serve journey v2 (image)
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
 
-                  <p class="govuk-caption-m">Last updated October 2019.</p>
+    <h3 class="govuk-heading-m">Discovery sprint #11 - sprint #16</h3>
+    <!-- <h3 class='govuk-heading-s'>Sentence builder</h3> -->
+    <p class="govuk-body">10 October 2019 to 03 December 2019</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Guidance prototypes for user research with upland farmers</span>
+      </summary>
+      <div class="govuk-details__text">
+        <a href="prototype-guidance/index-snippets" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Natural England guidance snippets
+        </a>
+        <br>
+        <a href="google/google" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Google search page
+        </a>
+      </div>
+    </details>
 
-                  {{ govukButton({
-                        text: "Self-serve journey v1",
-                        href: "https://drive.google.com/open?id=1sbmYqNvy4xybJwJgmaXeuS5oSVEVhDB6i9TogYFfh4M",
-                        classes: "govuk-!-margin-right-1"
-                      }) }}
+    <h3 class="govuk-heading-m">Discovery sprint #0 - sprint #10</h3>
+    <!-- <h3 class='govuk-heading-s'>Sentence builder</h3> -->
+    <p class="govuk-body">05 June 2019 to 14 January 2020</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">Archived prototypes</span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">Archived project work and prototypes from discovery sprint 0 to sprint 10.</p>
+        <p class="govuk-body">
+          <a href="archive-sprint-1-to-5" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+            View archived prototypes
+          </a>
+        </p>
+      </div>
+    </details>
 
-                  {{ govukButton({
-                      text: "Self-serve journey v1 (image)",
-                      href: "https://docs.google.com/drawings/d/e/2PACX-1vQM95jh8GlqIP2OGrM9SOCVE52NBntP7r9hSb0qrX2MR2AOCg8vtfMwTYrKvPqQmehvs2SVkVpK3brs/pub?w=14543&h=3927",
-                      classes: "govuk-button--secondary"
-                    }) }}
+  </div>
 
-                </div>
-                <div class="govuk-!-margin-bottom-7">
+  <div class="govuk-grid-column-one-third">
 
-                <p class="govuk-body">Self-serve journey v2 is a simplified journey for the user.</p>
-
-                <p class="govuk-caption-m">Last updated October 2019.</p>
-
-                {{ govukButton({
-                      text: "Self-serve journey v2",
-                      href: "https://drive.google.com/open?id=1iLj3h4h0-iNod7073_z42AUYhY_W50j3eyA-6YwidTA",
-                      classes: "govuk-!-margin-right-1"
-                    }) }}
-
-                {{ govukButton({
-                    text: "Self-serve journey v2 (image)",
-                    href: "https://docs.google.com/drawings/d/e/2PACX-1vSwTH-PLQEMKUPR4uPUyzzvJZRRczdDZzY3zUX71OOO6XcqCb3sHX-Iv3aB5T_BdCMAZ6EH2V8Hjizg/pub?w=12049&h=4347",
-                    classes: "govuk-button--secondary"
-                  }) }}
-
-                </div>
-                <div>
-
-                <p class="govuk-body">Self-serve journey v3 supports a fragmented user journey.</p>
-
-                <p class="govuk-caption-m">Last updated November 2019.</p>
-
-                {{ govukButton({
-                      text: "Self-serve journey v3",
-                      href: "https://drive.google.com/open?id=1Iskv4Qgf__rmX9i4vvNJdB7khGXyDQL0Ij7jN2Rs5zQ",
-                      classes: "govuk-!-margin-right-1"
-                    }) }}
-
-                {{ govukButton({
-                    text: "Self-serve journey v3 (image)",
-                    href: "https://docs.google.com/drawings/d/e/2PACX-1vTVyKNUbhUJAQAakEswUyz2iJxYOmr_jYinEy97goWIXzZUo1YbqdL9N9M6TrFkQn7_Nyxc_6E611eA/pub?w=14022&h=3883",
-                    classes: "govuk-button--secondary"
-                  }) }}
-
-                </div>
-
-              </div>
-            </details>
-
-  				</div>
-  				{# End of prototype write up #}
-
-  			</div>
-  			{# End of most recent box #}
-
-
-
-
-      <h2 class='govuk-heading-l'>
-        Sprint history
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Related content
       </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://github.com/DEFRA/elm-prototype">
+              Prototype GitHub repository
+            </a>
+          </li>
+          <li>
+            <a href="https://eaflood.atlassian.net/wiki/spaces/ELM/overview">
+              Project Confluence
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/u/1/folders/0AIJpwGmbYIzKUk9PVA">
+              Team Google Drive
+            </a>
+          </li>
+          <li>
+            <a href="/prototype-guidance/index">
+              Prototyped guidance
+            </a>
+          </li>
 
-      <h3 class='govuk-heading-m'>Discovery sprint #11 - sprint #16</h3>
-      <!-- <h3 class='govuk-heading-s'>Sentence builder</h3> -->
-      <p class="govuk-body">10 October 2019 to 03 December 2019</p>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Guidance prototypes for user research with upland farmers</span>
-        </summary>
-        <div class="govuk-details__text">
+        </ul>
+      </nav>
+    </aside>
 
-          {{ govukButton({
-            text: "Natural England guidance snippets",
-            href: "prototype-guidance/index-snippets"
-          }) }}
-
-          <br>
-
-          {{ govukButton({
-            text: "Google search page",
-            href: "google/google"
-          }) }}
-
-        </div>
-      </details>
-
-      <h3 class='govuk-heading-m'>Discovery sprint #0 - sprint #10</h3>
-      <!-- <h3 class='govuk-heading-s'>Sentence builder</h3> -->
-      <p class="govuk-body">05 June 2019 to 14 January 2020</p>
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Archived prototypes</span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">Archived project work and prototypes from discovery sprint 0 to sprint 10.</p>
-          <p class="govuk-body">
-
-          {{ govukButton({
-            text: "View archived prototypes",
-            href: "archive-sprint-1-to-5"
-          }) }}
-
-        </div>
-      </details>
-
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-
-        <aside class="app-related-items" role="complementary">
-          <h2 class="govuk-heading-m" id="subsection-title">
-            Related content
-          </h2>
-          <nav role="navigation" aria-labelledby="subsection-title">
-            <ul class="govuk-list govuk-!-font-size-16">
-              <li>
-                <a href="https://github.com/DEFRA/elm-prototype">
-                  Prototype GitHub repository
-                </a>
-              </li>
-              <li>
-                <a href="https://eaflood.atlassian.net/wiki/spaces/ELM/overview">
-                  Project Confluence
-                </a>
-              </li>
-              <li>
-                <a href="https://drive.google.com/drive/u/1/folders/0AIJpwGmbYIzKUk9PVA">
-                  Team Google Drive
-                </a>
-              </li>
-              <li>
-                <a href="/prototype-guidance/index">
-                  Prototyped guidance
-                </a>
-              </li>
-
-            </ul>
-          </nav>
-        </aside>
-
-      </div>
-            </div>
+  </div>
+</div>
 {% endblock %}

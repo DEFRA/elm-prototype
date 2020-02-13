@@ -14,101 +14,60 @@
 
       <h1 class="govuk-heading-xl">Check your answers</h1>
 
-        <h2 class="govuk-heading-l">Your farm details</h2>
+        <h2 class="govuk-heading-l">Your farm</h2>
 
-        {{ govukSummaryList({
-          classes: 'govuk-!-margin-bottom-9',
-          rows: [
-            {
-              key: {
-                text: "Farm type"
-              },
-              value: {
-                text: data['farm-type']
-              },
-              actions: {
-                items: [
-                  {
-                    href: "farm-type",
-                    text: "Change",
-                    visuallyHiddenText: "farm-type"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Farm size"
-              },
-              value: {
-                text: data['farm-size']
-              },
-              actions: {
-                items: [
-                  {
-                    href: "farm-type",
-                    text: "Change",
-                    visuallyHiddenText: "farm-size"
-                  }
-                ]
-              }
-            }
-          ]
-        }) }}
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-        <h2 class="govuk-heading-m">Additional farm details</h2>
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key">
+                 Main farming
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['farm-type'] }}
+               </dd>
+                 <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="farm-type">
+                       Change<span class="govuk-visually-hidden"> farming type</span>
+                       </a>
+                 </dd>
+             </div>
 
-        {% if data['farm-type-2'] == undefined %}
-          <p>You did not add a secondary type of farming.</p>
-          {{ govukButton({
-            text: "Add another farm type",
-            href: "/tier1/farm-type-2",
-            classes: "govuk-button--secondary govuk-!-margin-bottom-9"
-          }) }}
-        {% else %}
-          {{ govukSummaryList({
-            classes: 'govuk-!-margin-bottom-9',
-            rows: [
-              {
-                key: {
-                  text: "Farm type"
-                },
-                value: {
-                  text: data['farm-type-2']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "farm-type-2",
-                      text: "Change",
-                      visuallyHiddenText: "farm-type-2"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Farm size"
-                },
-                value: {
-                  text: data['farm-size-2']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "farm-type-2",
-                      text: "Change",
-                      visuallyHiddenText: "farm-size-2"
-                    }
-                  ]
-                }
-              }
-            ]
-          }) }}
-          {% endif %}
+             {% if data['farm-type-2'] != undefined %}
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key">
+                 Other farming
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['farm-type-2'] }}
+               </dd>
+                 <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="farm-type-2">
+                       Change<span class="govuk-visually-hidden"> other farming type</span>
+                       </a>
+                 </dd>
+             </div>
+
+             {% else %}
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key">
+                 Other farming
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 none
+               </dd>
+                 <dd class="govuk-summary-list__actions">
+                     <a class="govuk-link" href="farm-type-2">
+                       Change<span class="govuk-visually-hidden"> other farming type</span>
+                       </a>
+                 </dd>
+             </div>
+             {% endif %}
+
+       </dl>
 
           <h2 class="govuk-heading-l">Your actions</h2>
 
+          {% if data['fence-length'] != undefined %}
           {{ govukSummaryList({
             classes: 'govuk-!-margin-bottom-9',
             rows: [
@@ -138,31 +97,17 @@
                     {
                       href: "#",
                       text: "Change",
-                      visuallyHiddenText: "fencing-length"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Fencing height"
-                },
-                value: {
-                  text: data['fence-height']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "fencing-height"
+                      visuallyHiddenText: "fence length"
                     }
                   ]
                 }
               }
             ]
           }) }}
+          {% else %}
+          {% endif %}
 
+          {% if data['crop-area'] != undefined %}
           {{ govukSummaryList({
             rows: [
               {
@@ -191,13 +136,15 @@
                     {
                       href: "#",
                       text: "Change",
-                      visuallyHiddenText: "crop-area"
+                      visuallyHiddenText: "crop area"
                     }
                   ]
                 }
               }
             ]
           }) }}
+          {% else %}
+          {% endif %}
 
           {{ govukButton({
             text: "Add another action",
