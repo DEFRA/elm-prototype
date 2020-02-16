@@ -24,6 +24,23 @@ router.get('/tier1/*', function(req, res, next){
 
 // Tier 1
 
+// Select an action
+router.post('/actions-answer', function (req, res) {
+
+  var action = req.session.data['what-action']
+
+  if (action == "manure"){res.redirect('/tier1/manure')}
+  if (action == "bog-grazing"){res.redirect('/tier1/bog-grazing')}
+  if (action == "grass-strips"){res.redirect('/tier1/grass-strips')}
+  if (action == "canopy-cover"){res.redirect('/tier1/canopy-cover')}
+  if (action == "fencing"){res.redirect('/tier1/fencing')}
+  if (action == "deadwood"){res.redirect('/tier1/deadwood')}
+  if (action == "bare-soil"){res.redirect('/tier1/bare-soil')}
+  else {res.redirect('/tier1/drinking-water')}
+})
+
+/*
+
 // Add an additional farm type
 router.post('/another-type-answer', function (req, res) {
 
@@ -36,19 +53,6 @@ router.post('/another-type-answer', function (req, res) {
     res.redirect('/tier1/farm-type-answers')
   }
 
-})
-
-// Add an action
-router.post('/actions-answer', function (req, res) {
-
-  var action = req.session.data['actions']
-
-  if (action == "fencing"){
-    res.redirect('/tier1/fencing')
-  }
-  else {
-    res.redirect('/tier1/cover-crops')
-  }
 })
 
 // Add an additional action
@@ -65,7 +69,7 @@ router.post('/another-action-answer', function (req, res) {
 
 })
 
-// Evidence required
+*/
 
 // Land managers
 

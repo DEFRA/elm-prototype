@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['grass-strips']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/tier1/actions">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/tier1/actions-answers" method="post">
+
+        <span class="govuk-caption-xl">Action</span>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--xl">
+            How much land would you like to create, maintain or improve grass strips on?
+          </label>
+          <span id="grass-strips-amount-hint" class="govuk-hint">
+            Must be a number (in {{ data['grass-strips']['unit'] }})
+          </span>
+          {% if data['grass-strips']['amount'] == 0 %}
+          <input class="govuk-input govuk-!-width-one-quarter" id="grass-strips[amount]" name="grass-strips[amount]" type="text" aria-describedby="grass-strips-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          {% else %}
+          <input class="govuk-input govuk-!-width-one-quarter" id="grass-strips[amount]" name="grass-strips[amount]" type="text" aria-describedby="grass-strips-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['grass-strips']['amount'] }}">
+          {% endif %}
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

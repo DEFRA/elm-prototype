@@ -1,47 +1,95 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  What do you want to do
+What action do you want to do?
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/tier1/farm-type-answers">Back</a>
+<a class="govuk-back-link" href="/tier1">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/actions-answer" method="post">
+    <form class="form" action="/actions-answer" method="post">
 
-        {{ govukRadios({
-          idPrefix: "actions",
-          name: "actions",
-          fieldset: {
-            legend: {
-              text: "What do you want to do?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
-            }
-          },
-          items: [
-            {
-              value: "fencing",
-              text: "Install fencing"
-            },
-            {
-              value: "cover-crops",
-              text: "Plant cover crops"
-            }
-          ]
-        }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What action do you want to do?
+            </h1>
+          </legend>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <div class="govuk-radios">
 
-      </form>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="manure" name="what-action" type="radio" value="manure">
+              <label class="govuk-label govuk-radios__label" for="manure">
+                Avoid applying manure on land sloping to water body
+              </label>
+            </div>
 
-    </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="bog-grazing" name="what-action" type="radio" value="bog-grazing">
+              <label class="govuk-label govuk-radios__label" for="bog-grazing">
+                Control grazing on bogs and peatlands
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="grass-strips" name="what-action" type="radio" value="grass-strips">
+              <label class="govuk-label govuk-radios__label" for="grass-strips">
+                Create, maintain and/or enhance contour grass strips
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="canopy-cover" name="what-action" type="radio" value="canopy-cover">
+              <label class="govuk-label govuk-radios__label" for="canopy-cover">
+                Encourage diversification of the stand and continuity of canopy cover
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="fencing" name="what-action" type="radio" value="fencing">
+              <label class="govuk-label govuk-radios__label" for="fencing">
+                Fence off rivers, streams, lakes and ponds from livestock
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="deadwood" name="what-action" type="radio" value="deadwood">
+              <label class="govuk-label govuk-radios__label" for="deadwood">
+                Manage deadwood
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="bare-soil" name="what-action" type="radio" value="bare-soil">
+              <label class="govuk-label govuk-radios__label" for="bare-soil">
+                Minimise bare soil
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="drinking-water" name="what-action" type="radio" value="drinking-water">
+              <label class="govuk-label govuk-radios__label" for="drinking-water">
+                Provide livestock drinking water
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

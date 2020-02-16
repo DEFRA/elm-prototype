@@ -19,30 +19,77 @@ Example usage:
 
 module.exports = {
 
-  // Insert values here
+  "manure": {
+    "type": "Avoid applying manure on land sloping to water body",
+    "outcome": "to reduce concentrations of faecal bacteria in surface water bodies",
+    "unit": "hectares",
+    "rate": "£50 per hectare",
+    "amount": 0,
+    "multiplier": 50
+  },
 
-}
+  "bog-grazing": {
+    "type": "Control grazing on bogs and peatlands",
+    "outcome": "to maintain and enhance storage of carbon",
+    "unit": "hectares",
+    "rate": "£7 per hectare",
+    "amount": 0,
+    "multiplier": 7
+  },
 
-/*
+  "grass-strips": {
+    "type": "Create, maintain and/or enhance contour grass strips",
+    "outcome": "to reduce impact of, and enhance resilience to, flooding",
+    "unit": "hectares",
+    "rate": "£557 per hectare",
+    "amount": 0,
+    "multiplier": 557
+  },
 
-Provide default values for user session data. These are automatically added
-via the `autoStoreData` middleware. Values will only be added to the
-session if a value doesn't already exist. This may be useful for testing
-journeys where users are returning or logging in to an existing application.
+  "canopy-cover": {
+    "type": "Encourage diversification of the stand and continuity of canopy cover",
+    "outcome": "through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change",
+    "unit": "hectares",
+    "rate": "£70 per hectare",
+    "amount": 0,
+    "multiplier": 70
+  },
 
-============================================================================
+  "fencing": {
+    "type": "Fence off rivers, streams, lakes and ponds from livestock",
+    "outcome": "to prevent bank-side erosion, reduce nutrient input and faecal contamination",
+    "unit": "metres",
+    "rate": "£4 per metre",
+    "amount": 0,
+    "multiplier": 4
+  },
 
-Example usage:
+  "deadwood": {
+    "type": "Manage deadwood",
+    "outcome": "remove diseased deadwood, leave other deadwood as habitat for invertebrates to maintain/enhance habitat condition to support characteristic species",
+    "unit": "hectares",
+    "rate": "£100 per hectare",
+    "amount": 0,
+    "multiplier": 100
+  },
 
-"full-name": "Sarah Philips",
+  "bare-soil": {
+    "type": "Minimise bare soil",
+    "outcome": "or the amount of time within a rotation that soil is bare, especially during the winter, to reduce impact of, and enhance resilience to, flooding",
+    "unit": "hectares",
+    "rate": "£331 per hectare",
+    "amount": 0,
+    "multiplier": 331
+  },
 
-"options-chosen": [ "foo", "bar" ]
-
-============================================================================
-
-*/
-
-module.exports = {
+  "drinking-water": {
+    "type": "Provide livestock drinking water",
+    "outcome": "as alternative to drinking from watercourse to reduce deposition of sediment in sensitive water bodies",
+    "unit": "troughs",
+    "rate": "£220 per trough",
+    "amount": 0,
+    "multiplier": 220
+  },
 
   "outcome": "all outcomes",
 

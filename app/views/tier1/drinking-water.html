@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ data['drinking-water']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/tier1/actions">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/tier1/actions-answers" method="post">
+
+        <span class="govuk-caption-xl">Action</span>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--xl">
+            How many drinking troughs do you want to install?
+          </label>
+          <span id="drinking-water-amount-hint" class="govuk-hint">
+            Must be a number
+          </span>
+          {% if data['drinking-water']['amount'] == 0 %}
+          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          {% else %}
+          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['drinking-water']['amount'] }}">
+          {% endif %}
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,177 +1,190 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check your answers
+Check your answers
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="another-type">Back</a>
+<a class="govuk-back-link" href="/tier1/calculation">Back</a>
 {% endblock %}
+
+<!--calulations-->
+{% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}
+{% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}
+{% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}
+{% set canopyTotal = data['canopy-cover']['multiplier'] * data['canopy-cover']['amount'] %}
+{% set fencingTotal = data['fencing']['multiplier'] * data['fencing']['amount'] %}
+{% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}
+{% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}
+{% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}
+
+{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal %}
 
 {% block content %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Check your answers</h1>
+    <h1 class="govuk-heading-xl">Check your answers</h1>
 
-        <h2 class="govuk-heading-l">Your farm</h2>
+    <h2 class="govuk-heading-m">Your actions</h2>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
-             <div class="govuk-summary-list__row">
-               <dt class="govuk-summary-list__key">
-                 Main farming
-               </dt>
-               <dd class="govuk-summary-list__value">
-                 {{ data['farm-type'] }}
-               </dd>
-                 <dd class="govuk-summary-list__actions">
-                     <a class="govuk-link" href="farm-type">
-                       Change<span class="govuk-visually-hidden"> farming type</span>
-                       </a>
-                 </dd>
-             </div>
+      {% if data['manure']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['manure']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['manure']['amount'] }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }}<br><br>Total payment: £{{ manureTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-             {% if data['farm-type-2'] != undefined %}
-             <div class="govuk-summary-list__row">
-               <dt class="govuk-summary-list__key">
-                 Other farming
-               </dt>
-               <dd class="govuk-summary-list__value">
-                 {{ data['farm-type-2'] }}
-               </dd>
-                 <dd class="govuk-summary-list__actions">
-                     <a class="govuk-link" href="farm-type-2">
-                       Change<span class="govuk-visually-hidden"> other farming type</span>
-                       </a>
-                 </dd>
-             </div>
+      {% if data['bog-grazing']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bog-grazing']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['bog-grazing']['amount'] }} {{ data['bog-grazing']['unit'] }} at {{ data['bog-grazing']['rate'] }}<br><br>Total payment: £{{ bogTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-             {% else %}
-             <div class="govuk-summary-list__row">
-               <dt class="govuk-summary-list__key">
-                 Other farming
-               </dt>
-               <dd class="govuk-summary-list__value">
-                 none
-               </dd>
-                 <dd class="govuk-summary-list__actions">
-                     <a class="govuk-link" href="farm-type-2">
-                       Change<span class="govuk-visually-hidden"> other farming type</span>
-                       </a>
-                 </dd>
-             </div>
-             {% endif %}
+      {% if data['grass-strips']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grass-strips']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['grass-strips']['amount'] }} {{ data['grass-strips']['unit'] }} at {{ data['grass-strips']['rate'] }}<br><br>Total payment: £{{ grassTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-       </dl>
+      {% if data['canopy-cover']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['canopy-cover']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['canopy-cover']['amount'] }} {{ data['canopy-cover']['unit'] }} at {{ data['canopy-cover']['rate'] }}<br><br>Total payment: £{{ canopyTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-          <h2 class="govuk-heading-l">Your actions</h2>
+      {% if data['fencing']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fencing']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['fencing']['amount'] }} {{ data['fencing']['unit'] }} at {{ data['fencing']['rate'] }}<br><br>Total payment: £{{ fencingTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-          {% if data['fence-length'] != undefined %}
-          {{ govukSummaryList({
-            classes: 'govuk-!-margin-bottom-9',
-            rows: [
-              {
-                key: {
-                  text: "Fencing"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Remove",
-                      visuallyHiddenText: "remove-fencing"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Fencing length"
-                },
-                value: {
-                  text: data['fence-length']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "fence length"
-                    }
-                  ]
-                }
-              }
-            ]
-          }) }}
-          {% else %}
-          {% endif %}
+      {% if data['deadwood']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['deadwood']['amount'] }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }}<br><br>Total payment: £{{ deadwoodTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-          {% if data['crop-area'] != undefined %}
-          {{ govukSummaryList({
-            rows: [
-              {
-                key: {
-                  text: "Cover crops"
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Remove",
-                      visuallyHiddenText: "remove-cover-crops"
-                    }
-                  ]
-                }
-              },
-              {
-                key: {
-                  text: "Area of cover crops"
-                },
-                value: {
-                  text: data['crop-area']
-                },
-                actions: {
-                  items: [
-                    {
-                      href: "#",
-                      text: "Change",
-                      visuallyHiddenText: "crop area"
-                    }
-                  ]
-                }
-              }
-            ]
-          }) }}
-          {% else %}
-          {% endif %}
+      {% if data['bare-soil']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bare-soil']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['bare-soil']['amount'] }} {{ data['bare-soil']['unit'] }} at {{ data['bare-soil']['rate'] }}<br><br>Total payment: £{{ soilTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
 
-          {{ govukButton({
+      {% if data['drinking-water']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['drinking-water']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['drinking-water']['amount'] }} {{ data['drinking-water']['unit'] }} at {{ data['drinking-water']['rate'] }}<br><br>Total payment: £{{ waterTotal }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
+
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total payment</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ fullTotal }}</strong></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
+
+    </dl>
+
+    {{ govukButton({
             text: "Add another action",
             href: "/tier1/actions",
             classes: "govuk-button--secondary govuk-!-margin-bottom-9"
           }) }}
 
-        <h2 class="govuk-heading-l">Submitting your application</h2>
+    <h2 class="govuk-heading-m">Bank and building society details</h2>
 
-        <p>By confirming you agree that:</p>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name on the account
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['name-on-the-account'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/tier1/bank-details">
+            Change<span class="govuk-visually-hidden"> name on the account</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Sort code
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['sort-code'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/tier1/bank-details">
+            Change<span class="govuk-visually-hidden"> sort code</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Account number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['account-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> account number</span>
+          </a>
+        </dd>
+      </div>
+      {% if data['roll-number']|length != 0 %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Building society roll number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['roll-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> building society roll number</span>
+          </a>
+        </dd>
+      </div>
+      {% else %}{% endif %}
+    </dl>
 
+
+    <h2 class="govuk-heading-l">Submitting your application</h2>
+
+    <div class="govuk-warning-text govuk-!-margin-bottom-0">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        <p><strong>The actions you've selected require you to provide evidence to support your claim.</strong></p>
+        <p><strong>By confirming you agree that:</strong></p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>the information you've provided us with is correct</li>
-          <li>if required, you will provide sufficient evidence to support your chosen actions</li>
+          <li><strong>the information you've provided us with is correct</strong></li>
+          <li><strong>you will provide evidence to support your chosen actions</strong></li>
         </ul>
+      </strong>
+    </div>
 
-      <form action="/tier1/confirmation" method="post" novalidate>
+    <form action="/tier1/confirmation" method="post" novalidate>
 
-        <input type="hidden" name="answers-checked" value="true">
+      <input type="hidden" name="answers-checked" value="true">
 
-        {{ govukButton({
-          text: "Confirm and send",
+      {{ govukButton({
+          text: "Confirm and submit",
           preventDoubleClick: true
         }) }}
 
-      </form>
+    </form>
 
-    </div>
   </div>
+</div>
 {% endblock %}

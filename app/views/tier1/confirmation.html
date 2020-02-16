@@ -4,15 +4,27 @@
   Confirmation
 {% endblock %}
 
+<!--calulations-->
+{% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}
+{% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}
+{% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}
+{% set canopyTotal = data['canopy-cover']['multiplier'] * data['canopy-cover']['amount'] %}
+{% set fencingTotal = data['fencing']['multiplier'] * data['fencing']['amount'] %}
+{% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}
+{% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}
+{% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}
+
+{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">Proposal submitted</h1>
+        <h1 class="govuk-panel__title">We've received your application</h1>
         <div class="govuk-panel__body">
-          Your reference number<br><strong>HDJ2123F</strong>
+          Your reference number is<br><strong>LMP-SMITHP00001</strong>
         </div>
       </div>
 
@@ -21,8 +33,10 @@
       </p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
-      <p>Your proposal will now be assessed. This normally takes up to two weeks.</p>
-      <p>We will contact you either to confirm your agreement, or to ask for more information.</p>
+
+      <p>Your payment for <strong>£{{ fullTotal }}</strong> should enter your account within the next 30 days.</p>
+      <p>We’ll let you know if we need any more information.</p>
+      <p>If you need to speak to us about this application, contact the Rural Payments Agency on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>LMP-SMITHP00001</strong>.</p>
       <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
 
 
