@@ -13,8 +13,13 @@
 {% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}
 {% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}
 {% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}
+{% set coverTotal = data['cover-crops']['multiplier'] * data['cover-crops']['amount'] %}
+{% set grasslandTotal = data['create-grassland']['multiplier'] * data['create-grassland']['amount'] %}
+{% set flowerTotal = data['flower-habitat']['multiplier'] * data['flower-habitat']['amount'] %}
+{% set treeTotal = data['tree-belts']['multiplier'] * data['tree-belts']['amount'] %}
 
-{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal %}
+{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal + coverTotal + grasslandTotal + flowerTotal + treeTotal %}
+{% set monthlyTotal = fullTotal / 12 %}
 
 <!--reference number-->
 {% set refNumberName = data['name-on-the-account']|replace(' ', '') %}
@@ -38,7 +43,7 @@
 
       <h2 class="govuk-heading-m">What happens next</h2>
 
-      <p>Your payment for <strong>£{{ fullTotal }}</strong> should enter your account within the next 30 days.</p>
+      <p>Your first monthly payment of <strong>£{{ monthlyTotal|round(2) }}</strong> should enter your account within the next 30 days.</p>
       <p>We’ll let you know if we need any more information.</p>
       <p>If you need to speak to us about this application, contact the Rural Payments Agency on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>{{ refNumber }}</strong>.</p>
       <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>

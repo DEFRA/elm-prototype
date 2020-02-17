@@ -36,6 +36,10 @@ router.post('/actions-answer', function (req, res) {
   if (action == "fencing"){res.redirect('/tier1/fencing')}
   if (action == "deadwood"){res.redirect('/tier1/deadwood')}
   if (action == "bare-soil"){res.redirect('/tier1/bare-soil')}
+  if (action == "cover-crops"){res.redirect('/tier1/cover-crops')}
+  if (action == "tree-belts"){res.redirect('/tier1/tree-belts')}
+  if (action == "create-grassland"){res.redirect('/tier1/create-grassland')}
+  if (action == "flower-habitat"){res.redirect('/tier1/flower-habitat')}
   else {res.redirect('/tier1/drinking-water')}
 })
 

@@ -23,6 +23,13 @@ Your actions
       </div>
       {% else %}{% endif %}
 
+      {% if data['create-grassland']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['create-grassland']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['create-grassland']['amount'] }} {{ data['create-grassland']['unit'] }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
+
       {% if data['bog-grazing']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bog-grazing']['type'] }}</dt>
         <dd class="govuk-summary-list__value">{{ data['bog-grazing']['amount'] }} {{ data['bog-grazing']['unit'] }}</dd>
@@ -34,6 +41,13 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grass-strips']['type'] }}</dt>
         <dd class="govuk-summary-list__value">{{ data['grass-strips']['amount'] }} {{ data['grass-strips']['unit'] }}</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
+
+      {% if data['tree-belts']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['tree-belts']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['tree-belts']['amount'] }} {{ data['tree-belts']['unit'] }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['type'] }}</span></a></dd>
       </div>
       {% else %}{% endif %}
 
@@ -65,10 +79,24 @@ Your actions
       </div>
       {% else %}{% endif %}
 
+      {% if data['flower-habitat']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['flower-habitat']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['flower-habitat']['amount'] }} {{ data['flower-habitat']['unit'] }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
+
       {% if data['drinking-water']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['drinking-water']['type'] }}</dt>
         <dd class="govuk-summary-list__value">{{ data['drinking-water']['amount'] }} {{ data['drinking-water']['unit'] }}</dd>
         <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['type'] }}</span></a></dd>
+      </div>
+      {% else %}{% endif %}
+
+      {% if data['cover-crops']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['cover-crops']['type'] }}</dt>
+        <dd class="govuk-summary-list__value">{{ data['cover-crops']['amount'] }} {{ data['cover-crops']['unit'] }}</dd>
+        <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['type'] }}</span></a></dd>
       </div>
       {% else %}{% endif %}
 

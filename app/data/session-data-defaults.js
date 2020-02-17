@@ -19,13 +19,13 @@ Example usage:
 
 module.exports = {
 
-  "manure": {
-    "type": "Avoid applying manure on land sloping to water body",
-    "outcome": "to reduce concentrations of faecal bacteria in surface water bodies",
+  "bare-soil": {
+    "type": "Minimise bare soil",
+    "outcome": "or the amount of time within a rotation that soil is bare, especially during the winter, to reduce impact of, and enhance resilience to, flooding",
     "unit": "hectares",
-    "rate": "£50 per hectare",
+    "rate": "£331 per hectare",
     "amount": 0,
-    "multiplier": 50
+    "multiplier": 331
   },
 
   "bog-grazing": {
@@ -37,15 +37,6 @@ module.exports = {
     "multiplier": 7
   },
 
-  "grass-strips": {
-    "type": "Create, maintain and/or enhance contour grass strips",
-    "outcome": "to reduce impact of, and enhance resilience to, flooding",
-    "unit": "hectares",
-    "rate": "£557 per hectare",
-    "amount": 0,
-    "multiplier": 557
-  },
-
   "canopy-cover": {
     "type": "Encourage diversification of the stand and continuity of canopy cover",
     "outcome": "through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change",
@@ -55,13 +46,22 @@ module.exports = {
     "multiplier": 70
   },
 
-  "fencing": {
-    "type": "Fence off rivers, streams, lakes and ponds from livestock",
-    "outcome": "to prevent bank-side erosion, reduce nutrient input and faecal contamination",
-    "unit": "metres",
-    "rate": "£4 per metre",
+  "cover-crops": {
+    "type": "Use cover crops",
+    "outcome": "",
+    "unit": "hectares",
+    "rate": "£114 per hectare",
     "amount": 0,
-    "multiplier": 4
+    "multiplier": 114
+  },
+
+  "create-grassland": {
+    "type": "Convert arable and intensive grassland to species rich grassland",
+    "outcome": "",
+    "unit": "hectares",
+    "rate": "£267 per hectare",
+    "amount": 0,
+    "multiplier": 267
   },
 
   "deadwood": {
@@ -73,15 +73,6 @@ module.exports = {
     "multiplier": 100
   },
 
-  "bare-soil": {
-    "type": "Minimise bare soil",
-    "outcome": "or the amount of time within a rotation that soil is bare, especially during the winter, to reduce impact of, and enhance resilience to, flooding",
-    "unit": "hectares",
-    "rate": "£331 per hectare",
-    "amount": 0,
-    "multiplier": 331
-  },
-
   "drinking-water": {
     "type": "Provide livestock drinking water",
     "outcome": "as alternative to drinking from watercourse to reduce deposition of sediment in sensitive water bodies",
@@ -89,6 +80,51 @@ module.exports = {
     "rate": "£220 per trough",
     "amount": 0,
     "multiplier": 220
+  },
+
+  "fencing": {
+    "type": "Fence off rivers, streams, lakes and ponds from livestock",
+    "outcome": "to prevent bank-side erosion, reduce nutrient input and faecal contamination",
+    "unit": "metres",
+    "rate": "£4 per metre",
+    "amount": 0,
+    "multiplier": 4
+  },
+
+  "flower-habitat": {
+    "type": "Provide flower-rich habitat",
+    "outcome": "",
+    "unit": "hectares",
+    "rate": "£511 per metre",
+    "amount": 0,
+    "multiplier": 511
+  },
+
+  "grass-strips": {
+    "type": "Create, maintain and/or enhance contour grass strips",
+    "outcome": "to reduce impact of, and enhance resilience to, flooding",
+    "unit": "hectares",
+    "rate": "£557 per hectare",
+    "amount": 0,
+    "multiplier": 557
+  },
+
+  "manure": {
+    "type": "Avoid applying manure on land sloping to water body",
+    "outcome": "to reduce concentrations of faecal bacteria in surface water bodies",
+    "unit": "hectares",
+    "rate": "£50 per hectare",
+    "amount": 0,
+    "multiplier": 50
+  },
+
+  "tree-belts": {
+    "type": "Create, maintain and/or enhance hillside tree belts",
+    "outcome": "",
+    "unit": "trees",
+    "rate": "£1.28 per tree",
+    "amount": 0,
+    "multiplier": 1.28
   },
 
   "outcome": "all outcomes",

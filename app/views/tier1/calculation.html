@@ -9,16 +9,21 @@ How much will you be paid?
 {% endblock %}
 
 <!--calulations-->
-{% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}
-{% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}
-{% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}
-{% set canopyTotal = data['canopy-cover']['multiplier'] * data['canopy-cover']['amount'] %}
-{% set fencingTotal = data['fencing']['multiplier'] * data['fencing']['amount'] %}
-{% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}
-{% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}
-{% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}
+{% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}{% set monthlyManureTotal = manureTotal / 12 %}
+{% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}{% set monthlyBogTotal = bogTotal / 12 %}
+{% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}{% set monthlyGrassTotal = grassTotal / 12 %}
+{% set canopyTotal = data['canopy-cover']['multiplier'] * data['canopy-cover']['amount'] %}{% set monthlyCanopyTotal = canopyTotal / 12 %}
+{% set fencingTotal = data['fencing']['multiplier'] * data['fencing']['amount'] %}{% set monthlyFencingTotal = fencingTotal / 12 %}
+{% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}{% set monthlyDeadwoodTotal = deadwoodTotal / 12 %}
+{% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}{% set monthlySoilTotal = soilTotal / 12 %}
+{% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}{% set monthlyWaterTotal = waterTotal / 12 %}
+{% set coverTotal = data['cover-crops']['multiplier'] * data['cover-crops']['amount'] %}{% set monthlyCoverTotal = coverTotal / 12 %}
+{% set grasslandTotal = data['create-grassland']['multiplier'] * data['create-grassland']['amount'] %}{% set monthlyGrasslandTotal = grasslandTotal / 12 %}
+{% set flowerTotal = data['flower-habitat']['multiplier'] * data['flower-habitat']['amount'] %}{% set monthlyFlowerTotal = flowerTotal / 12 %}
+{% set treeTotal = data['tree-belts']['multiplier'] * data['tree-belts']['amount'] %}{% set monthlyTreeTotal = treeTotal / 12 %}
 
-{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal %}
+{% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal + coverTotal + grasslandTotal + flowerTotal + treeTotal %}
+{% set monthlyTotal = fullTotal / 12 %}
 
 {% block content %}
 
@@ -29,7 +34,7 @@ How much will you be paid?
       How much will you be paid?
     </h1>
 
-    <p class="govuk-body">Based on the information you have provided, we calculate the total amount you will receive is <strong>£{{ fullTotal }}</strong>.
+    <p class="govuk-body">Based on the information you have provided, we calculate you would receive a total yearly payment of <strong>£{{ fullTotal }}</strong>. This would be sent to you in 12 monthly instalments of <strong>£{{ monthlyTotal|round(2) }}</strong>.</p>
 
       {% if data['manure']['amount'] != 0 %}
       <h2 class="govuk-heading-m">{{ data['manure']['type'] }}</h2>
@@ -43,7 +48,25 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ manureTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ manureTotal }} (£{{ monthlyManureTotal|round(2) }} per month)</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      {% endif %}
+
+      {% if data['create-grassland']['amount'] != 0 %}
+      <h2 class="govuk-heading-m">{{ data['create-grassland']['type'] }}</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
+          <dd class="govuk-summary-list__value">{{ data['create-grassland']['amount'] }} {{ data['create-grassland']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['type'] }}</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
+          <dd class="govuk-summary-list__value">{{ data['create-grassland']['rate'] }}</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
+          <dd class="govuk-summary-list__value">£{{ grasslandTotal }} (£{{ monthlyGrasslandTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -61,7 +84,7 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ bogTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ bogTotal }} (£{{ monthlyBogTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -79,7 +102,25 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ grassTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ grassTotal }} (£{{ monthlyGrassTotal|round(2) }} per month)</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      {% endif %}
+
+      {% if data['tree-belts']['amount'] != 0 %}
+      <h2 class="govuk-heading-m">{{ data['tree-belts']['type'] }}</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
+          <dd class="govuk-summary-list__value">{{ data['tree-belts']['amount'] }} {{ data['tree-belts']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['type'] }}</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
+          <dd class="govuk-summary-list__value">{{ data['tree-belts']['rate'] }}</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
+          <dd class="govuk-summary-list__value">£{{ treeTotal }} (£{{ monthlyTreeTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -97,7 +138,7 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ canopyTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ canopyTotal }} (£{{ monthlyCanopyTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -115,7 +156,7 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ fencingTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ fencingTotal }} (£{{ monthlyFencingTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -133,7 +174,7 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ deadwoodTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ deadwoodTotal }} (£{{ monthlyDeadwoodTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -151,7 +192,25 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ soilTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ soilTotal }} (£{{ monthlySoilTotal|round(2) }} per month)</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      {% endif %}
+
+      {% if data['flower-habitat']['amount'] != 0 %}
+      <h2 class="govuk-heading-m">{{ data['flower-habitat']['type'] }}</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
+          <dd class="govuk-summary-list__value">{{ data['flower-habitat']['amount'] }} {{ data['flower-habitat']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type'] }}</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
+          <dd class="govuk-summary-list__value">{{ data['flower-habitat']['rate'] }}</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
+          <dd class="govuk-summary-list__value">£{{ flowerTotal }} (£{{ monthlyFlowerTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
@@ -169,7 +228,25 @@ How much will you be paid?
           <dd class="govuk-summary-list__actions"></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
-          <dd class="govuk-summary-list__value">£{{ waterTotal }}</dd>
+          <dd class="govuk-summary-list__value">£{{ waterTotal }} (£{{ monthlyWaterTotal|round(2) }} per month)</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+      </dl>
+      {% endif %}
+
+      {% if data['cover-crops']['amount'] != 0 %}
+      <h2 class="govuk-heading-m">{{ data['cover-crops']['type'] }}</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
+          <dd class="govuk-summary-list__value">{{ data['cover-crops']['amount'] }} {{ data['cover-crops']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['type'] }}</span></a></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
+          <dd class="govuk-summary-list__value">{{ data['cover-crops']['rate'] }}</dd>
+          <dd class="govuk-summary-list__actions"></dd>
+        </div>
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total</dt>
+          <dd class="govuk-summary-list__value">£{{ coverTotal }} (£{{ monthlyCoverTotal|round(2) }} per month)</dd>
           <dd class="govuk-summary-list__actions"></dd>
         </div>
       </dl>
