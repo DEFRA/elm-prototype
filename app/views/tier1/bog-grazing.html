@@ -21,13 +21,10 @@
           <label class="govuk-label govuk-label--xl">
             How much bog and peatland would you like to control grazing on?
           </label>
-          <span id="bog-grazing-amount-hint" class="govuk-hint">
-            Must be a number (in {{ data['bog-grazing']['unit'] }})
-          </span>
           {% if data['bog-grazing']['amount'] == 0 %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="text" aria-describedby="bog-grazing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="text" aria-describedby="bog-grazing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span class="govuk-body govuk-!-margin-left-1">{{ data['bog-grazing']['unit'] }}</span>
           {% else %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="text" aria-describedby="bog-grazing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['bog-grazing']['amount'] }}">
+          <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="text" aria-describedby="bog-grazing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['bog-grazing']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['bog-grazing']['unit'] }}</span>
           {% endif %}
         </div>
 

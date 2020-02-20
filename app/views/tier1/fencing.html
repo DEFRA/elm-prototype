@@ -25,9 +25,9 @@
             Must be a number (in meters)
           </span>
           {% if data['fencing']['amount'] == 0 %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="fencing[amount]" name="fencing[amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          <input class="govuk-input govuk-!-width-one-quarter" id="fencing[amount]" name="fencing[amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span class="govuk-body govuk-!-margin-left-1">{{ data['fencing']['unit'] }}</span>
           {% else %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="fencing[amount]" name="fencing[amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['fencing']['amount'] }}">
+          <input class="govuk-input govuk-!-width-one-quarter" id="fencing[amount]" name="fencing[amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['fencing']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['fencing']['unit'] }}</span>
           {% endif %}
         </div>
 

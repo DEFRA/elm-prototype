@@ -121,7 +121,7 @@ module.exports = {
   "tree-belts": {
     "type": "Create, maintain and/or enhance hillside tree belts",
     "outcome": "",
-    "unit": "trees",
+    "unit": "tree(s)",
     "rate": "£1.28 per tree",
     "amount": 0,
     "multiplier": 1.28

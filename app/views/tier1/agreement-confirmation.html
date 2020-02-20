@@ -23,7 +23,7 @@
 
 <!--reference number-->
 {% set refNumberName = data['name-on-the-account']|replace(' ', '') %}
-{% set refNumber = "LMP-" + refNumberName + '00' + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random %}
+{% set refNumber = "LMP-Agree" + refNumberName|truncate(8, true, "") + '00' + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random %}
 
 {% block content %}
 
@@ -31,7 +31,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation">
-        <h1 class="govuk-panel__title">We've received your application</h1>
+        <h1 class="govuk-panel__title">Agreement confirmed</h1>
         <div class="govuk-panel__body">
           Your reference number is<br><strong>{{ refNumber }}</strong>
         </div>
@@ -45,7 +45,7 @@
 
       <p>Your first monthly payment of <strong>£{{ monthlyTotal|round(2) }}</strong> should enter your account within the next 30 days.</p>
       <p>We’ll let you know if we need any more information.</p>
-      <p>If you need to speak to us about this application, contact the Rural Payments Agency on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>{{ refNumber }}</strong>.</p>
+      <p>If you need to speak to us about your agreement, contact the Rural Payments Agency on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>{{ refNumber }}</strong>.</p>
       <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
 
 

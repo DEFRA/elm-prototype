@@ -25,9 +25,9 @@
             Must be a number
           </span>
           {% if data['drinking-water']['amount'] == 0 %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span class="govuk-body govuk-!-margin-left-1">{{ data['drinking-water']['unit'] }}</span>
           {% else %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['drinking-water']['amount'] }}">
+          <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="text" aria-describedby="drinking-water-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['drinking-water']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['drinking-water']['unit'] }}</span>
           {% endif %}
         </div>
 

@@ -21,13 +21,10 @@
           <label class="govuk-label govuk-label--xl">
             How much arable and intensive grassland would you like to convert to species rich grassland?
           </label>
-          <span id="create-grassland-amount-hint" class="govuk-hint">
-            Must be a number (in {{ data['create-grassland']['unit'] }})
-          </span>
           {% if data['create-grassland']['amount'] == 0 %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="text" aria-describedby="create-grassland-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false">
+          <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="text" aria-describedby="create-grassland-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span class="govuk-body govuk-!-margin-left-1">{{ data['create-grassland']['unit'] }}</span>
           {% else %}
-          <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="text" aria-describedby="create-grassland-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['create-grassland']['amount'] }}">
+          <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="text" aria-describedby="create-grassland-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false" value="{{ data['create-grassland']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['create-grassland']['unit'] }}</span>
           {% endif %}
         </div>
 

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Application confirmation
+{% endblock %}
+
+<!--reference number-->
+{% set refNumberName = data['name-on-the-account']|replace(' ', '') %}
+{% set refNumber = "LMP-App" + refNumberName|truncate(8, true, "") + '00' + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Your application has been successful</h1>
+      <div class="govuk-panel__body">
+        Your application number is<br><strong>{{ refNumber }}</strong>
+      </div>
+    </div>
+
+    <p>
+      We have sent you a confirmation email.
+    </p>
+
+    <h2 class="govuk-heading-m">Your agreement</h2>
+
+    <p>Your agreement is now available to view.</p>
+    <p>You can accept your agreement now or print, sign and return it to us via post, see the agreement document for more information.</p>
+
+    {{ govukButton({
+        href: "/tier1/agreement",
+        text: "View agreement"
+      }) }}
+
+  </div>
+</div>
+
+{% endblock %}
