@@ -25,15 +25,7 @@ Check your answers
 {% set fullTotal = manureTotal + bogTotal + grassTotal + canopyTotal + fencingTotal + deadwoodTotal + soilTotal + waterTotal + coverTotal + grasslandTotal + flowerTotal + treeTotal %}
 
 {% block content %}
-<script>
-var future = new Date();
-future.setTime(future.getTime() + 30 * 24 * 60 * 60 * 1000);
-var str = future.getUTCDate().toString() + "/" +
-          (future.getUTCMonth() + 1).toString() +
-          "/" + future.getUTCFullYear();
 
-document.write(str)
-</script>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
