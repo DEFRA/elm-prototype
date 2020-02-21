@@ -5,8 +5,8 @@ Application confirmation
 {% endblock %}
 
 <!--reference number-->
-{% set refNumberName = data['name-on-the-account']|replace(' ', '') %}
-{% set refNumber = "LMP-App" + refNumberName|truncate(8, true, "") + 'P00' + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random %}
+<!--{% set refNumberName = data['name-on-the-account']|replace(' ', '') %}-->
+{% set refNumber = "ELMApp" + refNumberName|truncate(5, true, "") + 'P00' + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random %}
 
 {% block content %}
 
@@ -26,12 +26,11 @@ Application confirmation
 
     <h2 class="govuk-heading-m">Your agreement</h2>
 
-    <p>Your agreement is now available to view.</p>
-    <p>You can accept your agreement now or print, sign and return it to us via post, see the agreement document for more information.</p>
+    <p>Your agreement is now available to view and validate. We will arrange for you to receive your first monthly payment once you have viewed and validated your agreement.</p>
 
     {{ govukButton({
         href: "/tier1/agreement",
-        text: "View agreement"
+        text: "View your agreement"
       }) }}
 
   </div>

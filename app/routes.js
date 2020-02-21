@@ -29,18 +29,24 @@ router.post('/actions-answer', function (req, res) {
 
   var action = req.session.data['what-action']
 
-  if (action == "manure"){res.redirect('/tier1/manure')}
-  if (action == "bog-grazing"){res.redirect('/tier1/bog-grazing')}
-  if (action == "grass-strips"){res.redirect('/tier1/grass-strips')}
-  if (action == "canopy-cover"){res.redirect('/tier1/canopy-cover')}
-  if (action == "fencing"){res.redirect('/tier1/fencing')}
-  if (action == "deadwood"){res.redirect('/tier1/deadwood')}
+  if (action == "agroforestry"){res.redirect('/tier1/agroforestry')}
   if (action == "bare-soil"){res.redirect('/tier1/bare-soil')}
+  if (action == "bog-grazing"){res.redirect('/tier1/bog-grazing')}
+  if (action == "canopy-cover"){res.redirect('/tier1/canopy-cover')}
   if (action == "cover-crops"){res.redirect('/tier1/cover-crops')}
-  if (action == "tree-belts"){res.redirect('/tier1/tree-belts')}
   if (action == "create-grassland"){res.redirect('/tier1/create-grassland')}
+  if (action == "deadwood"){res.redirect('/tier1/deadwood')}
+  if (action == "drinking-water"){res.redirect('/tier1/drinking-water')}
+  if (action == "fencing"){res.redirect('/tier1/fencing')}
+  if (action == "fertilisers"){res.redirect('/tier1/fertilisers')}
+  if (action == "fertiliser-spreading"){res.redirect('/tier1/fertiliser-spreading')}
   if (action == "flower-habitat"){res.redirect('/tier1/flower-habitat')}
-  else {res.redirect('/tier1/drinking-water')}
+  if (action == "grass-strips"){res.redirect('/tier1/grass-strips')}
+  if (action == "manure"){res.redirect('/tier1/manure')}
+  if (action == "no-till"){res.redirect('/tier1/no-till')}
+  if (action == "nutrients"){res.redirect('/tier1/nutrients')}
+  if (action == "tree-belts"){res.redirect('/tier1/tree-belts')}
+  else {res.redirect('/tier1/wind-erosion')}
 })
 
 /*

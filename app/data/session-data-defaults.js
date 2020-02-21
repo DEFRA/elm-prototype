@@ -19,9 +19,18 @@ Example usage:
 
 module.exports = {
 
+  "agroforestry": {
+    "code": "A7",
+    "type": "Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies",
+    "unit": "hectares",
+    "rate": "£427 per hectare",
+    "amount": 0,
+    "multiplier": 427
+  },
+
   "bare-soil": {
-    "type": "Minimise bare soil",
-    "outcome": "or the amount of time within a rotation that soil is bare, especially during the winter, to reduce impact of, and enhance resilience to, flooding",
+    "code": "FL1",
+    "type": "Minimise bare soil to reduce flooding",
     "unit": "hectares",
     "rate": "£331 per hectare",
     "amount": 0,
@@ -29,8 +38,8 @@ module.exports = {
   },
 
   "bog-grazing": {
-    "type": "Control grazing on bogs and peatlands",
-    "outcome": "to maintain and enhance storage of carbon",
+    "code": "U1",
+    "type": "Control grazing on bogs and peatlands to enhance carbon storage",
     "unit": "hectares",
     "rate": "£7 per hectare",
     "amount": 0,
@@ -38,8 +47,8 @@ module.exports = {
   },
 
   "canopy-cover": {
-    "type": "Encourage diversification of the stand and continuity of canopy cover",
-    "outcome": "through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change",
+    "code": "F1",
+    "type": "Encourage diversification of the stand and continuity of canopy cover to enhance resilience to climate change",
     "unit": "hectares",
     "rate": "£70 per hectare",
     "amount": 0,
@@ -47,8 +56,8 @@ module.exports = {
   },
 
   "cover-crops": {
-    "type": "Use cover crops",
-    "outcome": "",
+    "code": "A5",
+    "type": "Use cover crops to maintain carbon storage and reduce sediment in water bodies",
     "unit": "hectares",
     "rate": "£114 per hectare",
     "amount": 0,
@@ -56,8 +65,8 @@ module.exports = {
   },
 
   "create-grassland": {
-    "type": "Convert arable and intensive grassland to species rich grassland",
-    "outcome": "",
+    "code": "A9",
+    "type": "Create a species rich grassland to enhance habitats",
     "unit": "hectares",
     "rate": "£267 per hectare",
     "amount": 0,
@@ -65,8 +74,8 @@ module.exports = {
   },
 
   "deadwood": {
-    "type": "Manage deadwood",
-    "outcome": "remove diseased deadwood, leave other deadwood as habitat for invertebrates to maintain/enhance habitat condition to support characteristic species",
+    "code": "F2",
+    "type": "Manage deadwood to improve habitats",
     "unit": "hectares",
     "rate": "£100 per hectare",
     "amount": 0,
@@ -74,8 +83,8 @@ module.exports = {
   },
 
   "drinking-water": {
-    "type": "Provide livestock drinking water",
-    "outcome": "as alternative to drinking from watercourse to reduce deposition of sediment in sensitive water bodies",
+    "code": "U3",
+    "type": "Provide drinking water for livestock to reduce the amount of sediment in water bodies",
     "unit": "troughs",
     "rate": "£220 per trough",
     "amount": 0,
@@ -83,17 +92,35 @@ module.exports = {
   },
 
   "fencing": {
-    "type": "Fence off rivers, streams, lakes and ponds from livestock",
-    "outcome": "to prevent bank-side erosion, reduce nutrient input and faecal contamination",
+    "code": "U2",
+    "type": "Fence off water sources from livestock to prevent erosion, nutrient input and contamination",
     "unit": "metres",
     "rate": "£4 per metre",
     "amount": 0,
     "multiplier": 4
   },
 
+  "fertilisers": {
+    "code": "A1",
+    "type": "Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions",
+    "unit": "hectares",
+    "rate": "£427 per hectare",
+    "amount": 0,
+    "multiplier": 427
+  },
+
+  "fertiliser-spreading": {
+    "code": "A2",
+    "type": "Use inorganic fertiliser spreading machinery to reduce ammonia emissions",
+    "unit": "hectares",
+    "rate": "£427 per hectare",
+    "amount": 0,
+    "multiplier": 427
+  },
+
   "flower-habitat": {
-    "type": "Provide flower-rich habitat",
-    "outcome": "",
+    "code": "A10",
+    "type": "Provide flower-rich habitat for pollinators",
     "unit": "hectares",
     "rate": "£511 per metre",
     "amount": 0,
@@ -101,8 +128,8 @@ module.exports = {
   },
 
   "grass-strips": {
-    "type": "Create, maintain and/or enhance contour grass strips",
-    "outcome": "to reduce impact of, and enhance resilience to, flooding",
+    "code": "FL2",
+    "type": "Create or maintain contour grass strips to reduce flooding",
     "unit": "hectares",
     "rate": "£557 per hectare",
     "amount": 0,
@@ -110,21 +137,48 @@ module.exports = {
   },
 
   "manure": {
-    "type": "Avoid applying manure on land sloping to water body",
-    "outcome": "to reduce concentrations of faecal bacteria in surface water bodies",
+    "code": "U4",
+    "type": "Avoid applying manure on land sloping to a water body to reduce amount of faecal bacteria in the water",
     "unit": "hectares",
     "rate": "£50 per hectare",
     "amount": 0,
     "multiplier": 50
   },
 
+  "no-till": {
+    "code": "A3",
+    "type": "Use no-till cultivation on agricultural lowland peatland soils to improve carbon storage",
+    "unit": "hectares",
+    "rate": "£427 per hectare",
+    "amount": 0,
+    "multiplier": 427
+  },
+
+  "nutrients": {
+    "code": "A4",
+    "type": "Reduce nutrient use to reduce catchment nutrient loads",
+    "unit": "hectares",
+    "rate": "£293 per hectare",
+    "amount": 0,
+    "multiplier": 293
+  },
+
   "tree-belts": {
-    "type": "Create, maintain and/or enhance hillside tree belts",
-    "outcome": "",
+    "code": "A6",
+    "type": "Create or maintain hill-slope tree shelter belts to reduce flooding",
     "unit": "tree(s)",
     "rate": "£1.28 per tree",
     "amount": 0,
     "multiplier": 1.28
+  },
+
+  "wind-erosion": {
+    "code": "A8",
+    "type": "Increase organic matter in soils to reduce wind erosion",
+    "unit": "hectares",
+    "rate": "£170 per hectare",
+    "amount": 0,
+    "multiplier": 170
   },
 
   "outcome": "all outcomes",
