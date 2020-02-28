@@ -60,6 +60,17 @@ router.post('/site-visit-required', function (req, res) {
   else {res.redirect('/tier1/calculation')}
 })
 
+// Step-by-step
+router.post('/application-complete', function (req, res) {
+
+  var canopyCover = req.session.data['canopy-cover']['amount']
+  var deadWood = req.session.data['deadwood']['amount']
+
+  if (canopyCover != 0){res.redirect('/tier1/completing-your-application')}
+  if (deadWood != 0){res.redirect('/tier1/completing-your-application')}
+  else {res.redirect('/tier1/agreement-confirmation')}
+})
+
 /*
 
 // Add an additional farm type
