@@ -37,14 +37,14 @@ Check your answers
 
     <h1 class="govuk-heading-xl">Your agreement</h1>
 
-    <div class="govuk-inset-text">
+    <div class="govuk-inset-text govuk-!-margin-bottom-9">
       <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Checks completed successfully</h2>
       Your chosen action(s) are appropriate for the land registration information we have on record for your business.
     </div>
 
     <h2 class="govuk-heading-l">Your plan</h2>
 
-    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
       {% if data['manure']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['manure']['type'] }}</dt>
@@ -161,7 +161,7 @@ Check your answers
 
     </dl>
 
-    <h2 class="govuk-heading-l">Confirm your agreement</h2>
+    <h2 class="govuk-heading-l">Consent to your agreement</h2>
 
     <p>The actions you've selected require you to provide evidence to support your claim.</p>
       <p>By consenting you agree that:</p>
@@ -177,7 +177,7 @@ Check your answers
 
         <input type="hidden" name="answers-checked" value="true">
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-!-margin-bottom-9">
           <div class="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="agreement-consent" name="agreement-consent" type="checkbox" value="consent-given">
@@ -193,7 +193,7 @@ Check your answers
         </div>
 
         {{ govukButton({
-          text: "Confirm your agreement",
+          text: "Submit your agreement",
           preventDoubleClick: true
         }) }}
 

@@ -17,7 +17,7 @@ router.get('/adviser/*', function(req, res, next){
 })
 
 router.get('/tier1/*', function(req, res, next){
-  res.locals['serviceName'] = 'Apply for Environmental Land Managment'
+  res.locals['serviceName'] = 'Apply for Environmental Land Management'
 
   next()
 })
