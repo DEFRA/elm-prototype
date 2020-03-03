@@ -17,7 +17,7 @@ router.get('/adviser/*', function(req, res, next){
 })
 
 router.get('/tier1/*', function(req, res, next){
-  res.locals['serviceName'] = 'Apply for Environmental Land Managment'
+  res.locals['serviceName'] = 'Apply for Environmental Land Management'
 
   next()
 })
@@ -54,9 +54,13 @@ router.post('/site-visit-required', function (req, res) {
 
   var canopyCover = req.session.data['canopy-cover']['amount']
   var deadWood = req.session.data['deadwood']['amount']
+  var agroForestry = req.session.data['agroforestry']['amount']
+  var treeBelts = req.session.data['tree-belts']['amount']
 
   if (canopyCover != 0){res.redirect('/tier1/site-visit')}
   if (deadWood != 0){res.redirect('/tier1/site-visit')}
+  if (agroForestry != 0){res.redirect('/tier1/site-visit')}
+  if (treeBelts != 0){res.redirect('/tier1/site-visit')}
   else {res.redirect('/tier1/calculation')}
 })
 
@@ -65,9 +69,13 @@ router.post('/application-complete', function (req, res) {
 
   var canopyCover = req.session.data['canopy-cover']['amount']
   var deadWood = req.session.data['deadwood']['amount']
+  var agroForestry = req.session.data['agroforestry']['amount']
+  var treeBelts = req.session.data['tree-belts']['amount']
 
   if (canopyCover != 0){res.redirect('/tier1/completing-your-application')}
   if (deadWood != 0){res.redirect('/tier1/completing-your-application')}
+  if (agroForestry != 0){res.redirect('/tier1/completing-your-application')}
+  if (treeBelts != 0){res.redirect('/tier1/completing-your-application')}
   else {res.redirect('/tier1/agreement-confirmation')}
 })
 

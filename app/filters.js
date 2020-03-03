@@ -38,6 +38,10 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
+    filters.commafy = function(number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
