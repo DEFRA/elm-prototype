@@ -36,7 +36,7 @@ Check your answers
 
     <h1 class="govuk-heading-xl">Your plan</h1>
 
-    <p class="govuk-body">Based on the information you have provided, we calculate you would receive a total annual payment of <strong>£{{ fullTotal }}</strong>.
+    <p class="govuk-body">Based on the information you have provided, we calculate you would receive a total annual payment of <strong>£{{ fullTotal | commafy }}</strong>.
       <!--This would be sent to you in 12 monthly instalments of <strong>£{{ monthlyTotal|round(2) }}</strong>.-->
     </p>
 
@@ -46,7 +46,7 @@ Check your answers
 
       {% if data['manure']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['manure']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['manure']['amount'] }} {{ data['manure']['unit'] }} at<br>{{ data['manure']['rate'] }}<br><br>Total payment: £{{ manureTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }} at<br>{{ data['manure']['rate'] }}<br><br>Total payment: £{{ manureTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['type']}}</span></a></li>
@@ -58,7 +58,7 @@ Check your answers
 
       {% if data['bog-grazing']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['bog-grazing']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['bog-grazing']['amount'] }} {{ data['bog-grazing']['unit'] }} at<br>{{ data['bog-grazing']['rate'] }}<br><br>Total payment: £{{ bogTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }} at<br>{{ data['bog-grazing']['rate'] }}<br><br>Total payment: £{{ bogTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['type']}}</span></a></li>
@@ -70,7 +70,7 @@ Check your answers
 
       {% if data['create-grassland']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['create-grassland']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['create-grassland']['amount'] }} {{ data['create-grassland']['unit'] }} at<br>{{ data['create-grassland']['rate'] }}<br><br>Total payment: £{{ grasslandTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }} at<br>{{ data['create-grassland']['rate'] }}<br><br>Total payment: £{{ grasslandTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['type']}}</span></a></li>
@@ -82,7 +82,7 @@ Check your answers
 
       {% if data['grass-strips']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['grass-strips']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['grass-strips']['amount'] }} {{ data['grass-strips']['unit'] }} at<br>{{ data['grass-strips']['rate'] }}<br><br>Total payment: £{{ grassTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }} at<br>{{ data['grass-strips']['rate'] }}<br><br>Total payment: £{{ grassTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['type']}}</span></a></li>
@@ -94,7 +94,7 @@ Check your answers
 
       {% if data['tree-belts']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['tree-belts']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['tree-belts']['amount'] }} {{ data['tree-belts']['unit'] }} at<br>{{ data['tree-belts']['rate'] }}<br><br>Total payment: £{{ treeTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at<br>{{ data['tree-belts']['rate'] }}<br><br>Total payment: £{{ treeTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['type']}}</span></a></li>
@@ -106,7 +106,7 @@ Check your answers
 
       {% if data['canopy-cover']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['canopy-cover']['type'] }}<br><br>(requires a site visit)</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['canopy-cover']['amount'] }} {{ data['canopy-cover']['unit'] }} at<br>{{ data['canopy-cover']['rate'] }}<br><br>Total payment: £{{ canopyTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }} at<br>{{ data['canopy-cover']['rate'] }}<br><br>Total payment: £{{ canopyTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['type']}}</span></a></li>
@@ -118,7 +118,7 @@ Check your answers
 
       {% if data['fencing']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['fencing']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fencing']['amount'] }} {{ data['fencing']['unit'] }} at<br>{{ data['fencing']['rate'] }}<br><br>Total payment: £{{ fencingTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }} at<br>{{ data['fencing']['rate'] }}<br><br>Total payment: £{{ fencingTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['type']}}</span></a></li>
@@ -130,7 +130,7 @@ Check your answers
 
       {% if data['wind-erosion']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['wind-erosion']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['wind-erosion']['amount'] }} {{ data['wind-erosion']['unit'] }} at<br>{{ data['wind-erosion']['rate'] }}<br><br>Total payment: £{{ windTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }} at<br>{{ data['wind-erosion']['rate'] }}<br><br>Total payment: £{{ windTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/wind-erosion">Change<span class="govuk-visually-hidden"> {{ data['wind-erosion']['type'] }}</span></a></li>
@@ -142,7 +142,7 @@ Check your answers
 
       {% if data['deadwood']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['deadwood']['type'] }}<br><br>(requires a site visit)</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['deadwood']['amount'] }} {{ data['deadwood']['unit'] }} at<br>{{ data['deadwood']['rate'] }}<br><br>Total payment: £{{ deadwoodTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }} at<br>{{ data['deadwood']['rate'] }}<br><br>Total payment: £{{ deadwoodTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['type']}}</span></a></li>
@@ -154,7 +154,7 @@ Check your answers
 
       {% if data['bare-soil']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['bare-soil']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['bare-soil']['amount'] }} {{ data['bare-soil']['unit'] }} at<br>{{ data['bare-soil']['rate'] }}<br><br>Total payment: £{{ soilTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }} at<br>{{ data['bare-soil']['rate'] }}<br><br>Total payment: £{{ soilTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['type']}}</span></a></li>
@@ -166,7 +166,7 @@ Check your answers
 
       {% if data['flower-habitat']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['flower-habitat']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['flower-habitat']['amount'] }} {{ data['flower-habitat']['unit'] }} at<br>{{ data['flower-habitat']['rate'] }}<br><br>Total payment: £{{ flowerTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }} at<br>{{ data['flower-habitat']['rate'] }}<br><br>Total payment: £{{ flowerTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type']}}</span></a></li>
@@ -178,7 +178,7 @@ Check your answers
 
       {% if data['drinking-water']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['drinking-water']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['drinking-water']['amount'] }} {{ data['drinking-water']['unit'] }} at<br>{{ data['drinking-water']['rate'] }}<br><br>Total payment: £{{ waterTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }} at<br>{{ data['drinking-water']['rate'] }}<br><br>Total payment: £{{ waterTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['type']}}</span></a></li>
@@ -190,7 +190,7 @@ Check your answers
 
       {% if data['nutrients']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['nutrients']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['nutrients']['amount'] }} {{ data['nutrients']['unit'] }} at<br>{{ data['nutrients']['rate'] }}<br><br>Total payment: £{{ nutrientsTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }} at<br>{{ data['nutrients']['rate'] }}<br><br>Total payment: £{{ nutrientsTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['type'] }}</span></a></li>
@@ -202,7 +202,7 @@ Check your answers
 
       {% if data['agroforestry']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['agroforestry']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['agroforestry']['amount'] }} {{ data['agroforestry']['unit'] }} at<br>{{ data['agroforestry']['rate'] }}<br><br>Total payment: £{{ agroforestryTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }} at<br>{{ data['agroforestry']['rate'] }}<br><br>Total payment: £{{ agroforestryTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/agroforestry">Change<span class="govuk-visually-hidden"> {{ data['agroforestry']['type'] }}</span></a></li>
@@ -214,7 +214,7 @@ Check your answers
 
       {% if data['cover-crops']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['cover-crops']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['cover-crops']['amount'] }} {{ data['cover-crops']['unit'] }} at<br>{{ data['cover-crops']['rate'] }}<br><br>Total payment: £{{ coverTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }} at<br>{{ data['cover-crops']['rate'] }}<br><br>Total payment: £{{ coverTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['type']}}</span></a></li>
@@ -226,7 +226,7 @@ Check your answers
 
       {% if data['fertiliser-spreading']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['fertiliser-spreading']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fertiliser-spreading']['amount'] }} {{ data['fertiliser-spreading']['unit'] }} at<br>{{ data['fertiliser-spreading']['rate'] }}<br><br>Total payment: £{{ spreadingTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at<br>{{ data['fertiliser-spreading']['rate'] }}<br><br>Total payment: £{{ spreadingTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['type'] }}</span></a></li>
@@ -238,7 +238,7 @@ Check your answers
 
       {% if data['fertilisers']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['fertilisers']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fertilisers']['amount'] }} {{ data['fertilisers']['unit'] }} at<br>{{ data['fertilisers']['rate'] }}<br><br>Total payment: £{{ fertilisersTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }} at<br>{{ data['fertilisers']['rate'] }}<br><br>Total payment: £{{ fertilisersTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/fertilisers">Change<span class="govuk-visually-hidden"> {{ data['fertilisers']['type'] }}</span></a></li>
@@ -250,7 +250,7 @@ Check your answers
 
       {% if data['no-till']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">{{ data['no-till']['type'] }}</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['no-till']['amount'] }} {{ data['no-till']['unit'] }} at<br>{{ data['no-till']['rate'] }}<br><br>Total payment: £{{ tillTotal }}</dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third">{{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }} at<br>{{ data['no-till']['rate'] }}<br><br>Total payment: £{{ tillTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['type'] }}</span></a></li>
@@ -261,7 +261,7 @@ Check your answers
       {% else %}{% endif %}
 
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third">Total payment</dt>
-        <dd class="govuk-summary-list__value govuk-!-width-one-third"><strong>£{{ fullTotal }}</strong></dd>
+        <dd class="govuk-summary-list__value govuk-!-width-one-third"><strong>£{{ fullTotal | commafy }}</strong></dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third"></dd>
       </div>
 
