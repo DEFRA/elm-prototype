@@ -28,7 +28,7 @@ Check your answers
 {% set fertilisersTotal = data['fertilisers']['multiplier'] * data['fertilisers']['amount'] %}
 {% set tillTotal = data['no-till']['multiplier'] * data['no-till']['amount'] %}
 
-{% set fullTotal = manureTotal + bogTotal + grasslandTotal + grassTotal + treeTotal + canopyTotal + fencingTotal + windTotal + deadwoodTotal + soilTotal + flowerTotal + waterTotal + nutrientsTotal + coverTotal + spreadingTotal + fertilisersTotal + tillTotal %}
+{% set fullTotal = manureTotal + bogTotal + grasslandTotal + grassTotal + treeTotal + canopyTotal + fencingTotal + windTotal + deadwoodTotal + soilTotal + flowerTotal + waterTotal + nutrientsTotal + agroforestryTotal + coverTotal + spreadingTotal + fertilisersTotal + tillTotal %}
 
 {% block content %}
 
@@ -71,7 +71,7 @@ Check your answers
       {% else %}{% endif %}
 
       {% if data['tree-belts']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['tree-belts']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['tree-belts']['type'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at {{ data['tree-belts']['rate'] }}<br><br>Total payment: £{{ treeTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
@@ -125,7 +125,7 @@ Check your answers
       {% else %}{% endif %}
 
       {% if data['agroforestry']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['agroforestry']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['agroforestry']['type'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }}<br><br>Total payment: £{{ agroforestryTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
@@ -168,7 +168,7 @@ Check your answers
       <ul class="govuk-list govuk-list--bullet">
         <li>the information you've provided us with is correct</li>
         <li>if asked, you will provide evidence to support your chosen actions</li>
-        {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] != 0 %}
+        {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
         <li>you will arrange a site visit</li>
         {% endif %}
       </ul>
@@ -182,7 +182,7 @@ Check your answers
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="agreement-consent" name="agreement-consent" type="checkbox" value="consent-given">
               <label class="govuk-label govuk-checkboxes__label" for="agreement-consent">
-                {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] != 0 %}
+                {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
                 I consent <span class="govuk-visually-hidden"> that the information I've provided is correct, that if asked, I will provide evidence to support my chosen actions and that I will arrange a site visit.</span>
                 {% else %}
                 I consent <span class="govuk-visually-hidden"> that the information I've provided is correct and that if asked I will provide evidence to support my chosen actions.</span>

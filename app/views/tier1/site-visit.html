@@ -19,16 +19,22 @@ Question page
 
     <p>The actions you've selected</p>
     <ul class="govuk-list govuk-list--bullet">
+      {% if data['tree-belts']['amount'] != 0 %}
+      <li>create or maintain hill-slope tree shelter belts to reduce flooding</li>
+      {% endif %}
       {% if data['canopy-cover']['amount'] != 0 %}
       <li>encourage diversification of the stand and continuity of canopy cover to enhance resilience to climate change</li>
       {% endif %}
       {% if data['deadwood']['amount'] != 0 %}
       <li>manage deadwood to improve habitats</li>
       {% endif %}
+      {% if data['agroforestry']['amount'] != 0 %}
+      <li>use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies</li>
+      {% endif %}
     </ul>
     <p>require you to arrange a site visit.</p>
 
-    <p class="govuk-!-margin-top-7">You can find out how to do this on the <a href="https://www.gov.uk/government/organisations/forestry-commission">forestry commission website</a>.</p>
+    <!--<p class="govuk-!-margin-top-7">You can find out how to do this on the <a href="https://www.gov.uk/government/organisations/forestry-commission">forestry commission website</a>.</p>-->
 
   </div>
 </div>
