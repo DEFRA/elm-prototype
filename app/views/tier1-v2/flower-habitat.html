@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['flower-habitat']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v2/actions-answers" method="post">
+
+      <span class="govuk-caption-xl">Action</span>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land do you want to create flower-rich habitat on?
+        </label>
+        {% if data['flower-habitat']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="flower-habitat[amount]" name="flower-habitat[amount]" type="text" aria-describedby="flower-habitat-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['flower-habitat']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="flower-habitat[amount]" name="flower-habitat[amount]" type="text" aria-describedby="flower-habitat-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+          value="{{ data['flower-habitat']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['flower-habitat']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

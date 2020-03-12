@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Evidence required
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Evidence required</h1>
+
+      <form class="form" action="/tier1-v2/all-answers" method="post">
+
+        <p class="govuk-body govuk-!-margin-bottom-7">The actions you've selected require additional evidence.</p>
+
+        <p class="govuk-body">By confirming you agree that:</p>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+          <li>you will provide sufficient evidence to support your chosen actions</li>
+        </ul>
+
+        <button class="govuk-button" data-module="govuk-button">Confirm and save</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
