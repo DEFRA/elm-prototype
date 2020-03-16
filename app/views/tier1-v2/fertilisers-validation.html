@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['fertilisers']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/fertilisers-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to use lower emission fertilisers on?
+        </label>
+
+        {% if data['fertilisers']['amount'] == "" %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a value
+        </span>
+        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="fertilisers[amount]" name="fertilisers[amount]" type="text" aria-describedby="fertilisers-amount-hint fertilisers-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['fertilisers']['unit'] }}</span>
+
+        {% elif data['fertilisers']['amount'] == 0 %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
+        </span>
+        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="fertilisers[amount]" name="fertilisers[amount]" type="text" aria-describedby="fertilisers-amount-hint fertilisers-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+          value="{{ data['fertilisers']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['fertilisers']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

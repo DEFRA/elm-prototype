@@ -9,6 +9,17 @@ $(document).ready(function () {
   window.GOVUKFrontend.initAll()
 })
 
+// calculate date 30 days from now
+
+var future = new Date();
+future.setTime(future.getTime() + 30 * 24 * 60 * 60 * 1000);
+document.getElementById("date").innerHTML = future.getUTCDate().toString() + "&nbsp;" +
+  future.toLocaleString('default', {
+    month: 'long'
+  }).toString() +
+  "&nbsp;" + future.getUTCFullYear();
+
+
 
 var allPlots = $("svg.plots .plot");
 
