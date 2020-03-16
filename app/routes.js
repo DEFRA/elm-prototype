@@ -49,19 +49,192 @@ router.post('/actions-answer', function (req, res) {
   else {res.redirect('/tier1-v2/wind-erosion')}
 })
 
-// Arrange a site visit
-router.post('/site-visit-required', function (req, res) {
+// Raise errors on attributes
+router.post('/agroforestry-validation', function (req, res) {
+
+  var agroForestry = req.session.data['agroforestry']['amount']
+
+  if (agroForestry == undefined ){res.redirect('/tier1-v2/agroforestry-validation')}
+  if (agroForestry == null ){res.redirect('/tier1-v2/agroforestry-validation')}
+  if (agroForestry == 0 ){res.redirect('/tier1-v2/agroforestry-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/bare-soil-validation', function (req, res) {
+
+  var bareSoil = req.session.data['bare-soil']['amount']
+
+  if (bareSoil == undefined ){res.redirect('/tier1-v2/bare-soil-validation')}
+  if (bareSoil == null ){res.redirect('/tier1-v2/bare-soil-validation')}
+  if (bareSoil == 0 ){res.redirect('/tier1-v2/bare-soil-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/bog-grazing-validation', function (req, res) {
+
+  var bogGrazing = req.session.data['bog-grazing']['amount']
+
+  if (bogGrazing == undefined ){res.redirect('/tier1-v2/bog-grazing-validation')}
+  if (bogGrazing == null ){res.redirect('/tier1-v2/bog-grazing-validation')}
+  if (bogGrazing == 0 ){res.redirect('/tier1-v2/bog-grazing-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/canopy-cover-validation', function (req, res) {
 
   var canopyCover = req.session.data['canopy-cover']['amount']
+
+  if (canopyCover == undefined ){res.redirect('/tier1-v2/canopy-cover-validation')}
+  if (canopyCover == null ){res.redirect('/tier1-v2/canopy-cover-validation')}
+  if (canopyCover == 0 ){res.redirect('/tier1-v2/canopy-cover-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/create-grassland-validation', function (req, res) {
+
+  var createGrassland = req.session.data['create-grassland']['amount']
+
+  if (createGrassland == undefined ){res.redirect('/tier1-v2/create-grassland-validation')}
+  if (createGrassland == null ){res.redirect('/tier1-v2/create-grassland-validation')}
+  if (createGrassland == 0 ){res.redirect('/tier1-v2/create-grassland-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/deadwood-validation', function (req, res) {
+
   var deadWood = req.session.data['deadwood']['amount']
-  var agroForestry = req.session.data['agroforestry']['amount']
+
+  if (deadWood == undefined ){res.redirect('/tier1-v2/deadwood-validation')}
+  if (deadWood == null ){res.redirect('/tier1-v2/deadwood-validation')}
+  if (deadWood == 0 ){res.redirect('/tier1-v2/deadwood-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/drinking-water-validation', function (req, res) {
+
+  var drinkingWater = req.session.data['drinking-water']['amount']
+
+  if (drinkingWater == undefined ){res.redirect('/tier1-v2/drinking-water-validation')}
+  if (drinkingWater == null ){res.redirect('/tier1-v2/drinking-water-validation')}
+  if (drinkingWater == 0 ){res.redirect('/tier1-v2/drinking-water-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/fencing-validation', function (req, res) {
+
+  var fencing = req.session.data['fencing']['amount']
+
+  if (fencing == undefined ){res.redirect('/tier1-v2/fencing-validation')}
+  if (fencing == null ){res.redirect('/tier1-v2/fencing-validation')}
+  if (fencing == 0 ){res.redirect('/tier1-v2/fencing-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/fertilisers-validation', function (req, res) {
+
+  var fertilisers = req.session.data['fertilisers']['amount']
+
+  if (fertilisers == undefined ){res.redirect('/tier1-v2/fertilisers-validation')}
+  if (fertilisers == null ){res.redirect('/tier1-v2/fertilisers-validation')}
+  if (fertilisers == 0 ){res.redirect('/tier1-v2/fertilisers-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/fertiliser-spreading-validation', function (req, res) {
+
+  var fertiliserSpreading = req.session.data['fertiliser-spreading']['amount']
+
+  if (fertiliserSpreading == undefined ){res.redirect('/tier1-v2/fertiliser-spreading-validation')}
+  if (fertiliserSpreading == null ){res.redirect('/tier1-v2/fertiliser-spreading-validation')}
+  if (fertiliserSpreading == 0 ){res.redirect('/tier1-v2/fertiliser-spreading-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/flower-habitat-validation', function (req, res) {
+
+  var flowerHabitat = req.session.data['flower-habitat']['amount']
+
+  if (flowerHabitat == undefined ){res.redirect('/tier1-v2/flower-habitat-validation')}
+  if (flowerHabitat == null ){res.redirect('/tier1-v2/flower-habitat-validation')}
+  if (flowerHabitat == 0 ){res.redirect('/tier1-v2/flower-habitat-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/grass-strips-validation', function (req, res) {
+
+  var grassStrips = req.session.data['grass-strips']['amount']
+
+  if (grassStrips == undefined ){res.redirect('/tier1-v2/grass-strips-validation')}
+  if (grassStrips == null ){res.redirect('/tier1-v2/grass-strips-validation')}
+  if (grassStrips == 0 ){res.redirect('/tier1-v2/grass-strips-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/manure-validation', function (req, res) {
+
+  var manure = req.session.data['manure']['amount']
+
+  if (manure == undefined ){res.redirect('/tier1-v2/manure-validation')}
+  if (manure == null ){res.redirect('/tier1-v2/manure-validation')}
+  if (manure == 0 ){res.redirect('/tier1-v2/manure-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/no-till-validation', function (req, res) {
+
+  var noTill = req.session.data['no-till']['amount']
+
+  if (noTill == undefined ){res.redirect('/tier1-v2/no-till-validation')}
+  if (noTill == null ){res.redirect('/tier1-v2/no-till-validation')}
+  if (noTill == 0 ){res.redirect('/tier1-v2/no-till-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/nutrients-validation', function (req, res) {
+
+  var nutrients = req.session.data['nutrients']['amount']
+
+  if (nutrients == undefined ){res.redirect('/tier1-v2/nutrients-validation')}
+  if (nutrients == null ){res.redirect('/tier1-v2/nutrients-validation')}
+  if (nutrients == 0 ){res.redirect('/tier1-v2/nutrients-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/tree-belts-validation', function (req, res) {
+
   var treeBelts = req.session.data['tree-belts']['amount']
 
-  if (canopyCover != 0){res.redirect('/tier1-v2/site-visit')}
-  if (deadWood != 0){res.redirect('/tier1-v2/site-visit')}
-  if (agroForestry != 0){res.redirect('/tier1-v2/site-visit')}
-  if (treeBelts != 0){res.redirect('/tier1-v2/site-visit')}
-  else {res.redirect('/tier1-v2/calculation')}
+  if (treeBelts == undefined ){res.redirect('/tier1-v2/tree-belts-validation')}
+  if (treeBelts == null ){res.redirect('/tier1-v2/tree-belts-validation')}
+  if (treeBelts == 0 ){res.redirect('/tier1-v2/tree-belts-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
+router.post('/wind-erosion-validation', function (req, res) {
+
+  var windErosion = req.session.data['wind-erosion']['amount']
+
+  if (windErosion == undefined ){res.redirect('/tier1-v2/wind-erosion-validation')}
+  if (windErosion == null ){res.redirect('/tier1-v2/wind-erosion-validation')}
+  if (windErosion == 0 ){res.redirect('/tier1-v2/wind-erosion-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
 })
 
 // Step-by-step

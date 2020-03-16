@@ -13,14 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v2/actions-answers" method="post">
-
-      <span class="govuk-caption-xl">Action</span>
+    <form class="form" action="/fencing-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
           What length of fencing do you want to install?
         </label>
+        
         {% if data['fencing']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="fencing[amount]" name="fencing[amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['fencing']['unit'] }}</span>

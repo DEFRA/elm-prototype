@@ -13,14 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v2/actions-answers" method="post">
-
-      <span class="govuk-caption-xl">Action</span>
+    <form class="form" action="/deadwood-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
           How much land would you like to manage deadwood on?
         </label>
+        
         {% if data['deadwood']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="deadwood[amount]" name="deadwood[amount]" type="text" aria-describedby="deadwood-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['deadwood']['unit'] }}</span>

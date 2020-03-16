@@ -347,37 +347,6 @@ module.exports = {
       }
   ],
 
-  "actions": [
-    {
-      "agroforestry": {
-        "code": "A7",
-        "type": "Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies",
-        "unit": "hectares",
-        "rate": "£427 per hectare",
-        "amount": 0,
-        "multiplier": 427
-      }
-    },
-    {
-      "name": "bare-soil",
-      "code": "FL1",
-      "type": "Minimise bare soil to reduce flooding",
-      "unit": "hectares",
-      "rate": "£331 per hectare",
-      "amount": 0,
-      "multiplier": 331
-    },
-    {
-      "name": "bog-grazing",
-      "code": "U1",
-      "type": "Control grazing on bogs and peatlands to enhance carbon storage",
-      "unit": "hectares",
-      "rate": "£7 per hectare",
-      "amount": 0,
-      "multiplier": 7
-    }
-  ],
-
   "outcome": "all outcomes",
 
   "warning": "true",

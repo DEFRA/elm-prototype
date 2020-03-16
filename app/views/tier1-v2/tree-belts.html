@@ -13,14 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v2/actions-answers" method="post">
-
-      <span class="govuk-caption-xl">Action</span>
+    <form class="form" action="/tree-belts-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
           How many trees would you like to create or maintain on hillsides?
         </label>
+        
         {% if data['tree-belts']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="tree-belts[amount]" name="tree-belts[amount]" type="text" aria-describedby="tree-belts-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['tree-belts']['unit'] }}</span>

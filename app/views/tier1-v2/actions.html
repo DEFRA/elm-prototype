@@ -24,157 +24,18 @@ What action do you want to do?
           </legend>
 
           <span id="actions-hint" class="govuk-hint">
-            Select all that apply.
+            Select one option.
           </span>
 
-          <!--Working code-->
-          <!--<div class="govuk-checkboxes">
+          <div class="govuk-radios">
             {% for action in data['actions'] | sort(false, true, 'type') %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id={{ action.name }} name="what-action" type="checkbox" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-checkboxes__label" for={{ action.name }}>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
+              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
                 {{ action.type }}
               </label>
             </div>
-            {% endfor %}-->
-
-            <div class="govuk-checkboxes">
-              {% for action in data['actions2'] | sort(false, true, 'type') %}
-
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id={{ action.name }} name="what-action" type="checkbox" value={{ action.name }} {{ checked("what-action", action.name) }}>
-                <label class="govuk-label govuk-checkboxes__label" for={{ action.name }}>
-                  {{ action.type }}
-                </label>
-              </div>
-              {% endfor %}
-
-
-            <!--<div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="manure" name="what-action" type="radio" value="manure">
-              <label class="govuk-label govuk-radios__label" for="manure">
-                Avoid applying manure on land sloping to a water body to reduce amount of faecal bacteria in the water
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="bog-grazing" name="what-action" type="radio" value="bog-grazing">
-              <label class="govuk-label govuk-radios__label" for="bog-grazing">
-                Control grazing on bogs and peatlands to enhance carbon storage
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="create-grassland" name="what-action" type="radio" value="create-grassland">
-              <label class="govuk-label govuk-radios__label" for="create-grassland">
-                Create a species rich grassland to enhance habitats
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="grass-strips" name="what-action" type="radio" value="grass-strips">
-              <label class="govuk-label govuk-radios__label" for="grass-strips">
-                Create or maintain contour grass strips to reduce flooding
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="tree-belts" name="what-action" type="radio" value="tree-belts">
-              <label class="govuk-label govuk-radios__label" for="tree-belts">
-                Create or maintain hill-slope tree shelter belts to reduce flooding
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="canopy-cover" name="what-action" type="radio" value="canopy-cover">
-              <label class="govuk-label govuk-radios__label" for="canopy-cover">
-                Encourage diversification of the stand and continuity of canopy cover to enhance resilience to climate change
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="fencing" name="what-action" type="radio" value="fencing">
-              <label class="govuk-label govuk-radios__label" for="fencing">
-                Fence off water sources from livestock to prevent erosion, nutrient input and contamination
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="wind-erosion" name="what-action" type="radio" value="wind-erosion">
-              <label class="govuk-label govuk-radios__label" for="wind-erosion">
-                Increase organic matter in soils to reduce wind erosion
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="deadwood" name="what-action" type="radio" value="deadwood">
-              <label class="govuk-label govuk-radios__label" for="deadwood">
-                Manage deadwood to improve habitats
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="bare-soil" name="what-action" type="radio" value="bare-soil">
-              <label class="govuk-label govuk-radios__label" for="bare-soil">
-                Minimise bare soil to reduce flooding
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="flower-habitat" name="what-action" type="radio" value="flower-habitat">
-              <label class="govuk-label govuk-radios__label" for="flower-habitat">
-                Provide flower-rich habitat for pollinators
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="drinking-water" name="what-action" type="radio" value="drinking-water">
-              <label class="govuk-label govuk-radios__label" for="drinking-water">
-                Provide drinking water for livestock to reduce the amount of sediment in water bodies
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="nutrients" name="what-action" type="radio" value="nutrients">
-              <label class="govuk-label govuk-radios__label" for="nutrients">
-                Reduce nutrient use to reduce catchment nutrient loads
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="agroforestry" name="what-action" type="radio" value="agroforestry">
-              <label class="govuk-label govuk-radios__label" for="agroforestry">
-                Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="cover-crops" name="what-action" type="radio" value="cover-crops">
-              <label class="govuk-label govuk-radios__label" for="cover-crops">
-                Use cover crops to maintain carbon storage and reduce sediment in water bodies
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="fertiliser-spreading" name="what-action" type="radio" value="fertiliser-spreading">
-              <label class="govuk-label govuk-radios__label" for="fertiliser-spreading">
-                Use inorganic fertiliser spreading machinery to reduce ammonia emissions
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="fertilisers" name="what-action" type="radio" value="fertilisers">
-              <label class="govuk-label govuk-radios__label" for="fertilisers">
-                Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions
-              </label>
-            </div>
-
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="no-till" name="what-action" type="radio" value="no-till">
-              <label class="govuk-label govuk-radios__label" for="no-till">
-                Use no-till cultivation on agricultural lowland peatland soils to improve carbon storage
-              </label>
-            </div>-->
+            {% endfor %}
 
           </div>
         </fieldset>
