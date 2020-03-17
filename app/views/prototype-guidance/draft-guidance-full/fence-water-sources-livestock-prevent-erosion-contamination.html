@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="index">Back to guidance index</a>
+  <a class="govuk-back-link" href="#" onclick="goBack()">Back to search results</a>
 {% endblock %}
 
 {% block content %}
@@ -63,11 +63,12 @@
         <ul class="govuk-list govuk-list--bullet">
           <li>photographs of completed work</li>
         </ul>
-
-
-
-
-        </div>
+      </div>
     </div>
   </div>
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 {% endblock %}

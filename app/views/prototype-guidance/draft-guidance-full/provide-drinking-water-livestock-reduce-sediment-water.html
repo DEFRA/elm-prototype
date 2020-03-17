@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="index">Back to guidance index</a>
+  <a class="govuk-back-link" href="#" onclick="goBack()">Back to search results</a>
 {% endblock %}
 
 {% block content %}
@@ -117,11 +117,12 @@
           <li>invoices or other documents confirming the technical specification for the completed works</li>
           <li>photographs of the completed works in place and installed</li>
         </ul>
-
-
-
-
-        </div>
+      </div>
     </div>
   </div>
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 {% endblock %}

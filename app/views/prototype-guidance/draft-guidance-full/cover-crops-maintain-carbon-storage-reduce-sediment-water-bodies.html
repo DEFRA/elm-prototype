@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="index">Back to guidance index</a>
+  <a class="govuk-back-link" href="#" onclick="goBack()">Back to search results</a>
 {% endblock %}
 
 {% block content %}
@@ -98,23 +98,13 @@
 
         <h2 class="govuk-heading-l">Where you cannot use this action</h2>
 
-        <p>You cannot use this action on land already getting funding for <a href="">Ecological Focus Areas (EFAs)</a> declared for the <a href="">Basic Payment Scheme (BPS)</a>.</p>
-
-
-
-
-
-
-        
-
-        
-
-
-
-
-
-                
+        <p>You cannot use this action on land already getting funding for <a href="">Ecological Focus Areas (EFAs)</a> declared for the <a href="">Basic Payment Scheme (BPS)</a>.</p>                
       </div>
     </div>
   </div>
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 {% endblock %}
