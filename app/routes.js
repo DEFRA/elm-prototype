@@ -94,6 +94,17 @@ router.post('/canopy-cover-validation', function (req, res) {
 
 })
 
+router.post('/cover-crops-validation', function (req, res) {
+
+  var coverCrops = req.session.data['cover-crops']['amount']
+
+  if (coverCrops == undefined ){res.redirect('/tier1-v2/cover-crops-validation')}
+  if (coverCrops == null ){res.redirect('/tier1-v2/cover-crops-validation')}
+  if (coverCrops == 0 ){res.redirect('/tier1-v2/cover-crops-validation')}
+  else {res.redirect('/tier1-v2/actions-answers')}
+
+})
+
 router.post('/create-grassland-validation', function (req, res) {
 
   var createGrassland = req.session.data['create-grassland']['amount']
@@ -255,7 +266,7 @@ router.post('/application-complete', function (req, res) {
 // Tier 1 version 1
 
 // Select an action
-router.post('/actions-answer', function (req, res) {
+router.post('/actions-answer-1', function (req, res) {
 
   var action = req.session.data['what-action']
 
