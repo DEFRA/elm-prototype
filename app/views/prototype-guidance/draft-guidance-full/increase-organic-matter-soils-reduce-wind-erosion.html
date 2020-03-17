@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="index">Back to guidance index</a>
+  <a class="govuk-back-link" href="#" onclick="goBack()">Back to search results</a>
 {% endblock %}
 
 {% block content %}
@@ -78,14 +78,13 @@
 
         <h3 class="govuk-heading-m">Reduce tillage</h3>
 
-        <p>Reducing tillage, or the speed of tillage, can help to decrease soil erosion in certain soils, especially in sandy and dry soils on sloping terrain. It does this by improving soil organisms and aggregates, and reducing airborne dust.</p>        
-
-
-
-
-
-                
+        <p>Reducing tillage, or the speed of tillage, can help to decrease soil erosion in certain soils, especially in sandy and dry soils on sloping terrain. It does this by improving soil organisms and aggregates, and reducing airborne dust.</p>          
       </div>
     </div>
   </div>
+  <script>
+  function goBack() {
+    window.history.back();
+  }
+  </script>
 {% endblock %}
