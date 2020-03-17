@@ -82,7 +82,9 @@
       't1': ['A5:', 'U2:', 'A8:', 'U3:', 'A1:'],
       't2': ['A6:']
     },
+    updating: false,
     list_items: () => {
+      if (document.grant_handler.updating) return
       const enabled_items = [], to_show = []
       $('div.govuk-checkboxes > div > input:checked').each(function () {
         enabled_items.push($(this).val())
@@ -107,6 +109,13 @@
     },
     search_item: (x) => {
       // Need to do this in a timeout handler to give the autocomplete code time to fill in the search box, or this doesn't get the right value
+      document.grant_handler.updating = true
+      try {
+        $('div.govuk-checkboxes > div > input:checked').attr('checked',false)
+      } catch (error) {
+        document.grant_handler.updating = false
+      }
+      document.grant_handler.updating = false
       setTimeout(() => {
         $('ol.guidance-list > li').hide()
         const item = $('#last-location').val()
@@ -120,6 +129,7 @@
     },
     install_handler: () => {
       $('div.govuk-checkboxes > div > input').change( document.grant_handler.list_items )
+      $('div.button-wrapper > button.autocomplete').click( () => {return false} )
       $('#last-location').change( document.grant_handler.search_item )
     }
   }
