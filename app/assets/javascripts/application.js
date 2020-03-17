@@ -48,15 +48,32 @@ const landparcels = [
   'SK 3957 1590'
 ]
 
+//const guidance = [
+ // 'A5: Use cover crops',
+//  'A6: Create or maintain hill slope tree shelter belts',
+//  'U2: Fence off water sources from livestock',
+//  'A8: Increase organic matter in soils',
+//  'U3: Provide drinking water for livestock',
+//  'A1: Use lower emission fertilisers'
+//]
+
 //accessibleAutocomplete({
 //  element: document.querySelector('#my-autocomplete-container'),
 //  id: 'my-autocomplete', // To match it to the existing <label>.
 //  source: topics
 //})
 
-accessibleAutocomplete({
-  element: document.querySelector('#my-autocomplete-container'),
-  id: 'my-autocomplete', // To match it to the existing <label>.
-  showAllValues: true, dropdownArrow: () => '',
-  source: landparcels,
-})
+//accessibleAutocomplete({
+//  element: document.querySelector('#my-autocomplete-container'),
+//  id: 'my-autocomplete', // To match it to the existing <label>.
+//  showAllValues: true, dropdownArrow: () => '',
+//  source: landparcels,
+//})
+
+//accessibleAutocomplete({
+//  element: document.querySelector('#guidance-autocomplete-container'),
+ // id: 'guidance-autocomplete', // To match it to the existing <label>.
+ // showAllValues: true, dropdownArrow: () => '',
+ // source: guidance,
+//})
+
