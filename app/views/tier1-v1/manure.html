@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['manure']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v1/actions-answers" method="post">
+
+      <span class="govuk-caption-xl">Action</span>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much sloping land would you avoid applying manure to?
+        </label>
+        {% if data['manure']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="manure[amount]" name="manure[amount]" type="text" aria-describedby="manure-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['manure']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="manure[amount]" name="manure[amount]" type="text" aria-describedby="manure-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+          value="{{ data['manure']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['manure']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
