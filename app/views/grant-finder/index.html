@@ -105,11 +105,22 @@
         $(`ol.guidance-list > li:contains(${item})`).show()
       })
     },
-    search_item: () => {
-
+    search_item: (x) => {
+      // Need to do this in a timeout handler to give the autocomplete code time to fill in the search box, or this doesn't get the right value
+      setTimeout(() => {
+        $('ol.guidance-list > li').hide()
+        const item = $('#last-location').val()
+        $(`ol.guidance-list > li:contains(${item})`).show()
+        if ($('ol.guidance-list > li').filter(':visible').length === 0)
+        {
+          $('ol.guidance-list > li').show()
+        }
+      },250)
+      
     },
     install_handler: () => {
-      $('div.govuk-checkboxes > div > input').change( () => { document.grant_handler.list_items()})
+      $('div.govuk-checkboxes > div > input').change( document.grant_handler.list_items )
+      $('#last-location').change( document.grant_handler.search_item )
     }
   }
   window.addEventListener('load', document.grant_handler.install_handler)
