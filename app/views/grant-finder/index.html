@@ -72,6 +72,48 @@
         margin: 0.5em 0; padding: 0.5em 0; border-bottom: 1px solid #ccc
       }
 </style>
+<script>
+  document.grant_handler = {
+    demo_data: {
+      'action': ['A5:', 'U2:', 'U3:'],
+      'capital': ['A6:', 'A8:', 'A1:'],
+      'arable': ['A5:', 'A6:', 'A8:', 'A1:'],
+      'uplands': ['U2:', 'U3:'],
+      't1': ['A5:', 'U2:', 'A8:', 'U3:', 'A1:'],
+      't2': ['A6:']
+    },
+    list_items: () => {
+      const enabled_items = [], to_show = []
+      $('div.govuk-checkboxes > div > input:checked').each(function () {
+        enabled_items.push($(this).val())
+      })
+      enabled_items.map((x) => {
+        const check_items = document.grant_handler.demo_data[x]
+        check_items.forEach((item) => {
+          if (!to_show.includes(item)) {
+            to_show.push(item)
+          }
+        })
+        to_show.push[x]
+      })
+      if (to_show.length === 0) {
+        $('ol.guidance-list > li').show()
+      } else {
+        $('ol.guidance-list > li').hide()
+      }
+      to_show.forEach((item) => {
+        $(`ol.guidance-list > li:contains(${item})`).show()
+      })
+    },
+    search_item: () => {
+
+    },
+    install_handler: () => {
+      $('div.govuk-checkboxes > div > input').change( () => { document.grant_handler.list_items()})
+    }
+  }
+  window.addEventListener('load', document.grant_handler.install_handler)
+</script>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -126,13 +168,13 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="action">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation">
                     Action / standard
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="capital">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
                     Captial item
                   </label>
@@ -153,13 +195,13 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="arable">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation">
                     Arable land 
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="uplands">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
                     Uplands
                   </label>
@@ -180,13 +222,13 @@
             <div class="govuk-form-group">
               <div class="govuk-checkboxes govuk-checkboxes--small">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                  <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="t1">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation">
                     Tier 1 
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="t2">
                   <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
                     Tier 2
                   </label>
