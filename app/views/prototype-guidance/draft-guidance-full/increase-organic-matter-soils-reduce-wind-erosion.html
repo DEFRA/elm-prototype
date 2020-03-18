@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-guidance.html" %}
 
 {% block beforeContent %}
   <a class="govuk-back-link" href="#" onclick="goBack()">Back to search results</a>
@@ -7,40 +7,51 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    
-    <div class="govuk-grid-column-full">
-      <span class="govuk-caption-xl">Guidance</span>
-      <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">Increase organic matter in soils to reduce wind erosion</h1>
 
+    <!-- TITLE AND LEDE -->
+
+      <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Guidance</span>
+      <h1 class="govuk-heading-xl">A8: Increase organic matter in soils to reduce wind erosion</h1>
       <p class="govuk-body-l">Find out what you need to do to reduce wind erosion by increasing organic matter in soils.</p>
     </div>
 
-    <div class="govuk-grid-column-two-thirds">
-      
+      <!-- PUBLISHING INFORMATION -->
+
+      <div class="govuk-grid-column-full">
+
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        
+        <div class="app-c-published-dates " lang="en">
+          <p>Published 26 February 2020
+            <br>
+            From: <a class="govuk-link" href="https://www.gov.uk/government/organisations/natural-england">Natural England</a>
+          </p>
+        </div>
+
+      <!-- CONTENTS LIST -->
+
       <div class="dashboard-main">
 
-        <aside id="contents" class="part-navigation-container" role="complementary" style="border:0">
-          <nav role="navigation" class="gem-c-contents-list  " data-module="track-click" aria-label="Pages in this guide">
-            
-            <h2 class="gem-c-contents-list__title govuk-body-s govuk-!-margin-bottom-0">Contents</h2>        
+      <div class="govuk-grid-column-two-thirds">
+
+      <aside id="contents" class="part-navigation-container" role="complementary" style="border:0">
+        <nav role="navigation" class="gem-c-contents-list  " data-module="track-click" aria-label="Pages in this guide">
+          <h2 class="gem-c-contents-list__title govuk-body-s govuk-!-margin-bottom-0">Contents</h2>        
             <ol class="gem-c-contents-list__list">
               <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#where-soil-erosion-wind-happens">Where soil erosion by wind can happen</a></li>
               <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#benefits">Benefits of doing this action</a></li>
-              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#how">How to increase organic matter in soils</a>
-                <ol class="gem-c-contents-list__list">
-                  <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#plant-vegeation">Plant vegetation as ground cover</a></li>
-                  <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#improve-crop-residue">Improve crop residue</a></li>
-                  <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#reduce-tillage">Reduce tillage</a></li>
-                </ol>
-              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#how">How to increase organic matter in soils</a></li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed"><a href="#elm">Use this action for Environmental Land Management (ELM)</a></li>
             </ol>
+        </nav>
+      </aside>
 
-          </nav>
-        </aside>
+      <!-- MAIN CONTENTS -->
 
         <p>Soil erosion affects the quality of soil and reduces soil fertility. It can also lead to increased air and water pollution. Organic matter in soils can help to improve soil quality and structure. This reduces the amount of erosion caused by wind.</p>
 
-        <h2 class="govuk-heading-l">Where soil erosion by wind can happen</h2>
+      <h2 class="govuk-heading-l">Where soil erosion by wind can happen</h2>
 
         <p>Your land may be more at risk from wind erosion if you have:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -49,7 +60,7 @@
         </ul>
         <p>Clay, coarse sand or rocky soils are more resistant to wind erosion.</p>
 
-        <h2 class="govuk-heading-l">Benefits of doing this action</h2>
+      <h2 class="govuk-heading-l">Benefits of doing this action</h2>
 
         <p>Reducing wind erosion of soil will help to reduce air and water pollution caused by increased carbon emissions and sediment leaching.</p>
 
@@ -78,10 +89,37 @@
 
         <h3 class="govuk-heading-m">Reduce tillage</h3>
 
-        <p>Reducing tillage, or the speed of tillage, can help to decrease soil erosion in certain soils, especially in sandy and dry soils on sloping terrain. It does this by improving soil organisms and aggregates, and reducing airborne dust.</p>          
+        <p>Reducing tillage, or the speed of tillage, can help to decrease soil erosion in certain soils, especially in sandy and dry soils on sloping terrain. It does this by improving soil organisms and aggregates, and reducing airborne dust.</p>   
+
+      <h2 class="govuk-heading-l"><a name="elm">Use this action for Environmental Land Management (ELM)</h2>
+
+        <p>This guidance describes an action that can be used as part of an ELM agreement.</p>
+        <p><a href="../../tier1-v2">Apply for ELM</a> or <a href="../../grant-finder">find other ELM actions</a>.</p>
+
       </div>
+
+   <!-- RELATED CONTENT -->
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">Related content</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li><a class="govuk-link" href="create-maintain-hill-slope-tree-shelter-belts">A6: Create or maintain hillslope tree shelter belts to reduce flooding</a></li>
+            <li><a class="govuk-link" href="cover-crops-maintain-carbon-storage-reduce-sediment-water-bodies">A5: Use cover crops to maintain carbon storage and reduce sediment in water bodies</a></li>
+            <li><a class="govuk-link" href="fence-water-sources-livestock-prevent-erosion-contamination">U2: Fence off water sources from livestock to prevent erosion and contamination</a></li>
+            <!-- <li><a class="govuk-link" href="increase-organic-matter-soils-reduce-wind-erosion">IA8: ncrease organic matter in soils to reduce wind erosion</a></li> -->
+            <li><a class="govuk-link" href="provide-drinking-water-livestock-reduce-sediment-water">U3: Provide drinking water for livestock to reduce the amount of sediment in water bodies</a></li>
+            <li><a class="govuk-link" href="use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses">A1: Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions</a></li>
+          </ul>
+        </nav>
+      </aside>
     </div>
+
   </div>
+</div>
+  
+
   <script>
   function goBack() {
     window.history.back();

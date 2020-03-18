@@ -45,15 +45,13 @@
         </div>
       </div>
 
-      <p>
-        We have sent you a confirmation email.
-      </p>
+      <p>We have sent you a confirmation email.</p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
 
-      <p>Your first monthly payment of <strong>£{{ monthlyTotal| round(2) | commafy }}</strong> should enter your account before the <span id="date"></span>.</p>
-      <p>We’ll let you know if we need any more information.</p>
-      <p>If you need to speak to us about your agreement, contact the Rural Payments Agency.<!-- on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>{{ refNumber }}</strong>.--></p>
+      <p>You will get your first monthly payment of <!-- do UR to find out if bold font is needed here  -->£{{ monthlyTotal| round(2) | commafy }} before <span id="date"></span>.</p>
+      <p>We will let you know if we need any more information.</p>
+      <p>To speak to someone about your agreement you must <a href="https://www.gov.uk/government/organisations/rural-payments-agency">contact the Rural Payments Agency</a>. <!-- on 03459 335577 or send an email to <a href="mailto: helpline@defra.gov.uk">helpline@defra.gov.uk</a> quoting your reference <strong>{{ refNumber }}</strong>.--></p>
       <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
 
     </div>

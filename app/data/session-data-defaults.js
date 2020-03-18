@@ -66,7 +66,7 @@ module.exports = {
 
   "create-grassland": {
     "code": "A9",
-    "type": "Create a species rich grassland to enhance habitats",
+    "type": "Create a species-rich grassland to enhance habitats",
     "unit": "hectares",
     "rate": "£267 per hectare",
     "amount": 0,
@@ -165,7 +165,7 @@ module.exports = {
 
   "tree-belts": {
     "code": "A6",
-    "type": "Create or maintain hill-slope tree shelter belts to reduce flooding",
+    "type": "Create or maintain hillslope tree shelter belts to reduce flooding",
     "unit": "tree(s)",
     "rate": "£1.28 per tree",
     "amount": 0,
@@ -231,7 +231,7 @@ module.exports = {
     {
       "name": "create-grassland",
       "code": "A9",
-      "type": "Create a species rich grassland to enhance habitats",
+      "type": "Create a species-rich grassland to enhance habitats",
       "unit": "hectares",
       "rate": "£267 per hectare",
       "amount": 0,
@@ -330,7 +330,7 @@ module.exports = {
     {
       "name": "tree-belts",
       "code": "A6",
-      "type": "Create or maintain hill-slope tree shelter belts to reduce flooding",
+      "type": "Create or maintain hillslope tree shelter belts to reduce flooding",
       "unit": "tree(s)",
       "rate": "£1.28 per tree",
       "amount": 0,

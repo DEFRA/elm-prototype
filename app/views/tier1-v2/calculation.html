@@ -34,7 +34,7 @@ Check your answers
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Your plan</h1>
+    <h1 class="govuk-heading-xl">Your payment calculation</h1>
 
     <p class="govuk-body">Based on the information you have provided{% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %} and subject to a site
       visit{% endif %}, we calculate you would receive a total annual payment of <strong>£{{ fullTotal | commafy }}</strong>.</p>
@@ -93,7 +93,7 @@ Check your answers
       {% endif %}
 
       {% if data['tree-belts']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third" style="border-bottom: none;">{{ data['tree-belts']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-third" style="border-bottom: none;">{{ data['tree-belts']['type'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-third" style="border-bottom: none;">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at<br>{{ data['tree-belts']['rate'] }}<br><br>Total payment:
           £{{ treeTotal | commafy }}</dd>
         <dd class="govuk-summary-list__actions govuk-!-width-one-third" style="border-bottom: none;">
@@ -112,8 +112,8 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/create-maintain-hill-slope-tree-shelter-belts">creating or maintaining hill slope tree shelter belts to reduce flooding</a>.</p>
-          <p>This option requires a site visit.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/create-maintain-hill-slope-tree-shelter-belts" target="_blank">creating or maintaining hill slope tree shelter belts to reduce flooding (opens in a new window or tab)</a>.</p>
+          <!-- <p>This option requires a site visit.</p> -->
         </div>
       </details>
     </div>
@@ -152,7 +152,7 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/fence-water-sources-livestock-prevent-erosion-contamination">fencing off water sources from livestock to prevent erosion and contamination</a>.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/fence-water-sources-livestock-prevent-erosion-contamination" target="_blank">fencing off water sources from livestock to prevent erosion and contamination (opens in a new window or tab)</a>.</p>
         </div>
       </details>
     </div>
@@ -179,7 +179,7 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/increase-organic-matter-soils-reduce-wind-erosion">increasing organic matter in soils to reduce wind erosion</a>.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/increase-organic-matter-soils-reduce-wind-erosion" target="_blank">increasing organic matter in soils to reduce wind erosion (opens in a new window or tab)</a>.</p>
         </div>
       </details>
     </div>
@@ -243,7 +243,7 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/provide-drinking-water-livestock-reduce-sediment-water">providing drinking water for livestock to reduce the amount of sediment in water bodies</a>.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/provide-drinking-water-livestock-reduce-sediment-water" target="_blank">providing drinking water for livestock to reduce the amount of sediment in water bodies (opens in a new window or tab)</a>.</p>
         </div>
       </details>
     </div>
@@ -295,7 +295,7 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/cover-crops-maintain-carbon-storage-reduce-sediment-water-bodies">using cover crops to maintain carbon storage and reduce sediment in water bodies</a>.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/cover-crops-maintain-carbon-storage-reduce-sediment-water-bodies" target="_blank">using cover crops to maintain carbon storage and reduce sediment in water bodies (opens in a new window or tab)</a>.</p>
         </div>
       </details>
     </div>
@@ -336,7 +336,7 @@ Check your answers
           </span>
         </summary>
         <div class="govuk-details__text">
-          <p>View guidance documentation on <a href="/prototype-guidance/draft-guidance-full/use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses">using lower emission fertilisers to reduce ammonia and greenhouse gas emissions</a>.</p>
+          <p>Read guidance about <a href="/prototype-guidance/draft-guidance-full/use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses" target="_blank">using lower emission fertilisers to reduce ammonia and greenhouse gas emissions (opens in a new window or tab)</a>.</p>
         </div>
       </details>
     </div>
@@ -361,6 +361,7 @@ Check your answers
       </div>
 
     </dl>
+    &nbsp;<p></p>
 
     {{ govukButton({
             text: "Add another action",
@@ -372,8 +373,9 @@ Check your answers
 
       <input type="hidden" name="answers-checked" value="true">
 
+
       {{ govukButton({
-          text: "Submit your application",
+          text: "Create your ELM agreement",
           preventDoubleClick: true
         }) }}
 
