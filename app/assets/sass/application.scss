@@ -22,6 +22,19 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+// spinner
+
+.spinner {
+  background-image: url("../images/spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 150px;
+  margin-bottom: 2rem;
+}
+
+.spinner-text {
+  text-align: center;
+}
 
 .float-right {
   float: right;
@@ -255,9 +268,6 @@ $govuk-assets-path: '/govuk/assets/';
     border-top: 2px solid #005ea5;
     margin-top: -21px;
 }
-
-
-
 
 .gem-c-pagination {
     display: block;
