@@ -21,6 +21,7 @@ module.exports = {
 
   "agroforestry": {
     "code": "A7",
+    "group": "arable",
     "type": "Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -57,6 +58,7 @@ module.exports = {
 
   "cover-crops": {
     "code": "A5",
+    "group": "arable",
     "type": "Use cover crops to maintain carbon storage and reduce sediment in water bodies",
     "unit": "hectares",
     "rate": "£114 per hectare",
@@ -66,6 +68,7 @@ module.exports = {
 
   "create-grassland": {
     "code": "A9",
+    "group": "arable",
     "type": "Create a species-rich grassland to enhance habitats",
     "unit": "hectares",
     "rate": "£267 per hectare",
@@ -102,6 +105,7 @@ module.exports = {
 
   "fertilisers": {
     "code": "A1",
+    "group": "arable",
     "type": "Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -111,6 +115,7 @@ module.exports = {
 
   "fertiliser-spreading": {
     "code": "A2",
+    "group": "arable",
     "type": "Use inorganic fertiliser spreading machinery to reduce ammonia emissions",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -120,6 +125,7 @@ module.exports = {
 
   "flower-habitat": {
     "code": "A10",
+    "group": "arable",
     "type": "Provide flower-rich habitat for pollinators",
     "unit": "hectares",
     "rate": "£511 per metre",
@@ -147,6 +153,7 @@ module.exports = {
 
   "no-till": {
     "code": "A3",
+    "group": "arable",
     "type": "Use no-till cultivation on agricultural lowland peatland soils to improve carbon storage",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -156,6 +163,7 @@ module.exports = {
 
   "nutrients": {
     "code": "A4",
+    "group": "arable",
     "type": "Reduce nutrient use to reduce catchment nutrient loads",
     "unit": "hectares",
     "rate": "£293 per hectare",
@@ -165,6 +173,7 @@ module.exports = {
 
   "tree-belts": {
     "code": "A6",
+    "group": "arable",
     "type": "Create or maintain hillslope tree shelter belts to reduce flooding",
     "unit": "tree(s)",
     "rate": "£1.28 per tree",
@@ -174,6 +183,7 @@ module.exports = {
 
   "wind-erosion": {
     "code": "A8",
+    "group": "arable",
     "type": "Increase organic matter in soils to reduce wind erosion",
     "unit": "hectares",
     "rate": "£170 per hectare",
@@ -186,6 +196,9 @@ module.exports = {
     {
       "name": "agroforestry",
       "code": "A7",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies",
       "unit": "hectares",
       "rate": "£427 per hectare",
@@ -195,6 +208,9 @@ module.exports = {
     {
       "name": "bare-soil",
       "code": "FL1",
+      "farmtype": "Mixed",
+      "landtype": "Flood risk",
+      "region": "All",
       "type": "Minimise bare soil to reduce flooding",
       "unit": "hectares",
       "rate": "£331 per hectare",
@@ -204,6 +220,9 @@ module.exports = {
     {
       "name": "bog-grazing",
       "code": "U1",
+      "farmtype": "Mixed",
+      "landtype": "Uplands",
+      "region": "North West",
       "type": "Control grazing on bogs and peatlands to enhance carbon storage",
       "unit": "hectares",
       "rate": "£7 per hectare",
@@ -213,6 +232,9 @@ module.exports = {
     {
       "name": "canopy-cover",
       "code": "F1",
+      "farmtype": "Mixed",
+      "landtype": "Woodland",
+      "region": "All",
       "type": "Encourage diversification of the stand and continuity of canopy cover to enhance resilience to climate change",
       "unit": "hectares",
       "rate": "£70 per hectare",
@@ -222,6 +244,9 @@ module.exports = {
     {
       "name": "cover-crops",
       "code": "A5",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Use cover crops to maintain carbon storage and reduce sediment in water bodies",
       "unit": "hectares",
       "rate": "£114 per hectare",
@@ -231,6 +256,9 @@ module.exports = {
     {
       "name": "create-grassland",
       "code": "A9",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Create a species-rich grassland to enhance habitats",
       "unit": "hectares",
       "rate": "£267 per hectare",
@@ -240,6 +268,9 @@ module.exports = {
     {
       "name": "deadwood",
       "code": "F2",
+      "farmtype": "Mixed",
+      "landtype": "Woodland",
+      "region": "All",
       "type": "Manage deadwood to improve habitats",
       "unit": "hectares",
       "rate": "£100 per hectare",
@@ -249,6 +280,9 @@ module.exports = {
     {
       "name": "drinking-water",
       "code": "U3",
+      "farmtype": "Livestock",
+      "landtype": "Uplands",
+      "region": "North West",
       "type": "Provide drinking water for livestock to reduce the amount of sediment in water bodies",
       "unit": "troughs",
       "rate": "£220 per trough",
@@ -258,6 +292,9 @@ module.exports = {
     {
       "name": "fencing",
       "code": "U2",
+      "farmtype": "Livestock",
+      "landtype": "Uplands",
+      "region": "North West",
       "type": "Fence off water sources from livestock to prevent erosion, nutrient input and contamination",
       "unit": "metres",
       "rate": "£4 per metre",
@@ -267,6 +304,9 @@ module.exports = {
     {
       "name": "fertilisers",
       "code": "A1",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions",
       "unit": "hectares",
       "rate": "£427 per hectare",
@@ -276,6 +316,9 @@ module.exports = {
     {
       "name": "fertiliser-spreading",
       "code": "A2",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Use inorganic fertiliser spreading machinery to reduce ammonia emissions",
       "unit": "hectares",
       "rate": "£427 per hectare",
@@ -285,6 +328,9 @@ module.exports = {
     {
       "name": "flower-habitat",
       "code": "A10",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Provide flower-rich habitat for pollinators",
       "unit": "hectares",
       "rate": "£511 per metre",
@@ -294,6 +340,9 @@ module.exports = {
     {
       "name": "grass-strips",
       "code": "FL2",
+      "farmtype": "Mixed",
+      "landtype": "Flood risk",
+      "region": "All",
       "type": "Create or maintain contour grass strips to reduce flooding",
       "unit": "hectares",
       "rate": "£557 per hectare",
@@ -303,6 +352,9 @@ module.exports = {
     {
       "name": "manure",
       "code": "U4",
+      "farmtype": "Livestock",
+      "landtype": "Uplands",
+      "region": "North West",
       "type": "Avoid applying manure on land sloping to a water body to reduce amount of faecal bacteria in the water",
       "unit": "hectares",
       "rate": "£50 per hectare",
@@ -312,6 +364,9 @@ module.exports = {
     {
       "name": "no-till",
       "code": "A3",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Use no-till cultivation on agricultural lowland peatland soils to improve carbon storage",
       "unit": "hectares",
       "rate": "£427 per hectare",
@@ -321,6 +376,9 @@ module.exports = {
     {
       "name": "nutrients",
       "code": "A4",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Reduce nutrient use to reduce catchment nutrient loads",
       "unit": "hectares",
       "rate": "£293 per hectare",
@@ -330,6 +388,9 @@ module.exports = {
     {
       "name": "tree-belts",
       "code": "A6",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Create or maintain hillslope tree shelter belts to reduce flooding",
       "unit": "tree(s)",
       "rate": "£1.28 per tree",
@@ -339,6 +400,9 @@ module.exports = {
     {
       "name": "wind-erosion",
       "code": "A8",
+      "farmtype": "Arable",
+      "landtype": "Arable land",
+      "region": "South East",
       "type": "Increase organic matter in soils to reduce wind erosion",
       "unit": "hectares",
       "rate": "£170 per hectare",
