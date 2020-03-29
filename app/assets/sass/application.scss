@@ -36,6 +36,14 @@ $govuk-assets-path: '/govuk/assets/';
   text-align: center;
 }
 
+// change / remove links
+
+.summary-list-links {
+  width: 154px !important;
+}
+
+
+
 .float-right {
   float: right;
 }

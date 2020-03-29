@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Arable package
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/actions-answer" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+
+          <span id="actions-hint" class="govuk-hint">
+            Select one action.
+            <!-- You can add more actions later. -->
+          </span>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-7">North East</h2>
+          <div class="govuk-radios">
+            {% for action in data['actions'] | sort(false, true, 'type') %}
+            {% if (action.region == "North East") or (action.region == "All") %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
+              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
+                {{ action.type }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-7">North West</h2>
+          <div class="govuk-radios">
+            {% for action in data['actions'] | sort(false, true, 'type') %}
+            {% if (action.region == "North West") or (action.region == "All") %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
+              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
+                {{ action.type }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-7">South East</h2>
+          <div class="govuk-radios">
+            {% for action in data['actions'] | sort(false, true, 'type') %}
+            {% if (action.region == "South East") or (action.region == "All") %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
+              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
+                {{ action.type }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-7">South West</h2>
+          <div class="govuk-radios">
+            {% for action in data['actions'] | sort(false, true, 'type') %}
+            {% if (action.region == "South West") or (action.region == "All") %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
+              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
+                {{ action.type }}
+              </label>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Sort actions
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="/tier1-v2/actions-farmtype">
+              By farm type
+            </a>
+          </li>
+          <li>
+            <a href="/tier1-v2/actions-landtype">
+              By land type
+            </a>
+          </li>
+          <li>
+            <a href="/tier1-v2/actions-region">
+              By region
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

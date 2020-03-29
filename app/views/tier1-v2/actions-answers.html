@@ -35,7 +35,7 @@ Your actions
       {% if data['manure']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['manure']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?manure[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['manure']['type'] }}</span></a></li>
@@ -47,7 +47,7 @@ Your actions
       {% if data['bog-grazing']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bog-grazing']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bog-grazing[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['bog-grazing']['type'] }}</span></a></li>
@@ -59,7 +59,7 @@ Your actions
       {% if data['create-grassland']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['create-grassland']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?create-grassland[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['create-grassland']['type'] }}</span></a></li>
@@ -71,7 +71,7 @@ Your actions
       {% if data['grass-strips']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['grass-strips']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grass-strips[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['grass-strips']['type'] }}</span></a></li>
@@ -83,7 +83,7 @@ Your actions
       {% if data['tree-belts']['amount'] != 0 %}
       <div class="govuk-summary-list__row" class="govuk-table__header govuk-!-width-one-half"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['tree-belts']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?tree-belts[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['tree-belts']['type'] }}</span></a></li>
@@ -95,7 +95,7 @@ Your actions
       {% if data['canopy-cover']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['canopy-cover']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?canopy-cover[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['canopy-cover']['type'] }}</span></a></li>
@@ -107,7 +107,7 @@ Your actions
       {% if data['fencing']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fencing']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fencing[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['fencing']['type'] }}</span></a></li>
@@ -119,7 +119,7 @@ Your actions
       {% if data['wind-erosion']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['wind-erosion']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/wind-erosion">Change<span class="govuk-visually-hidden"> {{ data['wind-erosion']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?wind-erosion[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['wind-erosion']['type'] }}</span></a></li>
@@ -131,7 +131,7 @@ Your actions
       {% if data['deadwood']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['deadwood']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?deadwood[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['deadwood']['type'] }}</span></a></li>
@@ -143,7 +143,7 @@ Your actions
       {% if data['bare-soil']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bare-soil']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bare-soil[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['bare-soil']['type'] }}</span></a></li>
@@ -155,7 +155,7 @@ Your actions
       {% if data['flower-habitat']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['flower-habitat']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?flower-habitat[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type'] }}</span></a></li>
@@ -167,7 +167,7 @@ Your actions
       {% if data['drinking-water']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['drinking-water']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?drinking-water[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['drinking-water']['type'] }}</span></a></li>
@@ -179,7 +179,7 @@ Your actions
       {% if data['nutrients']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['nutrients']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?nutrients[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['nutrients']['type'] }}</span></a></li>
@@ -191,7 +191,7 @@ Your actions
       {% if data['agroforestry']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['agroforestry']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/agroforestry">Change<span class="govuk-visually-hidden"> {{ data['agroforestry']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?agroforestry[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['agroforestry']['type'] }}</span></a></li>
@@ -203,7 +203,7 @@ Your actions
       {% if data['cover-crops']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['cover-crops']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cover-crops[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['cover-crops']['type'] }}</span></a></li>
@@ -215,7 +215,7 @@ Your actions
       {% if data['fertiliser-spreading']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertiliser-spreading']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertiliser-spreading[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['type'] }}</span></a></li>
@@ -227,7 +227,7 @@ Your actions
       {% if data['fertilisers']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertilisers']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/fertilisers">Change<span class="govuk-visually-hidden"> {{ data['fertilisers']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertilisers[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['fertilisers']['type'] }}</span></a></li>
@@ -239,7 +239,7 @@ Your actions
       {% if data['no-till']['amount'] != 0 %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['no-till']['type'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-quarter">{{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }}</dd>
-        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+        <dd class="govuk-summary-list__actions govuk-!-width-one-quarter summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['type'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?no-till[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['no-till']['type'] }}</span></a></li>
