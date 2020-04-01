@@ -213,7 +213,7 @@ module.exports = {
       "type": "option",
       "farmtype": "Mixed",
       "landtype": "Flood risk",
-      "region": "All",
+      "region": "England",
       "description": "Minimise the amount of bare soil or the amount of time within a rotation that soil is bare, especially during the winter, to reduce impact of, and enhance resilience to, flooding",
       "actions": [
         "Minimise bare soil"
@@ -250,7 +250,7 @@ module.exports = {
       "type": "option",
       "farmtype": "Mixed",
       "landtype": "Woodland",
-      "region": "All",
+      "region": "England",
       "description": "Encourage diversification of the stand and continuity of canopy cover through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change",
       "actions": [
         "Encourage stand and continuity of canopy"
@@ -287,7 +287,7 @@ module.exports = {
       "type": "standard",
       "farmtype": "Mixed",
       "landtype": "Woodland",
-      "region": "All",
+      "region": "England",
       "description": "Manage deadwood (e.g. remove diseased deadwood, leave other deadwood as habitat for invertebrates) to maintain/enhance habitat condition to support characteristic species",
       "actions": [
         "Maintain deadwood"
@@ -363,7 +363,7 @@ module.exports = {
       "type": "option",
       "farmtype": "Mixed",
       "landtype": "Flood risk",
-      "region": "All",
+      "region": "England",
       "description": "Create, maintain and/or enhance contour grass strips to reduce impact of, and enhance resilience to, flooding",
       "actions": [
         "Create, maintain, or enhance grass strips"
