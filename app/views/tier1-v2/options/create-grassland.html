@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['create-grassland']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl"></h1>
+
+    <form class="form" action="/tier1-v2/actions-answers?create-grassland[selected]=true" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Customise package
+              <span class="govuk-heading-m govuk-!-padding-top-4">Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support characteristic species</span>
+            </h1>
+          </legend>
+          <span id="package-hint" class="govuk-hint">
+            Select which options you want to do.
+          </span>
+          <div class="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-create-grassland" name="customise-create-grassland" type="checkbox" value="Arable reversion to grassland with low fertiliser input" {{ checked("customise-create-grassland", "Arable reversion to grassland with low fertiliser input") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="arable reversion to grassland with low fertiliser input">
+                Arable reversion to grassland with low fertiliser input
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-create-grassland" name="customise-create-grassland" type="checkbox" value="Creation of species-rich grassland" {{ checked("customise-create-grassland", "Creation of species-rich grassland") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-create-grassland">
+                Creation of species-rich grassland
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

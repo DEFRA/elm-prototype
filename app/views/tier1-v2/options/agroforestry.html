@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['agroforestry']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl"></h1>
+
+    <form class="form" action="/tier1-v2/actions-answers?agroforestry[selected]=true" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Customise package
+              <span class="govuk-heading-m govuk-!-padding-top-4">Use agroforestry for reducing the impact of, and enhanced resilience to, flooding and drought, to maintain and enhance carbon storage, and reducing deposition of sediment in sensitive water bodies</span>
+            </h1>
+          </legend>
+          <span id="package-hint" class="govuk-hint">
+            Select which options you want to do.
+          </span>
+          <div class="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-agroforestry" name="customise-agroforestry" type="checkbox" value="Use agroforestry to improve resilience to flooding and drought" {{ checked("customise-agroforestry", "Use agroforestry to improve resilience to flooding and drought") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-agroforestry">
+                Use agroforestry to improve resilience to flooding and drought
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-agroforestry" name="customise-agroforestry" type="checkbox" value="Use agroforestry to maintain and enhance carbon storage" {{ checked("customise-agroforestry", "Use agroforestry to maintain and enhance carbon storage") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-agroforestry">
+                Use agroforestry to maintain and enhance carbon storage
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-agroforestry" name="customise-agroforestry" type="checkbox" value="Use agroforestry to reduce deposition of sediment in sensitive water bodies" {{ checked("customise-agroforestry", "Use agroforestry to reduce deposition of sediment in sensitive water bodies") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-agroforestry">
+                Use agroforestry to reduce deposition of sediment in sensitive water bodies
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

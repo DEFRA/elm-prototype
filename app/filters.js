@@ -42,6 +42,10 @@ module.exports = function (env) {
       return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    filters.split = function(str, seperator) {
+    return str.split(seperator);
+    }
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

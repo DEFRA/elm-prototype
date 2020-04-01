@@ -24,61 +24,145 @@ Arable package
           </legend>
 
           <span id="actions-hint" class="govuk-hint">
-            Select one action.
+            Select one option.
             <!-- You can add more actions later. -->
           </span>
 
           <h2 class="govuk-heading-m govuk-!-margin-top-7">North East</h2>
-          <div class="govuk-radios">
-            {% for action in data['actions'] | sort(false, true, 'type') %}
-            {% if (action.region == "North East") or (action.region == "All") %}
+          <div class="govuk-radios" data-module="govuk-radios">
+            {% for option in data['options'] | sort(false, true, 'description') %}
+            {% if (option.region == "North East") or (option.region == "All") %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
-                {{ action.type }}
+              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                {{ option.description }}
               </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                    {% if option.type == "standard" %}
+                    <h2 class="govuk-heading-s">Mandatory actions</h2>
+                    {% endif %}
+                    {% if option.type == "package" %}
+                    <h2 class="govuk-heading-s">Selectable actions</h2>
+                    {% endif %}
+                    {% if option.type == "option" %}
+                    <h2 class="govuk-heading-s">Actions</h2>
+                    {% endif %}
+                    <p class="govuk-body">
+                      <ul class="govuk-list govuk-list--bullet">
+                      {% for action in option.actions %}
+                      <li>{{ action }}</li>
+                      {% endfor %}
+                    </ul></p>
+                </label>
+              </div>
             </div>
             {% endif %}
             {% endfor %}
           </div>
 
           <h2 class="govuk-heading-m govuk-!-margin-top-7">North West</h2>
-          <div class="govuk-radios">
-            {% for action in data['actions'] | sort(false, true, 'type') %}
-            {% if (action.region == "North West") or (action.region == "All") %}
+          <div class="govuk-radios" data-module="govuk-radios">
+            {% for option in data['options'] | sort(false, true, 'description') %}
+            {% if (option.region == "North West") or (option.region == "All") %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
-                {{ action.type }}
+              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }}  data-aria-controls="conditional-{{ option.name }}">
+              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                {{ option.description }}
               </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                    {% if option.type == "standard" %}
+                    <h2 class="govuk-heading-s">Mandatory actions</h2>
+                    {% endif %}
+                    {% if option.type == "package" %}
+                    <h2 class="govuk-heading-s">Selectable actions</h2>
+                    {% endif %}
+                    {% if option.type == "option" %}
+                    <h2 class="govuk-heading-s">Actions</h2>
+                    {% endif %}
+                    <p class="govuk-body">
+                      <ul class="govuk-list govuk-list--bullet">
+                      {% for action in option.actions %}
+                      <li>{{ action }}</li>
+                      {% endfor %}
+                    </ul></p>
+                </label>
+              </div>
             </div>
             {% endif %}
             {% endfor %}
           </div>
 
           <h2 class="govuk-heading-m govuk-!-margin-top-7">South East</h2>
-          <div class="govuk-radios">
-            {% for action in data['actions'] | sort(false, true, 'type') %}
-            {% if (action.region == "South East") or (action.region == "All") %}
+          <div class="govuk-radios" data-module="govuk-radios">
+            {% for option in data['options'] | sort(false, true, 'description') %}
+            {% if (option.region == "South East") or (option.region == "All") %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
-                {{ action.type }}
+              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                {{ option.description }}
               </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                    {% if option.type == "standard" %}
+                    <h2 class="govuk-heading-s">Mandatory actions</h2>
+                    {% endif %}
+                    {% if option.type == "package" %}
+                    <h2 class="govuk-heading-s">Selectable actions</h2>
+                    {% endif %}
+                    {% if option.type == "option" %}
+                    <h2 class="govuk-heading-s">Actions</h2>
+                    {% endif %}
+                    <p class="govuk-body">
+                      <ul class="govuk-list govuk-list--bullet">
+                      {% for action in option.actions %}
+                      <li>{{ action }}</li>
+                      {% endfor %}
+                    </ul></p>
+                </label>
+              </div>
             </div>
             {% endif %}
             {% endfor %}
           </div>
 
           <h2 class="govuk-heading-m govuk-!-margin-top-7">South West</h2>
-          <div class="govuk-radios">
-            {% for action in data['actions'] | sort(false, true, 'type') %}
-            {% if (action.region == "South West") or (action.region == "All") %}
+          <div class="govuk-radios" data-module="govuk-radios">
+            {% for option in data['options'] | sort(false, true, 'description') %}
+            {% if (option.region == "South West") or (option.region == "All") %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
-                {{ action.type }}
+              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                {{ option.description }}
               </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-text">
+                    {% if option.type == "standard" %}
+                    <h2 class="govuk-heading-s">Mandatory actions</h2>
+                    {% endif %}
+                    {% if option.type == "package" %}
+                    <h2 class="govuk-heading-s">Selectable actions</h2>
+                    {% endif %}
+                    {% if option.type == "option" %}
+                    <h2 class="govuk-heading-s">Actions</h2>
+                    {% endif %}
+                    <p class="govuk-body">
+                      <ul class="govuk-list govuk-list--bullet">
+                      {% for action in option.actions %}
+                      <li>{{ action }}</li>
+                      {% endfor %}
+                    </ul></p>
+                </label>
+              </div>
             </div>
             {% endif %}
             {% endfor %}
@@ -114,6 +198,11 @@ Arable package
           <li>
             <a href="/tier1-v2/actions-region">
               By region
+            </a>
+          </li>
+          <li>
+            <a href="/tier1-v2/actions-types">
+              By type
             </a>
           </li>
         </ul>
