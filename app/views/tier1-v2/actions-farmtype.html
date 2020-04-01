@@ -11,109 +11,70 @@ Arable package
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
+  <div class="govuk-grid-column-full">
     <form class="form" action="/actions-answer" method="post">
-
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
+            <h1 class="govuk-heading-xl">
               What do you want to do?
             </h1>
           </legend>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <p class="govuk-body-l">
+                 Select one option
+              </p>
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Arable</h2>
+              <div class="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Arable" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
 
-          <span id="actions-hint" class="govuk-hint">
-            Select one option.
-            <!-- You can add more actions later. -->
-          </span>
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Mixed</h2>
+              <div class="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Mixed" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
 
-          <h2 class="govuk-heading-m govuk-!-margin-top-7">Arable</h2>
-          <div class="govuk-radios">
-            {% for option in data['options'] | sort(false, true, 'description') %}
-            {% if option.farmtype == "Arable" %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
-                {{ option.description }}
-              </label>
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Livestock</h2>
+              <div class="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Livestock" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
             </div>
-            {% endif %}
-            {% endfor %}
-          </div>
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-7">Mixed</h2>
-          <div class="govuk-radios">
-            {% for option in data['options'] | sort(false, true, 'description') %}
-            {% if option.farmtype == "Mixed" %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
-                {{ option.description }}
-              </label>
+            <div class="govuk-grid-column-one-third"> 
+              {% include "includes/sort-action-nav.html" %}
             </div>
-            {% endif %}
-            {% endfor %}
-          </div>
-
-          <h2 class="govuk-heading-m govuk-!-margin-top-7">Livestock</h2>
-          <div class="govuk-radios">
-            {% for option in data['options'] | sort(false, true, 'description') %}
-            {% if option.farmtype == "Livestock" %}
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
-                {{ option.description }}
-              </label>
-            </div>
-            {% endif %}
-            {% endfor %}
-          </div>
-
-        </fieldset>
-      </div>
-
+          </fieldset>
+        </div>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
-
     </form>
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">
-        Sort actions
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-!-font-size-16">
-          <li>
-            <a href="/tier1-v2/actions-farmtype">
-              By farm type
-            </a>
-          </li>
-          <li>
-            <a href="/tier1-v2/actions-landtype">
-              By land type
-            </a>
-          </li>
-          <li>
-            <a href="/tier1-v2/actions-region">
-              By region
-            </a>
-          </li>
-          <li>
-            <a href="/tier1-v2/actions-types">
-              By type
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-
   </div>
 </div>
-
-
 
 {% endblock %}
