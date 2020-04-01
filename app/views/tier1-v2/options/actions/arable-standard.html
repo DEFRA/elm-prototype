@@ -25,10 +25,10 @@ Arable standard
             You need to do all these actions to meet the standard.
           </span>
 
-            {% for action in data['actions'] | sort(false, true, 'type') %}
-            {% if action.group == "arable" %}
+            {% for option in data['options'] | sort(false, true, 'description') %}
+            {% if option.group == "arable" %}
             <ul class="govuk-list govuk-list--bullet">
-              <li>{{ action.type }}</li>
+              <li>{{ option.description }}</li>
             </ul>
             {% endif %}
             {% endfor %}

@@ -24,15 +24,15 @@ What action do you want to do?
           </legend>
 
           <span id="actions-hint" class="govuk-hint">
-            Select one action. <!-- You can add more actions later. -->
+            Select one option. <!-- You can add more actions later. -->
           </span>
 
           <div class="govuk-radios">
-            {% for action in data['actions'] | sort(false, true, 'type') %}
+            {% for option in data['options'] | sort(false, true, 'description') %}
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id={{ action.name }} name="what-action" type="radio" value={{ action.name }} {{ checked("what-action", action.name) }}>
-              <label class="govuk-label govuk-radios__label" for={{ action.name }}>
-                {{ action.type }}
+              <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }}>
+              <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                {{ option.description }}
               </label>
             </div>
             {% endfor %}
@@ -68,6 +68,11 @@ What action do you want to do?
             <li>
               <a href="/tier1-v2/actions-region">
                 By region
+              </a>
+            </li>
+            <li>
+              <a href="/tier1-v2/actions-types">
+                By type
               </a>
             </li>
           </ul>

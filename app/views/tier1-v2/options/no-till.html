@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['no-till']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl"></h1>
+
+    <form class="form" action="/tier1-v2/actions-answers?no-till[selected]=true" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Customise package
+              <span class="govuk-heading-m govuk-!-padding-top-4">Whole farm reduction in nutrient use / nutrient cap to reduce catchment nutrient loads</span>
+            </h1>
+          </legend>
+          <span id="package-hint" class="govuk-hint">
+            Select which options you want to do.
+          </span>
+          <div class="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-no-till" name="customise-no-till" type="checkbox" value="Use no-till cultivation to maintain carbon storage" {{ checked("customise-no-till", "Use no-till cultivation to maintain carbon storage") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-no-till">
+                Use no-till cultivation to maintain carbon storage
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-no-till" name="customise-no-till" type="checkbox" value="Use no-till cultivation to enhance carbon storage" {{ checked("customise-no-till", "Use no-till cultivation to enhance carbon storage") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-no-till">
+                Use no-till cultivation to enhance carbon storage
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
