@@ -46,7 +46,8 @@ router.post('/actions-answer', function (req, res) {
   if (action == "no-till"){res.redirect('/tier1-v2/options/no-till')}
   if (action == "nutrients"){res.redirect('/tier1-v2/options/nutrients')}
   if (action == "tree-belts"){res.redirect('/tier1-v2/options/tree-belts')}
-  else {res.redirect('/tier1-v2/actions-answers')}
+  if (action == "wind-erosion"){res.redirect('/tier1-v2/actions-answers?wind-erosion[selected]=true')}
+  else {res.redirect('/tier1-v2/actions-validation')}
 })
 
 // Raise errors on attributes
