@@ -27,7 +27,7 @@ Action types
               </p>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Standards</h2>
-              <span id="standards-hint" class="govuk-hint">One or more actions that meet an assurance level that can be included in an ELM plan.</span>
+              <span id="standards-hint" class="govuk-hint">One or more mandatory actions that meet an environmental assurance level.</span>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "standard") %}
@@ -55,7 +55,7 @@ Action types
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Packages</h2>
-              <span id="packages-hint" class="govuk-hint">A group of two or more options that can be included in an ELM plan (chosen by the user).</span>
+              <span id="packages-hint" class="govuk-hint">A group of two or more actions or options chosen by the user.</span>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "package") %}
@@ -84,7 +84,7 @@ Action types
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Options</h2>
-              <span id="options-hint" class="govuk-hint">Objectives that can be included in an ELM plan consisting of one or more actions and/or outcomes.</span>
+              <span id="options-hint" class="govuk-hint">An objective consisting of one outcome and/or one or more actions.</span>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "option") %}
