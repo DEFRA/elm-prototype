@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Arable package
+Action types
 {% endblock %}
 
 {% block beforeContent %}
@@ -25,13 +25,14 @@ Arable package
               <p class="govuk-body-l">
                  Select one option
               </p>
-              <h2 class="govuk-heading-m govuk-!-margin-top-7">Standards</h2>
 
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Standards</h2>
+              <span id="standards-hint" class="govuk-hint">One or more actions that meet an assurance level that can be included in an ELM plan.</span>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "standard") %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}" {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for="{{ option.name }}">
                     {{ option.description }}
                   </label>
@@ -48,19 +49,18 @@ Arable package
                         </ul></p>
                     </label>
                   </div>
-
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Packages</h2>
-
+              <span id="packages-hint" class="govuk-hint">A group of two or more options that can be included in an ELM plan (chosen by the user).</span>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "package") %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}" {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for="{{ option.name }}">
                     {{ option.description }}
                   </label>
@@ -84,25 +84,39 @@ Arable package
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Options</h2>
-              <div class="govuk-radios">
+              <span id="options-hint" class="govuk-hint">Objectives that can be included in an ELM plan consisting of one or more actions and/or outcomes.</span>
+              <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if (option.type == "option") %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for={{ option.name }}>
                     {{ option.description }}
                   </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                        <h2 class="govuk-heading-s">Actions</h2>
+                        <p class="govuk-body">
+                          <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul></p>
+                    </label>
+                  </div>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
             </div>
-            <div class="govuk-grid-column-one-third"> 
+            <div class="govuk-grid-column-one-third">
               {% include "includes/sort-action-nav.html" %}
             </div>
           </div>
         </fieldset>
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
     </form>
   </div>
 </div>

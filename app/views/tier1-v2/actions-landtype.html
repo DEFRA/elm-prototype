@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Arable package
+Action landtypes
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,67 +27,143 @@ Arable package
               </p>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Arable land</h2>
-              <div class="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if option.landtype == "Arable land" %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for={{ option.name }}>
                     {{ option.description }}
                   </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                        {% if option.type == "standard" %}
+                        <h2 class="govuk-heading-s">Mandatory actions</h2>
+                        {% elif option.type == "package" %}
+                        <h2 class="govuk-heading-s">Selectable actions</h2>
+                        {% else %}
+                        <h2 class="govuk-heading-s">Actions</h2>
+                        {% endif %}
+                        <p class="govuk-body">
+                          <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul></p>
+                    </label>
+                  </div>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Flood risk</h2>
-              <div class="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if option.landtype == "Flood risk" %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for={{ option.name }}>
                     {{ option.description }}
                   </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                        {% if option.type == "standard" %}
+                        <h2 class="govuk-heading-s">Mandatory actions</h2>
+                        {% elif option.type == "package" %}
+                        <h2 class="govuk-heading-s">Selectable actions</h2>
+                        {% else %}
+                        <h2 class="govuk-heading-s">Actions</h2>
+                        {% endif %}
+                        <p class="govuk-body">
+                          <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul></p>
+                    </label>
+                  </div>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Uplands</h2>
-              <div class="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if option.landtype == "Uplands" %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for={{ option.name }}>
                     {{ option.description }}
                   </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                        {% if option.type == "standard" %}
+                        <h2 class="govuk-heading-s">Mandatory actions</h2>
+                        {% elif option.type == "package" %}
+                        <h2 class="govuk-heading-s">Selectable actions</h2>
+                        {% else %}
+                        <h2 class="govuk-heading-s">Actions</h2>
+                        {% endif %}
+                        <p class="govuk-body">
+                          <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul></p>
+                    </label>
+                  </div>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
 
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Woodland</h2>
-              <div class="govuk-radios">
+              <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
                 {% if option.landtype == "Woodland" %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} {{ checked("what-action", option.name) }}>
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
                   <label class="govuk-label govuk-radios__label" for={{ option.name }}>
                     {{ option.description }}
                   </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                        {% if option.type == "standard" %}
+                        <h2 class="govuk-heading-s">Mandatory actions</h2>
+                        {% elif option.type == "package" %}
+                        <h2 class="govuk-heading-s">Selectable actions</h2>
+                        {% else %}
+                        <h2 class="govuk-heading-s">Actions</h2>
+                        {% endif %}
+                        <p class="govuk-body">
+                          <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul></p>
+                    </label>
+                  </div>
                 </div>
                 {% endif %}
                 {% endfor %}
               </div>
             </div>
-            <div class="govuk-grid-column-one-third"> 
+            <div class="govuk-grid-column-one-third">
               {% include "includes/sort-action-nav.html" %}
             </div>
           </div>
         </fieldset>
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
     </form>
   </div>
 </div>
