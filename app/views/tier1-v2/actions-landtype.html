@@ -16,16 +16,15 @@ Action landtypes
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-heading-xl">
+            <h1 class="govuk-fieldset__heading">
               What do you want to do?
             </h1>
           </legend>
-          <div class="govuk-grid-row">
+          <span id="changed-name-hint" class="govuk-body-l">
+            Select one option.
+          </span>
+          <div class="govuk-grid-row govuk-!-margin-top-4">
             <div class="govuk-grid-column-two-thirds">
-              <p class="govuk-body-l">
-                 Select one option
-              </p>
-
               <h2 class="govuk-heading-m govuk-!-margin-top-7">Arable land</h2>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in data['options'] | sort(false, true, 'description') %}
@@ -39,19 +38,20 @@ Action landtypes
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                        {% if option.type == "standard" %}
-                        <h2 class="govuk-heading-s">Mandatory actions</h2>
-                        {% elif option.type == "package" %}
-                        <h2 class="govuk-heading-s">Selectable actions</h2>
-                        {% else %}
-                        <h2 class="govuk-heading-s">Actions</h2>
-                        {% endif %}
-                        <p class="govuk-body">
-                          <ul class="govuk-list govuk-list--bullet">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
                           {% for action in option.actions %}
                           <li>{{ action }}</li>
                           {% endfor %}
-                        </ul></p>
+                        </ul>
+                      </p>
                     </label>
                   </div>
                 </div>
@@ -72,19 +72,20 @@ Action landtypes
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                        {% if option.type == "standard" %}
-                        <h2 class="govuk-heading-s">Mandatory actions</h2>
-                        {% elif option.type == "package" %}
-                        <h2 class="govuk-heading-s">Selectable actions</h2>
-                        {% else %}
-                        <h2 class="govuk-heading-s">Actions</h2>
-                        {% endif %}
-                        <p class="govuk-body">
-                          <ul class="govuk-list govuk-list--bullet">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
                           {% for action in option.actions %}
                           <li>{{ action }}</li>
                           {% endfor %}
-                        </ul></p>
+                        </ul>
+                      </p>
                     </label>
                   </div>
                 </div>
@@ -105,19 +106,20 @@ Action landtypes
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                        {% if option.type == "standard" %}
-                        <h2 class="govuk-heading-s">Mandatory actions</h2>
-                        {% elif option.type == "package" %}
-                        <h2 class="govuk-heading-s">Selectable actions</h2>
-                        {% else %}
-                        <h2 class="govuk-heading-s">Actions</h2>
-                        {% endif %}
-                        <p class="govuk-body">
-                          <ul class="govuk-list govuk-list--bullet">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
                           {% for action in option.actions %}
                           <li>{{ action }}</li>
                           {% endfor %}
-                        </ul></p>
+                        </ul>
+                      </p>
                     </label>
                   </div>
                 </div>
@@ -138,19 +140,20 @@ Action landtypes
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                        {% if option.type == "standard" %}
-                        <h2 class="govuk-heading-s">Mandatory actions</h2>
-                        {% elif option.type == "package" %}
-                        <h2 class="govuk-heading-s">Selectable actions</h2>
-                        {% else %}
-                        <h2 class="govuk-heading-s">Actions</h2>
-                        {% endif %}
-                        <p class="govuk-body">
-                          <ul class="govuk-list govuk-list--bullet">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
                           {% for action in option.actions %}
                           <li>{{ action }}</li>
                           {% endfor %}
-                        </ul></p>
+                        </ul>
+                      </p>
                     </label>
                   </div>
                 </div>
@@ -161,9 +164,9 @@ Action landtypes
             <div class="govuk-grid-column-one-third">
               {% include "includes/sort-action-nav.html" %}
             </div>
-          </div>
         </fieldset>
-        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
     </form>
   </div>
 </div>

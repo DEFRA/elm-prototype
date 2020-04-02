@@ -13,8 +13,8 @@ What action do you want to do?
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <form class="form" action="/actions-answer" method="post">
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset">
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint changed-name-error">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
               What do you want to do?
@@ -22,6 +22,9 @@ What action do you want to do?
           </legend>
           <span id="changed-name-hint" class="govuk-body-l">
             Select one option.
+          </span>
+          <span id="changed-name-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select an option to include in your plan
           </span>
           <div class="govuk-grid-row govuk-!-margin-top-4">
             <div class="govuk-grid-column-two-thirds">
