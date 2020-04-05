@@ -19,12 +19,19 @@
         <label class="govuk-label govuk-label--xl">
           How much lowland peatland soil would you like to use no-till cultivation on?
         </label>
-        
-        {% if data['no-till']['amount'] == 0 %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+
+        {% if data['no-till']['amount'] == "" %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a value
+        </span>
+        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint no-till-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
-        {% else %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+
+        {% elif data['no-till']['amount'] == 0 %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
+        </span>
+        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint no-till-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
           value="{{ data['no-till']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
         {% endif %}
       </div>

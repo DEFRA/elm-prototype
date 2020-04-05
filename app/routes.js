@@ -33,20 +33,20 @@ router.post('/actions-answer', function (req, res) {
   if (action == "bare-soil"){res.redirect('/tier1-v2/options/bare-soil')}
   if (action == "bog-grazing"){res.redirect('/tier1-v2/options/bog-grazing')}
   if (action == "canopy-cover"){res.redirect('/tier1-v2/options/canopy-cover')}
-  if (action == "cover-crops"){res.redirect('/tier1-v2/actions-answers?cover-crops[selected]=true')}
+  if (action == "cover-crops"){res.redirect('/tier1-v2/actions-answers?cover-crops[selected]=true&cover-crops[amount]=1')}
   if (action == "create-grassland"){res.redirect('/tier1-v2/options/create-grassland')}
-  if (action == "deadwood"){res.redirect('/tier1-v2/actions-answers?deadwood[selected]=true')}
+  if (action == "deadwood"){res.redirect('/tier1-v2/actions-answers?deadwood[selected]=true&deadwood[amount]=1')}
   if (action == "drinking-water"){res.redirect('/tier1-v2/options/drinking-water')}
   if (action == "fencing"){res.redirect('/tier1-v2/options/fencing')}
-  if (action == "fertilisers"){res.redirect('/tier1-v2/actions-answers?fertilisers[selected]=true')}
+  if (action == "fertilisers"){res.redirect('/tier1-v2/actions-answers?fertilisers[selected]=true&fertilisers[amount]=1')}
   if (action == "fertiliser-spreading"){res.redirect('/tier1-v2/options/fertiliser-spreading')}
   if (action == "flower-habitat"){res.redirect('/tier1-v2/options/flower-habitat')}
   if (action == "grass-strips"){res.redirect('/tier1-v2/options/grass-strips')}
-  if (action == "manure"){res.redirect('/tier1-v2/actions-answers?manure[selected]=true')}
+  if (action == "manure"){res.redirect('/tier1-v2/actions-answers?manure[selected]=true&manure[amount]=1')}
   if (action == "no-till"){res.redirect('/tier1-v2/options/no-till')}
   if (action == "nutrients"){res.redirect('/tier1-v2/options/nutrients')}
   if (action == "tree-belts"){res.redirect('/tier1-v2/options/tree-belts')}
-  if (action == "wind-erosion"){res.redirect('/tier1-v2/actions-answers?wind-erosion[selected]=true')}
+  if (action == "wind-erosion"){res.redirect('/tier1-v2/actions-answers?wind-erosion[selected]=true&wind-erosion[amount]=1')}
   else {res.redirect('/tier1-v2/actions-validation')}
 })
 

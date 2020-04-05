@@ -41,10 +41,78 @@ module.exports = {
   "bog-grazing": {
     "code": "U1",
     "description": "Control grazing on bogs and peatlands to enhance carbon storage",
-    "unit": "hectares",
-    "rate": "£7 per hectare",
-    "amount": 0,
-    "multiplier": 7
+    "actions": {
+      "Moorland management": {
+        "unit": "hectares",
+        "rate": "£43 per hectare",
+        "multiplier": 43
+      },
+      "Moorland management - Vegetation supplement": {
+        "unit": "hectares",
+        "rate": "£10 per hectare",
+        "multiplier": 10
+      },
+      "Shepherding supplement": {
+        "unit": "hectares",
+        "rate": "£7 per hectare",
+        "multiplier": 7
+      },
+      "Management of Reedbed": {
+        "unit": "hectares",
+        "rate": "£78 per hectare",
+        "multiplier": 78
+      },
+      "Creation of Reedbed": {
+        "unit": "hectares",
+        "rate": "£323 per hectare",
+        "multiplier": 323
+      },
+      "Management of Fen": {
+        "unit": "hectares",
+        "rate": "£39 per hectare",
+        "multiplier": 39
+      },
+      "Creation of Fen": {
+        "unit": "hectares",
+        "rate": "£446 per hectare",
+        "multiplier": 446
+      },
+      "Management of Bog": {
+        "unit": "hectares",
+        "rate": "£164 per hectare",
+        "multiplier": 164
+      },
+      "Wetland Grazing supplement": {
+        "unit": "hectares",
+        "rate": "£304 per hectare",
+        "multiplier": 304
+      },
+      "Upland livestock exclusion supplement": {
+        "unit": "hectares",
+        "rate": "£16 per hectare",
+        "multiplier": 16
+      },
+      "Management of rough grazing for birds": {
+        "unit": "hectares",
+        "rate": "£88 per hectare",
+        "multiplier": 88
+      },
+      "Raised water level supplement": {
+        "unit": "hectares",
+        "rate": "£127 per hectare",
+        "multiplier": 127
+      },
+      "Management of lowland heathland": {
+        "unit": "hectares",
+        "rate": "£274 per hectare",
+        "multiplier": 274
+      },
+      "Cattle grazing supplement": {
+        "unit": "hectares",
+        "rate": "£45 per hectare",
+        "multiplier": 45
+      }
+    }
   },
 
   "canopy-cover": {
@@ -70,10 +138,18 @@ module.exports = {
     "code": "A9",
     "group": "arable",
     "description": "Create a species-rich grassland to enhance habitats",
-    "unit": "hectares",
-    "rate": "£267 per hectare",
-    "amount": 0,
-    "multiplier": 267
+    "actions": {
+      "Arable reversion to grassland with low fertiliser input": {
+        "unit": "hectares",
+        "rate": "£311 per hectare",
+        "multiplier": 311
+      },
+      "Creation of species-rich grassland": {
+        "unit": "hectares",
+        "rate": "£267 per hectare",
+        "multiplier": 267
+      }
+    }
   },
 
   "deadwood": {
@@ -88,19 +164,45 @@ module.exports = {
   "drinking-water": {
     "code": "U3",
     "description": "Provide drinking water for livestock to reduce the amount of sediment in water bodies",
-    "unit": "troughs",
-    "rate": "£220 per trough",
-    "amount": 0,
-    "multiplier": 220
+    "actions": {
+      "Pasture pumps and associated pipework": {
+        "unit": "pumps",
+        "rate": "£220 per pump",
+        "multiplier": 220
+      },
+      "Ram pumps and associated pipework": {
+        "unit": "pumps",
+        "rate": "£1480 per pump",
+        "multiplier": 1480
+      },
+      "Livestock troughs": {
+        "unit": "troughs",
+        "rate": "£110 per trough",
+        "multiplier": 110
+      },
+      "Pipework associated with livestock troughs": {
+        "unit": "metres",
+        "rate": "£2.65 per metre",
+        "multiplier": 2.65
+      }
+    }
   },
 
   "fencing": {
     "code": "U2",
     "description": "Fence off water sources from livestock to prevent erosion, nutrient input and contamination",
-    "unit": "metres",
-    "rate": "£4 per metre",
-    "amount": 0,
-    "multiplier": 4
+    "actions": {
+      "Fencing": {
+        "unit": "metres",
+        "rate": "£4 per metre",
+        "multiplier": 4
+      },
+      "Sheep netting": {
+        "unit": "metres",
+        "rate": "£4.90 per metre",
+        "multiplier": 4.9
+      }
+    }
   },
 
   "fertilisers": {
@@ -166,10 +268,88 @@ module.exports = {
     "code": "A4",
     "group": "arable",
     "description": "Reduce nutrient use to reduce catchment nutrient loads",
-    "unit": "hectares",
-    "rate": "£293 per hectare",
-    "amount": 0,
-    "multiplier": 293
+    "actions": {
+      "4m to 6m buffer strip on cultivated land": {
+        "unit": "hectares",
+        "rate": "£353 per hectare",
+        "multiplier": 353
+      },
+      "4m to 6m buffer strip on intensive grassland": {
+        "unit": "hectares",
+        "rate": "£170 per hectare",
+        "multiplier": 170
+      },
+      "In-field grass strips": {
+        "unit": "hectares",
+        "rate": "£557 per hectare",
+        "multiplier": 557
+      },
+      "12m to 24m watercourse buffer strip on cultivated land": {
+        "unit": "hectares",
+        "rate": "£512 per hectare",
+        "multiplier": 512
+      },
+      "Enhanced management of maize crops": {
+        "unit": "hectares",
+        "rate": "£133 per hectare",
+        "multiplier": 133
+      },
+      "Winter cover crops": {
+        "unit": "hectares",
+        "rate": "£114 per hectare",
+        "multiplier": 114
+      },
+      "Arable reversion to grassland with low fertiliser input": {
+        "unit": "hectares",
+        "rate": "£311 per hectare",
+        "multiplier": 311
+      },
+      "Management of intensive grassland adjacent to a watercourse": {
+        "unit": "hectares",
+        "rate": "£202 per hectare",
+        "multiplier": 202
+      },
+      "Seasonal livestock removal on intensive grassland": {
+        "unit": "hectares",
+        "rate": "£88 per hectare",
+        "multiplier": 88
+      },
+      "Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes": {
+        "unit": "hectares",
+        "rate": "£36 per hectare",
+        "multiplier": 36
+      },
+      "Riparian management strip": {
+        "unit": "hectares",
+        "rate": "£440 per hectare",
+        "multiplier": 440
+      },
+      "Making space for water": {
+        "unit": "hectares",
+        "rate": "£640 per hectare",
+        "multiplier": 640
+      },
+      "Very low nitrogen inputs to groundwaters": {
+        "unit": "hectares",
+        "rate": "£251 per hectare",
+        "multiplier": 251
+      },
+      "Nil fertiliser supplement": {
+        "unit": "hectares",
+        "rate": "£131 per hectare",
+        "multiplier": 131
+      },
+      "Flood mitigation on arable reversion to grassland": {
+        "unit": "hectares",
+        "rate": "£488 per hectare",
+        "multiplier": 488
+      },
+      "Flood mitigation on permanent grassland": {
+        "unit": "hectares",
+        "rate": "£256 per hectare",
+        "multiplier": 256
+      }
+    }
   },
 
   "tree-belts": {
@@ -192,11 +372,10 @@ module.exports = {
     "multiplier": 170
   },
 
-  "options": [
-    {
+  "options": [{
       "name": "agroforestry",
       "code": "A7",
-      "type": "package",
+      "type": "standard",
       "farmtype": "Arable",
       "landtype": "Arable land",
       "region": "South East",
@@ -384,7 +563,7 @@ module.exports = {
     {
       "name": "no-till",
       "code": "A3",
-      "type": "package",
+      "type": "option",
       "farmtype": "Arable",
       "landtype": "Arable land",
       "region": "South East",
@@ -448,8 +627,10 @@ module.exports = {
         "12m to 24m watercourse buffer strip on cultivated land",
         "Winter cover crops"
       ]
-      }
+    }
   ],
+
+  "holding-size": 50,
 
   "outcome": "all outcomes",
 
@@ -457,8 +638,7 @@ module.exports = {
 
   "agreement": "false",
 
-  "goods": [
-    {
+  "goods": [{
       "id": "1",
       "type": "Restoration of forestry and woodland to lowland heathland",
       "species": "Ash",
@@ -482,8 +662,7 @@ module.exports = {
     }
   ],
 
-  "applications": [
-    {
+  "applications": [{
       "client": "Willow Farm",
       "status": "Draft",
       "updated": "Today"

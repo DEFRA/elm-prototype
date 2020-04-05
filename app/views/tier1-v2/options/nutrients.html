@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data['nutrients']['type'] }}
+Customise package
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,17 +13,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl"></h1>
+        <form class="form" action="/tier1-v2/options/nutrients-attributes" method="post">
 
-    <form class="form" action="/tier1-v2/actions-answers?nutrients[selected]=true" method="post">
-
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              Customise package
-              <span class="govuk-heading-m govuk-!-padding-top-4">Whole farm reduction in nutrient use / nutrient cap to reduce catchment nutrient loads</span>
-            </h1>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+                  Customise package
+                </h1>
+                <span class="govuk-caption-l">Whole farm reduction in nutrient use / nutrient cap to reduce catchment nutrient loads</span>
           </legend>
           <span id="package-hint" class="govuk-hint">
             Select which options you want to do.
@@ -146,7 +144,7 @@
         </fieldset>
       </div>
 
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
 
     </form>
 
