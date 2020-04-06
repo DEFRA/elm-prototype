@@ -22,6 +22,12 @@ router.get('/tier1-v1/*', function(req, res, next){
   next()
 })
 
+router.get('/tier1-v2/*', function(req, res, next){
+  res.locals['serviceName'] = 'Apply for ELM'
+
+  next()
+})
+
 // Tier 1 version 2
 
 // Select an action
