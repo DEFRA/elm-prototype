@@ -4,28 +4,118 @@
   Confirmation
 {% endblock %}
 
-<!--calulations-->
-{% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}
-{% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}
-{% set grasslandTotal = data['create-grassland']['multiplier'] * data['create-grassland']['amount'] %}
+
+<!--standards-->
+{% set manureTotal = data['manure']['multiplier'] * data['holding-size'] * data['manure']['amount'] %}
+{% set windTotal = data['wind-erosion']['multiplier'] * data['holding-size'] * data['wind-erosion']['amount']  %}
+{% set deadwoodTotal = data['deadwood']['multiplier'] * data['holding-size'] * data['deadwood']['amount']  %}
+{% set fertilisersTotal = data['fertilisers']['multiplier'] * data['holding-size'] * data['fertilisers']['amount']  %}
+{% set coverTotal = data['cover-crops']['multiplier'] * data['holding-size'] * data['cover-crops']['amount'] %}
+
+<!--packages-->
+
+<!--create-grassland-->
+{% set arableReversion = data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['multiplier'] * data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['amount'] %}
+{% set speciesRich = data['create-grassland']['actions']['Creation of species-rich grassland']['multiplier'] * data['create-grassland']['actions']['Creation of species-rich grassland']['amount'] %}
+{% set grasslandTotal = 0 %}
+{% if (arableReversion > 1) and ('Arable reversion to grassland with low fertiliser input' in data['customise-create-grassland']) %}{% set grasslandTotal = grasslandTotal + arableReversion %}{% endif %}
+{% if (speciesRich > 1) and ('Creation of species-rich grassland' in data['customise-create-grassland']) %}{% set grasslandTotal = grasslandTotal + speciesRich %}{% endif %}
+
+<!--fencing-->
+{% set fencing = data['fencing']['actions']['Fencing']['multiplier'] * data['fencing']['actions']['Fencing']['amount'] %}
+{% set sheepNetting = data['fencing']['actions']['Sheep netting']['multiplier'] * data['fencing']['actions']['Sheep netting']['amount'] %}
+{% set fencingTotal = 0 %}
+{% if (fencing > 1) and ('Fencing' in data['customise-fencing']) %}{% set fencingTotal = fencingTotal + fencing %}{% endif %}
+{% if (sheepNetting > 1) and ('Sheep netting' in data['customise-fencing']) %}{% set fencingTotal = fencingTotal + sheepNetting %}{% endif %}
+
+<!--nutrients-->
+{% set cultivatedStrip = data['nutrients']['actions']['4m to 6m buffer strip on cultivated land']['multiplier'] * data['nutrients']['actions']['4m to 6m buffer strip on cultivated land']['amount'] %}
+{% set intensiveStrip = data['nutrients']['actions']['4m to 6m buffer strip on intensive grassland']['multiplier'] * data['nutrients']['actions']['4m to 6m buffer strip on intensive grassland']['amount'] %}
+{% set fieldStrips = data['nutrients']['actions']['In-field grass strips']['multiplier'] * data['nutrients']['actions']['In-field grass strips']['amount'] %}
+{% set watercourseStrip = data['nutrients']['actions']['12m to 24m watercourse buffer strip on cultivated land']['multiplier'] * data['nutrients']['actions']['12m to 24m watercourse buffer strip on cultivated land']['amount'] %}
+{% set maizeCrops = data['nutrients']['actions']['Enhanced management of maize crops']['multiplier'] * data['nutrients']['actions']['Enhanced management of maize crops']['amount'] %}
+{% set winterCrops = data['nutrients']['actions']['Winter cover crops']['multiplier'] * data['nutrients']['actions']['Winter cover crops']['amount'] %}
+{% set arableReversion2 = data['nutrients']['actions']['Arable reversion to grassland with low fertiliser input']['multiplier'] * data['nutrients']['actions']['Arable reversion to grassland with low fertiliser input']['amount'] %}
+{% set watercourseGrassland = data['nutrients']['actions']['Management of intensive grassland adjacent to a watercourse']['multiplier'] * data['nutrients']['actions']['Management of intensive grassland adjacent to a watercourse']['amount'] %}
+{% set grasslandRemoval = data['nutrients']['actions']['Seasonal livestock removal on intensive grassland']['multiplier'] * data['nutrients']['actions']['Seasonal livestock removal on intensive grassland']['amount'] %}
+{% set grasslandRemovalSDA = data['nutrients']['actions']['Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes']['multiplier'] * data['nutrients']['actions']['Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes']['amount'] %}
+{% set riparianStrip = data['nutrients']['actions']['Riparian management strip']['multiplier'] * data['nutrients']['actions']['Riparian management strip']['amount'] %}
+{% set waterSpace = data['nutrients']['actions']['Making space for water']['multiplier'] * data['nutrients']['actions']['Making space for water']['amount'] %}
+{% set lowNitro = data['nutrients']['actions']['Very low nitrogen inputs to groundwaters']['multiplier'] * data['nutrients']['actions']['Very low nitrogen inputs to groundwaters']['amount'] %}
+{% set nilFertiliser = data['nutrients']['actions']['Nil fertiliser supplement']['multiplier'] * data['nutrients']['actions']['Nil fertiliser supplement']['amount'] %}
+{% set arableFlood = data['nutrients']['actions']['Flood mitigation on arable reversion to grassland']['multiplier'] * data['nutrients']['actions']['Flood mitigation on arable reversion to grassland']['amount'] %}
+{% set grasslandFlood = data['nutrients']['actions']['Flood mitigation on permanent grassland']['multiplier'] * data['nutrients']['actions']['Flood mitigation on permanent grassland']['amount'] %}
+{% set nutrientsTotal = 0 %}
+{% if (cultivatedStrip > 1) and ('4m to 6m buffer strip on cultivated land' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + cultivatedStrip %}{% endif %}
+{% if (intensiveStrip > 1) and ('4m to 6m buffer strip on intensive grassland' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + intensiveStrip %}{% endif %}
+{% if (fieldStrips > 1) and ('In-field grass strips' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + fieldStrips %}{% endif %}
+{% if (watercourseStrip > 1) and ('12m to 24m watercourse buffer strip on cultivated land' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + watercourseStrip %}{% endif %}
+{% if (maizeCrops > 1) and ('Enhanced management of maize crops' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + maizeCrops %}{% endif %}
+{% if (winterCrops > 1) and ('Winter cover crops' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + winterCrops %}{% endif %}
+{% if (arableReversion2 > 1) and ('Arable reversion to grassland with low fertiliser input' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + arableReversion2 %}{% endif %}
+{% if (watercourseGrassland > 1) and ('Management of intensive grassland adjacent to a watercourse' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + watercourseGrassland %}{% endif %}
+{% if (grasslandRemoval > 1) and ('Seasonal livestock removal on intensive grassland' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + grasslandRemoval %}{% endif %}
+{% if (grasslandRemovalSDA > 1) and ('Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + grasslandRemovalSDA %}{% endif %}
+{% if (riparianStrip > 1) and ('Riparian management strip' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + riparianStrip %}{% endif %}
+{% if (waterSpace > 1) and ('Making space for water' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + waterSpace %}{% endif %}
+{% if (lowNitro > 1) and ('Very low nitrogen inputs to groundwaters' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + lowNitro %}{% endif %}
+{% if (nilFertiliser > 1) and ('Nil fertiliser supplement' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + nilFertiliser %}{% endif %}
+{% if (arableFlood > 1) and ('Flood mitigation on arable reversion to grassland' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + arableFlood %}{% endif %}
+{% if (grasslandFlood > 1) and ('Flood mitigation on permanent grassland' in data['customise-nutrients']) %}{% set nutrientsTotal = nutrientsTotal + grasslandFlood %}{% endif %}
+
+<!--bog-grazing-->
+{% set moorlandManagement = data['bog-grazing']['actions']['Moorland management']['multiplier'] * data['bog-grazing']['actions']['Moorland management']['amount'] %}
+{% set moorlandManagementVeg = data['bog-grazing']['actions']['Moorland management - Vegetation supplement']['multiplier'] * data['bog-grazing']['actions']['Moorland management - Vegetation supplement']['amount'] %}
+{% set shepherding = data['bog-grazing']['actions']['Shepherding supplement']['multiplier'] * data['bog-grazing']['actions']['Shepherding supplement']['amount'] %}
+{% set reedbedManagement = data['bog-grazing']['actions']['Management of Reedbed']['multiplier'] * data['bog-grazing']['actions']['Management of Reedbed']['amount'] %}
+{% set reedbedCreation = data['bog-grazing']['actions']['Creation of Reedbed']['multiplier'] * data['bog-grazing']['actions']['Creation of Reedbed']['amount'] %}
+{% set fenManagement = data['bog-grazing']['actions']['Management of Fen']['multiplier'] * data['bog-grazing']['actions']['Management of Fen']['amount'] %}
+{% set fenCreation = data['bog-grazing']['actions']['Creation of Fen']['multiplier'] * data['bog-grazing']['actions']['Creation of Fen']['amount'] %}
+{% set bogManagement = data['bog-grazing']['actions']['Management of Bog']['multiplier'] * data['bog-grazing']['actions']['Management of Bog']['amount'] %}
+{% set wetlandGrazing = data['bog-grazing']['actions']['Wetland Grazing supplement']['multiplier'] * data['bog-grazing']['actions']['Wetland Grazing supplement']['amount'] %}
+{% set uplandLivestock = data['bog-grazing']['actions']['Upland livestock exclusion supplement']['multiplier'] * data['bog-grazing']['actions']['Upland livestock exclusion supplement']['amount'] %}
+{% set roughGrazing = data['bog-grazing']['actions']['Management of rough grazing for birds']['multiplier'] * data['bog-grazing']['actions']['Management of rough grazing for birds']['amount'] %}
+{% set raisedWater = data['bog-grazing']['actions']['Raised water level supplement']['multiplier'] * data['bog-grazing']['actions']['Raised water level supplement']['amount'] %}
+{% set heathlandManagement = data['bog-grazing']['actions']['Management of lowland heathland']['multiplier'] * data['bog-grazing']['actions']['Management of lowland heathland']['amount'] %}
+{% set cattleGrazing = data['bog-grazing']['actions']['Cattle grazing supplement']['multiplier'] * data['bog-grazing']['actions']['Cattle grazing supplement']['amount'] %}
+{% set bogTotal = 0 %}
+{% if (moorlandManagement > 1) and ('Moorland management' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + moorlandManagement %}{% endif %}
+{% if (moorlandManagementVeg > 1) and ('Moorland management - Vegetation supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + moorlandManagementVeg %}{% endif %}
+{% if (shepherding > 1) and ('Shepherding supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + shepherding %}{% endif %}
+{% if (reedbedManagement > 1) and ('Management of Reedbed' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + reedbedManagement %}{% endif %}
+{% if (reedbedCreation > 1) and ('Creation of Reedbed' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + reedbedCreation %}{% endif %}
+{% if (fenManagement > 1) and ('Management of Fen' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + fenManagement %}{% endif %}
+{% if (fenCreation > 1) and ('Creation of Fen' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + fenCreation %}{% endif %}
+{% if (bogManagement > 1) and ('Management of Bog' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + bogManagement %}{% endif %}
+{% if (wetlandGrazing > 1) and ('Wetland Grazing supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + wetlandGrazing %}{% endif %}
+{% if (uplandLivestock > 1) and ('Upland livestock exclusion supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + uplandLivestock %}{% endif %}
+{% if (roughGrazing > 1) and ('Management of rough grazing for birds' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + roughGrazing %}{% endif %}
+{% if (raisedWater > 1) and ('Raised water level supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + raisedWater %}{% endif %}
+{% if (heathlandManagement > 1) and ('Management of lowland heathland' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + heathlandManagement %}{% endif %}
+{% if (cattleGrazing > 1) and ('Cattle grazing supplement' in data['customise-bog-grazing']) %}{% set bogTotal = bogTotal + cattleGrazing %}{% endif %}
+
+<!--drinking-water-->
+{% set pasturePumps = data['drinking-water']['actions']['Pasture pumps and associated pipework']['multiplier'] * data['drinking-water']['actions']['Pasture pumps and associated pipework']['amount'] %}
+{% set ramPumps = data['drinking-water']['actions']['Ram pumps and associated pipework']['multiplier'] * data['drinking-water']['actions']['Ram pumps and associated pipework']['amount'] %}
+{% set livestockTroughs = data['drinking-water']['actions']['Livestock troughs']['multiplier'] * data['drinking-water']['actions']['Livestock troughs']['amount'] %}
+{% set troughPiping = data['drinking-water']['actions']['Pipework associated with livestock troughs']['multiplier'] * data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] %}
+{% set waterTotal = 0 %}
+{% if (pasturePumps > 1) and ('Pasture pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = pasturePumps + fencing %}{% endif %}
+{% if (ramPumps > 1) and ('Ram pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + ramPumps %}{% endif %}
+{% if (livestockTroughs > 1) and ('Livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + livestockTroughs %}{% endif %}
+{% if (troughPiping > 1) and ('Pipework associated with livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + troughPiping %}{% endif %}
+
+<!--options-->
 {% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}
 {% set treeTotal = data['tree-belts']['multiplier'] * data['tree-belts']['amount'] %}
 {% set canopyTotal = data['canopy-cover']['multiplier'] * data['canopy-cover']['amount'] %}
-{% set fencingTotal = data['fencing']['multiplier'] * data['fencing']['amount'] %}
-{% set windTotal = data['wind-erosion']['multiplier'] * data['wind-erosion']['amount'] %}
-{% set deadwoodTotal = data['deadwood']['multiplier'] * data['deadwood']['amount'] %}
 {% set soilTotal = data['bare-soil']['multiplier'] * data['bare-soil']['amount'] %}
 {% set flowerTotal = data['flower-habitat']['multiplier'] * data['flower-habitat']['amount'] %}
-{% set waterTotal = data['drinking-water']['multiplier'] * data['drinking-water']['amount'] %}
-{% set nutrientsTotal = data['nutrients']['multiplier'] * data['nutrients']['amount'] %}
-{% set agroforestryTotal = data['agroforestry']['multiplier'] * data['agroforestry']['amount'] %}
-{% set coverTotal = data['cover-crops']['multiplier'] * data['cover-crops']['amount'] %}
 {% set spreadingTotal = data['fertiliser-spreading']['multiplier'] * data['fertiliser-spreading']['amount'] %}
-{% set fertilisersTotal = data['fertilisers']['multiplier'] * data['fertilisers']['amount'] %}
 {% set tillTotal = data['no-till']['multiplier'] * data['no-till']['amount'] %}
 
-{% set fullTotal = manureTotal + bogTotal + grasslandTotal + grassTotal + treeTotal + canopyTotal + fencingTotal + windTotal + deadwoodTotal + soilTotal + flowerTotal + waterTotal + nutrientsTotal + coverTotal + spreadingTotal + fertilisersTotal + tillTotal %}
-{% set monthlyTotal = fullTotal / 12 %}
+{% set total = manureTotal + windTotal + deadwoodTotal + fertilisersTotal + coverTotal + grassTotal + treeTotal + canopyTotal + soilTotal + flowerTotal + spreadingTotal + grasslandTotal + fencingTotal + nutrientsTotal + bogTotal + waterTotal + tillTotal %}
+{% set monthlyTotal = total / 12 %}
 
 <!--reference number-->
 <!--{% set refNumberName = data['name-on-the-account']|replace(' ', '') %}-->
