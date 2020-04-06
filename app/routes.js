@@ -35,7 +35,7 @@ router.post('/actions-answer', function (req, res) {
 
   var action = req.session.data['what-action']
 
-  if (action == "agroforestry"){res.redirect('/tier1-v2/options/agroforestry')}
+  if (action == "agroforestry"){res.redirect('/tier1-v2/actions-answers?agroforestry[selected]=true&agroforestry[amount]=1')}
   if (action == "bare-soil"){res.redirect('/tier1-v2/options/bare-soil')}
   if (action == "bog-grazing"){res.redirect('/tier1-v2/options/bog-grazing')}
   if (action == "canopy-cover"){res.redirect('/tier1-v2/options/canopy-cover')}
