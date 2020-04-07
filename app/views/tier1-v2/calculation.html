@@ -255,7 +255,7 @@ Your actions
       {% endif %}
 
       {% if data['tree-belts']['amount'] > 1 %}
-      <div class="govuk-summary-list__row" class="govuk-table__header"><dt class="govuk-summary-list__key" style="border-bottom: none;">{{ data['tree-belts']['description'] }}</dt>
+      <div class="govuk-summary-list__row" class="govuk-table__header"><dt class="govuk-summary-list__key" style="border-bottom: none;">{{ data['tree-belts']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value" style="border-bottom: none;">
           <ul class="govuk-list">
             <li><strong>£{{ treeTotal | round(2) | commafy }}</strong> ({{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at {{ data['tree-belts']['rate'] }})</li>
@@ -287,7 +287,7 @@ Your actions
       {% endif %}
 
       {% if data['canopy-cover']['amount'] > 1 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['canopy-cover']['description'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['canopy-cover']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
             <li><strong>£{{ canopyTotal | commafy }}</strong> ({{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }} at {{ data['canopy-cover']['rate'] }})</li>
@@ -370,7 +370,7 @@ Your actions
       {% endif %}
 
       {% if data['deadwood']['selected'] == "true" %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
             <li><strong>£{{ deadwoodTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)</li>
@@ -544,7 +544,7 @@ Your actions
       {% endif %}
 
       {% if data['agroforestry']['selected'] == "true" %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
             <li><strong>£{{ agroforestryTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire
