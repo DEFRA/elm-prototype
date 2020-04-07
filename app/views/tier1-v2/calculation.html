@@ -14,6 +14,7 @@ Your actions
 {% set deadwoodTotal = data['deadwood']['multiplier'] * data['holding-size'] * data['deadwood']['amount']  %}
 {% set fertilisersTotal = data['fertilisers']['multiplier'] * data['holding-size'] * data['fertilisers']['amount']  %}
 {% set coverTotal = data['cover-crops']['multiplier'] * data['holding-size'] * data['cover-crops']['amount'] %}
+{% set agroforestryTotal = data['agroforestry']['multiplier'] * data['holding-size'] * data['agroforestry']['amount'] %}
 
 <!--packages-->
 
@@ -117,7 +118,7 @@ Your actions
 {% set spreadingTotal = data['fertiliser-spreading']['multiplier'] * data['fertiliser-spreading']['amount'] %}
 {% set tillTotal = data['no-till']['multiplier'] * data['no-till']['amount'] %}
 
-{% set total = manureTotal + windTotal + deadwoodTotal + fertilisersTotal + coverTotal + grassTotal + treeTotal + canopyTotal + soilTotal + flowerTotal + spreadingTotal + grasslandTotal + fencingTotal + nutrientsTotal + bogTotal + waterTotal + tillTotal %}
+{% set total = manureTotal + windTotal + deadwoodTotal + fertilisersTotal + coverTotal + grassTotal + treeTotal + canopyTotal + soilTotal + flowerTotal + spreadingTotal + grasslandTotal + fencingTotal + nutrientsTotal + bogTotal + waterTotal + tillTotal + agroforestryTotal %}
 
 {% block content %}
 <div class="govuk-grid-row">
