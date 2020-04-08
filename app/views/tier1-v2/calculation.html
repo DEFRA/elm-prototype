@@ -26,11 +26,11 @@ Your actions
 {% if (speciesRich > 1) and ('Creation of species-rich grassland' in data['customise-create-grassland']) %}{% set grasslandTotal = grasslandTotal + speciesRich %}{% endif %}
 
 <!--flower-habitat-->
-{% set arableReversion = data['flower-habitat']['actions']['Create pollen and nectar plots']['multiplier'] * data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] %}
-{% set speciesRich = data['flower-habitat']['actions']['Create flower-rich margins and plots']['multiplier'] * data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] %}
+{% set createPollen = data['flower-habitat']['actions']['Create pollen and nectar plots']['multiplier'] * data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] %}
+{% set createFlowers = data['flower-habitat']['actions']['Create flower-rich margins and plots']['multiplier'] * data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] %}
 {% set flowerTotal = 0 %}
-{% if (arableReversion > 1) and ('Create pollen and nectar plots' in data['customise-flower-habitat']) %}{% set grasslandTotal = grasslandTotal + arableReversion %}{% endif %}
-{% if (speciesRich > 1) and ('Create flower-rich margins and plots' in data['customise-flower-habitat']) %}{% set grasslandTotal = grasslandTotal + speciesRich %}{% endif %}
+{% if (createPollen > 1) and ('Create pollen and nectar plots' in data['customise-flower-habitat']) %}{% set flowerTotal = flowerTotal + createPollen %}{% endif %}
+{% if (createFlowers > 1) and ('Create flower-rich margins and plots' in data['customise-flower-habitat']) %}{% set flowerTotal = flowerTotal + createFlowers %}{% endif %}
 
 <!--fencing-->
 {% set fencing = data['fencing']['actions']['Fencing']['multiplier'] * data['fencing']['actions']['Fencing']['amount'] %}
@@ -146,7 +146,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?manure[selected]=null">Remove<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?manure[selected]=null&manure[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></li>
           </ul>
         </dd>
       </div>
@@ -223,13 +223,11 @@ Your actions
         <dd class="govuk-summary-list__value">
           <strong>£{{ grasslandTotal | commafy }}</strong><br>
           <ul class="govuk-list govuk-list--bullet">
-            {% if (data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['amount'] > 1) and ('Arable reversion to grassland with low fertiliser input' in data['customise-create-grassland']) %}
-            <li>Arable reversion to grassland with low fertiliser input<br>£{{ arableReversion | commafy  }} ({{ data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['amount'] }}&nbsp;hectares at
-              {{ data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['rate'] }})</li>
+            {% if 'Arable reversion to grassland with low fertiliser input' in data['customise-create-grassland'] %}
+            <li>Arable reversion to grassland with low fertiliser input<br>£{{ arableReversion | commafy }} ({{ data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['amount'] }}&nbsp;hectares at {{ data['create-grassland']['actions']['Arable reversion to grassland with low fertiliser input']['rate'] }})</li>
             {% endif %}
-            {% if (data['create-grassland']['actions']['Creation of species-rich grassland']['amount'] > 1) and ('Creation of species-rich grassland' in data['customise-create-grassland']) %}
-            <li>Creation of species-rich grassland<br>£{{ speciesRich | commafy  }} ({{ data['create-grassland']['actions']['Creation of species-rich grassland']['amount'] }}&nbsp;hectares at
-              {{ data['create-grassland']['actions']['Creation of species-rich grassland']['rate'] }})<br><br>Read about <a href="/prototype-guidance/draft-guidance-full/create-or-restore-species-rich-grassland" target="_blank">creating species-rich grassland</a><br><br></li>
+            {% if 'Creation of species-rich grassland' in data['customise-create-grassland'] %}
+            <li>Creation of species-rich grassland<br>£{{ speciesRich | commafy }} ({{ data['create-grassland']['actions']['Creation of species-rich grassland']['amount'] }}&nbsp;hectares at {{ data['create-grassland']['actions']['Creation of species-rich grassland']['rate'] }})<br><br>Read about <a href="/public/images/create-or-restore-species-rich-grassland.pdf" target="_blank">creating species-rich grassland</a><br><br></li>
             {% endif %}
           </ul>
         </dd>
@@ -355,7 +353,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?wind-erosion[selected]=null">Remove<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?wind-erosion[selected]=null&wind-erosion[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
           </ul>
         </dd>
       </div>
@@ -384,7 +382,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?deadwood[selected]=null">Remove<span class="govuk-visually-hidden"> {{ data['deadwood']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?deadwood[selected]=null&deadwood[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['deadwood']['description'] }}</span></a></li>
           </ul>
         </dd>
       </div>
@@ -409,15 +407,15 @@ Your actions
       {% if (data['customise-flower-habitat'] != undefined) and data['flower-habitat']['selected'] == "true" %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['flower-habitat']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
-          <strong>£{{ grasslandTotal | commafy }}</strong><br>
+          <strong>£{{ flowerTotal | commafy }}</strong><br>
           <ul class="govuk-list govuk-list--bullet">
             {% if (data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] > 1) and ('Create flower-rich margins and plots' in data['customise-flower-habitat']) %}
-            <li>Create flower-rich margins and plots<br>£{{ speciesRich | commafy  }} ({{ data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] }}&nbsp;hectares at
-              {{ data['flower-habitat']['actions']['Create flower-rich margins and plots']['rate'] }})<br><br>Read about <a href="/prototype-guidance/draft-guidance-full/create-flower-rich-margins-and-plots" target="_blank">creating flower-rich margins and plots</a><br><br></li>
+            <li>Create flower-rich margins and plots<br>£{{ createFlowers | commafy  }} ({{ data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] }}&nbsp;hectares at
+              {{ data['flower-habitat']['actions']['Create flower-rich margins and plots']['rate'] }})<br><br>Read about <a href="/public/images/create-flower-rich-margins-and-plots.pdf" target="_blank">creating flower-rich margins and plots</a><br><br></li>
             {% endif %}
             {% if (data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] > 1) and ('Create pollen and nectar plots' in data['customise-flower-habitat']) %}
-            <li>Create pollen and nectar plots<br>£{{ arableReversion | commafy  }} ({{ data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] }}&nbsp;hectares at
-              {{ data['flower-habitat']['actions']['Create pollen and nectar plots']['rate'] }})<br><br>Read about <a href="/prototype-guidance/draft-guidance-full/create-pollen-and-nectar-plots" target="_blank">creating flower-rich margins and plots</a><br><br></li>
+            <li>Create pollen and nectar plots<br>£{{ createPollen | commafy  }} ({{ data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] }}&nbsp;hectares at
+              {{ data['flower-habitat']['actions']['Create pollen and nectar plots']['rate'] }})<br><br>Read about <a href="/public/images/create-pollen-and-nectar-plots.pdf" target="_blank">creating flower-rich margins and plots</a><br><br></li>
             {% endif %}
           </ul>
         </dd>
@@ -584,7 +582,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cover-crops[selected]=null">Remove<span class="govuk-visually-hidden"> {{ data['cover-crops']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cover-crops[selected]=null&cover-crops[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['cover-crops']['description'] }}</span></a></li>
           </ul>
         </dd>
       </div>
@@ -631,7 +629,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertilisers[selected]=null">Remove<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertilisers[selected]=null&fertilisers[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
           </ul>
         </dd>
       </div>
