@@ -21,7 +21,6 @@ module.exports = {
 
   "agroforestry": {
     "code": "A7",
-    "group": "arable",
     "description": "Use agroforestry to reduce the impact of flooding and drought, maintain carbon storage and reduce sediment in water bodies",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -126,7 +125,6 @@ module.exports = {
 
   "cover-crops": {
     "code": "A5",
-    "group": "arable",
     "description": "Use cover crops to maintain carbon storage and reduce sediment in water bodies",
     "unit": "hectares",
     "rate": "£114 per hectare",
@@ -136,7 +134,6 @@ module.exports = {
 
   "create-grassland": {
     "code": "A9",
-    "group": "arable",
     "description": "Create a species-rich grassland to enhance habitats",
     "actions": {
       "Arable reversion to grassland with low fertiliser input": {
@@ -207,7 +204,6 @@ module.exports = {
 
   "fertilisers": {
     "code": "A1",
-    "group": "arable",
     "description": "Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -217,7 +213,6 @@ module.exports = {
 
   "fertiliser-spreading": {
     "code": "A2",
-    "group": "arable",
     "description": "Use inorganic fertiliser spreading machinery to reduce ammonia emissions",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -227,12 +222,20 @@ module.exports = {
 
   "flower-habitat": {
     "code": "A10",
-    "group": "arable",
     "description": "Provide flower-rich habitat for pollinators",
     "unit": "hectares",
-    "rate": "£511 per metre",
-    "amount": 0,
-    "multiplier": 511
+    "actions": {
+      "Create flower-rich margins and plots": {
+        "unit": "hectares",
+        "rate": "£511 per hectare",
+        "multiplier": 511
+      },
+      "Create pollen and nectar plots": {
+        "unit": "hectares",
+        "rate": "£511 per hectare",
+        "multiplier": 511
+      }
+    }
   },
 
   "grass-strips": {
@@ -247,7 +250,6 @@ module.exports = {
   "manure": {
     "code": "U4",
     "description": "Avoid applying manure on land sloping to a water body to reduce amount of faecal bacteria in the water",
-    "selected": false,
     "unit": "hectares",
     "rate": "£50 per hectare",
     "amount": 0,
@@ -256,7 +258,6 @@ module.exports = {
 
   "no-till": {
     "code": "A3",
-    "group": "arable",
     "description": "Use no-till cultivation on agricultural lowland peatland soils to improve carbon storage",
     "unit": "hectares",
     "rate": "£427 per hectare",
@@ -266,7 +267,6 @@ module.exports = {
 
   "nutrients": {
     "code": "A4",
-    "group": "arable",
     "description": "Reduce nutrient use to reduce catchment nutrient loads",
     "actions": {
       "4m to 6m buffer strip on cultivated land": {
@@ -354,7 +354,6 @@ module.exports = {
 
   "tree-belts": {
     "code": "A6",
-    "group": "arable",
     "description": "Create or maintain hillslope tree shelter belts to reduce flooding",
     "unit": "tree(s)",
     "rate": "£1.28 per tree",
@@ -364,7 +363,6 @@ module.exports = {
 
   "wind-erosion": {
     "code": "A8",
-    "group": "arable",
     "description": "Increase organic matter in soils to reduce wind erosion",
     "unit": "hectares",
     "rate": "£170 per hectare",
@@ -451,8 +449,8 @@ module.exports = {
       "name": "create-grassland",
       "code": "A9",
       "type": "package",
-      "farmtype": "Arable",
-      "landtype": "Arable land",
+      "farmtype": "Mixed",
+      "landtype": "Uplands",
       "region": "South East",
       "description": "Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support characteristic species",
       "actions": [
@@ -527,13 +525,14 @@ module.exports = {
     {
       "name": "flower-habitat",
       "code": "A10",
-      "type": "option",
+      "type": "package",
       "farmtype": "Arable",
       "landtype": "Arable land",
       "region": "South East",
       "description": "Provide flower-rich habitat for wild pollinators",
       "actions": [
-        "Provide flower-rich habitat"
+        "Create flower-rich margins and plots",
+        "Create pollen and nectar plots"
       ]
     },
     {
