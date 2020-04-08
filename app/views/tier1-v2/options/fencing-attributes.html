@@ -27,7 +27,7 @@ Customise options
           What length of fencing do you want to install?
         </label>
         <input class="govuk-input govuk-!-width-one-quarter govuk-!-margin-bottom-7" id="fencing-amount" name="fencing[actions][Fencing][amount]" type="text" aria-describedby="fencing-amount-hint" pattern="[0-9]*" inputmode="numeric"
-          spellcheck="false" value="{{ data['fencing']['actions']['Fencing']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">metres</span>
+          spellcheck="false" value="{{ data['fencing']['actions']['Fencing']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['fencing']['actions']['Fencing']['unit'] }}</span>
         {% endif %}
 
         {% if action == "Sheep netting" %}
@@ -35,7 +35,7 @@ Customise options
           What length of Sheep netting do you want to install?
         </label>
         <input class="govuk-input govuk-!-width-one-quarter govuk-!-margin-bottom-7" id="sheep-netting-amount" name="fencing[actions][Sheep netting][amount]" type="text" aria-describedby="sheep-netting-amount-hint" pattern="[0-9]*"
-          inputmode="numeric" spellcheck="false" value="{{ data['fencing']['actions']['Sheep netting']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">metres</span>
+          inputmode="numeric" spellcheck="false" value="{{ data['fencing']['actions']['Sheep netting']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['fencing']['actions']['Sheep netting']['unit'] }}</span>
         {% endif %}
 
         {% endfor %}

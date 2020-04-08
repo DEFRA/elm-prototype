@@ -224,9 +224,18 @@ module.exports = {
     "code": "A10",
     "description": "Provide flower-rich habitat for pollinators",
     "unit": "hectares",
-    "rate": "£511 per metre",
-    "amount": 0,
-    "multiplier": 511
+    "actions": {
+      "Create flower-rich margins and plots": {
+        "unit": "hectares",
+        "rate": "£511 per hectare",
+        "multiplier": 511
+      },
+      "Create pollen and nectar plots": {
+        "unit": "hectares",
+        "rate": "£511 per hectare",
+        "multiplier": 511
+      }
+    }
   },
 
   "grass-strips": {
@@ -241,7 +250,6 @@ module.exports = {
   "manure": {
     "code": "U4",
     "description": "Avoid applying manure on land sloping to a water body to reduce amount of faecal bacteria in the water",
-    "selected": false,
     "unit": "hectares",
     "rate": "£50 per hectare",
     "amount": 0,
@@ -517,13 +525,14 @@ module.exports = {
     {
       "name": "flower-habitat",
       "code": "A10",
-      "type": "option",
+      "type": "package",
       "farmtype": "Arable",
       "landtype": "Arable land",
       "region": "South East",
       "description": "Provide flower-rich habitat for wild pollinators",
       "actions": [
-        "Provide flower-rich habitat"
+        "Create flower-rich margins and plots",
+        "Create pollen and nectar plots"
       ]
     },
     {

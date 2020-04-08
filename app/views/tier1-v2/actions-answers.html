@@ -287,21 +287,28 @@ Your actions
       </div>
       {% endif %}
 
-      {% if data['flower-habitat']['amount'] > 1 %}
+      {% if (data['customise-flower-habitat'] != undefined) and data['flower-habitat']['selected'] == "true" %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">{{ data['flower-habitat']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }}</li>
+            {% if 'Create flower-rich margins and plots' in data['customise-flower-habitat'] %}
+            <li>Create flower-rich margins and plots<br>({{ data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] }}&nbsp;hectares)</li>
+            {% endif %}
+            {% if 'Create pollen and nectar plots' in data['customise-flower-habitat'] %}
+            <li>Create pollen and nectar plots<br>({{ data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] }}&nbsp;hectares)</li>
+            {% endif %}
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v2/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="?flower-habitat[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
+              <a class="govuk-link"
+                href="?flower-habitat[selected]=false&customise-flower-habitat=&flower-habitat[actions][Create pollen and nectar plots][amount]=&flower-habitat[actions][Create flower-rich margins and plots][amount]=">Remove<span
+                  class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
             </li>
           </ul>
         </dd>
