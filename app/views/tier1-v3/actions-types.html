@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Action types
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form class="form" action="/actions-answer" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+          <span id="changed-name-hint" class="govuk-caption-l govuk-!-margin-bottom-7">
+            Select one option. You can add more options later.
+          </span>
+          <div class="govuk-grid-row govuk-!-margin-top-4">
+            <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Standards</h2>
+              <span id="standards-hint" class="govuk-hint">One or more mandatory actions that meet an environmental assurance level.</span>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if (option.type == "standard") %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for="{{ option.name }}">
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      <h2 class="govuk-heading-s">Mandatory actions (apply to your entire holding)</h2>
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Packages</h2>
+              <span id="packages-hint" class="govuk-hint">A group of two or more actions or options chosen by the user.</span>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if (option.type == "package") %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for="{{ option.name }}">
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Options</h2>
+              <span id="options-hint" class="govuk-hint">An objective consisting of one outcome and/or one or more actions.</span>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if (option.type == "option") %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {% include "includes/sort-action-nav.html" %}
+            </div>
+            </fieldset>
+          </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['manure']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-xl">Check your details</h1>
+        
+        <p class="govuk-body-m">Before you start your application, check your details are correct.</p>
+        <div class="govuk-inset-text">
+          <p>Your details were last updated 7th February 2018</p>
+        </div>
+        <h2 class="govuk-heading-m">Personal details</h2>
+        <!--<p>Applicant must have the <a href="#">authority to act (opens in a new tab or window)</a> for the farm.</p>-->
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sarah Philips
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Customer Reference Number (CRN)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['CRN'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">07700 900457</p>
+              <p class="govuk-body">sarah.phillips@willowfarm.com</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Willow farm<br>Richmond<br>North Yorks<br>DL10 4AT
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> farm address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        
+        <h2 class="govuk-heading-m">Business details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Willow Farm ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Single Business Identifier (SBI)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              106544332
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of business
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Limited
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> type of business</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">07700 900457</p>
+              <p class="govuk-body">sarah.phillips@willowfarm.com</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Willow farm<br>Richmond<br>North Yorks<br>DL10 4AT
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> farm address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Holding size
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['holding-size'] }} hectares
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="holding-level/holding-size">
+                Change<span class="govuk-visually-hidden"> farm size</span>
+              </a>
+            </dd>
+          </div>
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              RPA notified of any boundary changes
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> land changes</span>
+              </a>
+            </dd>
+          </div>-->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Land designation within farm holding
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SSSI
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="color: white">
+                Change<span class="govuk-visually-hidden"> land designations</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registered hertitage within farm holding
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Scheduled monument
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="color: white">
+                Change<span class="govuk-visually-hidden"> scheduled monument</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-m">Agent details</h2>
+          <p class="govuk-body-m"><a href="#">Register an agent</a> to act on your behalf</p>
+        </div>
+        <form action="/tier1-v2/actions" method="post" novalidate>
+
+          <input type="hidden" name="answers-checked" value="true">
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm details
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

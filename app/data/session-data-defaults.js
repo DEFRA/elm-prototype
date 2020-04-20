@@ -629,7 +629,7 @@ module.exports = {
     }
   ],
 
-  "holding-size": 50,
+  "holding-size": 130,
 
   "outcome": "all outcomes",
 

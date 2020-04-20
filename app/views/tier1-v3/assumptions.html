@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Assumptions
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="/">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Prototype assumptions
+    </h1>
+
+    <p>The prototype is built on the following assumptions:</p>
+    <ol class="govuk-list govuk-list--number">
+      <li>The applicant and farm business is known to Defra (through BPS / previous agri-environment schemes)</li>
+      <li>The applicant may self-serve (no advisor required)</li>
+      <li>A single applicant, with a single holding, can hold a single agreement</li>
+      <li>The service will support straight-through processing</li>
+      <li>Tier 1 options (including standards and packages) are not at the parcel level</li>
+      <li>Evidence for eligibility will be asked for by exception</li>
+      <li>Payments could be made on a monthly basis</li>
+    </ol>
+
+    <h2 class="govuk-heading-l">Working definitions</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>Application</strong> - The creation and submission of an ELM plan</li>
+      <li><strong>Plan (land management plan)</strong> - One or more options that a land manager (farmer/forester/agent/advisor etc) wants to do on their land, with a clear understanding of how and when to do it, and what it’s worth</li>
+      <li><strong>Agreement</strong> - Created after a successful application is made, including plan details and payment schedule which must be accepted by the applicant to be paid and fulfilled</li>
+      <li><strong>Option</strong> - An objective that consists of an outcome and/or one or more actions that is chosen by a land manager to include in an ELM plan</li>
+      <li><strong>Package</strong> - A group of two or more actions or options chosen by the user to include in an ELM plan. (Grouped by e.g. land type, farm type, region)</li>
+      <li><strong>Standard</strong> - One or more mandatory actions which meet an environmental assurance level which a land manager can choose to include in an ELM plan. (Standards created by e.g. National, land type, farm type, region, outcome, action, prohibitions,
+        strategy)</li>
+      <li><strong>Holding</strong> - ?</li>
+    </ul>
+
+    <h2 class="govuk-heading-l">Overarching hypotheses</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><strong>RELEVANCY</strong> - We believe that if we provide users with relevant information at the right time they will have greater confidence to make informed decisions.</li>
+      <li><strong>SIMPLICITY</strong> - We believe that if we create a simple application process, aligned to the farmer/forester’s mental model, more users will be able to self-serve.</li>
+      <li><strong>FLEXIBILITY</strong> - We believe that a more flexible service which fits with a user’s farm and situation will encourage uptake and fulfilment of agreements.</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
