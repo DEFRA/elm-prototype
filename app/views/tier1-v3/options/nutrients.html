@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Customise package
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/tier1-v2/options/nutrients-attributes" method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
+                <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+                  Customise package
+                </h1>
+                <span class="govuk-caption-l">Whole farm reduction in nutrient use / nutrient cap to reduce catchment nutrient loads</span>
+          </legend>
+          <span id="package-hint" class="govuk-hint">
+            Select which actions you want to do.
+          </span>
+          <div class="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="12m to 24m watercourse buffer strip on cultivated land" {{ checked("customise-nutrients", "12m to 24m watercourse buffer strip on cultivated land") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                12m to 24m watercourse buffer strip on cultivated land
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="4m to 6m buffer strip on cultivated land" {{ checked("customise-nutrients", "4m to 6m buffer strip on cultivated land") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                4m to 6m buffer strip on cultivated land
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="4m to 6m buffer strip on intensive grassland" {{ checked("customise-nutrients", "4m to 6m buffer strip on intensive grassland") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                4m to 6m buffer strip on intensive grassland
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Arable reversion to grassland with low fertiliser input" {{ checked("customise-nutrients", "Arable reversion to grassland with low fertiliser input") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Arable reversion to grassland with low fertiliser input
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Enhanced management of maize crops" {{ checked("customise-nutrients", "Enhanced management of maize crops") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Enhanced management of maize crops
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Flood mitigation on arable reversion to grassland" {{ checked("customise-nutrients", "Flood mitigation on arable reversion to grassland") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Flood mitigation on arable reversion to grassland
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Flood mitigation on permanent grassland" {{ checked("customise-nutrients", "Flood mitigation on permanent grassland") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Flood mitigation on permanent grassland
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="In-field grass strips" {{ checked("customise-nutrients", "In-field grass strips") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                In-field grass strips
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Making space for water" {{ checked("customise-nutrients", "Making space for water") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Making space for water
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Management of intensive grassland adjacent to a watercourse" {{ checked("customise-nutrients", "Management of intensive grassland adjacent to a watercourse") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Management of intensive grassland adjacent to a watercourse
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Nil fertiliser supplement" {{ checked("customise-nutrients", "Nil fertiliser supplement") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Nil fertiliser supplement
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Riparian management strip" {{ checked("customise-nutrients", "Riparian management strip") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Riparian management strip
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes" {{ checked("customise-nutrients", "Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Seasonal livestock removal on intensive grassland" {{ checked("customise-nutrients", "Seasonal livestock removal on intensive grassland") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Seasonal livestock removal on intensive grassland
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Very low nitrogen inputs to groundwaters" {{ checked("customise-nutrients", "Very low nitrogen inputs to groundwaters") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Very low nitrogen inputs to groundwaters
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-nutrients" name="customise-nutrients" type="checkbox" value="Winter cover crops" {{ checked("customise-nutrients", "Winter cover crops") }} >
+              <label class="govuk-label govuk-checkboxes__label" for="customise-nutrients">
+                Winter cover crops
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

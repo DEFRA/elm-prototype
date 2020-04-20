@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <script language="javascript" type="text/javascript">
+        window.setTimeout('location.replace("agreement")',5000);
+    </script>
+
+    <p class="govuk-body-l spinner-text">
+      Please wait. This might take up to a minute.
+    </p>
+
+  </div>
+</div>
+
+<div class="spinner"></div>
+
+{% endblock %}

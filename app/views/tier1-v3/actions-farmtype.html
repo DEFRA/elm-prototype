@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Action farmtypes
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form class="form" action="/actions-answer" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+          <span id="changed-name-hint" class="govuk-caption-l govuk-!-margin-bottom-7">
+            Select one option. You can add more options later.
+          </span>
+          <div class="govuk-grid-row govuk-!-margin-top-4">
+            <div class="govuk-grid-column-two-thirds">
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Arable</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Arable" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions (apply to your entire holding)</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Mixed</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Mixed" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions (apply to your entire holding)</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <h2 class="govuk-heading-m govuk-!-margin-top-7">Livestock</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options'] | sort(false, true, 'description') %}
+                {% if option.farmtype == "Livestock" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.type == "standard" %}
+                      <h2 class="govuk-heading-s">Mandatory actions (apply to your entire holding)</h2>
+                      {% elif option.type == "package" %}
+                      <h2 class="govuk-heading-s">Selectable actions</h2>
+                      {% else %}
+                      <h2 class="govuk-heading-s">Actions</h2>
+                      {% endif %}
+                      <p class="govuk-body">
+                        <ul class="govuk-list govuk-list--bullet">
+                          {% for action in option.actions %}
+                          <li>{{ action }}</li>
+                          {% endfor %}
+                        </ul>
+                      </p>
+                    </label>
+                  </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+              {% include "includes/sort-action-nav.html" %}
+            </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

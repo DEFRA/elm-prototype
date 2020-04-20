@@ -1,0 +1,36 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Storyboard step 1
+{% endblock %}
+
+{% block content %}
+  <a href="#" class="govuk-back-link" onclick="window.history.go(-1); return false;">Back</a>
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <span class="govuk-caption-xl">Scenario</span>
+          <h1 class="govuk-heading-xl">
+            2. Notification
+          </h1>
+        </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <img src="/public/images/tier1-v2/step-2.jpg" alt="Notification"  style="width: 100%; margin-bottom: 30px">
+        </div>
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body-l">
+            Defra contacts you to explain what is changing and introduces the new opportunities for farmers and foresters.
+          </p>
+            <p class="govuk-body-l">
+              <a href="step-3.html" class="govuk-link">Next</a>
+            </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+{% endblock %}

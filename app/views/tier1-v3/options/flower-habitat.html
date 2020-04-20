@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Customise package
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v2/options/flower-habitat-attributes" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
+            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+              Customise package
+            </h1>
+            <span class="govuk-caption-l">Provide flower-rich habitat for wild pollinators</span>
+          </legend>
+          <span id="package-hint" class="govuk-hint">
+            Select which actions you want to do.
+          </span>
+
+          <div class="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-flower-habitat" name="customise-flower-habitat" type="checkbox" value="Create flower-rich margins and plots"
+                {{ checked("customise-flower-habitat", "Create flower-rich margins and plots") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="arable reversion to grassland with low fertiliser input">
+                Create flower-rich margins and plots
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="customise-flower-habitat" name="customise-flower-habitat" type="checkbox" value="Create pollen and nectar plots"
+                {{ checked("customise-flower-habitat", "Create pollen and nectar plots") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="customise-flower-habitat">
+                Create pollen and nectar plots
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
