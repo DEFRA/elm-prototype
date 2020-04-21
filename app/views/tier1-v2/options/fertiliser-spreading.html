@@ -13,13 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/fertiliser-spreading-validation" method="post">
+    <form class="form" action="/tier1-v2/fertiliser-spreading-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
           How much land would you like to use inorganic fertiliser on?
         </label>
-        
+
         {% if data['fertiliser-spreading']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="fertiliser-spreading[amount]" name="fertiliser-spreading[amount]" type="text" aria-describedby="fertiliser-spreading-amount-hint" pattern="[0-9]*" inputmode="numeric"
           spellcheck="false"><span class="govuk-body govuk-!-margin-left-1">{{ data['fertiliser-spreading']['unit'] }}</span>

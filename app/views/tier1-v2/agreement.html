@@ -107,7 +107,7 @@ Your agreement
 {% set livestockTroughs = data['drinking-water']['actions']['Livestock troughs']['multiplier'] * data['drinking-water']['actions']['Livestock troughs']['amount'] %}
 {% set troughPiping = data['drinking-water']['actions']['Pipework associated with livestock troughs']['multiplier'] * data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] %}
 {% set waterTotal = 0 %}
-{% if (pasturePumps > 1) and ('Pasture pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = pasturePumps + fencing %}{% endif %}
+{% if (pasturePumps > 1) and ('Pasture pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + pasturePumps %}{% endif %}
 {% if (ramPumps > 1) and ('Ram pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + ramPumps %}{% endif %}
 {% if (livestockTroughs > 1) and ('Livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + livestockTroughs %}{% endif %}
 {% if (troughPiping > 1) and ('Pipework associated with livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + troughPiping %}{% endif %}
@@ -322,18 +322,18 @@ Your agreement
           <strong>£{{ waterTotal | round(2) | commafy }}</strong><br>
           <ul class="govuk-list govuk-list--bullet">
             {% if 'Pasture pumps and associated pipework' in data['customise-drinking-water'] %}
-            <li>Pasture pumps and associated pipework<br>£{{ pasturePumps | commafy  }} ({{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['amount'] }}&nbsp;hectares at
+            <li>Pasture pumps and associated pipework<br>£{{ pasturePumps | commafy  }} ({{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['amount'] }}&nbsp;pumps at
               {{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['rate'] }})</li>
             {% endif %}
             {% if 'Ram pumps and associated pipework' in data['customise-drinking-water'] %}
-            <li>Ram pumps and associated pipework<br>£{{ ramPumps | commafy  }} ({{ data['drinking-water']['actions']['Ram pumps and associated pipework']['amount'] }}&nbsp;hectares at
+            <li>Ram pumps and associated pipework<br>£{{ ramPumps | commafy  }} ({{ data['drinking-water']['actions']['Ram pumps and associated pipework']['amount'] }}&nbsp;pumps at
               {{ data['drinking-water']['actions']['Ram pumps and associated pipework']['rate'] }})</li>
             {% endif %}
             {% if 'Livestock troughs' in data['customise-drinking-water'] %}
-            <li>Livestock troughs<br>£{{ livestockTroughs | commafy  }} ({{ data['drinking-water']['actions']['Livestock troughs']['amount'] }}&nbsp;hectares at {{ data['drinking-water']['actions']['Livestock troughs']['rate'] }})</li>
+            <li>Livestock troughs<br>£{{ livestockTroughs | commafy  }} ({{ data['drinking-water']['actions']['Livestock troughs']['amount'] }}&nbsp;troughs at {{ data['drinking-water']['actions']['Livestock troughs']['rate'] }})</li>
             {% endif %}
             {% if 'Pipework associated with livestock troughs' in data['customise-drinking-water'] %}
-            <li>Pipework associated with livestock troughs<br>£{{ troughPiping | round(2) | commafy  }} ({{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] }}&nbsp;hectares at
+            <li>Pipework associated with livestock troughs<br>£{{ troughPiping | round(2) | commafy  }} ({{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] }}&nbsp;metres at
               {{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['rate'] }})</li>
             {% endif %}
           </ul>
@@ -483,7 +483,7 @@ Your agreement
       {% endif %}
     </ul>
 
-    <form action="/application-complete" method="post" novalidate>
+    <form action="/tier1-v2/application-complete" method="post" novalidate>
 
       <input type="hidden" name="answers-checked" value="true">
 

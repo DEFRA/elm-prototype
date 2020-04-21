@@ -17,7 +17,7 @@ Your actions
     {% if (data['manure']['selected'] != "true") and (data['bog-grazing']['selected'] != "true") and (data['create-grassland']['selected'] != "true") and (data['grass-strips']['amount'] == 0) and (data['tree-belts']['amount'] == 0) and (data['canopy-cover']['amount'] == 0) and (data['fencing']['selected'] != "true") and (data['wind-erosion']['selected'] != "true") and (data['deadwood']['selected'] != "true") and (data['bare-soil']['amount'] == 0) and (data['flower-habitat']['amount'] == 0) and (data['drinking-water']['selected'] != "true") and (data['nutrients']['selected'] != "true") and (data['agroforestry']['selected'] != "true") and (data['cover-crops']['selected'] != "true") and (data['fertiliser-spreading']['amount'] == 0) and (data['fertilisers']['selected'] != "true") and (data['no-till']['selected'] != "true") %}
     <p class="govuk-body">No actions selected.</p>
 
-    <form action="/tier1-v2/actions" method="post" novalidate>
+    <form action="/tier1-v3/actions" method="post" novalidate>
 
       <input type="hidden" name="answers-checked" value="true">
 
@@ -36,7 +36,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['manure']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -100,7 +100,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link"
@@ -128,7 +128,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link"
@@ -151,7 +151,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?grass-strips[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a>
@@ -172,7 +172,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?tree-belts[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a>
@@ -193,7 +193,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?canopy-cover[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a>
@@ -219,7 +219,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?fencing[selected]=false&customise-fencing=&fencing[actions][Fencing][amount]=&fencing[actions][Sheep netting][amount]=">Remove<span class="govuk-visually-hidden">
@@ -235,7 +235,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['wind-erosion']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -253,7 +253,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -277,7 +277,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?bare-soil[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a>
@@ -303,7 +303,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link"
@@ -337,7 +337,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link"
@@ -408,7 +408,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link"
@@ -425,7 +425,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -443,7 +443,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['cover-crops']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -467,7 +467,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?fertiliser-spreading[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a>
@@ -482,7 +482,7 @@ Your actions
         <dt class="govuk-summary-list__key">{{ data['fertilisers']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list govuk-list--bullet">
-            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v2/holding-size">holding</a>)</li>
+            <li>{{ data['holding-size'] | commafy }} hectares<br>(change size of your <a href="/tier1-v3/holding-size">holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -506,7 +506,7 @@ Your actions
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item">
-              <a class="govuk-link" href="/tier1-v2/options/actions/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a>
+              <a class="govuk-link" href="/tier1-v3/options/actions/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a>
             </li>
             <li class="govuk-summary-list__actions-list-item">
               <a class="govuk-link" href="?no-till[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a>
@@ -520,11 +520,11 @@ Your actions
 
     {{ govukButton({
         text: "Add another option",
-        href: "/tier1-v2/actions",
+        href: "/tier1-v3/actions",
         classes: "govuk-button--secondary govuk-!-margin-top-7 govuk-!-margin-bottom-9"
       }) }}
 
-    <form action="/tier1-v2/calculation" method="post" novalidate>
+    <form action="/tier1-v3/calculation" method="post" novalidate>
 
       <input type="hidden" name="answers-checked" value="true">
 

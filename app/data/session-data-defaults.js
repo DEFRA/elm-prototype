@@ -40,6 +40,10 @@ module.exports = {
   "bog-grazing": {
     "code": "U1",
     "description": "Control grazing on bogs and peatlands to enhance carbon storage",
+    "unit": "hectares",
+    "rate": "£7 per hectare",
+    "amount": 0,
+    "multiplier": 7,
     "actions": {
       "Moorland management": {
         "unit": "hectares",
@@ -135,6 +139,10 @@ module.exports = {
   "create-grassland": {
     "code": "A9",
     "description": "Create a species-rich grassland to enhance habitats",
+    "unit": "hectares",
+    "rate": "£267 per hectare",
+    "amount": 0,
+    "multiplier": 267,
     "actions": {
       "Arable reversion to grassland with low fertiliser input": {
         "unit": "hectares",
@@ -161,6 +169,10 @@ module.exports = {
   "drinking-water": {
     "code": "U3",
     "description": "Provide drinking water for livestock to reduce the amount of sediment in water bodies",
+    "unit": "troughs",
+    "rate": "£220 per trough",
+    "amount": 0,
+    "multiplier": 220,
     "actions": {
       "Pasture pumps and associated pipework": {
         "unit": "pumps",
@@ -188,6 +200,10 @@ module.exports = {
   "fencing": {
     "code": "U2",
     "description": "Fence off water sources from livestock to prevent erosion, nutrient input and contamination",
+    "unit": "metres",
+    "rate": "£4 per metre",
+    "amount": 0,
+    "multiplier": 4,
     "actions": {
       "Fencing": {
         "unit": "metres",
@@ -224,6 +240,9 @@ module.exports = {
     "code": "A10",
     "description": "Provide flower-rich habitat for pollinators",
     "unit": "hectares",
+    "rate": "£511 per metre",
+    "amount": 0,
+    "multiplier": 511,
     "actions": {
       "Create flower-rich margins and plots": {
         "unit": "hectares",
@@ -268,6 +287,10 @@ module.exports = {
   "nutrients": {
     "code": "A4",
     "description": "Reduce nutrient use to reduce catchment nutrient loads",
+    "unit": "hectares",
+    "rate": "£293 per hectare",
+    "amount": 0,
+    "multiplier": 293,
     "actions": {
       "4m to 6m buffer strip on cultivated land": {
         "unit": "hectares",
