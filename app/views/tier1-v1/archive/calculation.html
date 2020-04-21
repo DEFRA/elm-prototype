@@ -37,11 +37,11 @@ How much will you be paid?
     <p class="govuk-body">Based on the information you have provided, we calculate you would receive a total annual payment of <strong>£{{ fullTotal }}</strong>. <!--This would be sent to you in 12 monthly instalments of <strong>£{{ monthlyTotal|round(2) }}</strong>.--></p>
 
       {% if data['manure']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['manure']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['manure']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['manure']['amount'] }} {{ data['manure']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['manure']['rate'] }}</dd>
@@ -55,11 +55,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['create-grassland']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['create-grassland']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['create-grassland']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['create-grassland']['amount'] }} {{ data['create-grassland']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['create-grassland']['rate'] }}</dd>
@@ -73,11 +73,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['bog-grazing']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['bog-grazing']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['bog-grazing']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['bog-grazing']['amount'] }} {{ data['bog-grazing']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['bog-grazing']['rate'] }}</dd>
@@ -91,11 +91,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['grass-strips']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['grass-strips']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['grass-strips']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['grass-strips']['amount'] }} {{ data['grass-strips']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['grass-strips']['rate'] }}</dd>
@@ -109,11 +109,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['tree-belts']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['tree-belts']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['tree-belts']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['tree-belts']['amount'] }} {{ data['tree-belts']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['tree-belts']['rate'] }}</dd>
@@ -127,11 +127,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['canopy-cover']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['canopy-cover']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['canopy-cover']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['canopy-cover']['amount'] }} {{ data['canopy-cover']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['canopy-cover']['rate'] }}</dd>
@@ -145,11 +145,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['fencing']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['fencing']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['fencing']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['fencing']['amount'] }} {{ data['fencing']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['fencing']['rate'] }}</dd>
@@ -163,11 +163,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['deadwood']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['deadwood']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['deadwood']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['deadwood']['amount'] }} {{ data['deadwood']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['deadwood']['rate'] }}</dd>
@@ -181,11 +181,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['bare-soil']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['bare-soil']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['bare-soil']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['bare-soil']['amount'] }} {{ data['bare-soil']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['bare-soil']['rate'] }}</dd>
@@ -199,11 +199,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['flower-habitat']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['flower-habitat']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['flower-habitat']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['flower-habitat']['amount'] }} {{ data['flower-habitat']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['flower-habitat']['rate'] }}</dd>
@@ -217,11 +217,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['drinking-water']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['drinking-water']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['drinking-water']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['drinking-water']['amount'] }} {{ data['drinking-water']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['drinking-water']['rate'] }}</dd>
@@ -235,11 +235,11 @@ How much will you be paid?
       {% endif %}
 
       {% if data['cover-crops']['amount'] != 0 %}
-      <h2 class="govuk-heading-m">{{ data['cover-crops']['type'] }}</h2>
+      <h2 class="govuk-heading-m">{{ data['cover-crops']['description'] }}</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Amount</dt>
           <dd class="govuk-summary-list__value">{{ data['cover-crops']['amount'] }} {{ data['cover-crops']['unit'] }}</dd>
-          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['type'] }}</span></a></dd>
+          <dd class="govuk-summary-list__actions"><a class="govuk-link" href="/tier1-v1/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['description'] }}</span></a></dd>
         </div>
         <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Rate</dt>
           <dd class="govuk-summary-list__value">{{ data['cover-crops']['rate'] }}</dd>

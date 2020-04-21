@@ -111,7 +111,7 @@ Your actions
 {% set livestockTroughs = data['drinking-water']['actions']['Livestock troughs']['multiplier'] * data['drinking-water']['actions']['Livestock troughs']['amount'] %}
 {% set troughPiping = data['drinking-water']['actions']['Pipework associated with livestock troughs']['multiplier'] * data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] %}
 {% set waterTotal = 0 %}
-{% if (pasturePumps > 1) and ('Pasture pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = pasturePumps + fencing %}{% endif %}
+{% if (pasturePumps > 1) and ('Pasture pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + pasturePumps %}{% endif %}
 {% if (ramPumps > 1) and ('Ram pumps and associated pipework' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + ramPumps %}{% endif %}
 {% if (livestockTroughs > 1) and ('Livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + livestockTroughs %}{% endif %}
 {% if (troughPiping > 1) and ('Pipework associated with livestock troughs' in data['customise-drinking-water']) %}{% set waterTotal = waterTotal + troughPiping %}{% endif %}
@@ -141,7 +141,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['manure']['description'] }}</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
-            <li><strong>£{{ manureTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)</li>
+            <li><strong>£{{ manureTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -209,7 +209,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link"
                 href="?bog-grazing[selected]=false&customise-bog-grazing=&bog-grazing[actions][Moorland management][amount]=&bog-grazing[actions][Moorland management - Vegetation supplement][amount]=&bog-grazing[actions][Shepherding supplement][amount]=&bog-grazing[actions][Management of Reedbed][amount]=&bog-grazing[actions][Creation of Reedbed][amount]=&bog-grazing[actions][Management of Fen][amount]=&bog-grazing[actions][Creation of Fen][amount]=&bog-grazing[actions][Management of Bog][amount]=&bog-grazing[actions][Wetland Grazing supplement][amount]=&bog-grazing[actions][Upland livestock exclusion supplement][amount]=&bog-grazing[actions][Management of rough grazing for birds][amount]=&bog-grazing[actions][Raised water level supplement][amount]=&bog-grazing[actions][Management of lowland heathland][amount]=&bog-grazing[actions][Cattle grazing supplement][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></li>
@@ -233,7 +233,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link"
                 href="?create-grassland[selected]=false&customise-create-grassland=&create-grassland[actions][Arable reversion to grassland with low fertiliser input][amount]=&create-grassland[actions][Creation of species-rich grassland][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></li>
@@ -251,7 +251,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grass-strips[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -267,7 +267,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?tree-belts[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -299,7 +299,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?canopy-cover[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -321,7 +321,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fencing[selected]=false&customise-fencing=&fencing[actions][Fencing][amount]=&fencing[actions][Sheep netting][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></li>
           </ul>
@@ -348,7 +348,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key" style="border-bottom: none;">{{ data['wind-erosion']['description'] }}</dt>
         <dd class="govuk-summary-list__value" style="border-bottom: none;">
           <ul class="govuk-list">
-            <li><strong>£{{ windTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['wind-erosion']['unit'] }} at {{ data['wind-erosion']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)</li>
+            <li><strong>£{{ windTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['wind-erosion']['unit'] }} at {{ data['wind-erosion']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
@@ -377,7 +377,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
-            <li><strong>£{{ deadwoodTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)</li>
+            <li><strong>£{{ deadwoodTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
@@ -397,7 +397,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bare-soil[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -421,7 +421,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link"
                 href="?flower-habitat[selected]=false&customise-flower-habitat=&flower-habitat[actions][Create pollen and nectar plots][amount]=&flower-habitat[actions][Create flower-rich margins and plots][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></li>
@@ -436,25 +436,25 @@ Your actions
           <strong>£{{ waterTotal | round(2) | commafy }}</strong><br>
           <ul class="govuk-list govuk-list--bullet">
             {% if 'Pasture pumps and associated pipework' in data['customise-drinking-water'] %}
-            <li>Pasture pumps and associated pipework<br>£{{ pasturePumps | commafy  }} ({{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['amount'] }}&nbsp;hectares at
+            <li>Pasture pumps and associated pipework<br>£{{ pasturePumps | commafy  }} ({{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['amount'] }}&nbsp;pumps at
               {{ data['drinking-water']['actions']['Pasture pumps and associated pipework']['rate'] }})</li>
             {% endif %}
             {% if 'Ram pumps and associated pipework' in data['customise-drinking-water'] %}
-            <li>Ram pumps and associated pipework<br>£{{ ramPumps | commafy  }} ({{ data['drinking-water']['actions']['Ram pumps and associated pipework']['amount'] }}&nbsp;hectares at
+            <li>Ram pumps and associated pipework<br>£{{ ramPumps | commafy  }} ({{ data['drinking-water']['actions']['Ram pumps and associated pipework']['amount'] }}&nbsp;pumps at
               {{ data['drinking-water']['actions']['Ram pumps and associated pipework']['rate'] }})</li>
             {% endif %}
             {% if 'Livestock troughs' in data['customise-drinking-water'] %}
-            <li>Livestock troughs<br>£{{ livestockTroughs | commafy  }} ({{ data['drinking-water']['actions']['Livestock troughs']['amount'] }}&nbsp;hectares at {{ data['drinking-water']['actions']['Livestock troughs']['rate'] }})</li>
+            <li>Livestock troughs<br>£{{ livestockTroughs | commafy  }} ({{ data['drinking-water']['actions']['Livestock troughs']['amount'] }}&nbsp;troughs at {{ data['drinking-water']['actions']['Livestock troughs']['rate'] }})</li>
             {% endif %}
             {% if 'Pipework associated with livestock troughs' in data['customise-drinking-water'] %}
-            <li>Pipework associated with livestock troughs<br>£{{ troughPiping | round(2) | commafy  }} ({{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] }}&nbsp;hectares at
+            <li>Pipework associated with livestock troughs<br>£{{ troughPiping | round(2) | commafy  }} ({{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['amount'] }}&nbsp;metres at
               {{ data['drinking-water']['actions']['Pipework associated with livestock troughs']['rate'] }})</li>
             {% endif %}
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link"
                 href="?drinking-water[selected]=false&customise-drinking-water=&drinking-water[actions][Pasture pumps and associated pipework][amount]=&drinking-water[actions][Ram pumps and associated pipework][amount]=&drinking-water[actions][Livestock troughs][amount]=&drinking-water[actions][Pipework associated with livestock troughs][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a>
@@ -548,7 +548,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link"
                 href="?nutrients[selected]=false&customise-nutrients=&nutrients[actions][4m to 6m buffer strip on cultivated land][amount]=&nutrients[actions][4m to 6m buffer strip on intensive grassland][amount]=&nutrients[actions][In-field grass strips][amount]=&nutrients[actions][12m to 24m watercourse buffer strip on cultivated land][amount]=&nutrients[actions][Enhanced management of maize crops][amount]=&nutrients[actions][Winter cover crops][amount]=&nutrients[actions][Arable reversion to grassland with low fertiliser input][amount]=&nutrients[actions][Management of intensive grassland adjacent to a watercourse][amount]=&nutrients[actions][Seasonal livestock removal on intensive grassland][amount]=&nutrients[actions][Seasonal livestock removal on grassland in SDAs next to streams, rivers and lakes][amount]=&nutrients[actions][Riparian management strip][amount]=&nutrients[actions][Making space for water][amount]=&nutrients[actions][Very low nitrogen inputs to groundwaters][amount]=&nutrients[actions][Nil fertiliser supplement][amount]=&nutrients[actions][Flood mitigation on arable reversion to grassland][amount]=&nutrients[actions][Flood mitigation on permanent grassland][amount]=">Remove<span
                   class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
@@ -561,7 +561,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value">
           <ul class="govuk-list">
-            <li><strong>£{{ agroforestryTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire
+            <li><strong>£{{ agroforestryTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire
                 holding</a>)</li>
           </ul>
         </dd>
@@ -577,7 +577,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key" style="border-bottom: none;">{{ data['cover-crops']['description'] }}</dt>
         <dd class="govuk-summary-list__value" style="border-bottom: none;">
           <ul class="govuk-list">
-            <li><strong>£{{ coverTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['cover-crops']['unit'] }} at {{ data['cover-crops']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)</li>
+            <li><strong>£{{ coverTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['cover-crops']['unit'] }} at {{ data['cover-crops']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire holding</a>)</li>
           </ul>
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links" style="border-bottom: none;">
@@ -612,7 +612,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertiliser-spreading[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -623,7 +623,7 @@ Your actions
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key" style="border-bottom: none;">{{ data['fertilisers']['description'] }}</dt>
         <dd class="govuk-summary-list__value" style="border-bottom: none;">
           <ul class="govuk-list">
-            <li><strong>£{{ fertilisersTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }})<br>(applies to your <a href="/tier1-v2/holding-size">entire holding</a>)
+            <li><strong>£{{ fertilisersTotal | commafy }}</strong> ({{ data['holding-size'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }})<br>(applies to your <a href="/tier1-v3/holding-size">entire holding</a>)
             </li>
           </ul>
         </dd>
@@ -659,7 +659,7 @@ Your actions
         </dd>
         <dd class="govuk-summary-list__actions summary-list-links">
           <ul class="govuk-summary-list__actions-list">
-            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v2/options/actions/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/actions/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?no-till[amount]=">Remove<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
           </ul>
         </dd>
@@ -675,7 +675,7 @@ Your actions
 
     {{ govukButton({
             text: "Add another action",
-            href: "/tier1-v2/actions",
+            href: "/tier1-v3/actions",
             classes: "govuk-button--secondary govuk-!-margin-top-7 govuk-!-margin-bottom-9"
           }) }}
 
@@ -687,7 +687,7 @@ Your actions
     <p class="govuk-body">We will now check your selected actions are appropriate for the land registration information we have on record for your business.</p>
     <p class="govuk-body">No further changes to your application will be possible.</p>
 
-    <form action="/tier1-v2/loading" method="post" novalidate>
+    <form action="/tier1-v3/loading" method="post" novalidate>
 
       <input type="hidden" name="answers-checked" value="true">
 

@@ -13,13 +13,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/grass-strips-validation" method="post">
+    <form class="form" action="/tier1-v2/grass-strips-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
           How much land would you like to create, maintain or improve grass strips on?
         </label>
-        
+
         {% if data['grass-strips']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="grass-strips[amount]" name="grass-strips[amount]" type="text" aria-describedby="grass-strips-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['grass-strips']['unit'] }}</span>
