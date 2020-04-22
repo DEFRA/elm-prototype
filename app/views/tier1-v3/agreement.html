@@ -22,11 +22,11 @@ Your agreement
 {% if (speciesRich > 1) and ('Creation of species-rich grassland' in data['customise-create-grassland']) %}{% set grasslandTotal = grasslandTotal + speciesRich %}{% endif %}
 
 <!--flower-habitat-->
-{% set arableReversion = data['flower-habitat']['actions']['Create pollen and nectar plots']['multiplier'] * data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] %}
-{% set speciesRich = data['flower-habitat']['actions']['Create flower-rich margins and plots']['multiplier'] * data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] %}
+{% set createPollen = data['flower-habitat']['actions']['Create pollen and nectar plots']['multiplier'] * data['flower-habitat']['actions']['Create pollen and nectar plots']['amount'] %}
+{% set createFlowers = data['flower-habitat']['actions']['Create flower-rich margins and plots']['multiplier'] * data['flower-habitat']['actions']['Create flower-rich margins and plots']['amount'] %}
 {% set flowerTotal = 0 %}
-{% if (arableReversion > 1) and ('Create pollen and nectar plots' in data['customise-flower-habitat']) %}{% set grasslandTotal = grasslandTotal + arableReversion %}{% endif %}
-{% if (speciesRich > 1) and ('Create flower-rich margins and plots' in data['customise-flower-habitat']) %}{% set grasslandTotal = grasslandTotal + speciesRich %}{% endif %}
+{% if (createPollen > 1) and ('Create pollen and nectar plots' in data['customise-flower-habitat']) %}{% set flowerTotal = flowerTotal + createPollen %}{% endif %}
+{% if (createFlowers > 1) and ('Create flower-rich margins and plots' in data['customise-flower-habitat']) %}{% set flowerTotal = flowerTotal + createFlowers %}{% endif %}
 
 <!--fencing-->
 {% set fencing = data['fencing']['actions']['Fencing']['multiplier'] * data['fencing']['actions']['Fencing']['amount'] %}
