@@ -9,6 +9,9 @@ console.log('previous page is: ' + res.locals.prevURL + " and current page is " 
   next();
 });
 
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
+
 // Set service name based on sub folders for different prototypes
 router.get('/land-manager/*', function(req, res, next){
   res.locals['serviceName'] = 'Make or update an ELM claim'

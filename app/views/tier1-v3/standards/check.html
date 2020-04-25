@@ -98,6 +98,16 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              Single Business Identifier (SBI)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              106544332
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Business name
             </dt>
             <dd class="govuk-summary-list__value">
@@ -110,18 +120,32 @@
             </dd>
           </div>
           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['businessemail'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> business email</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key" style="border-bottom: 0">
-              Single Business Identifier (SBI)
+              Business address
             </dt>
             <dd class="govuk-summary-list__value" style="border-bottom: 0">
-              106544332
+              {{ data['businesaddress1'] }}<br>{{ data['businesaddress2'] }}<br>{{ data['businesaddress3'] }}<br>{{ data['businesspostcode'] }}
             </dd>
             <dd class="govuk-summary-list__actions" style="border-bottom: 0">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> business address</span>
+              </a>
             </dd>
           </div>
         </dl>
-
-
   </div>
   <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="land">
     <h2 class="govuk-heading-l">Land details</h2>

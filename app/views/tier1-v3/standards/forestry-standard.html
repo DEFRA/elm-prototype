@@ -51,7 +51,7 @@ Forestry Standard
         </div>
       </div>
       <div class="govuk-form-group govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-l">What you'll need to do in your agreement</h2>
+        <h2 class="govuk-heading-l">What you'll need to do</h2>
         <h3 class="govuk-heading-m">Encourage diversification of the stand</h3>
         <p class="govuk-body-m">Encourage diversification of the stand and continuity of canopy cover through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change.</p>
         <h3 class="govuk-heading-m">Manage deadwood</h3>
@@ -70,7 +70,6 @@ Forestry Standard
         </div>
       </dl>-->
       <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and heritage</h2>
-
       <div class="govuk-inset-text govuk-!-margin-bottom-8">
         {% if data['SSSI-present'] == "SSSI" %}
           <p>{{ data['SSSI-advisory'] }}</p>
@@ -80,7 +79,15 @@ Forestry Standard
           <p>{{ data['scheduled-monument-advisory'] }}</p>
         {% endif %}             
       </div>
-      <div class="govuk-form-group">
+      <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              You can receive up to an unlimited fine for causing damage to designated land and possible imprisonment for causing damage to a scheduled monument.
+            </strong>
+          </div>
+          <hr>
+      <div class="govuk-form-group  govuk-!-margin-top-8">
         <h2 class="govuk-heading-l">Submit your application</h2>
 
         <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge the details that have been provided are correct.</p>

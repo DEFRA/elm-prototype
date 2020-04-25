@@ -38,9 +38,7 @@ module.exports = {
   "businespostcode": "DL10 4AT",
 
   "holding-size": 130,
-
-
-
+  
   "SSSI-present": "None",
   "SSSI-advisory": "Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, contact Natural England.",
 
