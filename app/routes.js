@@ -3,6 +3,9 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
+
 // Set service name based on sub folders for different prototypes
 router.get('/land-manager/*', function(req, res, next){
   res.locals['serviceName'] = 'Make or update an ELM claim'
@@ -27,6 +30,10 @@ router.get('/tier1-v2/*', function(req, res, next){
 
   next()
 })
+
+// Tier 1 version 3
+
+// Farm type
 
 // Tier 1 version 2
 
