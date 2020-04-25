@@ -1,0 +1,452 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your actions
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Your plan</h1>
+
+    {% if (data['fertilisers']['amount'] == 0)
+    and (data['fertiliser-spreading']['amount'] == 0)
+    and (data['no-till']['amount'] == 0)
+    and (data['nutrients']['amount'] == 0)
+    and (data['cover-crops']['amount'] == 0)
+    and (data['tree-belts']['amount'] == 0)
+    and (data['agroforestry']['amount'] == 0)
+    and (data['wind-erosion']['amount'] == 0)
+    and (data['create-grassland']['amount'] == 0)
+    and (data['flower-habitat']['amount'] == 0)
+    and (data['low-input-cereal']['amount'] == 0)
+    and (data['unharvested-cereal']['amount'] == 0)
+    and (data['beetle-bank']['amount'] == 0)
+    and (data['cultivated-plots']['amount'] == 0)
+    and (data['grassy-strips']['amount'] == 0)
+    and (data['nesting-plots']['amount'] == 0)
+    and (data['winter-bird-food']['amount'] == 0)
+    and (data['winter-supplementary']['amount'] == 0)
+    and (data['bog-grazing']['amount'] == 0)
+    and (data['fencing']['amount'] == 0)
+    and (data['drinking-water']['amount'] == 0)
+    and (data['manure']['amount'] == 0)
+    and (data['chalk-limestone-grasslands']['amount'] == 0)
+    and (data['purple-moor-grass']['amount'] == 0)
+    and (data['calcareous-grassland']['amount'] == 0)
+    and (data['bare-soil']['amount'] == 0)
+    and (data['grass-strips']['amount'] == 0)
+    and (data['canopy-cover']['amount'] == 0)
+    and (data['deadwood']['amount'] == 0) %}
+
+    <p class="govuk-body">No actions selected.</p>
+
+    <form action="/tier1-v3/actions" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+        Add an option
+      </button>
+
+    </form>
+
+    {% else %}
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+      <dl class="govuk-summary-list">
+
+        {% if data['fertilisers']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertilisers']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fertilisers">Change<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertilisers[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['fertiliser-spreading']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertiliser-spreading']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertiliser-spreading[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['no-till']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['no-till']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?no-till[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['nutrients']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['nutrients']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?nutrients[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['cover-crops']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['cover-crops']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cover-crops[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['cover-crops']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['tree-belts']['amount'] != 0 %}
+        <div class="govuk-summary-list__row" class="govuk-table__header"><dt class="govuk-summary-list__key">{{ data['tree-belts']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?tree-belts[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['tree-belts']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['agroforestry']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/agroforestry">Change<span class="govuk-visually-hidden"> {{ data['agroforestry']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?agroforestry[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['agroforestry']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['wind-erosion']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['wind-erosion']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/wind-erosion">Change<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?wind-erosion[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['create-grassland']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['create-grassland']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?create-grassland[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['create-grassland']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['flower-habitat']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['flower-habitat']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?flower-habitat[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['low-input-cereal']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['low-input-cereal']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['low-input-cereal']['amount'] | commafy }} {{ data['low-input-cereal']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/low-input-cereal">Change<span class="govuk-visually-hidden"> {{ data['low-input-cereal']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?low-input-cereal[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['low-input-cereal']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['unharvested-cereal']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['unharvested-cereal']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['unharvested-cereal']['amount'] | commafy }} {{ data['unharvested-cereal']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/unharvested-cereal">Change<span class="govuk-visually-hidden"> {{ data['unharvested-cereal']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?unharvested-cereal[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['unharvested-cereal']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['beetle-bank']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['beetle-bank']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['beetle-bank']['amount'] | commafy }} {{ data['beetle-bank']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/beetle-bank">Change<span class="govuk-visually-hidden"> {{ data['beetle-bank']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?beetle-bank[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['beetle-bank']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['cultivated-plots']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['cultivated-plots']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['cultivated-plots']['amount'] | commafy }} {{ data['cultivated-plots']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/cultivated-plots">Change<span class="govuk-visually-hidden"> {{ data['cultivated-plots']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cultivated-plots[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['cultivated-plots']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['grassy-strips']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grassy-strips']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['grassy-strips']['amount'] | commafy }} {{ data['grassy-strips']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/grassy-strips">Change<span class="govuk-visually-hidden"> {{ data['grassy-strips']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grassy-strips[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['grassy-strips']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['nesting-plots']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['nesting-plots']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['nesting-plots']['amount'] | commafy }} {{ data['nesting-plots']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/nesting-plots">Change<span class="govuk-visually-hidden"> {{ data['nesting-plots']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?nesting-plots[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['nesting-plots']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['winter-bird-food']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['winter-bird-food']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['winter-bird-food']['amount'] | commafy }} {{ data['winter-bird-food']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/winter-bird-food">Change<span class="govuk-visually-hidden"> {{ data['winter-bird-food']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?winter-bird-food[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['winter-bird-food']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['winter-supplementary']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['winter-supplementary']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['winter-supplementary']['amount'] | commafy }} {{ data['winter-supplementary']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/winter-supplementary">Change<span class="govuk-visually-hidden"> {{ data['winter-supplementary']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?winter-supplementary[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['winter-supplementary']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['bog-grazing']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bog-grazing']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bog-grazing[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['fencing']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fencing']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fencing[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fencing']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['drinking-water']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['drinking-water']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?drinking-water[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['drinking-water']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['manure']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['manure']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?manure[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['chalk-limestone-grasslands']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['chalk-limestone-grasslands']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['chalk-limestone-grasslands']['amount'] | commafy }} {{ data['chalk-limestone-grasslands']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/chalk-limestone-grasslands">Change<span class="govuk-visually-hidden"> {{ data['chalk-limestone-grasslands']['description'] }}</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?chalk-limestone-grasslands[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['chalk-limestone-grasslands']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['purple-moor-grass']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['purple-moor-grass']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['purple-moor-grass']['amount'] | commafy }} {{ data['purple-moor-grass']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/purple-moor-grass">Change<span class="govuk-visually-hidden"> {{ data['purple-moor-grass']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?purple-moor-grass[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['purple-moor-grass']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['calcareous-grassland']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['calcareous-grassland']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['calcareous-grassland']['amount'] | commafy }} {{ data['calcareous-grassland']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/calcareous-grassland">Change<span class="govuk-visually-hidden"> {{ data['calcareous-grassland']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?calcareous-grassland[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['calcareous-grassland']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['bare-soil']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bare-soil']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bare-soil[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['bare-soil']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['grass-strips']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grass-strips']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grass-strips[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['grass-strips']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['canopy-cover']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['canopy-cover']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?canopy-cover[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+        {% if data['deadwood']['amount'] != 0 %}
+        <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}</dt>
+          <dd class="govuk-summary-list__value">{{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }}</dd>
+          <dd class="govuk-summary-list__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['description'] }}</span></a></li>
+              <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?deadwood[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['deadwood']['description'] }}</span></a></li>
+            </ul>
+          </dd>
+        </div>
+        {% else %}{% endif %}
+
+      </dl>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <form action="/tier1-v3/another-option" method="post" novalidate>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Do you want to add another option to your application?
+              </h1>
+            </legend>
+            <span id="changed-name-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select yes if you want to add another option to your application, select no to continue
+            </span>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="another-option" name="another-option" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="another-option">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="another-option-2" name="another-option" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="another-option-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}

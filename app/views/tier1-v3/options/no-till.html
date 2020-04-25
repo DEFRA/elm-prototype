@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data['no-till']['type'] }}
+{{ data['no-till']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/no-till-validation" method="post">
+    <form class="form" action="/tier1-v3/no-till-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
@@ -21,10 +21,10 @@
         </label>
         
         {% if data['no-till']['amount'] == 0 %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="number" step="any" min=0 aria-describedby="no-till-amount-hint" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
         {% else %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="number" step="any" min=0 aria-describedby="no-till-amount-hint" spellcheck="false"
           value="{{ data['no-till']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
         {% endif %}
       </div>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Customise package
+{{ data['drinking-water']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,55 +13,23 @@ Customise package
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v2/options/drinking-water-attributes" method="post">
+    <form class="form" action="/tier1-v3/drinking-water-validation" method="post">
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
-              Customise package
-            </h1>
-            <span class="govuk-caption-l">Provide livestock drinking water as alternative to drinking from watercourse to reduce deposition of sediment in sensitive water bodies</span>
-          </legend>
-          <span id="package-hint" class="govuk-hint">
-            Select which actions you want to do.
-          </span>
-
-          <div class="govuk-checkboxes">
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-drinking-water" name="customise-drinking-water" type="checkbox" value="Pasture pumps and associated pipework" {{ checked("customise-drinking-water", "Pasture pumps and associated pipework") }} >
-              <label class="govuk-label govuk-checkboxes__label" for="customise-drinking-water">
-                Pasture pumps and associated pipework
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-drinking-water" name="customise-drinking-water" type="checkbox" value="Ram pumps and associated pipework" {{ checked("customise-drinking-water", "Ram pumps and associated pipework") }} >
-              <label class="govuk-label govuk-checkboxes__label" for="customise-drinking-water">
-                Ram pumps and associated pipework
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-drinking-water" name="customise-drinking-water" type="checkbox" value="Livestock troughs" {{ checked("customise-drinking-water", "Livestock troughs") }} >
-              <label class="govuk-label govuk-checkboxes__label" for="customise-drinking-water">
-                Livestock troughs
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-drinking-water" name="customise-drinking-water" type="checkbox" value="Pipework associated with livestock troughs" {{ checked("customise-drinking-water", "Pipework associated with livestock troughs") }} >
-              <label class="govuk-label govuk-checkboxes__label" for="customise-drinking-water">
-                Pipework associated with livestock troughs
-              </label>
-            </div>
-
-          </div>
-        </fieldset>
+        <label class="govuk-label govuk-label--xl">
+          How many drinking troughs do you want to install?
+        </label>
+        
+        {% if data['drinking-water']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="number" step="any" min=0 aria-describedby="drinking-water-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['drinking-water']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="drinking-water[amount]" name="drinking-water[amount]" type="number" step="any" min=0 aria-describedby="drinking-water-amount-hint" spellcheck="false"
+          value="{{ data['drinking-water']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['drinking-water']['unit'] }}</span>
+        {% endif %}
       </div>
 
-      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
 

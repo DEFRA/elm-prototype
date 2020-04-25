@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['chalk-limestone-grasslands']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/chalk-limestone-grasslands-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much chalk and limestone grassland do you want to manage?
+        </label>
+
+        {% if data['chalk-limestone-grasslands']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['chalk-limestone-grasslands']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint" spellcheck="false"
+          value="{{ data['chalk-limestone-grasslands']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['chalk-limestone-grasslands']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

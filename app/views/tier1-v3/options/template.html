@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['template']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/template-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to [do template] on?
+        </label>
+
+        {% if data['template']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="template[amount]" name="template[amount]" type="number" step="any" min=0 aria-describedby="template-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['template']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="template[amount]" name="template[amount]" type="number" step="any" min=0 aria-describedby="template-amount-hint" spellcheck="false"
+          value="{{ data['template']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['template']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

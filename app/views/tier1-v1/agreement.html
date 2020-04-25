@@ -8,7 +8,7 @@ Check your answers
 <a class="govuk-back-link" href="/tier1-v1/calculation">Back</a>
 {% endblock %}
 
-<!--calulations-->
+<!--calculations-->
 {% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}
 {% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}
 {% set grasslandTotal = data['create-grassland']['multiplier'] * data['create-grassland']['amount'] %}
@@ -47,109 +47,109 @@ Check your answers
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
       {% if data['manure']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['manure']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['manure']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }}<br><br>Total payment: £{{ manureTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['bog-grazing']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bog-grazing']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bog-grazing']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }} at {{ data['bog-grazing']['rate'] }}<br><br>Total payment: £{{ bogTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['create-grassland']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['create-grassland']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['create-grassland']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }} at {{ data['create-grassland']['rate'] }}<br><br>Total payment: £{{ grasslandTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['grass-strips']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['grass-strips']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['grass-strips']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }} at {{ data['grass-strips']['rate'] }}<br><br>Total payment: £{{ grassTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['tree-belts']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['tree-belts']['type'] }}<br><br>(requires a site visit)</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['tree-belts']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at {{ data['tree-belts']['rate'] }}<br><br>Total payment: £{{ treeTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['canopy-cover']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['canopy-cover']['type'] }}<br><br>(requires a site visit)</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['canopy-cover']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }} at {{ data['canopy-cover']['rate'] }}<br><br>Total payment: £{{ canopyTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['fencing']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fencing']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fencing']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }} at {{ data['fencing']['rate'] }}<br><br>Total payment: £{{ fencingTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['wind-erosion']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['wind-erosion']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['wind-erosion']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }} at {{ data['wind-erosion']['rate'] }}<br><br>Total payment: £{{ windTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['deadwood']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['deadwood']['type'] }}<br><br>(requires a site visit)</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['deadwood']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }}<br><br>Total payment: £{{ deadwoodTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['bare-soil']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bare-soil']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['bare-soil']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }} at {{ data['bare-soil']['rate'] }}<br><br>Total payment: £{{ soilTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['flower-habitat']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['flower-habitat']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['flower-habitat']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }} at {{ data['flower-habitat']['rate'] }}<br><br>Total payment: £{{ flowerTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['drinking-water']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['drinking-water']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['drinking-water']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }} at {{ data['drinking-water']['rate'] }}<br><br>Total payment: £{{ waterTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['nutrients']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['nutrients']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['nutrients']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }} at {{ data['nutrients']['rate'] }}<br><br>Total payment: £{{ nutrientsTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['agroforestry']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['agroforestry']['type'] }}<br><br>(requires a site visit)</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['agroforestry']['description'] }}<br><br>(requires a site visit)</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }}<br><br>Total payment: £{{ agroforestryTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['cover-crops']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['cover-crops']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['cover-crops']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }} at {{ data['cover-crops']['rate'] }}<br><br>Total payment: £{{ coverTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['fertiliser-spreading']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertiliser-spreading']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertiliser-spreading']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at {{ data['fertiliser-spreading']['rate'] }}<br><br>Total payment: £{{ spreadingTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['fertilisers']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertilisers']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['fertilisers']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }}<br><br>Total payment: £{{ fertilisersTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
 
       {% if data['no-till']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['no-till']['type'] }}</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-one-half">{{ data['no-till']['description'] }}</dt>
         <dd class="govuk-summary-list__value govuk-!-width-one-half">{{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }} at {{ data['no-till']['rate'] }}<br><br>Total payment: £{{ tillTotal | commafy }}</dd>
       </div>
       {% else %}{% endif %}
@@ -173,7 +173,7 @@ Check your answers
         {% endif %}
       </ul>
 
-      <form action="/application-complete" method="post" novalidate>
+      <form action="/tier1-v1/application-complete" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 

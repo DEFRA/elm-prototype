@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['grassy-strips']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/grassy-strips-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much arable land would you like to create and manage grassy strips on?
+        </label>
+
+        {% if data['grassy-strips']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="grassy-strips[amount]" name="grassy-strips[amount]" type="number" step="any" min=0 aria-describedby="grassy-strips-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['grassy-strips']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="grassy-strips[amount]" name="grassy-strips[amount]" type="number" step="any" min=0 aria-describedby="grassy-strips-amount-hint" spellcheck="false"
+          value="{{ data['grassy-strips']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['grassy-strips']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

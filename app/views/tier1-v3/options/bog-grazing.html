@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Customise package
+{{ data['bog-grazing']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,128 +13,23 @@ Customise package
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v2/options/bog-grazing-attributes" method="post">
+    <form class="form" action="/tier1-v3/bog-grazing-validation" method="post">
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
-              Customise package
-            </h1>
-            <span class="govuk-caption-l">Use controlled grazing on bogs and peatlands to maintain and enhance storage of carbon</span>
-          </legend>
-          <span id="package-hint" class="govuk-hint">
-            Select which actions you want to do.
-          </span>
+        <label class="govuk-label govuk-label--xl">
+          How much bog and peatland would you like to control grazing on?
+        </label>
 
-          <div class="govuk-checkboxes">
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Cattle grazing supplement" {{ checked("customise-bog-grazing", "Cattle grazing supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Cattle grazing supplement
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Creation of Fen" {{ checked("customise-bog-grazing", "Creation of Fen") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Creation of Fen
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Creation of Reedbed" {{ checked("customise-bog-grazing", "Creation of Reedbed") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Creation of Reedbed
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Management of Bog" {{ checked("customise-bog-grazing", "Management of Bog") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Management of Bog
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Management of Fen" {{ checked("customise-bog-grazing", "Management of Fen") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Management of Fen
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Management of lowland heathland" {{ checked("customise-bog-grazing", "Management of lowland heathland") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Management of lowland heathland
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Management of Reedbed" {{ checked("customise-bog-grazing", "Management of Reedbed") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Management of Reedbed
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Management of rough grazing for birds"
-                {{ checked("customise-bog-grazing", "Management of rough grazing for birds") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Management of rough grazing for birds
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Moorland management" {{ checked("customise-bog-grazing", "Moorland management") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Moorland management
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Moorland management - Vegetation supplement"
-                {{ checked("customise-bog-grazing", "Moorland management - Vegetation supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Moorland management - Vegetation supplement
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Raised water level supplement" {{ checked("customise-bog-grazing", "Raised water level supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Raised water level supplement
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Shepherding supplement" {{ checked("customise-bog-grazing", "Shepherding supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Shepherding supplement
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Upland livestock exclusion supplement"
-                {{ checked("customise-bog-grazing", "Upland livestock exclusion supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Upland livestock exclusion supplement
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-bog-grazing" name="customise-bog-grazing" type="checkbox" value="Wetland Grazing supplement" {{ checked("customise-bog-grazing", "Wetland Grazing supplement") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-bog-grazing">
-                Wetland Grazing supplement
-              </label>
-            </div>
-
-          </div>
-        </fieldset>
+        {% if data['bog-grazing']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="number" step="any" min=0 aria-describedby="bog-grazing-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['bog-grazing']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="bog-grazing[amount]" name="bog-grazing[amount]" type="number" step="any" min=0 aria-describedby="bog-grazing-amount-hint" spellcheck="false"
+          value="{{ data['bog-grazing']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['bog-grazing']['unit'] }}</span>
+        {% endif %}
       </div>
 
-      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
 
