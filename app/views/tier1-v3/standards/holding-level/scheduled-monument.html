@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Scheduled monuments
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/tier1-v3/standards/check#land" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="SSSI-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Does your holding contain a scheduled monument?
+            </h1>
+          </legend>
+          <span id="changed-name-hint" class="govuk-hint">
+            A scheduled monument may exist wholely or in part within your holding
+          </span>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="scheduled-monument-present-yes" name="scheduled-monument-present" type="radio" value="Scheduled monument" {{ checked("scheduled-monument-present", "Scheduled monument") }}>
+              <label class="govuk-label govuk-radios__label" for="scheduled-monument-yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="scheduled-monument-present-no" name="scheduled-monument-present" type="radio" value="None" {{ checked("scheduled-monument-present", "None") }}>
+              <label class="govuk-label govuk-radios__label" for="scheduled-monument-no">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+        <button class="govuk-button" data-module="govuk-button">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

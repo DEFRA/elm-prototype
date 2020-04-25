@@ -19,6 +19,34 @@ Example usage:
 
 module.exports = {
 
+  "forestry-standard": {
+    "multiplier": 427
+  },
+
+  "firstname": "John",
+  "lastname": "Smith",
+  "email": "johnsmith1950.gmail.com",
+  "address1": "Willow Farm",
+  "address2": "Richmond",
+  "address3": "North Yorks",
+  "postcode": "DL10 4AT",
+
+  "businessemail": "johnsmith1950.gmail.com",
+  "businesaddress1": "Willow Farm",
+  "businesaddress2": "Richmond",
+  "businesaddress3": "North Yorks",
+  "businespostcode": "DL10 4AT",
+
+  "holding-size": 130,
+
+
+
+  "SSSI-present": "None",
+  "SSSI-advisory": "Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, contact Natural England.",
+
+  "scheduled-monument-present": "None",
+  "scheduled-monument-advisory": "You have a scheduled monument within your holding. If you are unsure what your responsibilities are, contact Natural England.",
+
   "fertilisers": {
     "code": "A1",
     "description": "Use lower emission fertilisers to reduce ammonia and greenhouse gas emissions",
@@ -1160,8 +1188,6 @@ module.exports = {
       ]
     }
   ],
-
-  "holding-size": 130,
 
   "outcome": "all outcomes",
 

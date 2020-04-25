@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['manure']['type'] }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-xl">Check your details</h1>
+        
+        <p class="govuk-body-m">Before you start your application, check your details are correct.</p>
+        <div class="govuk-inset-text">
+          <p>Your details were last updated 7th February 2018</p>
+        </div>
+        <div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#personal">
+        Personal details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#business">
+        Business details
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#land">
+        Land details
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel" id="personal">
+    <h2 class="govuk-heading-l">Personal details</h2>
+      <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['firstname'] }} {{ data['lastname'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Customer Reference Number (CRN)
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['CRN'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>-->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">{{ data['email'] }}</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="border-bottom: 0">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value" style="border-bottom: 0">
+              {{ data['address1'] }}<br>{{ data['address2'] }}<br>{{ data['address3'] }}<br>{{ data['postcode'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions" style="border-bottom: 0">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> farm address</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="business">
+    <h2 class="govuk-heading-l">Business details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Business name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Willow Farm ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> business name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="border-bottom: 0">
+              Single Business Identifier (SBI)
+            </dt>
+            <dd class="govuk-summary-list__value" style="border-bottom: 0">
+              106544332
+            </dd>
+            <dd class="govuk-summary-list__actions" style="border-bottom: 0">
+            </dd>
+          </div>
+        </dl>
+
+
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="land">
+    <h2 class="govuk-heading-l">Land details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Holding size
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['holding-size'] }} hectares
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="holding-level/holding-size">
+              Change<span class="govuk-visually-hidden"> farm size</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Land designation within farm holding
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['SSSI-present'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="holding-level/sssi">
+                Change<span class="govuk-visually-hidden"> land designations</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="border-bottom: 0">
+              Registered hertitage within farm holding
+            </dt>
+            <dd class="govuk-summary-list__value" style="border-bottom: 0">
+              {{ data['scheduled-monument-present'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions" style="border-bottom: 0">
+              <a class="govuk-link" href="holding-level/scheduled-monument">
+                Change<span class="govuk-visually-hidden"> scheduled monument</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+        
+        <form action="/tier1-v3/standards/farm-type" method="post" novalidate>
+
+          <input type="hidden" name="answers-checked" value="true">
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm details
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -34,6 +34,9 @@ router.get('/tier1-v2/*', function(req, res, next){
   next()
 })
 
+const radioButtonRedirect = require('radio-button-redirect')
+router.use(radioButtonRedirect)
+
 // Start folder specific routes
 router.use('/tier1-v1', require('./views/tier1-v1/_routes'));
 router.use('/tier1-v2', require('./views/tier1-v2/_routes'));
