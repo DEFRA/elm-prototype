@@ -367,7 +367,7 @@ router.post('/another-option', function (req, res) {
 
   var anotherOption = req.session.data['another-option']
 
-  if (anotherOption == "yes"){res.redirect('/tier1-v3/actions')}
+  if (anotherOption == "yes"){res.redirect('/tier1-v3/actions-environmental')}
   if (anotherOption == "no"){res.redirect('/tier1-v3/calculation')}
   else {res.redirect('/tier1-v3/actions-answers-validation')}
 })

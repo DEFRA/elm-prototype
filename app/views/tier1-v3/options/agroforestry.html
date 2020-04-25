@@ -20,7 +20,7 @@
           How much land would you like to use agroforestry on?
         </label>
 
-        {% if data['agroforestry']['amount'] == null %}
+        {% if data['agroforestry']['amount'] == 0 %}
         <input class="govuk-input govuk-!-width-one-quarter" id="agroforestry[amount]" name="agroforestry[amount]" type="number" step="any" min=0 aria-describedby="agroforestry-amount-hint" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['agroforestry']['unit'] }}</span>
         {% else %}
