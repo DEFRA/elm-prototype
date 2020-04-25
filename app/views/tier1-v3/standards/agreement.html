@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your agreement
+{% endblock %}
+
+<!--calculations-->
+{% set arableTotal = data['fertilisers']['multiplier'] * data['fertilisers']['amount'] %}
+{% set uplandTotal = data['fertilisers']['multiplier'] * data['fertilisers']['amount'] %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-xl">Your agreement</h1>
+
+    <div class="govuk-inset-text govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-4">Checks completed successfully</h2>
+      Your chosen action(s) are appropriate for the land registration information we have on record for your business.
+    </div>
+
+    <dl class="govuk-summary-list">
+
+      {% if data['fertilisers']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertilisers']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ fertilisersTotal | toFixed(2) | commafy }}</strong> ({{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }})</dd>
+      </div>
+      {% else %}{% endif %}
+
+      {% if data['fertiliser-spreading']['amount'] != 0 %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertiliser-spreading']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ spreadingTotal | toFixed(2) | commafy }}</strong> ({{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at {{ data['fertiliser-spreading']['rate'] }})</dd>
+      </div>
+      {% else %}{% endif %}
+s
+
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total payment</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ fullTotal | toFixed(2) | commafy }}</strong></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
+
+    </dl>
+
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-9">Consent to your agreement</h2>
+
+    <!-- <p>You may need to provide evidence to support the actions in your agreement.</p> -->
+    <p>By consenting you agree that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the information you've provided is correct</li>
+      <li>if asked, you will provide evidence to support your chosen actions</li>
+      {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
+      <li>you will arrange a site visit</li>
+      {% endif %}
+    </ul>
+
+    <form action="/tier1-v3/application-complete" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-9">
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="agreement-consent" name="agreement-consent" type="checkbox" value="consent-given">
+            <label class="govuk-label govuk-checkboxes__label" for="agreement-consent">
+              {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
+              I consent <span class="govuk-visually-hidden"> that the information I've provided is correct, that if asked, I will provide evidence to support my chosen actions and that I will arrange a site visit.</span>
+              {% else %}
+              I consent <span class="govuk-visually-hidden"> that the information I've provided is correct and that if asked I will provide evidence to support my chosen actions.</span>
+              {% endif %}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {{ govukButton({
+          text: "Submit your agreement",
+          preventDoubleClick: true
+        }) }}
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

@@ -20,7 +20,15 @@ Example usage:
 module.exports = {
 
   "forestry-standard": {
-    "multiplier": 427
+    "multiplier": 247
+  },
+
+  "arable-standard": {
+    "multiplier": 247
+  },
+
+  "upland-standard": {
+    "multiplier": 247
   },
 
   "firstname": "John",
