@@ -9,9 +9,6 @@ console.log('previous page is: ' + res.locals.prevURL + " and current page is " 
   next();
 });
 
-const radioButtonRedirect = require('radio-button-redirect')
-router.use(radioButtonRedirect)
-
 // Set service name based on sub folders for different prototypes
 router.get('/land-manager/*', function(req, res, next){
   res.locals['serviceName'] = 'Make or update an ELM claim'
@@ -41,9 +38,7 @@ router.get('/tier1-v2/*', function(req, res, next){
 router.use('/tier1-v1', require('./views/tier1-v1/_routes'));
 router.use('/tier1-v2', require('./views/tier1-v2/_routes'));
 router.use('/tier1-v3', require('./views/tier1-v3/_routes'));
-
-const radioButtonRedirect = require('radio-button-redirect')
-router.use(radioButtonRedirect)
+router.use('/tier1-v3/standards', require('./views/tier1-v3/standards/_routes'));
 
 // Land managers
 
