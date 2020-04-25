@@ -60,11 +60,8 @@ router.post('/examples/branching/over-18-answer', function (req, res) {
 
   let over18 = req.session.data['over-18']
 
-  if (over18 === 'false') {
-    res.redirect('/docs/examples/branching/under-18')
-  } else {
-    res.redirect('/docs/examples/branching/over-18')
-  }
+  if (over18 === 'true') {res.redirect('/docs/examples/branching/under-18')}
+  else {res.redirect('/docs/examples/branching/over-18')}
 })
 
 module.exports = router
