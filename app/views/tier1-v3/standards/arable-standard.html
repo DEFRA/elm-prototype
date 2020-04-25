@@ -11,7 +11,7 @@ Standard plan
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="loading-agreement" method="post">
+    <form class="form" action="loading-arable" method="post">
       <div class="govuk-form-group  govuk-!-margin-bottom-4">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
@@ -23,39 +23,44 @@ Standard plan
           <h2 class="govuk-heading-l">Payment calculation</h2>
           <p class="govuk-body-m">Based on your {{ data['holding-size'] | commafy }} hectare holding, we've calculated a total annual payment of <strong>£{{ arableTotal | commafy }}</strong>.</p>
         </fieldset>
-        <hr class="govuk-!-margin-bottom-8">
       </div>
       
       <div class="govuk-form-group  govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-l">What you'll need to do</h2>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <ul class="govuk-list">
           <li>
             <h3 class="govuk-heading-m">Use lower emission fertilisers</h3>
             <p class="govuk-body-m">Replace inorganic urea-based fertilisers with lower emissions alternatives to reduce concentrations of ammonia in the atmosphere, and to reduce agricultural GHG emissions.</p>
             <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses" target="_blank">Read guidance for lower emission fertilisers</a></p>
           </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <li>
             <h3 class="govuk-heading-m">Use cover crops</h3>
             <p class="govuk-body-m">Use cover crops throughout the rotation to maintain carbon storage and reduce deposition of sediment in sensitive water bodies.</p>
             <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-maintain-hill-slope-tree-shelter-belts" target="_blank">Read guidance for cover crops</a>
             </p>
           </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <li>
             <h3 class="govuk-heading-m">Increase organic matter content of soils</h3>
             <p>Increase organic matter content of soils to reduce wind erosion of soil for reduced concentrations of fine particulate matter, and to reduce deposition of sediment in sensitive water bodies.</p>
             <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/increase-organic-matter-soils-reduce-wind-erosion" target="_blank">Read guidance for increasing organic matter in soils</a>
             </p>
           </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <li>
             <h3 class="govuk-heading-m">Convert arable and intensive grassland to species rich grassland</h3>
             <p>Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support characteristic species.</p>
             <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-or-restore-species-rich-grassland" target="_blank">Read guidance for converting arable and intensive grassland to species rich grassland</a>
           </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <li>
             <h3 class="govuk-heading-m">Create flower-rich margins and plots</h3>
             <p>Create flower-rich areas on your land. Flower-rich plots provide food, shelter and nesting places for farmland birds and insects</p>
             <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-flower-rich-margins-and-plots" target="_blank">Provide flower-rich habitat for wild pollinators</a>
           </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <!--<li>
             <h3 class="govuk-heading-m">Create food source for farmland birds</h3>
             <p>Provides an important food source for farmland birds throughout the year and insects in the summer, and provides both grain and seeding arable plants in winter.</p>
@@ -94,7 +99,6 @@ Standard plan
           <h2 class="govuk-heading-l">Create your agreement</h2>
 
           <p class="govuk-body">Before we can create your agreement we have to run some checks. This may take up to 30 seconds.</p>
-          <p class="govuk-body">No further changes to your application will be possible.</p>
         </div>
         <form action="/tier1-v3/loading" method="post" novalidate>
         <input type="hidden" name="answers-checked" value="true">

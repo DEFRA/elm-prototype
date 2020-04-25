@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your agreement
+{% endblock %}
+
+<!--calculations-->
+{% set arableTotal = data['arable-standard']['multiplier'] * data['holding-size'] %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Your agreement</h1>
+
+    <div class="govuk-inset-text govuk-!-margin-bottom-4">
+      <h2 class="govuk-heading-m">Land and business check completed successfully</h2>
+      <p>Check your agreement carefully</p>
+    </div>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Use lower emission fertilisers</dt>
+        <dd class="govuk-summary-list__value">
+          <p>Replace inorganic urea-based fertilisers with lower emissions alternatives to reduce concentrations of ammonia in the atmosphere, and to reduce agricultural GHG emissions.</p>
+          <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses" target="_blank">Read guidance for lower emission fertilisers</a></p>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Use cover crops</dt>
+        <dd class="govuk-summary-list__value">
+          <p>Use cover crops throughout the rotation to maintain carbon storage and reduce deposition of sediment in sensitive water bodies..</p>
+          <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-maintain-hill-slope-tree-shelter-belts" target="_blank">Read guidance for cover crops</a></p>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Increase organic matter content of soils</dt>
+        <dd class="govuk-summary-list__value">
+          <p>Increase organic matter content of soils to reduce wind erosion of soil for reduced concentrations of fine particulate matter, and to reduce deposition of sediment in sensitive water bodies.</p>
+          <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/increase-organic-matter-soils-reduce-wind-erosion" target="_blank">Read guidance for increasing organic matter in soils</a></p>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Convert arable and intensive grassland to species rich grassland</dt>
+        <dd class="govuk-summary-list__value">
+          <p>Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support characteristic species.</p>
+          <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-or-restore-species-rich-grassland" target="_blank">Read guidance for converting arable and intensive grassland to species rich grassland</a></p>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Create flower-rich margins and plots</dt>
+        <dd class="govuk-summary-list__value">
+          <p>Create flower-rich areas on your land. Flower-rich plots provide food, shelter and nesting places for farmland birds and insects</p>
+          <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-flower-rich-margins-and-plots" target="_blank">Provide flower-rich habitat for wild pollinators</a></p>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total payment</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ arableTotal | commafy }}</strong></dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
+
+    </dl>
+
+    <h2 class="govuk-heading-l govuk-!-margin-top-9">Consent to your agreement</h2>
+
+    <p>By consenting you agree that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the information you've provided is correct</li>
+      <li>if asked, you will provide evidence to support your chosen actions</li>
+      {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
+      <li>you will arrange a site visit</li>
+      {% endif %}
+    </ul>
+
+    <form action="agreement-confirmation" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <div class="govuk-form-group govuk-!-margin-bottom-9">
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="agreement-consent" name="agreement-consent" type="checkbox" value="consent-given">
+            <label class="govuk-label govuk-checkboxes__label" for="agreement-consent">
+              {% if data['canopy-cover']['amount'] != 0 or data['deadwood']['amount'] or data['agroforestry']['amount'] != 0 or data['tree-belts']['amount'] %}
+              I consent <span class="govuk-visually-hidden"> that the information I've provided is correct, that if asked, I will provide evidence to support my chosen actions and that I will arrange a site visit.</span>
+              {% else %}
+              I consent <span class="govuk-visually-hidden"> that the information I've provided is correct and that if asked I will provide evidence to support my chosen actions.</span>
+              {% endif %}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {{ govukButton({
+          text: "Submit your agreement",
+          preventDoubleClick: true
+        }) }}
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

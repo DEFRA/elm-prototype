@@ -40,10 +40,10 @@ module.exports = {
   "postcode": "DL10 4AT",
 
   "businessemail": "johnsmith1950.gmail.com",
-  "businesaddress1": "Willow Farm",
-  "businesaddress2": "Richmond",
-  "businesaddress3": "North Yorks",
-  "businespostcode": "DL10 4AT",
+  "businessaddress1": "Willow Farm",
+  "businessaddress2": "Richmond",
+  "businessaddress3": "North Yorks",
+  "businesspostcode": "DL10 4AT",
 
   "holding-size": 130,
   
