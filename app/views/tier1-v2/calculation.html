@@ -135,7 +135,7 @@ Your actions
     <p class="govuk-body govuk-!-margin-bottom-7">Based on the information you have provided, we calculate you would receive a total annual payment of <strong>£{{ total | round(2) | commafy }}</strong>.</p>
   </div>
   <div class="govuk-grid-column-full">
-    <dl class="govuk-summary-list govuk-!-margin-bottom-2"">
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
 
       {% if data['manure']['selected'] == "true" %}
       <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['manure']['description'] }}</dt>

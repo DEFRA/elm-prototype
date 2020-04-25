@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['low-input-cereal']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/low-input-cereal-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to create harvested low input cereal on?
+        </label>
+
+        {% if data['low-input-cereal']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="low-input-cereal[amount]" name="low-input-cereal[amount]" type="number" step="any" min=0 aria-describedby="low-input-cereal-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['low-input-cereal']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="low-input-cereal[amount]" name="low-input-cereal[amount]" type="number" step="any" min=0 aria-describedby="low-input-cereal-amount-hint" spellcheck="false"
+          value="{{ data['low-input-cereal']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['low-input-cereal']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['template']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/template-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to [do template] on?
+        </label>
+
+        {% if data['template']['amount'] == "" %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a value
+        </span>
+        <input class="govuk-input govuk-input--error" id="template[amount]" name="template[amount]" type="number" step="any" min=0 aria-describedby="template-amount-hint template-amount-error" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['template']['unit'] }}</span>
+
+        {% elif data['template']['amount'] == 0 %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
+        </span>
+        <input class="govuk-input govuk-input--error" id="template[amount]" name="template[amount]" type="number" step="any" min=0 aria-describedby="template-amount-hint template-amount-error" spellcheck="false"
+          value="{{ data['template']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['template']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

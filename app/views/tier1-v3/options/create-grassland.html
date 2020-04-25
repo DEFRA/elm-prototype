@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Customise package
+{{ data['create-grassland']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,44 +13,23 @@ Customise package
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tier1-v3/options/create-grassland-attributes" method="post">
+    <form class="form" action="/tier1-v3/create-grassland-validation" method="post">
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="package-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-margin-bottom-7">
-            <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
-              Customise package
-            </h1>
-            <span class="govuk-caption-l">Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support
-              characteristic species</span>
-          </legend>
-          <span id="package-hint" class="govuk-hint">
-            Select which actions you want to do.
-          </span>
-
-          <div class="govuk-checkboxes">
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-create-grassland" name="customise-create-grassland" type="checkbox" value="Arable reversion to grassland with low fertiliser input"
-                {{ checked("customise-create-grassland", "Arable reversion to grassland with low fertiliser input") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="arable reversion to grassland with low fertiliser input">
-                Arable reversion to grassland with low fertiliser input
-              </label>
-            </div>
-
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="customise-create-grassland" name="customise-create-grassland" type="checkbox" value="Creation of species-rich grassland"
-                {{ checked("customise-create-grassland", "Creation of species-rich grassland") }}>
-              <label class="govuk-label govuk-checkboxes__label" for="customise-create-grassland">
-                Creation of species-rich grassland
-              </label>
-            </div>
-
-          </div>
-        </fieldset>
+        <label class="govuk-label govuk-label--xl">
+          How much arable and intensive grassland would you like to convert to species rich grassland?
+        </label>
+        
+        {% if data['create-grassland']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="number" step="any" min=0 aria-describedby="create-grassland-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['create-grassland']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="create-grassland[amount]" name="create-grassland[amount]" type="number" step="any" min=0 aria-describedby="create-grassland-amount-hint" spellcheck="false"
+          value="{{ data['create-grassland']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['create-grassland']['unit'] }}</span>
+        {% endif %}
       </div>
 
-      <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
 
     </form>
 

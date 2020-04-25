@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data['tree-belts']['type'] }}
+{{ data['tree-belts']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/tree-belts-validation" method="post">
+    <form class="form" action="/tier1-v3/tree-belts-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
@@ -21,10 +21,10 @@
         </label>
         
         {% if data['tree-belts']['amount'] == 0 %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="tree-belts[amount]" name="tree-belts[amount]" type="text" aria-describedby="tree-belts-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter" id="tree-belts[amount]" name="tree-belts[amount]" type="number" step="any" min=0 aria-describedby="tree-belts-amount-hint" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['tree-belts']['unit'] }}</span>
         {% else %}
-        <input class="govuk-input govuk-!-width-one-quarter" id="tree-belts[amount]" name="tree-belts[amount]" type="text" aria-describedby="tree-belts-amount-hint" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter" id="tree-belts[amount]" name="tree-belts[amount]" type="number" step="any" min=0 aria-describedby="tree-belts-amount-hint" spellcheck="false"
           value="{{ data['tree-belts']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['tree-belts']['unit'] }}</span>
         {% endif %}
       </div>

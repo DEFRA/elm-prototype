@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data['canopy-cover']['type'] }}
+{{ data['canopy-cover']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/canopy-cover-validation" method="post">
+    <form class="form" action="/tier1-v3/canopy-cover-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="canopy-cover[amount]" name="canopy-cover[amount]" type="text" aria-describedby="canopy-cover-amount-hint canopy-cover-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+        <input class="govuk-input govuk-input--error" id="canopy-cover[amount]" name="canopy-cover[amount]" type="number" step="any" min=0 aria-describedby="canopy-cover-amount-hint canopy-cover-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['canopy-cover']['unit'] }}</span>
 
         {% elif data['canopy-cover']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="canopy-cover[amount]" name="canopy-cover[amount]" type="text" aria-describedby="canopy-cover-amount-hint canopy-cover-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+        <input class="govuk-input govuk-input--error" id="canopy-cover[amount]" name="canopy-cover[amount]" type="number" step="any" min=0 aria-describedby="canopy-cover-amount-hint canopy-cover-amount-error" spellcheck="false"
           value="{{ data['canopy-cover']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['canopy-cover']['unit'] }}</span>
         {% endif %}
       </div>

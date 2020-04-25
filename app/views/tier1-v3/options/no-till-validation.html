@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{{ data['no-till']['type'] }}
+{{ data['no-till']['description'] }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -13,7 +13,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form class="form" action="/no-till-validation" method="post">
+    <form class="form" action="/tier1-v3/no-till-validation" method="post">
 
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--xl">
@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint no-till-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"><span
+        <input class="govuk-input govuk-input--error" id="no-till[amount]" name="no-till[amount]" type="number" step="any" min=0 aria-describedby="no-till-amount-hint no-till-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
 
         {% elif data['no-till']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error govuk-!-width-one-quarter" id="no-till[amount]" name="no-till[amount]" type="text" aria-describedby="no-till-amount-hint no-till-amount-error" pattern="[0-9]*" inputmode="numeric" spellcheck="false"
+        <input class="govuk-input govuk-input--error" id="no-till[amount]" name="no-till[amount]" type="number" step="any" min=0 aria-describedby="no-till-amount-hint no-till-amount-error" spellcheck="false"
           value="{{ data['no-till']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['no-till']['unit'] }}</span>
         {% endif %}
       </div>
