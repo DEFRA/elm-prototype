@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['winter-bird-food']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/winter-bird-food-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to provide winter bird food on?
+        </label>
+
+        {% if data['winter-bird-food']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="winter-bird-food[amount]" name="winter-bird-food[amount]" type="number" step="any" min=0 aria-describedby="winter-bird-food-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['winter-bird-food']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="winter-bird-food[amount]" name="winter-bird-food[amount]" type="number" step="any" min=0 aria-describedby="winter-bird-food-amount-hint" spellcheck="false"
+          value="{{ data['winter-bird-food']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['winter-bird-food']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

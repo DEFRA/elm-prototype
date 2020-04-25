@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['purple-moor-grass']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/purple-moor-grass-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much purple moor-grass and rush pasture do you want to manage?
+        </label>
+
+        {% if data['purple-moor-grass']['amount'] == "" %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a value
+        </span>
+        <input class="govuk-input govuk-input--error" id="purple-moor-grass[amount]" name="purple-moor-grass[amount]" type="number" step="any" min=0 aria-describedby="purple-moor-grass-amount-hint purple-moor-grass-amount-error" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['purple-moor-grass']['unit'] }}</span>
+
+        {% elif data['purple-moor-grass']['amount'] == 0 %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
+        </span>
+        <input class="govuk-input govuk-input--error" id="purple-moor-grass[amount]" name="purple-moor-grass[amount]" type="number" step="any" min=0 aria-describedby="purple-moor-grass-amount-hint purple-moor-grass-amount-error" spellcheck="false"
+          value="{{ data['purple-moor-grass']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['purple-moor-grass']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

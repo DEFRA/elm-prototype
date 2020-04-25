@@ -8,7 +8,7 @@ How much will you be paid?
 <a class="govuk-back-link" href="/tier1-v1/actions-answers">Back</a>
 {% endblock %}
 
-<!--calulations-->
+<!--calculations-->
 {% set manureTotal = data['manure']['multiplier'] * data['manure']['amount'] %}{% set monthlyManureTotal = manureTotal / 12 %}
 {% set bogTotal = data['bog-grazing']['multiplier'] * data['bog-grazing']['amount'] %}{% set monthlyBogTotal = bogTotal / 12 %}
 {% set grassTotal = data['grass-strips']['multiplier'] * data['grass-strips']['amount'] %}{% set monthlyGrassTotal = grassTotal / 12 %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['calcareous-grassland']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/calcareous-grassland-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much upland calcareous grassland do you want to manage?
+        </label>
+
+        {% if data['calcareous-grassland']['amount'] == "" %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Enter a value
+        </span>
+        <input class="govuk-input govuk-input--error" id="calcareous-grassland[amount]" name="calcareous-grassland[amount]" type="number" step="any" min=0 aria-describedby="calcareous-grassland-amount-hint calcareous-grassland-amount-error" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['calcareous-grassland']['unit'] }}</span>
+
+        {% elif data['calcareous-grassland']['amount'] == 0 %}
+        <span id="event-name-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
+        </span>
+        <input class="govuk-input govuk-input--error" id="calcareous-grassland[amount]" name="calcareous-grassland[amount]" type="number" step="any" min=0 aria-describedby="calcareous-grassland-amount-hint calcareous-grassland-amount-error" spellcheck="false"
+          value="{{ data['calcareous-grassland']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['calcareous-grassland']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

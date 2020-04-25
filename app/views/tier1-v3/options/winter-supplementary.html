@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+{{ data['winter-supplementary']['description'] }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/tier1-v3/winter-supplementary-validation" method="post">
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--xl">
+          How much land would you like to provide supplementary winter bird food on?
+        </label>
+
+        {% if data['winter-supplementary']['amount'] == 0 %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint" spellcheck="false"><span
+          class="govuk-body govuk-!-margin-left-1">{{ data['winter-supplementary']['unit'] }}</span>
+        {% else %}
+        <input class="govuk-input govuk-!-width-one-quarter" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint" spellcheck="false"
+          value="{{ data['winter-supplementary']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['winter-supplementary']['unit'] }}</span>
+        {% endif %}
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

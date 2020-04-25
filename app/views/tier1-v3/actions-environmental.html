@@ -1,0 +1,334 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Options
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <form class="form" action="/tier1-v3/actions-answer" method="post">
+
+      <h1 class="govuk-heading-xl">Add an Environmental Land Management (ELM) option to your application</h1>
+
+      <p>Select one option. You can add more options later.</p>
+
+      <hr class="govuk-section-break govuk-section-break--l">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-grid-row govuk-!-margin-top-4">
+            <div class="govuk-grid-column-one-third">
+              <aside>
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-2" id="subsection-title" style="font-weight: normal;">
+                  Sort options by
+                </h2>
+                <nav role="navigation" aria-labelledby="subsection-title">
+                  <table class="govuk-table app-table--constrained">
+                    <tbody>
+                      <tr>
+                        <td class="govuk-table__cell related-nav-selected">
+                          <a class="related-nav" href="/tier1-v3/actions-environmental">Environmental outcome</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="govuk-table__cell">
+                          <a class="related-nav" href="/tier1-v3/actions-farmtype">Farm type</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="govuk-table__cell">
+                          <a class="related-nav" href="/tier1-v3/actions-landtype">Land type</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="govuk-table__cell">
+                          <a class="related-nav" href="/tier1-v3/actions-payment">Payment rate</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="govuk-table__cell">
+                          <a class="related-nav" href="/tier1-v3/actions-region">Region</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </nav>
+              </aside>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+
+              <h2 class="govuk-heading-m">Conserved and enhanced landscape character</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Conserved and enhanced landscape character" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Maintained and enhanced condition and quality of natural, semi-natural or other priority habitats, so they are able to support their characteristic species and species functions</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Maintained and enhanced condition and quality of natural, semi-natural or other priority habitats, so they are able to support their characteristic species and species functions" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Maintained and enhanced storage of carbon</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Maintained and enhanced storage of carbon" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced concentrations of ammonia in the atmosphere</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced concentrations of ammonia in the atmosphere" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced concentrations of faecal bacteria in surface water bodies, groundwaters, wetlands and coastal systems</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced concentrations of faecal bacteria in surface water bodies, groundwaters, wetlands and coastal systems" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced concentrations of fine particulate matter (PM2.5 & PM10) in the atmosphere</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced concentrations of fine particulate matter (PM2.5 & PM10) in the atmosphere" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced concentrations of nitrate and phosphate from harmful levels in wetlands, surface water bodies and groundwaters</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced concentrations of nitrate and phosphate from harmful levels in wetlands, surface water bodies and groundwaters" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <hr class="govuk-section-break govuk-section-break--l">
+
+              <h2 class="govuk-heading-m">Reduced impact of and enhanced resilience to flooding</h2>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in data['options-v3'] | sort(false, true, 'description') %}
+                {% if option.outcome == "Reduced impact of and enhanced resilience to flooding" %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id={{ option.name }} name="what-action" type="radio" value={{ option.name }} data-aria-controls="conditional-{{ option.name }}">
+                  <label class="govuk-label govuk-radios__label" for={{ option.name }}>
+                    {{ option.description }}
+                  </label>
+                  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-padding-left-3" style="color: #626a6e">Payment rate: {{ option.rate }}</p>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="{{ option.name }} description">
+                      {% if option.guidance != "#" %}
+                      <h2 class="govuk-heading-s">Actions required</h2>
+                      <p>{{ option.snippet }}</p>
+                      <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+                      {% endif %}
+                    </label>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                {% endif %}
+                {% endfor %}
+              </div>
+
+              <button class="govuk-button govuk-!-margin-top-7" data-module="govuk-button">Continue</button>
+            </div>
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
