@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error" id="deadwood[amount]" name="deadwood[amount]" type="number" step="any" min=0 aria-describedby="deadwood-amount-hint deadwood-amount-error" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="deadwood[amount]" name="deadwood[amount]" type="number" step="any" min=0 aria-describedby="deadwood-amount-hint deadwood-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['deadwood']['unit'] }}</span>
 
         {% elif data['deadwood']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error" id="deadwood[amount]" name="deadwood[amount]" type="number" step="any" min=0 aria-describedby="deadwood-amount-hint deadwood-amount-error" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="deadwood[amount]" name="deadwood[amount]" type="number" step="any" min=0 aria-describedby="deadwood-amount-hint deadwood-amount-error" spellcheck="false"
           value="{{ data['deadwood']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['deadwood']['unit'] }}</span>
         {% endif %}
       </div>

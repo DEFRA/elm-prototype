@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="/tier1-v2/agreement">Back</a>
+<a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -69,7 +69,7 @@
               </span>-->
 
               <span class="js-step-title">
-                Site visit and woodland mangement plan
+                Site visit and woodland management plan
               </span>
             </h2>
           </div>
@@ -107,11 +107,11 @@
               </span>
             </h2>
           </div>
-          
+
           <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
             <ol class="app-step-nav__list " data-length="1">
               <li class="app-step-nav__list-item js-list-item ">
-                
+
               </li>
               {% if data['SSSI-present'] == "SSSI" %}
               <li class="app-step-nav__list-item js-list-item ">
@@ -122,7 +122,7 @@
               <li class="app-step-nav__list-item js-list-item ">
                 <p>You have a scheduled monument within your holding. If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
               </li>
-              {% endif %} 
+              {% endif %}
             </ol>
           </div>
         </li>
@@ -143,7 +143,7 @@
               </span>
             </h2>
           </div>
-          
+
           <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
             <ol class="app-step-nav__list " data-length="1">
               <li class="app-step-nav__list-item js-list-item ">

@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error" id="flower-habitat[amount]" name="flower-habitat[amount]" type="number" step="any" min=0 aria-describedby="flower-habitat-amount-hint flower-habitat-amount-error" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="flower-habitat[amount]" name="flower-habitat[amount]" type="number" step="any" min=0 aria-describedby="flower-habitat-amount-hint flower-habitat-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['flower-habitat']['unit'] }}</span>
 
         {% elif data['flower-habitat']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error" id="flower-habitat[amount]" name="flower-habitat[amount]" type="number" step="any" min=0 aria-describedby="flower-habitat-amount-hint flower-habitat-amount-error" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="flower-habitat[amount]" name="flower-habitat[amount]" type="number" step="any" min=0 aria-describedby="flower-habitat-amount-hint flower-habitat-amount-error" spellcheck="false"
           value="{{ data['flower-habitat']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['flower-habitat']['unit'] }}</span>
         {% endif %}
       </div>

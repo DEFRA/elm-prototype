@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error" id="grass-strips[amount]" name="grass-strips[amount]" type="number" step="any" min=0 aria-describedby="grass-strips-amount-hint grass-strips-amount-error" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="grass-strips[amount]" name="grass-strips[amount]" type="number" step="any" min=0 aria-describedby="grass-strips-amount-hint grass-strips-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['grass-strips']['unit'] }}</span>
 
         {% elif data['grass-strips']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error" id="grass-strips[amount]" name="grass-strips[amount]" type="number" step="any" min=0 aria-describedby="grass-strips-amount-hint grass-strips-amount-error" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="grass-strips[amount]" name="grass-strips[amount]" type="number" step="any" min=0 aria-describedby="grass-strips-amount-hint grass-strips-amount-error" spellcheck="false"
           value="{{ data['grass-strips']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['grass-strips']['unit'] }}</span>
         {% endif %}
       </div>

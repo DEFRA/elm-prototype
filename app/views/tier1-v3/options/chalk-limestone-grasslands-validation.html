@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint chalk-limestone-grasslands-amount-error" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint chalk-limestone-grasslands-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['chalk-limestone-grasslands']['unit'] }}</span>
 
         {% elif data['chalk-limestone-grasslands']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint chalk-limestone-grasslands-amount-error" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="chalk-limestone-grasslands[amount]" name="chalk-limestone-grasslands[amount]" type="number" step="any" min=0 aria-describedby="chalk-limestone-grasslands-amount-hint chalk-limestone-grasslands-amount-error" spellcheck="false"
           value="{{ data['chalk-limestone-grasslands']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['chalk-limestone-grasslands']['unit'] }}</span>
         {% endif %}
       </div>
