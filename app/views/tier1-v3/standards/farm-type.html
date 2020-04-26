@@ -16,8 +16,7 @@ What action do you want to do?
       <div class="govuk-form-group">
         {{ govukRadios({
           classes: "govuk-radios",
-          idPrefix: "married",
-          name: "married",
+          name: "farm-type",
           fieldset: {
             legend: {
               text: "What is your main type of farming?",
@@ -29,7 +28,7 @@ What action do you want to do?
             {value: "yes~/tier1-v3/standards/arable-standard",text: "Cereals"},
             {value: "yes~/tier1-v3/standards/upland-standard",text: "Dairy"},
             {value: "yes~/tier1-v3/standards/forestry-standard",text: "Forestry"},
-            {value: "yes~/tier1-v3/standards/upland-standard",text: "General Cropping"},
+            {value: "yes~/tier1-v3/standards/arable-standard",text: "General Cropping"},
             {value: "yes~/tier1-v3/standards/upland-standard",text: "Grazing livestock, less favoured area (LFA)"},
             {value: "yes~/tier1-v3/standards/arable-standard",text: "Grazing livestock, lowland"},
             {value: "yes~/tier1-v3/standards/arable-standard",text: "Horticulture"},

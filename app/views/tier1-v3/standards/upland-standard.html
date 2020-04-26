@@ -1,31 +1,119 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Upland standard
+Standard plan
 {% endblock %}
-
 {% block beforeContent %}
 <a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
 {% endblock %}
-
+{% set uplandTotal = data['upland-standard']['multiplier'] * data['holding-size'] %}
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <form class="form" action="/tier1-v3/loading" method="post">
-      <div class="govuk-form-group">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="loading-upland" method="post">
+      <div class="govuk-form-group  govuk-!-margin-bottom-4">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-              Upland Standard
+             Your plan
             </h1>
           </legend>
-          
+
+          <h2 class="govuk-heading-l">Payment calculation</h2>
+          <p class="govuk-body-m">Based on your {{ data['holding-size'] | commafy }} hectare holding, we've calculated a total annual payment of <strong>£{{ uplandTotal | commafy }}</strong>.</p>
         </fieldset>
       </div>
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
-    </form>
+      
+      <div class="govuk-form-group  govuk-!-margin-bottom-8">
+        <h2 class="govuk-heading-l">What you'll need to do</h2>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <ul class="govuk-list">
+          <li>
+            <h3 class="govuk-heading-m">Fence off rivers, streams, lakes and ponds from livestock</h3>
+            <p class="govuk-body-m">Fence off rivers, streams, lakes and ponds from livestock to prevent bankside erosion, reduce nutrient input and faecal contamination.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/fence-water-sources-livestock-prevent-erosion-contamination" target="_blank">Read guidance for fence off rivers, streams, lakes and ponds from livestock (opens in a new window or tab)</a>
+            </p>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Provide livestock drinking water</h3>
+            <p>Provide livestock drinking water as alternative to drinking from watercourse to reduce deposition of sediment in sensitive water bodies.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/provide-drinking-water-livestock-reduce-sediment-water" target="_blank">Read guidance for providing livestock drinking water (opens in a new window or tab)</a>
+            </p>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Avoid applying manure on land sloping to water body</h3>
+            <p>Avoid applying manure on land sloping to water body to reduce concentrations of faecal bacteria in surface water bodies.</p>
+            <p><a href="#">Read guidance for avoiding applying manure on land sloping to water body</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Manage and restore peatland habitats</h3>
+            <p>Manage and restore peatland habitats to maintain and enhance conditional of habitats to support characteristic species and carbon storage, reduce concentrations of fine particulate matter in the atmosphere, reduce deposition of sediment in sensitive water bodies, reduce impact of, and enhance resilience to flooding, drought and wildfires</p>
+            <p><a href="#">Read guidance for managing and restoring peatland habitats</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Create appropriate boundary features</h3>
+            <p>Create appropriate boundary features such as hedges and dry stone walls to conserve and enhance landscape character, reduce deposition of sediment in sensitive water bodies, reduce impact of, and enhance resilience to flooding, drought and wildfires</p>
+            <p><a href="#">Read guidance for creating appropriate boundary features</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Manage scrub</h3>
+            <p>Manage scrub to maintain, restore and enhance grassland condition and associated species populations, recognising the inherent value of scrub in providing shelter/structure/food and nesting resource</p>
+            <p><a href="#">Read guidance for managing scrub</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <!--<li>
+            <h3 class="govuk-heading-m">Create food source for farmland birds</h3>
+            <p>Provides an important food source for farmland birds throughout the year and insects in the summer, and provides both grain and seeding arable plants in winter.</p>
+          </li>
+          <li>
+            <h3 class="govuk-heading-m">Provide a beetle bank</h3>
+            <p>Provide a beetle bank, a raised, uncut, grassy strip which provides overwintering habitat for large numbers of predatory insects and spiders.</p>
+          </li>
+          <li>
+            <h3 class="govuk-heading-m">Create grassy strips</h3>
+            <p>Create and manage grassy strips on your arable land, maintained as permanent vegetation.</p>
+          </li>-->
+        </ul>
+      </div>
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and registered heritage</h2>     
+        {% if data['SSSI-present'] == "SSSI" %}
+        <div class="govuk-inset-text"> 
+          <p>{{ data['SSSI-advisory'] }}</p>
+        </div>
+        {% endif %}
+
+        {% if data['scheduled-monument-present'] == "Scheduled monument" %}
+        <div class="govuk-inset-text">
+          <p>{{ data['scheduled-monument-advisory'] }}</p>
+        </div>
+        {% endif %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You can receive an unlimited fine for causing damage to designated land and possible fine and imprisonment for causing damage to registered heritage.
+          </strong>
+        </div>
+        <hr class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-l">Create your agreement</h2>
+
+          <p class="govuk-body">Before we can create your agreement we have to run some checks. This may take up to 30 seconds.</p>
+        </div>
+        <form action="/tier1-v3/standards/loading-upland" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        {{ govukButton({
+          text: "Create your agreement",
+          preventDoubleClick: true
+        }) }}
+      </form>
+    </div>
   </div>
-</div>
 
 {% endblock %}

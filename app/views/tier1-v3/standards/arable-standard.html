@@ -1,185 +1,113 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Forestry Standard
-{% endblock %}
-{% block pageScripts %}
-  <script src="/public/javascripts/step-by-step-nav.js"></script>
-  <script type="text/javascript">
-    var $element = $('#step-by-step-navigation')
-    var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
-    stepByStepNavigation.start($element)
-  </script>
+Standard plan
 {% endblock %}
 {% block beforeContent %}
 <a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
 {% endblock %}
-{% set forestryTotal = data['forestry-standard']['multiplier'] * data['holding-size'] %}
+{% set arableTotal = data['arable-standard']['multiplier'] * data['holding-size'] %}
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/tier1-v3/loading" method="post">
+    <form class="form" action="loading-arable" method="post">
       <div class="govuk-form-group  govuk-!-margin-bottom-4">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-             Your forestry plan
+             Your plan
             </h1>
           </legend>
 
           <h2 class="govuk-heading-l">Payment calculation</h2>
-          <p class="govuk-body-m">Based on your {{ data['holding-size'] | commafy }} hectare holding, we calculate you would receive a total annual payment of <strong>£{{ forestryTotal | commafy }}</strong>.</p>
-          <p><a href="/tier1-v2/holding-size">Change your holding size</a></p>
-          <!--<div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-              You can receive an unlimited fine for causing damage to an SSSI.
-            </strong>
-          </div>
-          
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-              You can receive a fine or imprisonment for causing damage to a scheduled monument.
-            </strong>
-          </div>-->
+          <p class="govuk-body-m">Based on your {{ data['holding-size'] | commafy }} hectare holding, we've calculated a total annual payment of <strong>£{{ arableTotal | commafy }}</strong>.</p>
         </fieldset>
-        
-      </div><hr style="margin-bottom: 40px">
+      </div>
+      
       <div class="govuk-form-group  govuk-!-margin-bottom-8">
-        <h2 class="govuk-heading-l">What you'll need to do in your agreement</h2>
-        <h3 class="govuk-heading-m">Encourage diversification of the stand</h3>
-        <p class="govuk-body-m">Encourage diversification of the stand and continuity of canopy cover through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change.</p>
-        <h3 class="govuk-heading-m">Manage deadwood</h3>
-        <p class="govuk-body-m">Manage deadwood (e.g. remove diseased deadwood, leave other deadwood as habitat for invertebrates) to maintain/enhance habitat condition to support characteristic species.</p>
-        <h3 class="govuk-heading-m">Introduce fire breaks</h3>
-        <p>Introduce fire breaks to minimise spread of wildfires to reduce impact of, and enhance resilience to wildfire.</p>
-        <h3 class="govuk-heading-m">Plant and maintain trees outside of woodlands</h3>
-        <p>Plant and maintain trees outside of woodlands, including shelterbelts to maintain and enhance carbon storage.</p>
-        <h3 class="govuk-heading-m">Plant and maintain trees to slow and increase infiltration to soil</h3>
-        <p>Plant and maintain trees to slow and increase infiltration to soil to enhance resilience of environment to climate change, and reduce impact of, and enhance resilience to, flooding.</p>
+        <h2 class="govuk-heading-l">What you'll need to do</h2>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <ul class="govuk-list">
+          <li>
+            <h3 class="govuk-heading-m">Use lower emission fertilisers</h3>
+            <p class="govuk-body-m">Replace inorganic urea-based fertilisers with lower emissions alternatives to reduce concentrations of ammonia in the atmosphere, and to reduce agricultural GHG emissions.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/use-lower-emission-fertilisers-reduce-ammonia-greenhouse-gasses" target="_blank">Read guidance for lower emission fertilisers</a></p>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Use cover crops</h3>
+            <p class="govuk-body-m">Use cover crops throughout the rotation to maintain carbon storage and reduce deposition of sediment in sensitive water bodies.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-maintain-hill-slope-tree-shelter-belts" target="_blank">Read guidance for cover crops</a>
+            </p>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Increase organic matter content of soils</h3>
+            <p>Increase organic matter content of soils to reduce wind erosion of soil for reduced concentrations of fine particulate matter, and to reduce deposition of sediment in sensitive water bodies.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/increase-organic-matter-soils-reduce-wind-erosion" target="_blank">Read guidance for increasing organic matter in soils</a>
+            </p>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Convert arable and intensive grassland to species rich grassland</h3>
+            <p>Convert arable and intensive grassland to species rich grassland, and/or unfertilised and ungrazed grass to reduce concentrations of ammonia in the atmosphere, and to maintain/enhance habitats to support characteristic species.</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-or-restore-species-rich-grassland" target="_blank">Read guidance for converting arable and intensive grassland to species rich grassland</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <li>
+            <h3 class="govuk-heading-m">Create flower-rich margins and plots</h3>
+            <p>Create flower-rich areas on your land. Flower-rich plots provide food, shelter and nesting places for farmland birds and insects</p>
+            <p><a href="https://elm-prototype.herokuapp.com/prototype-guidance/draft-guidance-full/create-flower-rich-margins-and-plots" target="_blank">Provide flower-rich habitat for wild pollinators</a>
+          </li>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <!--<li>
+            <h3 class="govuk-heading-m">Create food source for farmland birds</h3>
+            <p>Provides an important food source for farmland birds throughout the year and insects in the summer, and provides both grain and seeding arable plants in winter.</p>
+          </li>
+          <li>
+            <h3 class="govuk-heading-m">Provide a beetle bank</h3>
+            <p>Provide a beetle bank, a raised, uncut, grassy strip which provides overwintering habitat for large numbers of predatory insects and spiders.</p>
+          </li>
+          <li>
+            <h3 class="govuk-heading-m">Create grassy strips</h3>
+            <p>Create and manage grassy strips on your arable land, maintained as permanent vegetation.</p>
+          </li>-->
+        </ul>
       </div>
-      <hr style="margin-bottom: 40px">
-      <!--<dl class="govuk-summary-list govuk-!-margin-bottom-8">
-        <div class="govuk-summary-list__row" >
-          <dt class="govuk-summary-list__key" style="border-top: 1px solid #b1b4b6; width: 50%">Total annual payment</dt>
-          <dd class="govuk-summary-list__value" style="border-top: 1px solid #b1b4b6"><strong>£{{ forestryTotal | commafy }}</strong></dd>
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and registered heritage</h2>     
+        {% if data['SSSI-present'] == "SSSI" %}
+        <div class="govuk-inset-text"> 
+          <p>{{ data['SSSI-advisory'] }}</p>
         </div>
-      </dl>-->
-      <h2 class="govuk-heading-l">Next steps</h2>
+        {% endif %}
 
-      <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
-      <ol class="app-step-nav__steps">
-        <li class="app-step-nav__step js-step" id="check-youre-allowed-to-drive" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="1">
-            <h2 class="app-step-nav__title">
-              <span class="app-step-nav__circle app-step-nav__circle--number">
-                <span class="app-step-nav__circle-inner">
-                  <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 1
-                  </span>
-                </span>
-              </span>
-
-              <!--<span class="js-step-title">
-                Additional documentation
-              </span>
-            </h2>
-          </div>
-
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-check-youre-allowed-to-drive-1">
-
-            <ol class="app-step-nav__list " data-length="3">
-              <li class="app-step-nav__list-item js-list-item ">
-                Find your <a data-position="2.1" class="app-step-nav__link js-link" href="https://www.myshinedata.org.uk/retrieve-hefer">Historic England Farm Environment Record (HEFER)</a> to check for historic features on your land. Keep this report as you maybe asked for it.
-              </li>
-            </ol>
-          </div>
-
-        </li>
-
-        <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="2">
-            <h2 class="app-step-nav__title">
-              <span class="app-step-nav__circle app-step-nav__circle--number">
-                <span class="app-step-nav__circle-inner">
-                  <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 2
-                  </span>
-                </span>
-              </span>-->
-
-              <span class="js-step-title">
-                Arrange a site visit
-              </span>
-            </h2>
-          </div>
-
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-            <ol class="app-step-nav__list " data-length="1">
-              <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="2.1" class="app-step-nav__link js-link" href="#">Contact the Forestry Commission</a> to arrange a site visit
-              </li>
-            </ol>
-          </div>
-
-        </li>
-
-        <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="2">
-            <h2 class="app-step-nav__title">
-              <span class="app-step-nav__circle app-step-nav__circle--number">
-                <span class="app-step-nav__circle-inner">
-                  <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 2
-                  </span>
-                </span>
-              </span>
-
-              <span class="js-step-title">
-                Finalise your agreement
-              </span>
-            </h2>
-          </div>
-
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-            <ol class="app-step-nav__list " data-length="1">
-              <li class="app-step-nav__list-item js-list-item ">
-                <a data-position="2.1" class="app-step-nav__link js-link" href="#">Final checks</a> so that we can complete your agreement
-              </li>
-            </ol>
-          </div>
-
-        </li>
-      </ol>
+        {% if data['scheduled-monument-present'] == "Scheduled monument" %}
         <div class="govuk-inset-text">
-            <p>You will require a site visit from the Forestry Commission before we can create your agreement.</p>
-            
-            {% if data['SSSI-present'] == "SSSI" %}
-              <p>{{ data['SSSI-advisory'] }}</p>
-            {% endif %}
+          <p>{{ data['scheduled-monument-advisory'] }}</p>
+        </div>
+        {% endif %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You can receive an unlimited fine for causing damage to designated land and possible fine and imprisonment for causing damage to registered heritage.
+          </strong>
+        </div>
+        <hr class="govuk-!-margin-bottom-8">
+        <div class="govuk-form-group">
+          <h2 class="govuk-heading-l">Create your agreement</h2>
 
-            {% if data['scheduled-monument-present'] == "Scheduled monument" %}
-              <p>{{ data['scheduled-monument-advisory'] }}</p>
-            {% endif %}
-          </div>
-      <div class="govuk-form-group">
-        <h2 class="govuk-heading-l">Create your agreement</h2>
-
-        <p class="govuk-body">Before we can create your agreement we have to run some checks. This may take up to 30 seconds.</p>
-        <p class="govuk-body">No further changes to your application will be possible.</p>
-      </div>
-      <form action="/tier1-v3/loading" method="post" novalidate>
-      <input type="hidden" name="answers-checked" value="true">
-      {{ govukButton({
-        text: "Create your agreement",
-        preventDoubleClick: true
-      }) }}
-    </form>
+          <p class="govuk-body">Before we can create your agreement we have to run some checks. This may take up to 30 seconds.</p>
+        </div>
+        <form action="/tier1-v3/loading" method="post" novalidate>
+        <input type="hidden" name="answers-checked" value="true">
+        {{ govukButton({
+          text: "Create your agreement",
+          preventDoubleClick: true
+        }) }}
+      </form>
+    </div>
   </div>
-</div>
 
 {% endblock %}

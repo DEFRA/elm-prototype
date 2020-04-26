@@ -22,13 +22,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">
+    <h1 class="govuk-heading-xl">
       Completing your application
     </h1>
-
-    <p>
-      Check what you need to do to complete your agreement.
-    </p>
+    <h2 class="govuk-heading-l">Next steps</h2>
 
     <div id="step-by-step-navigation" class="app-step-nav app-step-nav--large app-step-nav--active" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all" data-hide-all-text="Hide all">
       <ol class="app-step-nav__steps">
@@ -72,7 +69,7 @@
               </span>-->
 
               <span class="js-step-title">
-                Forestry Commission site visit
+                Site visit and woodland mangement plan
               </span>
             </h2>
           </div>
@@ -80,10 +77,14 @@
           <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
             <ol class="app-step-nav__list " data-length="1">
               <li class="app-step-nav__list-item js-list-item ">
-                The Forestry Commission has been notified of your application and they will contact you to arrange a site visit.
+                <p>The Forestry Commission has been notified of your application and we've sent you an email confirmation.</p>
               </li>
               <li>
-                If you haven't been contacted within 10 working days you can also <a data-position="1.1" class="app-step-nav__link js-link" href="#">contact the Forestry Commission</a> directly.
+                <p class=" govuk-body-m">Before we can create your agreement, a site visit must be arranged and you'll need to complete a <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/603976/cs-woodland-creation-manual-2017.pdf" target="_blank">Woodland management plan (opens in a new tab or window)</a>.</p>
+              </li>
+              <li>
+                <p class=" govuk-body-m">If you haven't been contacted within 10 working days you can <a data-position="1.1" class="app-step-nav__link js-link" href="https://www.forestryengland.uk/contact-us" target="_blank">contact the Forestry Commission (opens  in a new tab or window)</a>.</p>
+                <p>Quote your ELM application number <strong>ELM-APP-001471A</strong>.</p>
               </li>
             </ol>
           </div>
@@ -102,7 +103,7 @@
               </span>
 
               <span class="js-step-title">
-               Designated land and registered hertitage
+               Check designated land and registered heritage
               </span>
             </h2>
           </div>
@@ -114,12 +115,12 @@
               </li>
               {% if data['SSSI-present'] == "SSSI" %}
               <li class="app-step-nav__list-item js-list-item ">
-                {{ data['SSSI-advisory'] }}
+                 <p>Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
               </li>
               {% endif %}
               {% if data['scheduled-monument-present'] == "Scheduled monument" %}
               <li class="app-step-nav__list-item js-list-item ">
-                {{ data['scheduled-monument-advisory'] }}
+                <p>You have a scheduled monument within your holding. If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
               </li>
               {% endif %} 
             </ol>
@@ -127,7 +128,7 @@
         </li>
         {% endif %}
         <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="3">
+          <div class="app-step-nav__header js-toggle-panel" data-position="4">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
                 <span class="app-step-nav__circle-inner">
@@ -138,7 +139,7 @@
               </span>
 
               <span class="js-step-title">
-                Finalise your application
+                Create and accept agreement
               </span>
             </h2>
           </div>
@@ -146,32 +147,7 @@
           <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
             <ol class="app-step-nav__list " data-length="1">
               <li class="app-step-nav__list-item js-list-item ">
-                Once your site visit has been completed with the Forestry Commission, you will need to finalise your application.
-              </li>
-            </ol>
-          </div>
-        </li>
-        <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="4">
-            <h2 class="app-step-nav__title">
-              <span class="app-step-nav__circle app-step-nav__circle--number">
-                <span class="app-step-nav__circle-inner">
-                  <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 4
-                  </span>
-                </span>
-              </span>
-
-              <span class="js-step-title">
-                Create and consent to your agreement
-              </span>
-            </h2>
-          </div>
-          
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-            <ol class="app-step-nav__list " data-length="1">
-              <li class="app-step-nav__list-item js-list-item ">
-                Sign back in to ELM to create and consent to your agreement.
+                Once your woodland management plan has been approved, we'll send you your ELM agreement for consent.
               </li>
             </ol>
           </div>

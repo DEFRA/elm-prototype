@@ -1,15 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Forestry Standard
-{% endblock %}
-{% block pageScripts %}
-  <script src="/public/javascripts/step-by-step-nav.js"></script>
-  <script type="text/javascript">
-    var $element = $('#step-by-step-navigation')
-    var stepByStepNavigation = new GOVUK.Modules.AppStepNav()
-    stepByStepNavigation.start($element)
-  </script>
+Standard plan
 {% endblock %}
 {% block beforeContent %}
 <a class="govuk-back-link" onclick="history.back()" href="#">Back</a>
@@ -19,18 +11,18 @@ Forestry Standard
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="/tier1-v3/standards/loading" method="post">
+    <form class="form" action="loading-forestry" method="post">
       <div class="govuk-form-group govuk-!-margin-bottom-8">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
             <h1 class="govuk-fieldset__heading">
-             Your forestry plan
+             Your plan
             </h1>
           </legend>
           <h2 class="govuk-heading-l">Payment calculation</h2>
           <p class="govuk-body-m">Based on your {{ data['holding-size'] | commafy }} hectare holding, we've calculated a total annual payment of <strong>£{{ forestryTotal | commafy }}</strong>.</p>
-          <p><a href="holding-level/holding-size">Change your holding size</a></p>
-          <!--<div class="govuk-warning-text">
+          <!--<p><a href="holding-level/holding-size">Change your holding size</a></p>
+          <div class="govuk-warning-text">
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-warning-text__assistive">Warning</span>
@@ -47,21 +39,27 @@ Forestry Standard
           </div>-->
         </fieldset>
         <div class="govuk-inset-text">
-          <p>You will require a site visit from the Forestry Commission before we can complete your agreement.</p>
+          <p class=" govuk-body-m">You'll require a site visit from the Forestry Commission and will have to complete a <a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/603976/cs-woodland-creation-manual-2017.pdf" target="_blank">Woodland management plan</a> before we can create your agreement.</p>
         </div>
       </div>
       <div class="govuk-form-group govuk-!-margin-bottom-8">
         <h2 class="govuk-heading-l">What you'll need to do</h2>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <h3 class="govuk-heading-m">Encourage diversification of the stand</h3>
         <p class="govuk-body-m">Encourage diversification of the stand and continuity of canopy cover through natural regeneration of native species in semi-natural woodland to enhance resilience of the environment to climate change.</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <h3 class="govuk-heading-m">Manage deadwood</h3>
         <p class="govuk-body-m">Manage deadwood (e.g. remove diseased deadwood, leave other deadwood as habitat for invertebrates) to maintain/enhance habitat condition to support characteristic species.</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <h3 class="govuk-heading-m">Introduce fire breaks</h3>
         <p>Introduce fire breaks to minimise spread of wildfires to reduce impact of, and enhance resilience to wildfire.</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <h3 class="govuk-heading-m">Plant and maintain trees outside of woodlands</h3>
         <p>Plant and maintain trees outside of woodlands, including shelterbelts to maintain and enhance carbon storage.</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <h3 class="govuk-heading-m">Plant and maintain trees to slow and increase infiltration to soil</h3>
         <p>Plant and maintain trees to slow and increase infiltration to soil to enhance resilience of environment to climate change, and reduce impact of, and enhance resilience to, flooding.</p>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
       </div>
       <!--<dl class="govuk-summary-list govuk-!-margin-bottom-8">
         <div class="govuk-summary-list__row" >
@@ -69,24 +67,25 @@ Forestry Standard
           <dd class="govuk-summary-list__value" style="border-top: 1px solid #b1b4b6"><strong>£{{ forestryTotal | commafy }}</strong></dd>
         </div>
       </dl>-->
-      <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and heritage</h2>
-      <div class="govuk-inset-text govuk-!-margin-bottom-8">
-        {% if data['SSSI-present'] == "SSSI" %}
-          <p>{{ data['SSSI-advisory'] }}</p>
-        {% endif %}
-
-        {% if data['scheduled-monument-present'] == "Scheduled monument" %}
-          <p>{{ data['scheduled-monument-advisory'] }}</p>
-        {% endif %}             
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and registered heritage</h2>     
+      {% if data['SSSI-present'] == "SSSI" %}
+      <div class="govuk-inset-text">
+        <p>Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
       </div>
+      {% endif %}
+      {% if data['scheduled-monument-present'] == "Scheduled monument" %}
+      <div class="govuk-inset-text"> 
+        <p>You have a scheduled monument within your holding. If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
+      </div>
+      {% endif %}
       <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-              You can receive up to an unlimited fine for causing damage to designated land and possible imprisonment for causing damage to a scheduled monument.
-            </strong>
-          </div>
-          <hr>
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You can receive an unlimited fine for causing damage to designated land and possible fine and imprisonment for causing damage to registered heritage.
+        </strong>
+      </div>
+      <hr class="govuk-!-margin-bottom-8">
       <div class="govuk-form-group  govuk-!-margin-top-8">
         <h2 class="govuk-heading-l">Submit your application</h2>
 
