@@ -24,11 +24,11 @@ module.exports = {
   },
 
   "arable-standard": {
-    "multiplier": 247
+    "multiplier": 220
   },
 
   "upland-standard": {
-    "multiplier": 247
+    "multiplier": 187
   },
 
   "firstname": "John",
