@@ -24,14 +24,14 @@
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Enter a value
         </span>
-        <input class="govuk-input govuk-input--error" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint winter-supplementary-amount-error" spellcheck="false"><span
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint winter-supplementary-amount-error" spellcheck="false"><span
           class="govuk-body govuk-!-margin-left-1">{{ data['winter-supplementary']['unit'] }}</span>
 
         {% elif data['winter-supplementary']['amount'] == 0 %}
         <span id="event-name-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span> Value must be 1 or more
         </span>
-        <input class="govuk-input govuk-input--error" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint winter-supplementary-amount-error" spellcheck="false"
+        <input class="govuk-input govuk-!-width-one-quarter govuk-input--error" id="winter-supplementary[amount]" name="winter-supplementary[amount]" type="number" step="any" min=0 aria-describedby="winter-supplementary-amount-hint winter-supplementary-amount-error" spellcheck="false"
           value="{{ data['winter-supplementary']['amount'] }}"><span class="govuk-body govuk-!-margin-left-1">{{ data['winter-supplementary']['unit'] }}</span>
         {% endif %}
       </div>

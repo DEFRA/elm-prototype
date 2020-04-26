@@ -53,7 +53,10 @@ Check your answers
     <dl class="govuk-summary-list govuk-!-margin-bottom-2">
 
       {% if data['fertilisers']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertilisers']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "fertilisers" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['fertilisers']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ fertilisersTotal | toFixed(2) | commafy }}</strong> ({{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -62,11 +65,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['fertilisers']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ fertilisersTotal | toFixed(2) | commafy }}</strong> ({{ data['fertilisers']['amount'] | commafy }} {{ data['fertilisers']['unit'] }} at {{ data['fertilisers']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fertilisers">Change<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertilisers[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fertilisers']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['fertilisers']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['fertiliser-spreading']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fertiliser-spreading']['description'] }}</dt>
-        <dd class="govuk-summary-list__value"><strong>£{{ spreadingTotal | toFixed(2) | commafy }}</strong> ({{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at {{ data['fertiliser-spreading']['rate'] }})</dd>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "fertiliser-spreading" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['fertiliser-spreading']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ spreadingTotal | toFixed(2) | commafy }}</strong> ({{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at
+          {{ data['fertiliser-spreading']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
@@ -74,10 +108,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['fertiliser-spreading']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ spreadingTotal | toFixed(2) | commafy }}</strong> ({{ data['fertiliser-spreading']['amount'] | commafy }} {{ data['fertiliser-spreading']['unit'] }} at
+          {{ data['fertiliser-spreading']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fertiliser-spreading">Change<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fertiliser-spreading[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['fertiliser-spreading']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['fertiliser-spreading']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['no-till']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['no-till']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "no-till" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['no-till']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ tillTotal | toFixed(2) | commafy }}</strong> ({{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }} at {{ data['no-till']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -86,10 +151,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['no-till']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ tillTotal | toFixed(2) | commafy }}</strong> ({{ data['no-till']['amount'] | commafy }} {{ data['no-till']['unit'] }} at {{ data['no-till']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/no-till">Change<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?no-till[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['no-till']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['no-till']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['nutrients']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['nutrients']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "nutrients" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['nutrients']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ nutrientsTotal | toFixed(2) | commafy }}</strong> ({{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }} at {{ data['nutrients']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -98,10 +193,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['nutrients']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ nutrientsTotal | toFixed(2) | commafy }}</strong> ({{ data['nutrients']['amount'] | commafy }} {{ data['nutrients']['unit'] }} at {{ data['nutrients']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/nutrients">Change<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?nutrients[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['nutrients']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['nutrients']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['cover-crops']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['cover-crops']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "cover-crops" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['cover-crops']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ coverTotal | toFixed(2) | commafy }}</strong> ({{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }} at {{ data['cover-crops']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -110,10 +235,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['cover-crops']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ coverTotal | toFixed(2) | commafy }}</strong> ({{ data['cover-crops']['amount'] | commafy }} {{ data['cover-crops']['unit'] }} at {{ data['cover-crops']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/cover-crops">Change<span class="govuk-visually-hidden"> {{ data['cover-crops']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cover-crops[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['cover-crops']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['tree-belts']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['tree-belts']['description'] }}<br><br>(requires a site visit)</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "tree-belts" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['tree-belts']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ treeTotal | toFixed(2) | commafy }}</strong> ({{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at {{ data['tree-belts']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -122,10 +277,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['tree-belts']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ treeTotal | toFixed(2) | commafy }}</strong> ({{ data['tree-belts']['amount'] | commafy }} {{ data['tree-belts']['unit'] }} at {{ data['tree-belts']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/tree-belts">Change<span class="govuk-visually-hidden"> {{ data['tree-belts']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?tree-belts[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['tree-belts']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <p>This option requires a site visit.</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['agroforestry']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['agroforestry']['description'] }}<br><br>(requires a site visit)</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "agroforestry" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['agroforestry']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ agroforestryTotal | toFixed(2) | commafy }}</strong> ({{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -134,10 +319,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['agroforestry']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ agroforestryTotal | toFixed(2) | commafy }}</strong> ({{ data['agroforestry']['amount'] | commafy }} {{ data['agroforestry']['unit'] }} at {{ data['agroforestry']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/agroforestry">Change<span class="govuk-visually-hidden"> {{ data['agroforestry']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?agroforestry[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['agroforestry']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['agroforestry']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <p>This option requires a site visit.</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['wind-erosion']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['wind-erosion']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "wind-erosion" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['wind-erosion']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ windTotal | toFixed(2) | commafy }}</strong> ({{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }} at {{ data['wind-erosion']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -146,10 +361,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['wind-erosion']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ windTotal | toFixed(2) | commafy }}</strong> ({{ data['wind-erosion']['amount'] | commafy }} {{ data['wind-erosion']['unit'] }} at {{ data['wind-erosion']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/wind-erosion">Change<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?wind-erosion[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['wind-erosion']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['wind-erosion']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['create-grassland']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['create-grassland']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "create-grassland" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['create-grassland']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ grasslandTotal | toFixed(2) | commafy }}</strong> ({{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }} at {{ data['create-grassland']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -158,10 +403,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['create-grassland']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ grasslandTotal | toFixed(2) | commafy }}</strong> ({{ data['create-grassland']['amount'] | commafy }} {{ data['create-grassland']['unit'] }} at
+          {{ data['create-grassland']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/create-grassland">Change<span class="govuk-visually-hidden"> {{ data['create-grassland']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?create-grassland[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['create-grassland']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['flower-habitat']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['flower-habitat']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "flower-habitat" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['flower-habitat']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ flowerTotal | toFixed(2) | commafy }}</strong> ({{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }} at {{ data['flower-habitat']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -170,10 +446,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['flower-habitat']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ flowerTotal | toFixed(2) | commafy }}</strong> ({{ data['flower-habitat']['amount'] | commafy }} {{ data['flower-habitat']['unit'] }} at {{ data['flower-habitat']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/flower-habitat">Change<span class="govuk-visually-hidden"> {{ data['flower-habitat']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?flower-habitat[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['flower-habitat']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['low-input-cereal']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['low-input-cereal']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "low-input-cereal" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['low-input-cereal']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ cerealTotal | toFixed(2) | commafy }}</strong> ({{ data['low-input-cereal']['amount'] | commafy }} {{ data['low-input-cereal']['unit'] }} at {{ data['low-input-cereal']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -182,11 +488,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['low-input-cereal']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ cerealTotal | toFixed(2) | commafy }}</strong> ({{ data['low-input-cereal']['amount'] | commafy }} {{ data['low-input-cereal']['unit'] }} at {{ data['low-input-cereal']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/low-input-cereal">Change<span class="govuk-visually-hidden"> {{ data['low-input-cereal']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?low-input-cereal[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['low-input-cereal']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['low-input-cereal']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['unharvested-cereal']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['unharvested-cereal']['description'] }}</dt>
-        <dd class="govuk-summary-list__value"><strong>£{{ unharvestedTotal | toFixed(2) | commafy }}</strong> ({{ data['unharvested-cereal']['amount'] | commafy }} {{ data['unharvested-cereal']['unit'] }} at {{ data['unharvested-cereal']['rate'] }})</dd>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "unharvested-cereal" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['unharvested-cereal']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ unharvestedTotal | toFixed(2) | commafy }}</strong> ({{ data['unharvested-cereal']['amount'] | commafy }} {{ data['unharvested-cereal']['unit'] }} at {{ data['unharvested-cereal']['rate'] }})
+        </dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/unharvested-cereal">Change<span class="govuk-visually-hidden"> {{ data['unharvested-cereal']['description'] }}</span></a></li>
@@ -194,10 +531,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['unharvested-cereal']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ unharvestedTotal | toFixed(2) | commafy }}</strong> ({{ data['unharvested-cereal']['amount'] | commafy }} {{ data['unharvested-cereal']['unit'] }} at {{ data['unharvested-cereal']['rate'] }})
+        </dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/unharvested-cereal">Change<span class="govuk-visually-hidden"> {{ data['unharvested-cereal']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?unharvested-cereal[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['unharvested-cereal']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['unharvested-cereal']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['beetle-bank']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['beetle-bank']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "beetle-bank" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['beetle-bank']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ beetleTotal | toFixed(2) | commafy }}</strong> ({{ data['beetle-bank']['amount'] | commafy }} {{ data['beetle-bank']['unit'] }} at {{ data['beetle-bank']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -206,10 +574,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['beetle-bank']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ beetleTotal | toFixed(2) | commafy }}</strong> ({{ data['beetle-bank']['amount'] | commafy }} {{ data['beetle-bank']['unit'] }} at {{ data['beetle-bank']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/beetle-bank">Change<span class="govuk-visually-hidden"> {{ data['beetle-bank']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?beetle-bank[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['beetle-bank']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['beetle-bank']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['cultivated-plots']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['cultivated-plots']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "cultivated-plots" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['cultivated-plots']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ cultivatedTotal | toFixed(2) | commafy }}</strong> ({{ data['cultivated-plots']['amount'] | commafy }} {{ data['cultivated-plots']['unit'] }} at {{ data['cultivated-plots']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -218,10 +616,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['cultivated-plots']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ cultivatedTotal | toFixed(2) | commafy }}</strong> ({{ data['cultivated-plots']['amount'] | commafy }} {{ data['cultivated-plots']['unit'] }} at {{ data['cultivated-plots']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/cultivated-plots">Change<span class="govuk-visually-hidden"> {{ data['cultivated-plots']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?cultivated-plots[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['cultivated-plots']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['cultivated-plots']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['grassy-strips']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grassy-strips']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "grassy-strips" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['grassy-strips']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ grassyTotal | toFixed(2) | commafy }}</strong> ({{ data['grassy-strips']['amount'] | commafy }} {{ data['grassy-strips']['unit'] }} at {{ data['grassy-strips']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -230,10 +658,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['grassy-strips']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ grassyTotal | toFixed(2) | commafy }}</strong> ({{ data['grassy-strips']['amount'] | commafy }} {{ data['grassy-strips']['unit'] }} at {{ data['grassy-strips']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/grassy-strips">Change<span class="govuk-visually-hidden"> {{ data['grassy-strips']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grassy-strips[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['grassy-strips']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['grassy-strips']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['nesting-plots']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['nesting-plots']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "nesting-plots" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['nesting-plots']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ nestingTotal | toFixed(2) | commafy }}</strong> ({{ data['nesting-plots']['amount'] | commafy }} {{ data['nesting-plots']['unit'] }} at {{ data['nesting-plots']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -242,10 +700,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['nesting-plots']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ nestingTotal | toFixed(2) | commafy }}</strong> ({{ data['nesting-plots']['amount'] | commafy }} {{ data['nesting-plots']['unit'] }} at {{ data['nesting-plots']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/nesting-plots">Change<span class="govuk-visually-hidden"> {{ data['nesting-plots']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?nesting-plots[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['nesting-plots']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['nesting-plots']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['winter-bird-food']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['winter-bird-food']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "winter-bird-food" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['winter-bird-food']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ winterTotal | toFixed(2) | commafy }}</strong> ({{ data['winter-bird-food']['amount'] | commafy }} {{ data['winter-bird-food']['unit'] }} at {{ data['winter-bird-food']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -254,11 +742,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['winter-bird-food']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ winterTotal | toFixed(2) | commafy }}</strong> ({{ data['winter-bird-food']['amount'] | commafy }} {{ data['winter-bird-food']['unit'] }} at {{ data['winter-bird-food']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/winter-bird-food">Change<span class="govuk-visually-hidden"> {{ data['winter-bird-food']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?winter-bird-food[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['winter-bird-food']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['winter-bird-food']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['winter-supplementary']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['winter-supplementary']['description'] }}</dt>
-        <dd class="govuk-summary-list__value"><strong>£{{ supplementaryTotal | toFixed(2) | commafy }}</strong> ({{ data['winter-supplementary']['amount'] | commafy }} {{ data['winter-supplementary']['unit'] }} at {{ data['winter-supplementary']['rate'] }})</dd>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "winter-supplementary" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['winter-supplementary']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ supplementaryTotal | toFixed(2) | commafy }}</strong> ({{ data['winter-supplementary']['amount'] | commafy }} {{ data['winter-supplementary']['unit'] }} at
+          {{ data['winter-supplementary']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/winter-supplementary">Change<span class="govuk-visually-hidden"> {{ data['winter-supplementary']['description'] }}</span></a></li>
@@ -266,10 +785,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['winter-supplementary']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ supplementaryTotal | toFixed(2) | commafy }}</strong> ({{ data['winter-supplementary']['amount'] | commafy }} {{ data['winter-supplementary']['unit'] }} at
+          {{ data['winter-supplementary']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/winter-supplementary">Change<span class="govuk-visually-hidden"> {{ data['winter-supplementary']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?winter-supplementary[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['winter-supplementary']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['winter-supplementary']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['bog-grazing']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bog-grazing']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "bog-grazing" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['bog-grazing']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ bogTotal | toFixed(2) | commafy }}</strong> ({{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }} at {{ data['bog-grazing']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -278,10 +828,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['bog-grazing']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ bogTotal | toFixed(2) | commafy }}</strong> ({{ data['bog-grazing']['amount'] | commafy }} {{ data['bog-grazing']['unit'] }} at {{ data['bog-grazing']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/bog-grazing">Change<span class="govuk-visually-hidden"> {{ data['bog-grazing']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bog-grazing[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['bog-grazing']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['fencing']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['fencing']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "fencing" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['fencing']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ fencingTotal | toFixed(2) | commafy }}</strong> ({{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }} at {{ data['fencing']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -290,10 +870,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['fencing']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ fencingTotal | toFixed(2) | commafy }}</strong> ({{ data['fencing']['amount'] | commafy }} {{ data['fencing']['unit'] }} at {{ data['fencing']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/fencing">Change<span class="govuk-visually-hidden"> {{ data['fencing']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?fencing[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['fencing']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['drinking-water']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['drinking-water']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "drinking-water" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['drinking-water']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ waterTotal | toFixed(2) | commafy }}</strong> ({{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }} at {{ data['drinking-water']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -302,10 +912,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['drinking-water']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ waterTotal | toFixed(2) | commafy }}</strong> ({{ data['drinking-water']['amount'] | commafy }} {{ data['drinking-water']['unit'] }} at
+          {{ data['drinking-water']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/drinking-water">Change<span class="govuk-visually-hidden"> {{ data['drinking-water']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?drinking-water[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['drinking-water']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['manure']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['manure']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "manure" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['manure']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ manureTotal | toFixed(2) | commafy }}</strong> ({{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -314,11 +955,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['manure']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ manureTotal | toFixed(2) | commafy }}</strong> ({{ data['manure']['amount'] | commafy }} {{ data['manure']['unit'] }} at {{ data['manure']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/manure">Change<span class="govuk-visually-hidden"> {{ data['manure']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?manure[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['manure']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['manure']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['chalk-limestone-grasslands']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['chalk-limestone-grasslands']['description'] }}</dt>
-        <dd class="govuk-summary-list__value"><strong>£{{ chalkTotal | toFixed(2) | commafy }}</strong> ({{ data['chalk-limestone-grasslands']['amount'] | commafy }} {{ data['chalk-limestone-grasslands']['unit'] }} at {{ data['chalk-limestone-grasslands']['rate'] }})</dd>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "chalk-limestone-grasslands" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['chalk-limestone-grasslands']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ chalkTotal | toFixed(2) | commafy }}</strong> ({{ data['chalk-limestone-grasslands']['amount'] | commafy }} {{ data['chalk-limestone-grasslands']['unit'] }} at
+          {{ data['chalk-limestone-grasslands']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/chalk-limestone-grasslands">Change<span class="govuk-visually-hidden"> {{ data['chalk-limestone-grasslands']['description'] }}</span></a>
@@ -327,10 +999,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['chalk-limestone-grasslands']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ chalkTotal | toFixed(2) | commafy }}</strong> ({{ data['chalk-limestone-grasslands']['amount'] | commafy }} {{ data['chalk-limestone-grasslands']['unit'] }} at
+          {{ data['chalk-limestone-grasslands']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/chalk-limestone-grasslands">Change<span class="govuk-visually-hidden"> {{ data['chalk-limestone-grasslands']['description'] }}</span></a>
+            </li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?chalk-limestone-grasslands[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['chalk-limestone-grasslands']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['chalk-limestone-grasslands']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['purple-moor-grass']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['purple-moor-grass']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "purple-moor-grass" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['purple-moor-grass']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ purpleTotal | toFixed(2) | commafy }}</strong> ({{ data['purple-moor-grass']['amount'] | commafy }} {{ data['purple-moor-grass']['unit'] }} at {{ data['purple-moor-grass']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -339,11 +1043,42 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['purple-moor-grass']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ purpleTotal | toFixed(2) | commafy }}</strong> ({{ data['purple-moor-grass']['amount'] | commafy }} {{ data['purple-moor-grass']['unit'] }} at {{ data['purple-moor-grass']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/purple-moor-grass">Change<span class="govuk-visually-hidden"> {{ data['purple-moor-grass']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?purple-moor-grass[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['purple-moor-grass']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['purple-moor-grass']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['calcareous-grassland']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['calcareous-grassland']['description'] }}</dt>
-        <dd class="govuk-summary-list__value"><strong>£{{ calcareousTotal | toFixed(2) | commafy }}</strong> ({{ data['calcareous-grassland']['amount'] | commafy }} {{ data['calcareous-grassland']['unit'] }} at {{ data['calcareous-grassland']['rate'] }})</dd>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "calcareous-grassland" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['calcareous-grassland']['description'] }}</dt>
+        <dd class="govuk-summary-list__value"><strong>£{{ calcareousTotal | toFixed(2) | commafy }}</strong> ({{ data['calcareous-grassland']['amount'] | commafy }} {{ data['calcareous-grassland']['unit'] }} at
+          {{ data['calcareous-grassland']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
             <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/calcareous-grassland">Change<span class="govuk-visually-hidden"> {{ data['calcareous-grassland']['description'] }}</span></a></li>
@@ -351,10 +1086,41 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['calcareous-grassland']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ calcareousTotal | toFixed(2) | commafy }}</strong> ({{ data['calcareous-grassland']['amount'] | commafy }} {{ data['calcareous-grassland']['unit'] }} at
+          {{ data['calcareous-grassland']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/calcareous-grassland">Change<span class="govuk-visually-hidden"> {{ data['calcareous-grassland']['description'] }}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?calcareous-grassland[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['calcareous-grassland']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['calcareous-grassland']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['bare-soil']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['bare-soil']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "bare-soil" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['bare-soil']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ soilTotal | toFixed(2) | commafy }}</strong> ({{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }} at {{ data['bare-soil']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -363,10 +1129,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['bare-soil']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ soilTotal | toFixed(2) | commafy }}</strong> ({{ data['bare-soil']['amount'] | commafy }} {{ data['bare-soil']['unit'] }} at {{ data['bare-soil']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/bare-soil">Change<span class="govuk-visually-hidden"> {{ data['bare-soil']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?bare-soil[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['bare-soil']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['grass-strips']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['grass-strips']['description'] }}</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "grass-strips" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['grass-strips']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ grassTotal | toFixed(2) | commafy }}</strong> ({{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }} at {{ data['grass-strips']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -375,10 +1171,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['grass-strips']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ grassTotal | toFixed(2) | commafy }}</strong> ({{ data['grass-strips']['amount'] | commafy }} {{ data['grass-strips']['unit'] }} at {{ data['grass-strips']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/grass-strips">Change<span class="govuk-visually-hidden"> {{ data['grass-strips']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?grass-strips[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['grass-strips']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+          <!-- <p>This option requires a site visit.</p> -->
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['canopy-cover']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['canopy-cover']['description'] }}<br><br>(requires a site visit)</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "canopy-cover" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['canopy-cover']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ canopyTotal | toFixed(2) | commafy }}</strong> ({{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }} at {{ data['canopy-cover']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -387,10 +1213,40 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['canopy-cover']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ canopyTotal | toFixed(2) | commafy }}</strong> ({{ data['canopy-cover']['amount'] | commafy }} {{ data['canopy-cover']['unit'] }} at {{ data['canopy-cover']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/canopy-cover">Change<span class="govuk-visually-hidden"> {{ data['canopy-cover']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?canopy-cover[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['canopy-cover']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <p>This option requires a site visit.</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
       {% if data['deadwood']['amount'] != 0 %}
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">{{ data['deadwood']['description'] }}<br><br>(requires a site visit)</dt>
+      {% for option in data['options-v3'] %}
+      {% if option.name == "deadwood" %}
+      {% if option.guidance == "#" %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">{{ data['deadwood']['description'] }}</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ deadwoodTotal | toFixed(2) | commafy }}</strong> ({{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }})</dd>
         <dd class="govuk-summary-list__actions">
           <ul class="govuk-summary-list__actions-list">
@@ -399,21 +1255,52 @@ Check your answers
           </ul>
         </dd>
       </div>
-      {% else %}{% endif %}
+      {% else %}
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds" style="border-bottom: none;">{{ data['deadwood']['description'] }}</dt>
+        <dd class="govuk-summary-list__value" style="border-bottom: none;"><strong>£{{ deadwoodTotal | toFixed(2) | commafy }}</strong> ({{ data['deadwood']['amount'] | commafy }} {{ data['deadwood']['unit'] }} at {{ data['deadwood']['rate'] }})</dd>
+        <dd class="govuk-summary-list__actions" style="border-bottom: none;">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/tier1-v3/options/deadwood">Change<span class="govuk-visually-hidden"> {{ data['deadwood']['description']}}</span></a></li>
+            <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="?deadwood[amount]=0">Remove<span class="govuk-visually-hidden"> {{ data['#']['description'] }}</span></a></li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+    <div style="border-bottom: 1px solid rgb(177,180,182);">
+      <details class="govuk-details govuk-!-margin-bottom-2" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Guidance for '{{ data['deadwood']['description'] | lower }}'
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <h2 class="govuk-heading-s">Actions required</h2>
+          <p>{{ option.snippet }}</p>
+          <p>This option requires a site visit.</p>
+          <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
+        </div>
+      </details>
+    </div>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+      {% endif %}{% endif %}{% endfor %}{% endif %}
 
-      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Total payment</dt>
+      <div class="govuk-summary-list__row"><dt class="govuk-summary-list__key govuk-!-width-two-thirds">Total payment</dt>
         <dd class="govuk-summary-list__value"><strong>£{{ fullTotal | toFixed(2) | commafy }}</strong></dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
 
     </dl>
 
-    {{ govukButton({
-            text: "Add another action",
-            href: "/tier1-v3/actions",
-            classes: "govuk-button--secondary govuk-!-margin-top-7 govuk-!-margin-bottom-9"
-          }) }}
+    <form action="/tier1-v3/actions-button" method="post" novalidate>
 
+      <input type="hidden" name="add-another" value="true">
+
+      {{ govukButton({
+              text: "Add another action",
+              classes: "govuk-button--secondary govuk-!-margin-top-7 govuk-!-margin-bottom-9"
+            }) }}
+
+    </form>
   </div>
   <div class="govuk-grid-column-two-thirds">
 
