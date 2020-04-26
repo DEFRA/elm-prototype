@@ -90,50 +90,13 @@
           </div>
 
         </li>
-        {% if data['SSSI-present'] == "SSSI" %}
-        <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
-          <div class="app-step-nav__header js-toggle-panel" data-position="2">
-            <h2 class="app-step-nav__title">
-              <span class="app-step-nav__circle app-step-nav__circle--number">
-                <span class="app-step-nav__circle-inner">
-                  <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 2
-                  </span>
-                </span>
-              </span>
-
-              <span class="js-step-title">
-               Check designated land and registered heritage
-              </span>
-            </h2>
-          </div>
-
-          <div class="app-step-nav__panel js-panel js-hidden" id="step-panel-get-a-provisional-licence-2">
-            <ol class="app-step-nav__list " data-length="1">
-              <li class="app-step-nav__list-item js-list-item ">
-
-              </li>
-              {% if data['SSSI-present'] == "SSSI" %}
-              <li class="app-step-nav__list-item js-list-item ">
-                 <p>Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
-              </li>
-              {% endif %}
-              {% if data['scheduled-monument-present'] == "Scheduled monument" %}
-              <li class="app-step-nav__list-item js-list-item ">
-                <p>You have a scheduled monument within your holding. If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.</p>
-              </li>
-              {% endif %}
-            </ol>
-          </div>
-        </li>
-        {% endif %}
         <li class="app-step-nav__step js-step" id="get-a-provisional-licence" >
           <div class="app-step-nav__header js-toggle-panel" data-position="4">
             <h2 class="app-step-nav__title">
               <span class="app-step-nav__circle app-step-nav__circle--number">
                 <span class="app-step-nav__circle-inner">
                   <span class="app-step-nav__circle-background">
-                    <span class="govuk-visually-hidden">Step</span> 3
+                    <span class="govuk-visually-hidden">Step</span> 2
                   </span>
                 </span>
               </span>
