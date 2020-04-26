@@ -1302,11 +1302,33 @@ Check your answers
 
     </form>
   </div>
+
+  {% if (data['canopy-cover']['amount'] > 0) or (data['deadwood']['amount'] > 0) or (data['agroforestry']['amount'] > 0) or (data['tree-belts']['amount'] > 0) %}
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-l">Submit your application</h2>
+
+    <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details that have been provided are correct.</p>
+
+    <form action="/tier1-v3/loading-forestry" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+                  text: "Submit",
+                  preventDoubleClick: true
+                }) }}
+
+    </form>
+
+  </div>
+
+  {% else %}
   <div class="govuk-grid-column-two-thirds">
 
     <h2 class="govuk-heading-l">Create your agreement</h2>
 
-    <p class="govuk-body">We will now check your selected actions are appropriate for the land registration information we have on record for your business.</p>
+    <p class="govuk-body">Before we can create your agreement we have to run some checks to ensure your selected actions are appropriate for the land registration information we have on record for your business. This may take up to 30 seconds.</p>
     <p class="govuk-body">No further changes to your application will be possible.</p>
 
     <form action="/tier1-v3/loading" method="post" novalidate>
@@ -1321,5 +1343,7 @@ Check your answers
     </form>
 
   </div>
+  {% endif %}
+
 </div>
 {% endblock %}
