@@ -84,13 +84,14 @@ Standard plan
       <h2 class="govuk-heading-l govuk-!-margin-bottom-8">Land designations and registered heritage</h2>     
         {% if data['SSSI-present'] == "SSSI" %}
         <div class="govuk-inset-text"> 
-          <p>{{ data['SSSI-advisory'] }}</p>
+          <p>Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.
+          </p>
         </div>
         {% endif %}
-
         {% if data['scheduled-monument-present'] == "Scheduled monument" %}
-        <div class="govuk-inset-text">
-          <p>{{ data['scheduled-monument-advisory'] }}</p>
+        <div class="govuk-inset-text"> 
+          <p>You have a scheduled monument within your holding. If you are unsure what your responsibilities are, <a href="https://www.gov.uk/government/organisations/natural-england" target="_blank">contact Natural England (opens in a new tab or window)</a>.
+          </p>
         </div>
         {% endif %}
         <div class="govuk-warning-text">
@@ -103,8 +104,8 @@ Standard plan
         <hr class="govuk-!-margin-bottom-8">
         <div class="govuk-form-group">
           <h2 class="govuk-heading-l">Create your agreement</h2>
-
           <p class="govuk-body">Before we can create your agreement we have to run some checks. This may take up to 30 seconds.</p>
+          <p class="govuk-body">No further changes to your application will be possible.</p>
         </div>
         <form action="/tier1-v3/standards/loading-upland" method="post" novalidate>
         <input type="hidden" name="answers-checked" value="true">
