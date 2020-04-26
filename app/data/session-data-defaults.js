@@ -46,12 +46,14 @@ module.exports = {
   "businesspostcode": "DL10 4AT",
 
   "holding-size": 130,
-  
+
   "SSSI-present": "None",
   "SSSI-advisory": "Part or all of your holding is designated as a site of special scientific interest (SSSI). If you are unsure what your responsibilities are, contact Natural England.",
 
   "scheduled-monument-present": "None",
   "scheduled-monument-advisory": "You have a scheduled monument within your holding. If you are unsure what your responsibilities are, contact Natural England.",
+
+  "sort": "env",
 
   "fertilisers": {
     "code": "A1",
