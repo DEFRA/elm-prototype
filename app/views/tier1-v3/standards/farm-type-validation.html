@@ -12,16 +12,19 @@ What action do you want to do?
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-form-group govuk-form-group--error">
+    <h1 class="govuk-fieldset__legend--xl" style="margin-top: 0">What is your main type of farming?</h1>
     <form class="form" action="/tier1-v3/standards/farm-type-validation" method="post">
-      <div class="govuk-form-group">
+        
         {{ govukRadios({
           classes: "govuk-radios",
+          idPrefix: "main-farming-type",
           name: "farm-type",
           fieldset: {
             legend: {
-              text: "What is your main type of farming?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--xl"
+              text: "Select one main type of farming then continue",
+              isPageHeading: false,
+              classes: "govuk-error-message"
             }
           },
           items: [

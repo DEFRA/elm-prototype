@@ -22,6 +22,28 @@ $govuk-assets-path: '/govuk/assets/';
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 
+.govuk-error-message {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.31579;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 15px;
+  clear: both;
+  color: #d4351c !important;
+}
+
+body {
+  /* Set "my-sec-counter" to 0 */
+  counter-reset: my-sec-counter;
+}
+
+span.counter::before {
+  /* Increment "my-sec-counter" by 1 */
+  counter-increment: my-sec-counter;
+  content: "" counter(my-sec-counter) " ";
+}
+
 // related-nav-selected
 
 .related-nav {
