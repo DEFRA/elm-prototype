@@ -76,7 +76,7 @@ Options
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                      {% if option.guidance != "#" %}
+                      {% if option.snippet != "" %}
                       <h2 class="govuk-heading-s">Actions required</h2>
                       <p>{{ option.snippet }}</p>
                       <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
@@ -105,7 +105,7 @@ Options
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ option.name }}">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="{{ option.name }} description">
-                      {% if option.guidance != "#" %}
+                      {% if option.snippet != "" %}
                       <h2 class="govuk-heading-s">Actions required</h2>
                       <p>{{ option.snippet }}</p>
                       <a href="{{ option.guidance }}" target="_blank">Read guidance for this option</a>
