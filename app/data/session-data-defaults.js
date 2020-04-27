@@ -33,13 +33,13 @@ module.exports = {
 
   "firstname": "John",
   "lastname": "Smith",
-  "email": "johnsmith1950.gmail.com",
+  "email": "johnsmith1950@gmail.com",
   "address1": "Willow Farm",
   "address2": "Richmond",
   "address3": "North Yorks",
   "postcode": "DL10 4AT",
 
-  "businessemail": "johnsmith1950.gmail.com",
+  "businessemail": "johnsmith1950@gmail.com",
   "businessaddress1": "Willow Farm",
   "businessaddress2": "Richmond",
   "businessaddress3": "North Yorks",
