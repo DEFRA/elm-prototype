@@ -679,7 +679,7 @@ module.exports = {
       "multiplier": 266,
       "description": "Create harvested low input cereal - An open-structured cereal crop provides summer foraging sites for declining and localised farmland birds and habitat for brown hare, rare arable plants and pollinator species, such as bees and beneficial insects",
       "snippet": "This may require you to sow low input cereals, control weeds and pests, and restrict use of manures, fertilisers and lime.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/grow-cereals-with-low-inputs",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
@@ -693,7 +693,7 @@ module.exports = {
       "multiplier": 640,
       "description": "Create an unharvested cereal headland - Provides an important food source for farmland birds throughout the year and insects in the summer, and provides both grain and seeding arable plants in winter",
       "snippet": "This may require you to create unharvested crop strips, and control weeds and pests within it.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/manage-conservation-headlands",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
@@ -707,7 +707,7 @@ module.exports = {
       "multiplier": 573,
       "description": "Provide a beetle bank, a raised, uncut, grassy strip which provides overwintering habitat for large numbers of predatory insects and spiders",
       "snippet": "This may require you to build soil banks, sow clump-forming grasses, control vehicle movements over banks, and restrict use of pesticides.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/create-beetle-banks",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
@@ -721,7 +721,7 @@ module.exports = {
       "multiplier": 532,
       "description": "Create and manage uncropped cultivated areas for arable plants on your land",
       "snippet": "This may require you to consider suitable sites, plan when and how to cultivate, and control weeds.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/create-cultivated-plots-for-arable-plants",
       "outcome": "Reduced concentrations of nitrate and phosphate from harmful levels in wetlands, surface water bodies and groundwaters",
     },
     {
@@ -847,7 +847,7 @@ module.exports = {
       "multiplier": 182,
       "description": "Manage chalk and limestone grassland in the lowlands, by maintaining this habitat this rare grassland and the species it supports to survive and thrive",
       "snippet": "This may require you to cut and mow grassland or manage grazing on it, sow wildflowers, manage trees and scrub, control undesirable plants, and manage habitats for insects, reptiles and butterflies.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/manage-chalk-limestone-grassland-lowlands",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
@@ -861,7 +861,7 @@ module.exports = {
       "multiplier": 264,
       "description": "Manage purple moor-grass and rush pasture, by maintaining this habitat the rare grassland and the species it supports survive and thrive",
       "snippet": "This may require you to manage grazing, perform cutting and burning, manage trees and scrub, sow wildflowers, encourage insects, reptiles and butterflies and control undesirable plants.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/manage-purple-moor-and-grass-rush-pasture",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
@@ -875,7 +875,7 @@ module.exports = {
       "multiplier": 39,
       "description": "Manage upland calcareous grassland,  manage rough grazing or moorland on limestone in Northern England",
       "snippet": "This may require you to manage grazing, sow wildflowers, manage trees and scrub, encourage insects, reptiles and butterflies, and control undesirable plants.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/manage-upland-calcareous-grassland",
       "outcome": "Conserved and enhanced landscape character",
     },
     {
