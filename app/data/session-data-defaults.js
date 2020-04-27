@@ -735,7 +735,7 @@ module.exports = {
       "multiplier": 557,
       "description": "Create and manage grassy strips on your arable land, maintained as permanent vegetation",
       "snippet": "This may require you to consider suitable sites, sow seeds or encourage natural regeneration, control weeds, and prevent water breaching.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/manage-grassy-strips-in-arable-fields",
       "outcome": "Reduced load of sediment in sensitive water bodies, wetlands and coastal systems",
     },
     {
@@ -749,7 +749,7 @@ module.exports = {
       "multiplier": 524,
       "description": "Create plots for ground nesting birds to create fallow plots for ground nesting birds within arable crops",
       "snippet": "This may require you to consider suitable sites, create species-friendly plots, control weeds and use appropriate fertilisers depending on plot size.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/create-plots-for-ground-nesting-birds",
       "outcome": "Improved status of declining terrestrial and aquatic or water dependent species that are either mobile across multiple habitats or require targeted interventions",
     },
     {
@@ -763,7 +763,7 @@ module.exports = {
       "multiplier": 640,
       "description": "Provide feed for farmland birds - winter bird food plots help to successfully grow winter bird food plots on arable land and provide a range of winter food sources and feed as many farmland birds for as long as possible through winter",
       "snippet": "This may require you to consider suitable sites, sow seeds, apply fertilisers, and control weeds and pests.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/create-winter-bird-food-plots",
       "outcome": "Improved status of declining terrestrial and aquatic or water dependent species that are either mobile across multiple habitats or require targeted interventions",
     },
     {
