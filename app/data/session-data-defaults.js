@@ -777,7 +777,7 @@ module.exports = {
       "multiplier": 494,
       "description": "Provide feed for farmland birds - winter supplementary feeding is about how to provide supplementary food for farmland birds in winter",
       "snippet": "This may require you to choose suitable species-specific feed, and spread feed on a daily basis.",
-      "guidance": "#",
+      "guidance": "/prototype-guidance/draft-guidance-full/provide-winter-supplementary-feeding",
       "outcome": "Reduced impact of agrochemicals on natural, semi-natural and other priority terrestrial and aquatic habitats and on declining species",
     },
     {
