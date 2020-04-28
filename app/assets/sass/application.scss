@@ -70,7 +70,7 @@ $govuk-assets-path: '/govuk/assets/';
 // change / remove links
 
 .govuk-summary-list__actions {
-  width: 154px !important;
+  white-space: nowrap!important;
 }
 
 
